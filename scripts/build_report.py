@@ -195,7 +195,7 @@ def in_filter(entity, prop, literal, name=None):
                        "Where": [{"Condition": {"In": {"Expressions": [src], "Values": [[{"Literal": {"Value": literal}}]]}}}]}}
 
 
-def trend(category, series, last_point, status_measure, status_color, label_precision="1L"):
+def trend(category, series, last_point, status_measure, status_color, label_precision="1L", axis_max=None):
     """KPI trend strip: dark line = measure, light line = comparison, dot + label on the latest point only."""
     v = Visual("lineChart", pad=(4, 4, 16, 16))
     projections = [projection(v, mea(m), key) for m, key, _, _ in series] + [projection(v, mea(last_point))]
@@ -215,7 +215,8 @@ def trend(category, series, last_point, status_measure, status_color, label_prec
     v.body["objects"] = {"lineStyles": line_styles, "dataPoint": points, "labels": labels,
                          "legend": [{"properties": {"show": b(False)}}],
                          "categoryAxis": axis(size=11, color=INK2, axisType=s("Categorical")),
-                         "valueAxis": axis(show=False)}
+                         # axis_max: headroom so a label on the highest point is not clipped
+                         "valueAxis": axis(show=False, **({"end": {"expr": mea(axis_max)}} if axis_max else {}))}
     v.measure_title(status_measure, 13, status_color)
     return v
 
@@ -498,7 +499,8 @@ def overview():
     share.filters.append(range_filter("Generation", "Year", 2015, 2023))
     # Cumulative, so the line shows the same thing as the number above it
     added = trend(col("Unit", "Start Year"), [("Operating GW Cumulative", "field.operating", INK, 3)],
-                  "Operating Cumulative Last Point", "KPI Operating Status", INK2)
+                  "Operating Cumulative Last Point", "KPI Operating Status", INK2,
+                  axis_max="Operating GW Cumulative Axis Max")
     added.filters.append(range_filter("Unit", "Start Year", 2015, 2025))
     kpis = (kpi_panel(xs[0], pw, "kpi.share.title", "Wind Solar Share % Full Coverage", None, share,
                       key_runs=[("legend.region", 11, INK, FONT), ("legend.world", 11, GREY_LINE, FONT)], key=True)

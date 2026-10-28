@@ -19,19 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "‫قيد الإنشاء، حسب سنة التشغيل المتوقعة‬",
-                    "textStyle": {
-                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#5c5b57"
-                    }
-                  },
-                  {
                     "value": "‫■ ‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "13pt",
-                      "color": "#4a3fb0"
+                      "color": "#2b2570"
                     }
                   },
                   {
@@ -47,7 +39,15 @@
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "13pt",
-                      "color": "#2b2570"
+                      "color": "#4a3fb0"
+                    }
+                  },
+                  {
+                    "value": "‫قيد الإنشاء، حسب سنة التشغيل المتوقعة‬",
+                    "textStyle": {
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "13pt",
+                      "color": "#5c5b57"
                     }
                   }
                 ],

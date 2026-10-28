@@ -312,6 +312,18 @@
                   "Value": "false"
                 }
               }
+            },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Operating GW Cumulative Axis Max"
+                }
+              }
             }
           }
         }
