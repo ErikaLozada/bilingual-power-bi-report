@@ -105,7 +105,7 @@ field.construction,Under construction,قيد الإنشاء,machine
 field.pipeline,Pipeline,المخطط لها,machine
 field.generation,Generation (TWh),التوليد (TWh),machine
 field.added,Came online,دخلت الخدمة,machine
-kpi.share.title,Wind and solar share of electricity,حصة الرياح والطاقة الشمسية من الكهرباء,machine
+kpi.share.title,Wind and solar share of electricity,حصة الرياح والشمسية من الكهرباء,machine
 kpi.operating.title,Operating capacity (GW),القدرة قيد التشغيل (GW),machine
 kpi.pipeline.title,Pipeline (GW),المشاريع المخطط لها (GW),machine
 kpi.hydrogen.title,Tied to green hydrogen (GW),مرتبطة بالهيدروجين الأخضر (GW),machine
