@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "scatter",
+  "name": "gap_to_world",
   "position": {
-    "x": 970.0,
+    "x": 20,
     "y": 420,
     "z": 17,
     "width": 930.0,
@@ -10,7 +10,7 @@
     "tabOrder": 17
   },
   "visual": {
-    "visualType": "scatterChart",
+    "visualType": "barChart",
     "objects": {
       "dataPoint": [
         {
@@ -43,7 +43,7 @@
           }
         }
       ],
-      "categoryLabels": [
+      "labels": [
         {
           "properties": {
             "show": {
@@ -75,6 +75,20 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
                 }
               }
             }
@@ -110,7 +124,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#1d1d1b'"
                     }
                   }
                 }
@@ -119,69 +133,28 @@
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "gridlineShow": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
-            "titleFontSize": {
+            "maxMarginFactor": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "40D"
                 }
               }
             },
-            "titleColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5c5b57'"
-                    }
-                  }
-                }
-              }
-            },
-            "gridlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#e4e3df'"
-                    }
-                  }
-                }
-              }
-            },
-            "start": {
+            "innerPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "end": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Scatter X Max"
-                }
-              }
-            },
-            "invertAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "50L"
                 }
               }
             }
@@ -194,7 +167,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -217,7 +190,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#1d1d1b'"
                     }
                   }
                 }
@@ -226,50 +199,14 @@
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "gridlineShow": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "titleColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5c5b57'"
-                    }
-                  }
-                }
-              }
-            },
-            "gridlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#e4e3df'"
-                    }
-                  }
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             },
@@ -281,21 +218,19 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Scatter Y Max"
+                  "Property": "Share Gap Axis Max"
                 }
               }
             },
-            "position": {
+            "start": {
               "expr": {
-                "Literal": {
-                  "Value": "'Right'"
-                }
-              }
-            },
-            "switchAxisPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Share Gap Axis Min"
                 }
               }
             }
@@ -311,17 +246,43 @@
                   "Value": "false"
                 }
               }
-            }
-          }
-        }
-      ],
-      "bubbles": [
-        {
-          "properties": {
-            "bubbleSize": {
+            },
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "-10L"
+                  "Value": "'Top'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#5c5b57'"
+                    }
+                  }
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -343,7 +304,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'‫أين يجري البناء: حصة الرياح والشمسية مقابل القدرة قيد الإنشاء‬'"
+                  "Value": "'Wind and solar share against the world (percentage points)'"
                 }
               }
             },
@@ -357,7 +318,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "17D"
+                  "Value": "16D"
                 }
               }
             },
@@ -375,7 +336,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'right'"
+                  "Value": "'left'"
                 }
               }
             },
@@ -506,31 +467,11 @@
                       "Entity": "Country"
                     }
                   },
-                  "Property": "Country AR"
+                  "Property": "Country"
                 }
               },
-              "queryRef": "Country.Country AR",
-              "nativeQueryRef": "Country AR",
-              "displayName": "الدولة"
-            }
-          ]
-        },
-        "X": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Wind Solar Share %"
-                }
-              },
-              "queryRef": "_Measures.Wind Solar Share %",
-              "nativeQueryRef": "Wind Solar Share %",
-              "displayName": "الرياح + الشمسية"
+              "queryRef": "Country.Country",
+              "nativeQueryRef": "Country"
             }
           ]
         },
@@ -544,41 +485,40 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Construction GW"
+                  "Property": "Share Gap to World pts"
                 }
               },
-              "queryRef": "_Measures.Construction GW",
-              "nativeQueryRef": "Construction GW",
-              "displayName": "قيد الإنشاء"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Generation TWh"
-                }
-              },
-              "queryRef": "_Measures.Total Generation TWh",
-              "nativeQueryRef": "Total Generation TWh",
-              "displayName": "التوليد (TWh)"
+              "queryRef": "_Measures.Share Gap to World pts",
+              "nativeQueryRef": "Share Gap to World pts",
+              "displayName": "Gap to world (pts)"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Share Gap to World pts"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     }
   },
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.scatter\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Wind Solar Share %\": \"field.share\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Total Generation TWh\": \"field.generation\"}}"
+      "value": "{\"title\": \"chart.gap-to-world\", \"display\": {\"_Measures.Share Gap to World pts\": \"field.gap\"}}"
     }
   ]
 }

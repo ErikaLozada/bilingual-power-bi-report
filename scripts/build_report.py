@@ -31,7 +31,6 @@ MAIN_Y = BODY_Y + KPI_H + G
 # Colours and fonts (sections 6-7)
 CANVAS, CARD, RULE, INK, INK2 = "#f4f4f2", "#ffffff", "#e4e3df", "#1d1d1b", "#5c5b57"
 ACCENT, GREY_LINE, NEUTRAL = "#eb6834", "#b3b2ac", "#d3d2cc"
-TECH = {"Solar": "#daa932", "Wind": "#189e8c", "Hydro": "#3a70b3", "Other": "#b3b2ac"}
 STATUS = {"Operating": "#2b2570", "Under construction": "#4a3fb0", "Pre-construction": "#7368d9",
           "Announced": "#a49cea", "Shelved": "#9e9d97", "Cancelled": "#9e9d97"}
 FONT = "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
@@ -155,9 +154,9 @@ def measure_text(measure, size, color=INK, font=FONT, pad=(0, 0, 16, 16), backgr
     return v
 
 
-def value_card(measure):
+def value_card(measure, size=36):
     # A shape title holds the number, so it aligns and mirrors like the other text
-    return measure_text(f"{measure} Text", 36, INK, FONT_SEMI, pad=(0, 0, 16, 16))
+    return measure_text(f"{measure} Text", size, INK, FONT_SEMI, pad=(0, 0, 16, 16))
 
 
 def value_card_multirow(measure):
@@ -230,7 +229,8 @@ def series_colours(entity, prop, colours):
 
 
 def bars(category, values, title_key=None, visual_type="barChart", legend=None, fill_measure=None,
-         detail_measure=None, sort_by_category=False, sort_measure=None, legend_show=False, size=12, axis_max=None):
+         detail_measure=None, sort_by_category=False, sort_measure=None, legend_show=False, size=12, axis_max=None,
+         axis_min=None):
     """values: (measure, display key). legend: (entity, prop, colours) for stacked series."""
     v = Visual(visual_type, title_key=title_key)
     state = {"Category": {"projections": [projection(v, category)]},
@@ -258,57 +258,54 @@ def bars(category, values, title_key=None, visual_type="barChart", legend=None, 
         "dataPoint": data_point, "labels": labels,
         "categoryAxis": axis(size=size, maxMarginFactor=n(40), innerPadding=lit(f"{BAR_GAP}L")),
         # axis_max: a measure giving headroom so labels stay outside the longest bar
-        "valueAxis": axis(show=False, **({"end": {"expr": mea(axis_max)}} if axis_max else {})),
+        "valueAxis": axis(show=False, **({"end": {"expr": mea(axis_max)}} if axis_max else {}),
+                          **({"start": {"expr": mea(axis_min)}} if axis_min else {})),
         "legend": [{"properties": {"show": b(legend_show), "position": s("Top"), "fontSize": n(11),
                                    "fontFamily": s(FONT), "labelColor": colour(INK2), "showTitle": b(False)}}],
     }
     return v
 
 
-def columns_by_technology():
-    v = Visual("columnChart", title_key="chart.added-by-tech")
+def online_by_year():
+    """Came online (by start year) and under construction (by expected year), stacked; status colours.
+    An invisible line on the same axis labels only the latest full year and the expected years."""
+    v = Visual("lineStackedColumnComboChart", pad=(4, 8, 16, 16))
+    built, building = mea("Operating GW"), mea("Construction GW")
     v.body["query"] = {"queryState": {
         "Category": {"projections": [projection(v, col("Unit", "Start Year"))]},
-        "Y": {"projections": [projection(v, mea("Operating GW"), "field.added")]},
-        "Series": {"projections": [projection(v, col("Technology", "Technology Group"), "field.technology")]}},
+        "Y": {"projections": [projection(v, built, "field.added"), projection(v, building, "field.construction")]},
+        "Y2": {"projections": [projection(v, mea("Online Label GW"), "field.gw")]}},
         "sortDefinition": {"sort": [{"field": col("Unit", "Start Year"), "direction": "Ascending"}], "isDefaultSort": True}}
     v.body["objects"] = {
-        "dataPoint": series_colours("Technology", "Technology Group", TECH),
+        "dataPoint": [{"properties": {"fill": colour(STATUS["Operating"])}, "selector": {"metadata": ref(built)}},
+                      {"properties": {"fill": colour(STATUS["Under construction"])}, "selector": {"metadata": ref(building)}}],
+        "lineStyles": [{"properties": {"strokeWidth": n(0), "showMarker": b(False)}}],
+        "labels": [{"properties": {"show": b(True), "color": colour(INK), "fontSize": n(12), "fontFamily": s(FONT_SEMI),
+                                   "labelPrecision": lit("1L"), "labelPosition": s("Above")}},
+                   {"properties": {"showSeries": b(False)}, "selector": {"metadata": ref(built)}},
+                   {"properties": {"showSeries": b(False)}, "selector": {"metadata": ref(building)}}],
         "categoryAxis": axis(size=12, color=INK2, axisType=s("Categorical"), innerPadding=lit(f"{BAR_GAP}L")),
-        "valueAxis": axis(show=False),
-        "labels": [{"properties": {"show": b(False)}}],
-        "totals": [{"properties": {"show": b(True), "fontSize": n(12), "fontFamily": s(FONT_SEMI),
-                                   "color": colour(INK), "labelPrecision": lit("1L")}}],
-        "legend": [{"properties": {"show": b(True), "position": s("Top"), "fontSize": n(12),
-                                   "fontFamily": s(FONT), "labelColor": colour(INK2), "showTitle": b(False)}}],
-    }
-    v.filters.append(range_filter("Unit", "Start Year", 2010, 2025))
-    return v
-
-
-def scatter():
-    v = Visual("scatterChart", title_key="chart.scatter")
-    v.body["query"] = {"queryState": {
-        "Category": {"projections": [projection(v, col("Country", "Country"), "field.country")]},
-        "X": {"projections": [projection(v, mea("Wind Solar Share %"), "field.share")]},
-        "Y": {"projections": [projection(v, mea("Construction GW"), "field.construction")]},
-        "Size": {"projections": [projection(v, mea("Total Generation TWh"), "field.generation")]}}}
-    v.body["objects"] = {
-        "dataPoint": [{"properties": {"fill": {"solid": {"color": {"expr": mea("Top Builder Colour")}}}},
-                       "selector": {"data": [{"dataViewWildcard": {"matchingOption": 1}}]}}],
-        "categoryLabels": [{"properties": {"show": b(True), "color": colour(INK), "fontSize": n(11),
-                                           "fontFamily": s(FONT)}}],
-        # Axes end at 1.2 x the largest value so the biggest bubbles are not clipped
-        "categoryAxis": axis(size=11, color=INK2, showAxisTitle=b(True), titleFontSize=n(11),
-                             titleColor=colour(INK2), gridlineShow=b(True), gridlineColor=colour(RULE),
-                             start=n(0), end={"expr": mea("Scatter X Max")}),
-        "valueAxis": axis(size=11, color=INK2, showAxisTitle=b(True), titleFontSize=n(11),
-                          titleColor=colour(INK2), gridlineShow=b(True), gridlineColor=colour(RULE),
-                          start=n(0), end={"expr": mea("Scatter Y Max")}),
+        # One value axis (the line shares it); recessive solid hairlines carry the unlabelled years
+        "valueAxis": axis(size=11, color=INK2, gridlineShow=b(True), gridlineColor=colour(RULE),
+                          gridlineStyle=s("solid"), secShow=b(False)),
         "legend": [{"properties": {"show": b(False)}}],
-        "bubbles": [{"properties": {"bubbleSize": lit("-10L")}}],
     }
+    v.filters.append(range_filter("Unit", "Start Year", 2015, 2029))
     return v
+
+
+def online_panel(x, y, w, h):
+    """Title, legend + coverage note row, then the chart, stacked on one white card."""
+    title_h, row_h = 40, 32
+    legend = textbox([("legend.swatch", 12, STATUS["Operating"], FONT), ("legend.came-online", 12, INK2, FONT),
+                      ("legend.swatch", 12, STATUS["Under construction"], FONT), ("legend.expected", 12, INK2, FONT)],
+                     pad=(4, 0, 16, 16))
+    note = measure_text("Note Expected Coverage", 12, INK2, FONT, pad=(4, 0, 16, 16))
+    note.body["visualContainerObjects"]["title"][0]["properties"]["alignment"] = s("right")
+    return [("online_title", x, y, w, title_h, textbox([("chart.online-by-year", 16, INK, FONT_SEMI)], pad=(8, 0, 16, 16))),
+            ("online_legend", x, y + title_h, w * 0.4, row_h, legend),
+            ("online_note", x + w * 0.4, y + title_h, w * 0.6, row_h, note),
+            ("online_chart", x, y + title_h + row_h, w, h - title_h - row_h, online_by_year())]
 
 
 TEXT_MEASURES = {"Ember Year", "Hydrogen Marker", "Status Dot"}
@@ -458,12 +455,13 @@ def menu_background():
     return v
 
 
-def kpi_panel(x, w, title_key, value_measure, status_measure, body=None, status_color=INK2, key_runs=None):
-    """Title, value, then status line + optional trend or bars (visual-guidelines.md section 10.2)."""
+def kpi_panel(x, w, title_key, value_measure, status_measure, body=None, status_color=INK2, key_runs=None, key=False):
+    """Title, value, then status line + optional trend or bars (visual-guidelines.md section 10.2).
+    key: the page's lead number, larger than the others (one per page)."""
     title_h, value_h = 40, 66
     rest = KPI_H - title_h - value_h
     items = [("title", x, BODY_Y, w, title_h, textbox([(title_key, 16, INK, FONT_SEMI)], pad=(8, 0, 16, 16))),
-             ("value", x, BODY_Y + title_h, w, value_h, value_card(value_measure))]
+             ("value", x, BODY_Y + title_h, w, value_h, value_card(value_measure, 44 if key else 30))]
     if body is None:
         body = measure_text(status_measure, 13, status_color, FONT, pad=(4, 0, 16, 16))
     items.append(("body", x, BODY_Y + title_h + value_h, w, rest, body))
@@ -498,14 +496,15 @@ def overview():
                   [("Wind Solar Share %", "label.region", INK, 3), ("World Wind Solar Share %", "label.world", GREY_LINE, 2)],
                   "Wind Solar Share Last Point", "KPI Share Status", ACCENT)
     share.filters.append(range_filter("Generation", "Year", 2015, 2023))
-    added = trend(col("Unit", "Start Year"), [("Operating GW", "field.added", INK, 3)], "GW Added Last Point",
-                  "KPI Operating Status", INK2)
+    # Cumulative, so the line shows the same thing as the number above it
+    added = trend(col("Unit", "Start Year"), [("Operating GW Cumulative", "field.operating", INK, 3)],
+                  "Operating Cumulative Last Point", "KPI Operating Status", INK2)
     added.filters.append(range_filter("Unit", "Start Year", 2015, 2025))
     kpis = (kpi_panel(xs[0], pw, "kpi.share.title", "Wind Solar Share % Full Coverage", None, share,
-                      key_runs=[("legend.region", 11, INK, FONT), ("legend.world", 11, GREY_LINE, FONT)])
+                      key_runs=[("legend.region", 11, INK, FONT), ("legend.world", 11, GREY_LINE, FONT)], key=True)
             + kpi_panel(xs[1], pw, "kpi.operating.title", "Operating GW", None, added)
             + kpi_panel(xs[2], pw, "kpi.pipeline.title", "Pipeline GW", None, stage_bars("In Pipeline")))
-    main = [("added_by_tech", M, MAIN_Y, W - 2 * M, BODY_BOTTOM - MAIN_Y, columns_by_technology())]
+    main = online_panel(M, MAIN_Y, W - 2 * M, BODY_BOTTOM - MAIN_Y)
     menu = [(slicer(col("Overview Focus", "Focus"), "field.focus", single=True), 110),
             (slicer(col("Technology", "Technology Group"), "field.technology"), 170),
             (slicer(col("Country", "Country"), "field.country", mode="Dropdown"), 80)]
@@ -518,7 +517,7 @@ def breakdown():
                     fill_measure="Technology Colour", sort_measure="Hydrogen Pipeline GW")
     hydrogen.measure_title("KPI Hydrogen Status", 13, INK2)
     risk = stage_bars("Delivery Risk", measure="Dropped GW", detail=None, status_measure="KPI Risk Status")
-    kpis = (kpi_panel(xs[0], pw, "kpi.pipeline.title", "Pipeline GW", None, stage_bars("In Pipeline"))
+    kpis = (kpi_panel(xs[0], pw, "kpi.pipeline.title", "Pipeline GW", None, stage_bars("In Pipeline"), key=True)
             + kpi_panel(xs[1], pw, "kpi.hydrogen.title", "Hydrogen Pipeline GW", None, hydrogen)
             + kpi_panel(xs[2], pw, "kpi.risk.title", "Dropped GW", None, risk))
     left_w = (W - 2 * M - G) * 0.58
@@ -526,16 +525,23 @@ def breakdown():
                       legend=("Status", "Status", {k: v for k, v in STATUS.items() if k not in ("Shelved", "Cancelled")}),
                       sort_measure="Total GW", legend_show=True)
     by_country.filters.append(in_filter("Status", "In Totals", "true"))
-    by_tech = bars(col("Technology", "Technology Group"), [("Operating GW", "field.operating"), ("Pipeline GW", "field.pipeline")],
-                   "chart.tech-operating-pipeline", visual_type="clusteredBarChart", legend_show=True,
-                   sort_by_category=True)
-    # Purple is reserved for status: operating dark grey, planned light grey
-    by_tech.body["objects"]["dataPoint"] = [
-        {"properties": {"fill": colour(INK2)}, "selector": {"metadata": "_Measures.Operating GW"}},
-        {"properties": {"fill": colour(NEUTRAL)}, "selector": {"metadata": "_Measures.Pipeline GW"}},
+    # How dependent each country's pipeline is on green hydrogen: tied (dark grey) and the rest (neutral)
+    tied, rest = mea("Hydrogen Pipeline GW"), mea("Non-hydrogen Pipeline GW")
+    by_hydrogen = bars(col("Country", "Country"), [("Hydrogen Pipeline GW", "field.hydrogen-gw"),
+                                                   ("Non-hydrogen Pipeline GW", "field.other-pipeline")],
+                       "chart.hydrogen-by-country", detail_measure="Hydrogen % of Pipeline Label",
+                       sort_measure="Hydrogen Pipeline GW", legend_show=True)
+    by_hydrogen.body["objects"]["dataPoint"] = [
+        {"properties": {"fill": colour(INK2)}, "selector": {"metadata": ref(tied)}},
+        {"properties": {"fill": colour(NEUTRAL)}, "selector": {"metadata": ref(rest)}},
+    ]
+    # Label the tied segment only, in white inside the dark fill; the rest of the pipeline stays in the tooltip
+    by_hydrogen.body["objects"]["labels"] += [
+        {"properties": {"color": colour(CARD), "detailColor": colour(CARD)}, "selector": {"metadata": ref(tied)}},
+        {"properties": {"showSeries": b(False)}, "selector": {"metadata": ref(rest)}},
     ]
     main = [("by_country", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, by_country),
-            ("by_technology", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, by_tech)]
+            ("by_hydrogen", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, by_hydrogen)]
     menu = [(slicer(col("Technology", "Technology Group"), "field.technology"), 170),
             (slicer(col("Country", "Country"), "field.country", mode="Dropdown"), 80)]
     return "Headline Breakdown", kpis, main, menu, "note.breakdown"
@@ -551,7 +557,7 @@ def opportunity():
     builders.measure_title("KPI Construction Status", 13, INK2)
     announced = stage_bars("In Pipeline", status_measure="KPI Announced Status")
     kpis = (kpi_panel(xs[0], pw, "kpi.intensity.title", "Emissions Intensity Full Coverage", None, intensity)
-            + kpi_panel(xs[1], pw, "kpi.construction.title", "Construction GW", None, builders)
+            + kpi_panel(xs[1], pw, "kpi.construction.title", "Construction GW", None, builders, key=True)
             + kpi_panel(xs[2], pw, "kpi.announced.title", "Announced GW", None, announced))
     left_w = (W - 2 * M - G) * 0.5
     # Widths sum to the inner width (930 - 2 x 16 padding) less 18 px for the scroll bar
@@ -561,7 +567,10 @@ def opportunity():
                   (mea("Operating GW"), "field.operating", 120), (mea("Construction GW"), "field.construction", 180),
                   (mea("Scorecard Pipeline GW"), "field.pipeline", 130)],
                  bar_measure="Construction GW", title_key="chart.scorecard")
-    main = [("scatter", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, scatter()),
+    # Gap to the world share: bars either side of zero (= the world); the top builder in the accent
+    gap = bars(col("Country", "Country"), [("Share Gap to World pts", "field.gap")], "chart.gap-to-world",
+               fill_measure="Top Builder Colour", axis_max="Share Gap Axis Max", axis_min="Share Gap Axis Min")
+    main = [("gap_to_world", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, gap),
             ("scorecard", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, card)]
     menu = [(slicer(col("Technology", "Technology Group"), "field.technology"), 170),
             (slicer(col("Country", "Country"), "field.country", mode="Dropdown"), 80)]

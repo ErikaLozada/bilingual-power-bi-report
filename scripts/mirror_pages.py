@@ -82,9 +82,13 @@ def translate_text(visual, i18n):
     if "title" in i18n:
         set_literal(vco["title"][0]["properties"]["text"], quoted(rtl(AR[i18n["title"]])))
     if "runs" in i18n:
-        runs = [run for p in body["objects"]["general"][0]["properties"]["paragraphs"] for run in p["textRuns"]]
+        paragraphs = body["objects"]["general"][0]["properties"]["paragraphs"]
+        runs = [run for p in paragraphs for run in p["textRuns"]]
         for run, key in zip(runs, i18n["runs"]):
             run["value"] = rtl(AR[key])
+        # Runs lay out left to right, so reverse them to read right to left (e.g. legend swatch before its label)
+        for p in paragraphs:
+            p["textRuns"].reverse()
     if "button" in i18n:
         entry = next(e for e in body["objects"]["text"] if "text" in e["properties"])
         set_literal(entry["properties"]["text"], quoted(AR[i18n["button"]]))
@@ -172,7 +176,7 @@ def mirror_axes(visual):
     if kind in ("barChart", "clusteredBarChart"):
         objects.setdefault("valueAxis", [{"properties": {}}])[0]["properties"]["invertAxis"] = lit("true")
         objects.setdefault("categoryAxis", [{"properties": {}}])[0]["properties"]["switchAxisPosition"] = lit("true")
-    if kind in ("lineChart", "columnChart", "clusteredColumnChart"):
+    if kind in ("lineChart", "columnChart", "clusteredColumnChart", "lineStackedColumnComboChart"):
         # Time runs right to left: earliest year on the right
         category = body["query"]["queryState"]["Category"]["projections"][0]["field"]
         body["query"]["sortDefinition"] = {"sort": [{"field": category, "direction": "Descending"}], "isDefaultSort": True}

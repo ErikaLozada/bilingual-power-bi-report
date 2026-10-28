@@ -49,7 +49,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Operating GW"
+            "metadata": "_Measures.Operating GW Cumulative"
           }
         },
         {
@@ -84,7 +84,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.GW Added Last Point"
+            "metadata": "_Measures.Operating Cumulative Last Point"
           }
         }
       ],
@@ -104,7 +104,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Operating GW"
+            "metadata": "_Measures.Operating GW Cumulative"
           }
         },
         {
@@ -122,7 +122,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.GW Added Last Point"
+            "metadata": "_Measures.Operating Cumulative Last Point"
           }
         }
       ],
@@ -188,7 +188,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Operating GW"
+            "metadata": "_Measures.Operating GW Cumulative"
           }
         }
       ],
@@ -517,12 +517,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Operating GW"
+                  "Property": "Operating GW Cumulative"
                 }
               },
-              "queryRef": "_Measures.Operating GW",
-              "nativeQueryRef": "Operating GW",
-              "displayName": "Came online"
+              "queryRef": "_Measures.Operating GW Cumulative",
+              "nativeQueryRef": "Operating GW Cumulative",
+              "displayName": "Operating"
             },
             {
               "field": {
@@ -532,11 +532,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "GW Added Last Point"
+                  "Property": "Operating Cumulative Last Point"
                 }
               },
-              "queryRef": "_Measures.GW Added Last Point",
-              "nativeQueryRef": "GW Added Last Point"
+              "queryRef": "_Measures.Operating Cumulative Last Point",
+              "nativeQueryRef": "Operating Cumulative Last Point"
             }
           ]
         }
@@ -622,7 +622,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"display\": {\"_Measures.Operating GW\": \"field.added\"}}"
+      "value": "{\"display\": {\"_Measures.Operating GW Cumulative\": \"field.operating\"}}"
     }
   ]
 }

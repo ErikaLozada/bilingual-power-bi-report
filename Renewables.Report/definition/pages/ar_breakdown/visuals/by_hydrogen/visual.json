@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "scatter",
+  "name": "by_hydrogen",
   "position": {
-    "x": 20,
+    "x": 20.0,
     "y": 420,
-    "z": 17,
-    "width": 930.0,
+    "z": 18,
+    "width": 781.2,
     "height": 580,
-    "tabOrder": 17
+    "tabOrder": 18
   },
   "visual": {
-    "visualType": "scatterChart",
+    "visualType": "barChart",
     "objects": {
       "dataPoint": [
         {
@@ -19,13 +19,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Top Builder Colour"
+                    "Literal": {
+                      "Value": "'#5c5b57'"
                     }
                   }
                 }
@@ -33,17 +28,29 @@
             }
           },
           "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
+            "metadata": "_Measures.Hydrogen Pipeline GW"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#d3d2cc'"
+                    }
+                  }
                 }
               }
-            ]
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Non-hydrogen Pipeline GW"
           }
         }
       ],
-      "categoryLabels": [
+      "labels": [
         {
           "properties": {
             "show": {
@@ -67,7 +74,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "13D"
                 }
               }
             },
@@ -77,7 +84,114 @@
                   "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelContentLayout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SingleLine'"
+                }
+              }
+            },
+            "detailColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#5c5b57'"
+                    }
+                  }
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "dynamicLabelDetail": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Hydrogen % of Pipeline Label"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "detailColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Hydrogen Pipeline GW"
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Non-hydrogen Pipeline GW"
           }
         }
       ],
@@ -101,7 +215,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "13D"
                 }
               }
             },
@@ -110,7 +224,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#1d1d1b'"
                     }
                   }
                 }
@@ -119,62 +233,35 @@
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "gridlineShow": {
               "expr": {
                 "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
+            },
+            "switchAxisPosition": {
+              "expr": {
+                "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            },
-            "titleColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5c5b57'"
-                    }
-                  }
-                }
-              }
-            },
-            "gridlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#e4e3df'"
-                    }
-                  }
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "end": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Scatter X Max"
                 }
               }
             }
@@ -187,7 +274,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -201,7 +288,73 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "13D"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1d1d1b'"
+                    }
+                  }
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "invertAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopRight'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
                 }
               }
             },
@@ -216,91 +369,10 @@
                 }
               }
             },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            },
-            "titleColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5c5b57'"
-                    }
-                  }
-                }
-              }
-            },
-            "gridlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#e4e3df'"
-                    }
-                  }
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "end": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Scatter Y Max"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "show": {
+            "showTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "bubbles": [
-        {
-          "properties": {
-            "bubbleSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "-10L"
                 }
               }
             }
@@ -322,7 +394,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Where building is under way: wind and solar share against capacity under construction'"
+                  "Value": "'‫المشاريع المخطط لها المرتبطة بالهيدروجين الأخضر حسب الدولة (GW · % من مشاريع الدولة)‬'"
                 }
               }
             },
@@ -336,7 +408,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "17D"
                 }
               }
             },
@@ -354,7 +426,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'left'"
+                  "Value": "'right'"
                 }
               }
             },
@@ -485,31 +557,11 @@
                       "Entity": "Country"
                     }
                   },
-                  "Property": "Country"
+                  "Property": "Country AR"
                 }
               },
-              "queryRef": "Country.Country",
-              "nativeQueryRef": "Country",
-              "displayName": "Country"
-            }
-          ]
-        },
-        "X": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Wind Solar Share %"
-                }
-              },
-              "queryRef": "_Measures.Wind Solar Share %",
-              "nativeQueryRef": "Wind Solar Share %",
-              "displayName": "Wind + solar"
+              "queryRef": "Country.Country AR",
+              "nativeQueryRef": "Country AR"
             }
           ]
         },
@@ -523,17 +575,13 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Construction GW"
+                  "Property": "Hydrogen Pipeline GW"
                 }
               },
-              "queryRef": "_Measures.Construction GW",
-              "nativeQueryRef": "Construction GW",
-              "displayName": "Under construction"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
+              "queryRef": "_Measures.Hydrogen Pipeline GW",
+              "nativeQueryRef": "Hydrogen Pipeline GW",
+              "displayName": "مرتبطة بالهيدروجين الأخضر"
+            },
             {
               "field": {
                 "Measure": {
@@ -542,22 +590,40 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Generation TWh"
+                  "Property": "Non-hydrogen Pipeline GW"
                 }
               },
-              "queryRef": "_Measures.Total Generation TWh",
-              "nativeQueryRef": "Total Generation TWh",
-              "displayName": "Generation (TWh)"
+              "queryRef": "_Measures.Non-hydrogen Pipeline GW",
+              "nativeQueryRef": "Non-hydrogen Pipeline GW",
+              "displayName": "بقية المشاريع المخطط لها"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Hydrogen Pipeline GW"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     }
   },
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.scatter\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Wind Solar Share %\": \"field.share\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Total Generation TWh\": \"field.generation\"}}"
+      "value": "{\"title\": \"chart.hydrogen-by-country\", \"display\": {\"_Measures.Hydrogen Pipeline GW\": \"field.hydrogen-gw\", \"_Measures.Non-hydrogen Pipeline GW\": \"field.other-pipeline\"}}"
     }
   ]
 }

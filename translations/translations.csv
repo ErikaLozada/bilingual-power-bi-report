@@ -104,7 +104,6 @@ field.intensity,g/kWh,g/kWh,machine
 field.operating,Operating,قيد التشغيل,machine
 field.construction,Under construction,قيد الإنشاء,machine
 field.pipeline,Pipeline,المخطط لها,machine
-field.generation,Generation (TWh),التوليد (TWh),machine
 field.added,Came online,دخلت الخدمة,machine
 kpi.share.title,Wind and solar share of electricity,حصة الرياح والشمسية من الكهرباء,machine
 kpi.operating.title,Operating capacity (GW),القدرة قيد التشغيل (GW),machine
@@ -114,18 +113,25 @@ kpi.risk.title,Shelved or cancelled (GW),مُعلّقة أو مُلغاة (GW),m
 kpi.intensity.title,Emissions intensity (g/kWh),كثافة الانبعاثات (g/kWh),machine
 kpi.construction.title,Under construction (GW),قيد الإنشاء (GW),machine
 kpi.announced.title,Announced only (GW),مُعلنة فقط (GW),machine
-chart.added-by-tech,"Capacity that came online each year, by technology (GW)",القدرة التي دخلت الخدمة سنوياً حسب التقنية (GW),machine
 chart.country-status,Capacity by country and status (GW),القدرة حسب الدولة والحالة (GW),machine
-chart.tech-operating-pipeline,Operating and planned capacity by technology (GW),القدرة قيد التشغيل والمخطط لها حسب التقنية (GW),machine
-chart.scatter,Where building is under way: wind and solar share against capacity under construction,أين يجري البناء: حصة الرياح والشمسية مقابل القدرة قيد الإنشاء,machine
 chart.scorecard,Country scorecard,بطاقة أداء الدول,machine
 chart.top-projects,Ten largest pipeline projects (GW),أكبر عشرة مشاريع مخطط لها (GW),machine
 chart.top-owners,"Owners of operating capacity (GW, by ownership share)",مالكو القدرة قيد التشغيل (GW، حسب حصة الملكية),machine
 chart.projects,All projects,جميع المشاريع,machine
 chart.top-builders,Building the most (GW),الأكثر بناءً (GW),machine
-note.overview,"Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced.",حصة الرياح والشمسية: Ember، آخر عام تتوفر فيه بيانات جميع الدول (2023)؛ المتوسط العالمي من إجمالي Ember العالمي. القدرة قيد التشغيل: المحطات الكبيرة التي يتتبعها GEM. المشاريع المخطط لها: قيد الإنشاء وما قبل الإنشاء والمُعلنة.,machine
-note.breakdown,Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM.,تشمل المجاميع القدرة قيد التشغيل والمخطط لها. تُحتسب المشاريع المُعلّقة والمُلغاة في لوحة المُعلّقة أو المُلغاة فقط. يحدد GEM ارتباط كل وحدة بالهيدروجين الأخضر.,machine
-note.opportunity,Low share with a lot under construction: the transition is under way. Low share with little under construction: untapped or stalled. High share: already advanced. Shares use each country's latest Ember year; bubble size is total generation. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity.,حصة منخفضة مع بناء كبير: التحول جارٍ. حصة منخفضة مع بناء قليل: أسواق غير مستغلة أو متوقفة. حصة مرتفعة: أسواق متقدمة. تستخدم الحصص آخر سنة متاحة في Ember لكل دولة؛ حجم الفقاعة هو إجمالي التوليد. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل.,machine
+note.overview,"Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced. Expected years: GEM's planned start year for projects under construction.",حصة الرياح والشمسية: Ember، آخر عام تتوفر فيه بيانات جميع الدول (2023)؛ المتوسط العالمي من إجمالي Ember العالمي. القدرة قيد التشغيل: المحطات الكبيرة التي يتتبعها GEM. المشاريع المخطط لها: قيد الإنشاء وما قبل الإنشاء والمُعلنة. السنوات المتوقعة: سنة التشغيل المخططة لدى GEM للمشاريع قيد الإنشاء.,machine
+note.breakdown,Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM. Hydrogen chart: only countries with hydrogen-tied capacity.,تشمل المجاميع القدرة قيد التشغيل والمخطط لها. تُحتسب المشاريع المُعلّقة والمُلغاة في لوحة المُعلّقة أو المُلغاة فقط. يحدد GEM ارتباط كل وحدة بالهيدروجين الأخضر. مخطط الهيدروجين: الدول التي لديها قدرة مرتبطة بالهيدروجين فقط.,machine
+note.opportunity,Bars: each country's wind and solar share minus the world share in the same year (its latest Ember year); the orange bar is the country building the most. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity.,الأعمدة: حصة الرياح والشمسية في كل دولة ناقص الحصة العالمية في العام نفسه (آخر سنة متاحة في Ember)؛ العمود البرتقالي هو الدولة الأكثر بناءً. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل.,machine
 note.detail,Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. H₂ marks projects tied to green hydrogen.,قدرة المالكين مرجحة بحصة الملكية. أسماء المشاريع العربية من GEM حيثما توفرت، وإلا يظهر الاسم الإنجليزي. يشير H₂ إلى المشاريع المرتبطة بالهيدروجين الأخضر.,machine
 legend.region,━ Arab League   ,━ الدول العربية   ,machine
 legend.world,━ World,━ العالم,machine
+chart.online-by-year,Capacity coming online each year (GW),القدرة التي تدخل الخدمة سنوياً (GW),machine
+legend.swatch,■ ,■ ,machine
+legend.came-online,Came online      ,دخلت الخدمة      ,machine
+legend.expected,"Under construction, by expected year",قيد الإنشاء، حسب سنة التشغيل المتوقعة,machine
+note.expected-coverage,Expected year known for {pct} of the {construction} GW under construction; {undated} GW has no planned year.,سنة التشغيل المتوقعة معروفة لـ{pct} من {construction} GW قيد الإنشاء؛ {undated} GW دون سنة مخططة.,machine
+chart.hydrogen-by-country,"Pipeline tied to green hydrogen, by country (GW · % of the country's pipeline)",المشاريع المخطط لها المرتبطة بالهيدروجين الأخضر حسب الدولة (GW · % من مشاريع الدولة),machine
+field.hydrogen-gw,Tied to green hydrogen,مرتبطة بالهيدروجين الأخضر,machine
+field.other-pipeline,Rest of the pipeline,بقية المشاريع المخطط لها,machine
+chart.gap-to-world,Wind and solar share against the world (percentage points),حصة الرياح والشمسية مقارنة بالعالم (نقاط مئوية),machine
+field.gap,Gap to world (pts),الفرق عن العالم (نقطة),machine

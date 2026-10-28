@@ -19,19 +19,19 @@
               {
                 "textRuns": [
                   {
-                    "value": "‫━ الدول العربية   ‬",
-                    "textStyle": {
-                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "12pt",
-                      "color": "#1d1d1b"
-                    }
-                  },
-                  {
                     "value": "‫━ العالم‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",
                       "color": "#b3b2ac"
+                    }
+                  },
+                  {
+                    "value": "‫━ الدول العربية   ‬",
+                    "textStyle": {
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "12pt",
+                      "color": "#1d1d1b"
                     }
                   }
                 ],

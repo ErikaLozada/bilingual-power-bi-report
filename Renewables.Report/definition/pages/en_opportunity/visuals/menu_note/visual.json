@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Low share with a lot under construction: the transition is under way. Low share with little under construction: untapped or stalled. High share: already advanced. Shares use each country's latest Ember year; bubble size is total generation. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity.",
+                    "value": "Bars: each country's wind and solar share minus the world share in the same year (its latest Ember year); the orange bar is the country building the most. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity.",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "by_technology",
+  "name": "by_hydrogen",
   "position": {
     "x": 1118.8,
     "y": 420,
@@ -10,7 +10,7 @@
     "tabOrder": 18
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "barChart",
     "objects": {
       "dataPoint": [
         {
@@ -28,7 +28,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Operating GW"
+            "metadata": "_Measures.Hydrogen Pipeline GW"
           }
         },
         {
@@ -46,7 +46,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Pipeline GW"
+            "metadata": "_Measures.Non-hydrogen Pipeline GW"
           }
         }
       ],
@@ -98,7 +98,100 @@
                   "Value": "1L"
                 }
               }
+            },
+            "enableDetailDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelContentLayout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SingleLine'"
+                }
+              }
+            },
+            "detailColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#5c5b57'"
+                    }
+                  }
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "dynamicLabelDetail": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Hydrogen % of Pipeline Label"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "detailColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Hydrogen Pipeline GW"
+          }
+        },
+        {
+          "properties": {
+            "showSeries": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Non-hydrogen Pipeline GW"
           }
         }
       ],
@@ -287,7 +380,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Operating and planned capacity by technology (GW)'"
+                  "Value": "'Pipeline tied to green hydrogen, by country (GW · % of the country''s pipeline)'"
                 }
               }
             },
@@ -447,14 +540,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Technology"
+                      "Entity": "Country"
                     }
                   },
-                  "Property": "Technology Group"
+                  "Property": "Country"
                 }
               },
-              "queryRef": "Technology.Technology Group",
-              "nativeQueryRef": "Technology Group"
+              "queryRef": "Country.Country",
+              "nativeQueryRef": "Country"
             }
           ]
         },
@@ -468,12 +561,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Operating GW"
+                  "Property": "Hydrogen Pipeline GW"
                 }
               },
-              "queryRef": "_Measures.Operating GW",
-              "nativeQueryRef": "Operating GW",
-              "displayName": "Operating"
+              "queryRef": "_Measures.Hydrogen Pipeline GW",
+              "nativeQueryRef": "Hydrogen Pipeline GW",
+              "displayName": "Tied to green hydrogen"
             },
             {
               "field": {
@@ -483,12 +576,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Pipeline GW"
+                  "Property": "Non-hydrogen Pipeline GW"
                 }
               },
-              "queryRef": "_Measures.Pipeline GW",
-              "nativeQueryRef": "Pipeline GW",
-              "displayName": "Pipeline"
+              "queryRef": "_Measures.Non-hydrogen Pipeline GW",
+              "nativeQueryRef": "Non-hydrogen Pipeline GW",
+              "displayName": "Rest of the pipeline"
             }
           ]
         }
@@ -497,16 +590,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Technology"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "Technology Group"
+                "Property": "Hydrogen Pipeline GW"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true
@@ -516,7 +609,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.tech-operating-pipeline\", \"display\": {\"_Measures.Operating GW\": \"field.operating\", \"_Measures.Pipeline GW\": \"field.pipeline\"}}"
+      "value": "{\"title\": \"chart.hydrogen-by-country\", \"display\": {\"_Measures.Hydrogen Pipeline GW\": \"field.hydrogen-gw\", \"_Measures.Non-hydrogen Pipeline GW\": \"field.other-pipeline\"}}"
     }
   ]
 }

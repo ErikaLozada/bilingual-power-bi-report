@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "by_technology",
+  "name": "gap_to_world",
   "position": {
-    "x": 20.0,
+    "x": 970.0,
     "y": 420,
-    "z": 18,
-    "width": 781.2,
+    "z": 17,
+    "width": 930.0,
     "height": 580,
-    "tabOrder": 18
+    "tabOrder": 17
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "barChart",
     "objects": {
       "dataPoint": [
         {
@@ -19,8 +19,13 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#5c5b57'"
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Top Builder Colour"
                     }
                   }
                 }
@@ -28,25 +33,13 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Operating GW"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#d3d2cc'"
-                    }
-                  }
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
                 }
               }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Pipeline GW"
+            ]
           }
         }
       ],
@@ -224,6 +217,30 @@
                 }
               }
             },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Share Gap Axis Max"
+                }
+              }
+            },
+            "start": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Share Gap Axis Min"
+                }
+              }
+            },
             "invertAxis": {
               "expr": {
                 "Literal": {
@@ -240,7 +257,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -301,7 +318,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'‫القدرة قيد التشغيل والمخطط لها حسب التقنية (GW)‬'"
+                  "Value": "'‫حصة الرياح والشمسية مقارنة بالعالم (نقاط مئوية)‬'"
                 }
               }
             },
@@ -461,14 +478,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Technology"
+                      "Entity": "Country"
                     }
                   },
-                  "Property": "Technology Group AR"
+                  "Property": "Country AR"
                 }
               },
-              "queryRef": "Technology.Technology Group AR",
-              "nativeQueryRef": "Technology Group AR"
+              "queryRef": "Country.Country AR",
+              "nativeQueryRef": "Country AR"
             }
           ]
         },
@@ -482,27 +499,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Operating GW"
+                  "Property": "Share Gap to World pts"
                 }
               },
-              "queryRef": "_Measures.Operating GW",
-              "nativeQueryRef": "Operating GW",
-              "displayName": "قيد التشغيل"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Pipeline GW"
-                }
-              },
-              "queryRef": "_Measures.Pipeline GW",
-              "nativeQueryRef": "Pipeline GW",
-              "displayName": "المخطط لها"
+              "queryRef": "_Measures.Share Gap to World pts",
+              "nativeQueryRef": "Share Gap to World pts",
+              "displayName": "الفرق عن العالم (نقطة)"
             }
           ]
         }
@@ -511,16 +513,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Technology"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "Technology Group AR"
+                "Property": "Share Gap to World pts"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true
@@ -530,7 +532,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.tech-operating-pipeline\", \"display\": {\"_Measures.Operating GW\": \"field.operating\", \"_Measures.Pipeline GW\": \"field.pipeline\"}}"
+      "value": "{\"title\": \"chart.gap-to-world\", \"display\": {\"_Measures.Share Gap to World pts\": \"field.gap\"}}"
     }
   ]
 }

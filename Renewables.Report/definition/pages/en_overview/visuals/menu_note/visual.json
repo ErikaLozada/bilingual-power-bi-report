@@ -4,10 +4,10 @@
   "position": {
     "x": 1484,
     "y": 600,
-    "z": 10024,
+    "z": 10027,
     "width": 412,
     "height": 390,
-    "tabOrder": 10024
+    "tabOrder": 10027
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced.",
+                    "value": "Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced. Expected years: GEM's planned start year for projects under construction.",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",
