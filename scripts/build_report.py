@@ -632,9 +632,9 @@ def tooltip_tech():
     chart.title("tooltip.by-technology", 12, INK2, FONT)
     chart.body["visualContainerObjects"]["padding"] = [{"properties": {"top": n(0), "bottom": n(4), "left": n(12),
                                                                          "right": n(12)}}]
-    return 200, [("value", 0, 0, TOOLTIP_W, 46, measure_text("Tooltip GW Text", 24, INK, FONT_SEMI, pad=(8, 0, 12, 12))),
+    return 240, [("value", 0, 0, TOOLTIP_W, 46, measure_text("Tooltip GW Text", 24, INK, FONT_SEMI, pad=(8, 0, 12, 12))),
                  ("context", 0, 46, TOOLTIP_W, 28, measure_text("Tooltip Context Text", 12, INK2, FONT, pad=(0, 0, 12, 12))),
-                 ("by_technology", 0, 74, TOOLTIP_W, 126, chart)]
+                 ("by_technology", 0, 74, TOOLTIP_W, 166, chart)]
 
 
 def tooltip_gap():

@@ -692,7 +692,7 @@ table _Measures
 			        IF ( IsAr, CONCATENATEX ( VALUES ( 'Status'[Status AR] ), 'Status'[Status AR], "، " ), CONCATENATEX ( VALUES ( 'Status'[Status] ), 'Status'[Status], ", " ) )
 			    )
 			VAR Parts = CONCATENATEX ( FILTER ( { Countries, Technologies, Statuses }, [Value] <> "" ), [Value], " · " )
-			VAR SentenceText = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "filter.prefix" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "filter.prefix" ) ) & Parts
+			VAR SentenceText = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "filter.prefix" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "filter.prefix" ) ) & " " & Parts
 			RETURN
 			    IF ( Parts <> "", IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText ) )
 		displayFolder: Text

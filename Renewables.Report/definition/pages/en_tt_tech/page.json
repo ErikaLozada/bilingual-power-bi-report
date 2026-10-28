@@ -4,7 +4,7 @@
   "displayName": "Tooltip: technology",
   "displayOption": "ActualSize",
   "width": 320,
-  "height": 200,
+  "height": 240,
   "type": "Tooltip",
   "visibility": "HiddenInViewMode",
   "objects": {
