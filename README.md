@@ -2,7 +2,7 @@
 
 A Power BI report on wind, solar and hydro power across the 22 Arab League countries, built in **English and Arabic**. Every page has a right-to-left Arabic twin that is generated, not hand-built: positions, axes, tables, text direction and navigation are mirrored by a script from the English page.
 
-The whole report is **written as code** (PBIP: PBIR report + TMDL model), built and mirrored by Python scripts, validated against Microsoft's schemas, deployed to Microsoft Fabric with the Fabric CLI, and checked from rendered PNGs before every review.
+The whole report is **written as code** (PBIP: PBIR report + TMDL model), built and mirrored by Python scripts, validated against Microsoft's schemas, deployed to Microsoft Fabric with the Fabric CLI, and checked from rendered PNGs before every review. I built it with an AI coding agent (Claude Code) as a working partner: [how I used AI](#how-i-used-ai) is part of what this project shows.
 
 | English | Arabic (generated mirror) |
 |---|---|
@@ -60,6 +60,27 @@ Tooltips lead with the value, then say what was hovered, then add detail (here t
 ![Technology tooltip](docs/images/tooltip_technology.png)
 
 </details>
+
+## How I used AI
+
+I built this report with Claude Code, an AI coding agent working in my repo and terminal. I set the direction and made the decisions; the agent did most of the typing, and every step had a check that didn't depend on trusting it.
+
+**I own the decisions.** Each phase was decided together, one at a time: dataset, persona and business questions, visual guidelines, semantic model, then each page. The agent laid out options with trade-offs and a recommendation; I chose. Early on it ran ahead and started generating files after a single answer, so I stopped it and restarted from dataset selection, and "decide each phase together" became a standing rule. The decisions logs in [`docs/`](docs/) record what was chosen and why (35 visual decisions so far).
+
+**The agent builds; scripts make it repeatable.** Rather than editing Power BI by hand, the agent wrote generators: `build_report.py` for the English pages, `mirror_pages.py` for the Arabic twins, `extract_data.py` for the data. A change is a change to a script or a spec, rebuilt in seconds, so a design decision applies to all eight pages at once.
+
+**Nothing ships unchecked.**
+- Every build is validated against Microsoft's PBIR schemas, deployed to a development workspace, refreshed, and every page is exported to PNG through the Power BI API. The agent looks at the renders before I see them, and I review the rendered pages, not the code. Renders caught what schemas can't: labels running into bars, Arabic legends in the wrong order, text sitting 13 px off the margin.
+- DAX measures are checked with queries against the deployed model.
+- Colour isn't judged by eye: every palette went through a colour-vision-deficiency validator, and when I asked for a more distinct "came online" colour, the candidate was measured before it was used.
+
+**I review and redirect.** v1 was built as a complete draft so I could judge real pages. I reviewed it and asked for changes (page headers, thinner bars, colour roles, table alignment). I then had the agent evaluate the report against a data-visualisation checklist; that review became v2, with new analysis (what comes online next, hydrogen dependence) and fixes. My feedback on v2 (colours too close for colour-blind readers, margins off by a few pixels, technology detail moved into a tooltip) went into the same loop. Both rounds are written up in [`docs/page-proposals.md`](docs/page-proposals.md).
+
+**Honesty is built in.** The agent drafts the Arabic, but every string is flagged `machine` until a native speaker reviews it, and it is never marked reviewed without a real reviewer. Data limits are shown next to the number they qualify (for example, the share of capacity under construction with no expected year).
+
+**Lessons carry over.** Mistakes become rules: platform gotchas (reserved DAX words, how Power BI lays out Arabic text, how exported images map to the canvas) are kept in the agent's project memory, so the same mistake isn't made twice.
+
+The project is a clean-room rebuild of techniques I had used before, done in a personal Microsoft tenant with public data only.
 
 ## How the bilingual design works
 

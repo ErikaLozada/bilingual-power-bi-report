@@ -4,9 +4,9 @@
 
 Every page follows the agreed frame (visual-guidelines.md sections 2–4 and 10): dynamic headline, Back / Next, language switch and ☰ menu in the header; KPI row ≈ 30% and main visuals ≈ 70% of the body; footer with source, refresh time and data period; a bookmark menu panel holding slicers and notes.
 
-## v2 changes (branch `report-v2`, for comparison with v1)
+## v2 changes
 
-v1 stays live in the `bilingual-report` workspace (main); v2 is in `bilingual-dev`. Changes come from the dataviz skill review (visual-guidelines.md section 10.7) and two new analyses.
+v2 was reviewed against v1 and replaced it on `main` on 29 Oct 2026; v1 remains in the git history (branch `report-v1`). Changes come from the dataviz skill review (visual-guidelines.md section 10.7) and two new analyses.
 
 | Page | v1 | v2 | Why |
 |---|---|---|---|
