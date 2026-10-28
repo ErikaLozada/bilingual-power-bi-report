@@ -118,19 +118,19 @@ Greys run lightest to darkest: gridlines → neutral → Other.
 ## 7. Typography
 
 - **Headline and titles:** Segoe UI (Semibold where the table says so).
-- **Body text:** Segoe UI Light (labels, tables, notes, footer, menu).
-- **Fallback:** Tahoma. The first Fabric deployment is a font test page (English and Arabic, Segoe UI, Segoe UI Light and Tahoma), checked on a Mac and, if possible, on Windows. The Power BI service can't load web fonts, and Segoe UI isn't installed on macOS.
+- **Body text:** Segoe UI regular (labels, tables, notes, footer, menu). Light was dropped after the font test: regular reads better in both scripts.
+- **Fallback:** Tahoma. A font test page (English and Arabic in Segoe UI Semibold, Segoe UI, Segoe UI Light and Tahoma) was rendered in Fabric and checked on a Mac: all read fine, Segoe UI regular best.
 
 | Element | Size (pt) | Font |
 |---|---|---|
 | Page headline | 24 | Segoe UI Semibold |
 | KPI value | 36 | Segoe UI Semibold |
-| KPI label | 13 | Segoe UI Light |
-| Visual title | 16 | Segoe UI Semibold |
-| Axis labels, data labels, legend | 12 | Segoe UI Light |
-| Table text | 12 | Segoe UI Light |
-| Notes (outliers, caveats) | 12 | Segoe UI Light, secondary text colour |
-| Footer / menu text | 11 / 13 | Segoe UI Light |
+| KPI label / status line | 13 | Segoe UI |
+| Visual title (charts and KPI panels alike) | 16 | Segoe UI Semibold |
+| Axis labels, data labels, legend | 12 | Segoe UI (trend axes 11) |
+| Table text | 12 | Segoe UI (headers Semibold) |
+| Notes (outliers, caveats) | 12 | Segoe UI, secondary text colour |
+| Footer / menu text | 11 / 13 | Segoe UI |
 
 **Arabic pages:** every size of 16 pt or below is 1 pt larger. The mirror script applies this.
 
@@ -172,7 +172,45 @@ Arabic pages are generated from the English pages by the mirror script.
 - **Tables:** the native table visual is tested first. If it can't mirror correctly (column order, alignment, data-bar direction), the fallback is a custom visual (an HTML visual or Deneb), checked for Publish to web support before adoption.
 - **Service page list:** all 8 pages are visible, English 1–4 then Arabic 1–4, with Arabic page names.
 
-## 10. Decisions log
+## 10. Visual patterns
+
+Agreed from a rendered sample page (KPI panels, bar chart, table). The patterns were studied from public examples; every file is our own.
+
+### 10.1 Proportions
+
+- **KPI row ≈ 30% of the body, main visuals ≈ 70%.** On 1920 × 1080: KPI row about 260 px, main visuals about 600 px, with the 20 px spacing rules.
+- The key visual of the page gets the most space; KPIs summarise, they don't compete.
+
+### 10.2 KPI panel
+
+Stacked with no gaps, on one white card:
+
+| Part | Height | Style |
+|---|---|---|
+| Title | ~40 px | Same as visual titles: Segoe UI Semibold 16 pt, primary text |
+| Value | ~66 px | Segoe UI Semibold 36 pt, left-aligned (multi-row card, no category label, no scrolling) |
+| Status line | part of the trend | A translated text measure with alternative wordings (▲ / ▼ / "Only…"), 13 pt. Accent colour only on the page's key message; otherwise secondary text |
+| Trend strip | ~120 px | Dark line = the measure, light grey line = comparison (e.g. world), dot and label on the latest point only. No value axis or gridlines; small year axis |
+
+- A comparison legend, when needed, sits on the status line row, right-aligned.
+- Units go in the title (`Operating capacity (GW)`), not after the number.
+
+### 10.3 Bar charts
+
+- Labels show the value and, as a detail label, the **% of total** in the current view (e.g. `19.6 · 38%`). Percentages under 1% are hidden instead of showing `0%`.
+- Highlight by rule: the key bar takes the accent through a model measure; the rest are neutral.
+- No value axis or gridlines; category labels 12 pt; categories sorted by value, or by stage order where the category has one (status).
+
+### 10.4 Tables
+
+- Headers Segoe UI Semibold 12 pt in secondary text; values Segoe UI 12 pt; horizontal rules only.
+- GW columns carry data bars in a light tint (`#aaa8c6`) with the number visible; the column is kept narrow enough to avoid a horizontal scroll bar.
+
+### 10.5 Checking
+
+Every page is rendered to PNG through the Power BI export API and looked at before review. Schema checks alone don't catch formatting that Fabric silently ignores.
+
+## 11. Decisions log
 
 | # | Question | Decision |
 |---|---|---|
@@ -192,3 +230,5 @@ Arabic pages are generated from the English pages by the mirror script.
 | 14 | Translation and formats | Translation changes words only; numbers, unit symbols and dates are identical in both languages |
 | 15 | RTL rules | Everything mirrors, including time axes and the scatter (section 9); all 8 pages visible in the service |
 | 16 | Tables | Native table first; custom visual (HTML or Deneb) only if native mirroring fails |
+| 17 | Body font | Segoe UI regular replaces Light after the font test |
+| 18 | Visual patterns | KPI panel, bar, table and proportion rules in section 10, agreed from a rendered sample |

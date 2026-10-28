@@ -1,0 +1,32 @@
+table 'World Generation'
+
+	column Year
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Wind Solar TWh'
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: Wind Solar TWh
+
+	column 'Total Generation TWh'
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: Total Generation TWh
+
+	partition 'World Generation' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/world_generation.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Year", Int64.Type}, {"Wind Solar TWh", type number}, {"Total Generation TWh", type number}}, "en-GB")
+				in
+				    Typed

@@ -227,6 +227,95 @@ table _Measures
 			    SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "footer.data-to" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "footer.data-to" ) ), "{years}", Years )
 		displayFolder: Footer
 
+	measure 'Full Coverage Year' =
+			-- Latest Ember year in which every country in context has data
+			MAXX (
+			    FILTER (
+			        ALL ( 'Generation'[Year] ),
+			        CALCULATE ( DISTINCTCOUNT ( 'Generation'[Country ID] ) ) = COUNTROWS ( 'Country' )
+			    ),
+			    'Generation'[Year]
+			)
+		formatString: 0
+		isHidden
+		displayFolder: Generation
+
+	measure 'Wind Solar Share % Full Coverage' =
+			VAR CoverageYear = [Full Coverage Year]
+			RETURN CALCULATE ( [Wind Solar Share %], 'Generation'[Year] = CoverageYear )
+		formatString: 0.0%
+		displayFolder: Generation
+
+	measure 'World Wind Solar Share %' =
+			-- One year in context (a year axis): that year. Otherwise: the full-coverage year, to compare like with like
+			VAR ShareYear = IF ( HASONEVALUE ( 'Generation'[Year] ), VALUES ( 'Generation'[Year] ), [Full Coverage Year] )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( ShareYear ),
+			        CALCULATE (
+			            DIVIDE ( SUM ( 'World Generation'[Wind Solar TWh] ), SUM ( 'World Generation'[Total Generation TWh] ) ),
+			            'World Generation'[Year] = ShareYear
+			        )
+			    )
+		formatString: 0.0%
+		displayFolder: Generation
+
+	measure 'Wind Solar Share Last Point' = IF ( SELECTEDVALUE ( 'Generation'[Year] ) = [Full Coverage Year], [Wind Solar Share %] )
+		formatString: 0.0%
+		isHidden
+		displayFolder: Generation
+
+	measure 'KPI Share Status' =
+			VAR Region = [Wind Solar Share % Full Coverage]
+			VAR World = [World Wind Solar Share %]
+			VAR Gap = ABS ( World - Region ) * 100
+			RETURN
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( Region < World, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.share.below" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.share.below" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.share.above" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.share.above" ) ) ), "{gap}", FORMAT ( Gap, "0.0", "en-GB" ) ), "{world}", FORMAT ( World, "0.0%", "en-GB" ) ), "{year}", FORMAT ( [Full Coverage Year], "0" ) )
+		displayFolder: Text
+
+	measure 'Latest Full Year' =
+			-- The GEM release (Sep 2026) is part-way through 2026
+			VAR ReleaseYear = 2026
+			RETURN
+			    CALCULATE ( MAX ( 'Unit'[Start Year] ), 'Status'[Status ID] = "operating", 'Unit'[Start Year] < ReleaseYear, REMOVEFILTERS ( 'Unit'[Start Year] ) )
+		formatString: 0
+		isHidden
+		displayFolder: Capacity
+
+	measure 'GW Added Last Point' = IF ( SELECTEDVALUE ( 'Unit'[Start Year] ) = [Latest Full Year], [Operating GW] )
+		formatString: #,0.0
+		isHidden
+		displayFolder: Capacity
+
+	measure 'KPI Operating Status' =
+			VAR LatestYear = [Latest Full Year]
+			VAR Added = CALCULATE ( [Operating GW], 'Unit'[Start Year] = LatestYear )
+			RETURN
+			    SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.operating.added" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.operating.added" ) ), "{added}", IF ( Added > 0 && Added < 0.05, "<0.1", FORMAT ( Added, "#,0.0", "en-GB" ) ) ), "{year}", FORMAT ( LatestYear, "0" ) )
+		displayFolder: Text
+
+	measure 'KPI Pipeline Status' =
+			VAR ConstructionShare = COALESCE ( [Construction % of Pipeline], 0 )
+			RETURN
+			    SUBSTITUTE ( IF ( ConstructionShare < 0.25, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.pipeline.only" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.pipeline.only" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.pipeline.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.pipeline.neutral" ) ) ), "{pct}", FORMAT ( ConstructionShare, "0.0%", "en-GB" ) )
+		displayFolder: Text
+
+	measure 'Construction % of Total Label' =
+			-- Detail label: hidden under 1%, where it would round to 0%
+			VAR Share = [Construction % of Total]
+			RETURN IF ( Share >= 0.01, Share )
+		formatString: 0%
+		isHidden
+		displayFolder: Risk
+
+	measure 'Share of Pipeline %' = DIVIDE ( [Total GW], CALCULATE ( [Pipeline GW], REMOVEFILTERS ( 'Status' ) ) )
+		formatString: 0%
+		displayFolder: Risk
+
+	measure 'Construction % of Total' = DIVIDE ( [Construction GW], CALCULATE ( [Construction GW], ALLSELECTED ( 'Country' ) ) )
+		formatString: 0%
+		displayFolder: Risk
+
 	measure 'Technology Colour' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
@@ -274,6 +363,19 @@ table _Measures
 			    "cancelled", "#d8d8d5",
 			    "#e1e0de"
 			)
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Top Builder Colour' =
+			-- Accent on the country building the most; ALLEXCEPT stops the bar's own country filter leaking in
+			VAR TopBuilder =
+			    TOPN (
+			        1,
+			        ADDCOLUMNS ( ALL ( 'Country'[Country ID] ), "@Construction", CALCULATE ( [Construction GW], ALLEXCEPT ( 'Country', 'Country'[Country ID] ) ) ),
+			        [@Construction], DESC
+			    )
+			RETURN
+			    IF ( SELECTEDVALUE ( 'Country'[Country ID] ) IN SELECTCOLUMNS ( TopBuilder, "ID", 'Country'[Country ID] ), [Accent Colour], [Neutral Colour] )
 		isHidden
 		displayFolder: Formatting
 

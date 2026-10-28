@@ -17,6 +17,7 @@ Status ───────┘   unit grain)  └── Plant (EN/AR name)
  in-totals / risk-only)
 
 Generation (country × year: wind+solar TWh, total TWh, emissions) ── Country
+World Generation (year: wind+solar TWh, total TWh)   disconnected benchmark
 Translations (key, en, ar, provenance)  ┐ disconnected
 Language (en / ar)                      │ helper tables
 Refresh info (one row, refresh time)    ┘
@@ -85,7 +86,9 @@ The fact table is at **unit (phase) level**: 957 rows, as GEM publishes it. Stat
 | Generation | `Wind Solar Share %`, `Emissions Intensity g/kWh`, `Total Generation TWh`, `Ember Year` | Latest year per country; region = weighted (summed TWh); trend to 2023 |
 | Headlines | `Headline Overview`, `Headline Breakdown`, `Headline Opportunity`, `Headline Detail` | Built from translated templates; see section 8a |
 | Text (hidden) | `Language Code`, `Scope Text`, `Scope Possessive Text` | Page language; "the region" / country name / "the selected countries" |
-| Formatting | `Technology Colour`, `Status Colour` and their `… Faded` twins, `Accent Colour`, `Neutral Colour` | Hidden; return hex codes for conditional formatting. Which item gets the accent is decided per visual, by a small highlight measure built with that visual |
+| KPI | `Full Coverage Year`, `Wind Solar Share % Full Coverage`, `World Wind Solar Share %`, `KPI Share Status`, `KPI Operating Status`, `KPI Pipeline Status`, `Latest Full Year`, last-point measures | Status lines are translated templates; region and world are compared in the latest year all countries in view have data (2023 for the region) |
+| Shares | `Construction % of Total` (+ hidden label version, blank under 1%), `Share of Pipeline %` | Detail labels on bars |
+| Formatting | `Top Builder Colour`; `Technology Colour`, `Status Colour` and their `… Faded` twins, `Accent Colour`, `Neutral Colour` | Hidden; return hex codes for conditional formatting. Which item gets the accent is decided per visual, by a small highlight measure built with that visual |
 | Footer | `Footer Refreshed`, `Footer Data To` | Full translated sentences; dates `dd mmm yy, HH:mm` UTC |
 
 **Insight titles:** visual titles start static. During development we test which visuals benefit from a dynamic takeaway; each one adopted becomes a dynamic measure (section 7).
@@ -125,3 +128,4 @@ Each headline picks a template by threshold, then fills its `{placeholders}`. Nu
 | 15 | Headline variants | Alternative wording chosen by thresholds (section 8a) |
 | 16 | Scope wording | "the region", the country name, or "the selected countries", written to read naturally in each language |
 | 17 | Overview focus | Slicer toggles the Overview headline between construction (scale) and capacity that came online (speed) |
+| 18 | World benchmark | `World Generation` from the same Ember file; compared like-for-like in the full-coverage year |

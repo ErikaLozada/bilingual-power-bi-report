@@ -266,3 +266,4 @@ Data caveats on the page:
 | 7 | Navigation buttons | Moved from the bottom corner to the header (Back / Next); see `visual-guidelines.md` |
 | 8 | Hydrogen-linked capacity | Unit level, as GEM flags it: 253 GW, 57% of the pipeline |
 | 9 | Owner capacity | Weighted by ownership share; owners without a stated share split the remainder equally |
+| 10 | World benchmark | Added: Ember world wind+solar share, used as the comparison line in the share KPI (region 3.8% vs world 13.4% in 2023) |
