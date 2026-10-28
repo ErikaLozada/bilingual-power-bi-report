@@ -48,6 +48,84 @@ table _Measures
 		formatString: 0.0%
 		displayFolder: Hydrogen
 
+	measure 'Wind Solar TWh' =
+			IF (
+			    ISFILTERED ( 'Generation'[Year] ),
+			    VAR CountriesInContext = COUNTROWS ( 'Country' )
+			    VAR CountriesWithData = DISTINCTCOUNT ( 'Generation'[Country ID] )
+			    RETURN
+			        IF (
+			            HASONEVALUE ( 'Generation'[Year] ) && CountriesWithData = CountriesInContext,
+			            SUM ( 'Generation'[Wind Solar TWh] )
+			        ),
+			    SUMX (
+			        VALUES ( 'Country'[Country ID] ),
+			        VAR LatestYear = CALCULATE ( MAX ( 'Country'[Ember Latest Year] ) )
+			        RETURN CALCULATE ( SUM ( 'Generation'[Wind Solar TWh] ), 'Generation'[Year] = LatestYear )
+			    )
+			)
+		formatString: #,0.0
+		isHidden
+		displayFolder: Generation
+
+	measure 'Emissions MtCO2e' =
+			IF (
+			    ISFILTERED ( 'Generation'[Year] ),
+			    VAR CountriesInContext = COUNTROWS ( 'Country' )
+			    VAR CountriesWithData = DISTINCTCOUNT ( 'Generation'[Country ID] )
+			    RETURN
+			        IF (
+			            HASONEVALUE ( 'Generation'[Year] ) && CountriesWithData = CountriesInContext,
+			            SUM ( 'Generation'[Emissions MtCO2e] )
+			        ),
+			    SUMX (
+			        VALUES ( 'Country'[Country ID] ),
+			        VAR LatestYear = CALCULATE ( MAX ( 'Country'[Ember Latest Year] ) )
+			        RETURN CALCULATE ( SUM ( 'Generation'[Emissions MtCO2e] ), 'Generation'[Year] = LatestYear )
+			    )
+			)
+		formatString: #,0.0
+		isHidden
+		displayFolder: Generation
+
+	measure 'Total Generation TWh' =
+			IF (
+			    ISFILTERED ( 'Generation'[Year] ),
+			    VAR CountriesInContext = COUNTROWS ( 'Country' )
+			    VAR CountriesWithData = DISTINCTCOUNT ( 'Generation'[Country ID] )
+			    RETURN
+			        IF (
+			            HASONEVALUE ( 'Generation'[Year] ) && CountriesWithData = CountriesInContext,
+			            SUM ( 'Generation'[Total Generation TWh] )
+			        ),
+			    SUMX (
+			        VALUES ( 'Country'[Country ID] ),
+			        VAR LatestYear = CALCULATE ( MAX ( 'Country'[Ember Latest Year] ) )
+			        RETURN CALCULATE ( SUM ( 'Generation'[Total Generation TWh] ), 'Generation'[Year] = LatestYear )
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Generation
+
+	measure 'Wind Solar Share %' = DIVIDE ( [Wind Solar TWh], [Total Generation TWh] )
+		formatString: 0.0%
+		displayFolder: Generation
+
+	measure 'Emissions Intensity g/kWh' = DIVIDE ( [Emissions MtCO2e], [Total Generation TWh] ) * 1000
+		formatString: #,0
+		displayFolder: Generation
+
+	measure 'Ember Year' =
+			IF (
+			    ISFILTERED ( 'Generation'[Year] ),
+			    FORMAT ( SELECTEDVALUE ( 'Generation'[Year] ), "0" ),
+			    VAR FirstYear = MIN ( 'Country'[Ember Latest Year] )
+			    VAR LastYear = MAX ( 'Country'[Ember Latest Year] )
+			    RETURN
+			        IF ( FirstYear = LastYear, FORMAT ( FirstYear, "0" ), FORMAT ( FirstYear, "0" ) & "–" & FORMAT ( LastYear, "0" ) )
+			)
+		displayFolder: Generation
+
 	column Placeholder
 		dataType: string
 		isHidden

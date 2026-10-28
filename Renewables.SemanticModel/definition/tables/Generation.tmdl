@@ -14,18 +14,21 @@ table Generation
 
 	column 'Wind Solar TWh'
 		dataType: double
+		isHidden
 		formatString: #,0.00
 		summarizeBy: none
 		sourceColumn: Wind Solar TWh
 
 	column 'Total Generation TWh'
 		dataType: double
+		isHidden
 		formatString: #,0.00
 		summarizeBy: none
 		sourceColumn: Total Generation TWh
 
 	column 'Emissions MtCO2e'
 		dataType: double
+		isHidden
 		formatString: #,0.00
 		summarizeBy: none
 		sourceColumn: Emissions MtCO2e
