@@ -98,6 +98,8 @@ Light theme: Power BI has no dark mode that viewers can switch on. All categoric
 
 Darkest means furthest along. A traffic-light scale was rejected: "announced" is not "bad".
 
+The Overview year chart uses the same two steps: operating (came online) and under construction (by expected year).
+
 **Purple means project status and nothing else.** Charts split by stage use this scale on every page. Totals that aren't split by stage are neutral (`#d3d2cc`), and so are table data bars. Operating against planned capacity uses dark grey (`#5c5b57`) against neutral: Power BI can't colour bars by category when a chart has two measures, so the technology colours can't be used there.
 
 ### 6.3 Accent
@@ -130,7 +132,7 @@ Greys run lightest to darkest: gridlines → neutral → Other.
 |---|---|---|
 | Page title | 20 | Segoe UI Semibold |
 | Page headline (subtitle) | 18 | Segoe UI, secondary text colour |
-| KPI value | 36 | Segoe UI Semibold |
+| KPI value | 44 on the page's key KPI, 30 on the others | Segoe UI Semibold |
 | KPI label / status line | 13 | Segoe UI |
 | Visual title (charts and KPI panels alike) | 16 | Segoe UI Semibold |
 | Axis labels, data labels, legend | 12 | Segoe UI (trend axes 11) |
@@ -224,6 +226,20 @@ Stacked with no gaps, on one white card:
 ### 10.5 Scatter
 
 - Both axes start at 0 and end at 1.2 × the largest value in view (a model measure), so the biggest bubbles are never clipped.
+- v2: the Opportunity scatter was replaced by gap-to-world bars (10.7); the rule stays for any future scatter.
+
+### 10.7 Chart checks (v2, from the dataviz skill)
+
+Every chart is checked against these before review:
+
+- **Pick the form from the question.** Gap to a baseline → bars either side of zero (Opportunity: share minus the world's). One item matters → accent on it, the rest neutral. A single number → a KPI, not a chart.
+- **One value axis.** Never two y-scales on one chart. Two measures of different scale → two charts.
+- **Label selectively.** Time series label the latest full year and anything forward-looking; a recessive value axis (solid hairline gridlines) carries the rest. Ranked bar charts keep a label per bar.
+- **A label never collides with or is clipped by its mark.** Bar charts get axis headroom from a model measure; a label that doesn't fit inside a stacked segment is dropped to the tooltip.
+- **A KPI's trend shows the same thing as its number** (operating capacity → cumulative line, not yearly additions).
+- **One lead number per page:** the key KPI's value is larger than the others (section 7).
+- **Say what the data can't cover** next to the chart (e.g. the share of under-construction capacity with no expected year).
+- **Two or more series get a legend**; on custom legends the swatch is coloured and the label stays in text colour.
 
 ### 10.6 Checking
 
@@ -259,3 +275,8 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 24 | Unit column | Dropped from the projects table: GEM's unit names are partly Arabic-only |
 | 25 | Technology palette | Gold, teal, blue (candidate B): matched lightness and saturation so the hues don't clash; passes the colour-vision checks |
 | 26 | Table column formatting | ▲ / ▼ vs world share, pipeline × operating, status dot; native data bars kept |
+| 27 | v2 chart checks | Section 10.7, adopted from the dataviz skill review: form from the question, one value axis, selective labels, no clipped labels, trend matches the KPI, one lead number per page |
+| 28 | Key KPI size | 44 pt on the page's key KPI, 30 pt on the others (was 36 pt on all) |
+| 29 | Overview main chart | Came online by year (2015–2025) plus under construction by expected year (2026–2029), status colours, with a coverage note |
+| 30 | Opportunity main chart | Gap-to-world bars replace the scatter |
+| 31 | Breakdown supporting chart | Hydrogen-tied vs rest of the pipeline by country replaces operating vs planned by technology |

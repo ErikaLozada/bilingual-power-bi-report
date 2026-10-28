@@ -80,10 +80,10 @@ The fact table is at **unit (phase) level**: 957 rows, as GEM publishes it. Stat
 
 | Folder | Measures | Notes |
 |---|---|---|
-| Capacity | `Operating GW`, `Construction GW`, `Pre-construction GW`, `Announced GW`, `Pipeline GW` (construction + pre-construction + announced), `Total GW` (operating + pipeline), `GW Added` (operating, by start year) | Totals exclude shelved and cancelled |
+| Capacity | `Operating GW`, `Construction GW`, `Pre-construction GW`, `Announced GW`, `Pipeline GW` (construction + pre-construction + announced), `Total GW` (operating + pipeline), `GW Added` (operating, by start year), `Operating GW Cumulative` (v2) | Totals exclude shelved and cancelled |
 | Risk | `Shelved GW`, `Cancelled GW`, `Construction % of Pipeline`, `Pipeline to Operating Ratio` | |
-| Hydrogen | `Hydrogen Pipeline GW`, `Hydrogen % of Pipeline` | |
-| Generation | `Wind Solar Share %`, `Emissions Intensity g/kWh`, `Total Generation TWh`, `Ember Year` | Latest year per country; region = weighted (summed TWh); trend to 2023 |
+| Hydrogen | `Hydrogen Pipeline GW`, `Hydrogen % of Pipeline`, `Non-hydrogen Pipeline GW` (v2, only where some is tied) | |
+| Generation | `Wind Solar Share %`, `Emissions Intensity g/kWh`, `Total Generation TWh`, `Ember Year`, `Share Gap to World pts` (v2) | Latest year per country; region = weighted (summed TWh); trend to 2023 |
 | Headlines | `Headline Overview`, `Headline Breakdown`, `Headline Opportunity`, `Headline Detail` | Built from translated templates; see section 8a |
 | Text (hidden) | `Language Code`, `Scope Text`, `Scope Possessive Text` | Page language; "the region" / country name / "the selected countries" |
 | KPI | `Full Coverage Year`, `Wind Solar Share % Full Coverage`, `World Wind Solar Share %`, `KPI Share Status`, `KPI Operating Status`, `KPI Pipeline Status`, `Latest Full Year`, last-point measures | Status lines are translated templates; region and world are compared in the latest year all countries in view have data (2023 for the region) |

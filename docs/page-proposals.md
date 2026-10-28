@@ -4,6 +4,25 @@
 
 Every page follows the agreed frame (visual-guidelines.md sections 2–4 and 10): dynamic headline, Back / Next, language switch and ☰ menu in the header; KPI row ≈ 30% and main visuals ≈ 70% of the body; footer with source, refresh time and data period; a bookmark menu panel holding slicers and notes.
 
+## v2 changes (branch `report-v2`, for comparison with v1)
+
+v1 stays live in the `bilingual-report` workspace (main); v2 is in `bilingual-dev`. Changes come from the dataviz skill review (visual-guidelines.md section 10.7) and two new analyses.
+
+| Page | v1 | v2 | Why |
+|---|---|---|---|
+| Overview main | Came online each year 2010–2025, stacked by technology, a label on every year | Came online 2015–2025 plus **under construction by expected year 2026–2029**; labels only on 2025 and the expected years; value axis with hairlines; note: expected year known for 59% of the 51.6 GW under construction (21.4 GW has none) | Analysis 1: what comes online next (2–3-year persona). Selective labels; 2010–2014 was near zero |
+| Overview KPI 2 | 49.8 GW over a line of yearly additions | Same value over the **cumulative** line | Trend now shows what the number shows |
+| Pipeline KPI (all pages) | `247.0` label ran into its bar | More axis headroom | Labels never collide with their mark |
+| Key KPI | All values 36 pt | Key KPI 44 pt, others 30 pt (Overview: share; Breakdown: pipeline; Opportunity: under construction) | One lead number per page |
+| Breakdown supporting | Operating vs planned by technology | **Pipeline tied to green hydrogen by country**: tied (dark grey, labelled GW · %) vs rest (neutral) | Analysis 3: Mauritania 96%, Djibouti 98%, Oman 85%, Morocco 58% hydrogen-tied |
+| Opportunity main | Scatter: share × under construction | **Gap-to-world bars**: each country's wind + solar share minus the world's (pts), Egypt (top builder) in the accent | Answers Q8 directly; the scatter's labels overlapped |
+
+Not built from the review:
+- **Dumbbell (operating vs planned by country):** on one linear scale operating (≤ 12 GW) collapses against planned (up to 113 GW); the scorecard's pipeline multiple carries this instead.
+- Filter-state line in the header and value-first tooltips (review items C and D): not in this round.
+
+Trade-off to review: the Overview no longer shows the technology split of added capacity, and Breakdown no longer compares operating vs planned by technology. Technology now shows only in the hydrogen KPI and the slicers.
+
 ## 1. Overview: "Building is accelerating, but from a very small base"
 
 | Part | Proposal | Today's values |
@@ -62,9 +81,9 @@ No KPI row here: this page is the detail behind the other three.
 ## 6. Known issues in v1
 
 - **Arabic plant names are not unique.** GEM gives some separate plants the same Arabic name (e.g. AMUN wind and AMUN solar are both "آمون للهيدروجين الأخضر"), so Arabic visuals grouped by plant merge them: the Arabic top-10 differs from the English one. Needs a decision: make `Plant AR` unique (e.g. add the technology) or group by plant ID and show the name as a label.
-- Arabic Projects page: the top-10 bars lose their value and H₂ labels (the English page shows them).
+- Projects page: the top-10 bars show no value or H₂ labels (seen in English too in the v2 render; this page is unchanged from v1).
 - Slicer UI words ("Select all", "All") stay in English on Arabic pages; they come from Power BI, not the report.
-- Scatter labels overlap for the small countries near the origin.
+- Scatter labels overlap for the small countries near the origin (v1 only; v2 replaces the scatter).
 - The language button keeps the current page; filters chosen on one language page don't carry over.
 
 ## 7. How v1 is built and checked
