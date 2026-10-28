@@ -123,6 +123,36 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Status Colour"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Measures.Status Dot"
+          }
         }
       ],
       "grid": [
@@ -228,6 +258,20 @@
           },
           "selector": {
             "metadata": "Technology.Technology Group"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Status Dot"
           }
         },
         {
@@ -405,6 +449,20 @@
             "value": {
               "expr": {
                 "Literal": {
+                  "Value": "24D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Status Dot"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
                   "Value": "170D"
                 }
               }
@@ -447,7 +505,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "590D"
+                  "Value": "566D"
                 }
               }
             }
@@ -688,6 +746,21 @@
             },
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Status Dot"
+                }
+              },
+              "queryRef": "_Measures.Status Dot",
+              "nativeQueryRef": "Status Dot",
+              "displayName": " "
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
@@ -844,7 +917,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.projects\", \"display\": {\"Plant.Plant\": \"field.plant\", \"Country.Country\": \"field.country\", \"Technology.Technology Group\": \"field.technology\", \"Status.Status\": \"field.status\", \"_Measures.Capacity MW\": \"field.capacity-mw\", \"Unit.Start Year\": \"field.start-year\", \"Unit.Owner\": \"field.owner\", \"_Measures.Hydrogen Marker\": \"field.hydrogen\"}}"
+      "value": "{\"title\": \"chart.projects\", \"display\": {\"Plant.Plant\": \"field.plant\", \"Country.Country\": \"field.country\", \"Technology.Technology Group\": \"field.technology\", \"_Measures.Status Dot\": \"field.status-dot\", \"Status.Status\": \"field.status\", \"_Measures.Capacity MW\": \"field.capacity-mw\", \"Unit.Start Year\": \"field.start-year\", \"Unit.Owner\": \"field.owner\", \"_Measures.Hydrogen Marker\": \"field.hydrogen\"}}"
     }
   ]
 }

@@ -227,7 +227,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Wind Solar Share %"
+            "metadata": "_Measures.Scorecard Share %"
           }
         },
         {
@@ -283,7 +283,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Pipeline GW"
+            "metadata": "_Measures.Scorecard Pipeline GW"
           }
         },
         {
@@ -383,7 +383,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Wind Solar Share %"
+            "metadata": "_Measures.Scorecard Share %"
           }
         },
         {
@@ -439,7 +439,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Pipeline GW"
+            "metadata": "_Measures.Scorecard Pipeline GW"
           }
         }
       ]
@@ -651,11 +651,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Wind Solar Share %"
+                  "Property": "Scorecard Share %"
                 }
               },
-              "queryRef": "_Measures.Wind Solar Share %",
-              "nativeQueryRef": "Wind Solar Share %",
+              "queryRef": "_Measures.Scorecard Share %",
+              "nativeQueryRef": "Scorecard Share %",
               "displayName": "Wind + solar"
             },
             {
@@ -711,11 +711,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Pipeline GW"
+                  "Property": "Scorecard Pipeline GW"
                 }
               },
-              "queryRef": "_Measures.Pipeline GW",
-              "nativeQueryRef": "Pipeline GW",
+              "queryRef": "_Measures.Scorecard Pipeline GW",
+              "nativeQueryRef": "Scorecard Pipeline GW",
               "displayName": "Pipeline"
             }
           ]
@@ -744,7 +744,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.scorecard\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Ember Year\": \"field.year\", \"_Measures.Wind Solar Share %\": \"field.share\", \"_Measures.Emissions Intensity g/kWh\": \"field.intensity\", \"_Measures.Operating GW\": \"field.operating\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Pipeline GW\": \"field.pipeline\"}}"
+      "value": "{\"title\": \"chart.scorecard\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Ember Year\": \"field.year\", \"_Measures.Scorecard Share %\": \"field.share\", \"_Measures.Emissions Intensity g/kWh\": \"field.intensity\", \"_Measures.Operating GW\": \"field.operating\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Scorecard Pipeline GW\": \"field.pipeline\"}}"
     }
   ]
 }

@@ -88,6 +88,7 @@ nav.menu-close,✕,✕,machine
 menu.title,Filters and notes,عوامل التصفية والملاحظات,machine
 field.country,Country,الدولة,machine
 field.technology,Technology,التقنية,machine
+field.status-dot, , ,machine
 field.status,Status,الحالة,machine
 field.focus,Headline focus,محور العنوان,machine
 field.plant,Project,المشروع,machine
@@ -124,7 +125,7 @@ chart.projects,All projects,جميع المشاريع,machine
 chart.top-builders,Building the most (GW),الأكثر بناءً (GW),machine
 note.overview,"Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced.",حصة الرياح والشمسية: Ember، آخر عام تتوفر فيه بيانات جميع الدول (2023)؛ المتوسط العالمي من إجمالي Ember العالمي. القدرة قيد التشغيل: المحطات الكبيرة التي يتتبعها GEM. المشاريع المخطط لها: قيد الإنشاء وما قبل الإنشاء والمُعلنة.,machine
 note.breakdown,Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM.,تشمل المجاميع القدرة قيد التشغيل والمخطط لها. تُحتسب المشاريع المُعلّقة والمُلغاة في لوحة المُعلّقة أو المُلغاة فقط. يحدد GEM ارتباط كل وحدة بالهيدروجين الأخضر.,machine
-note.opportunity,Low share with a lot under construction: the transition is under way. Low share with little under construction: untapped or stalled. High share: already advanced. Shares use each country's latest Ember year; bubble size is total generation.,حصة منخفضة مع بناء كبير: التحول جارٍ. حصة منخفضة مع بناء قليل: أسواق غير مستغلة أو متوقفة. حصة مرتفعة: أسواق متقدمة. تستخدم الحصص آخر سنة متاحة في Ember لكل دولة؛ حجم الفقاعة هو إجمالي التوليد.,machine
+note.opportunity,Low share with a lot under construction: the transition is under way. Low share with little under construction: untapped or stalled. High share: already advanced. Shares use each country's latest Ember year; bubble size is total generation. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity.,حصة منخفضة مع بناء كبير: التحول جارٍ. حصة منخفضة مع بناء قليل: أسواق غير مستغلة أو متوقفة. حصة مرتفعة: أسواق متقدمة. تستخدم الحصص آخر سنة متاحة في Ember لكل دولة؛ حجم الفقاعة هو إجمالي التوليد. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل.,machine
 note.detail,Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. H₂ marks projects tied to green hydrogen.,قدرة المالكين مرجحة بحصة الملكية. أسماء المشاريع العربية من GEM حيثما توفرت، وإلا يظهر الاسم الإنجليزي. يشير H₂ إلى المشاريع المرتبطة بالهيدروجين الأخضر.,machine
 legend.region,━ Arab League   ,━ الدول العربية   ,machine
 legend.world,━ World,━ العالم,machine

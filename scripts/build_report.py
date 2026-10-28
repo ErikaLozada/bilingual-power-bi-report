@@ -311,10 +311,10 @@ def scatter():
     return v
 
 
-TEXT_MEASURES = {"Ember Year", "Hydrogen Marker"}
+TEXT_MEASURES = {"Ember Year", "Hydrogen Marker", "Status Dot"}
 
 
-def table(columns, bar_measure=None, title_key=None, filters=None):
+def table(columns, bar_measure=None, title_key=None, filters=None, dot_measure=None):
     """columns: (field, display key, width px). Widths fill the visual, so the mirrored grid leaves no gap.
     Text and descriptive numbers (years) align left, values right."""
     v = Visual("tableEx", title_key=title_key)
@@ -341,6 +341,11 @@ def table(columns, bar_measure=None, title_key=None, filters=None):
             "properties": {"dataBars": {"positiveColor": colour(NEUTRAL), "negativeColor": colour(ACCENT),
                                         "axisColor": colour(RULE), "reverseDirection": b(False), "hideText": b(False)}},
             "selector": {"metadata": f"_Measures.{bar_measure}"}})
+    if dot_measure:
+        # The status dot takes the status colour, linking the table to the status charts
+        v.body["objects"]["values"].append({
+            "properties": {"fontColor": {"solid": {"color": {"expr": mea("Status Colour")}}}},
+            "selector": {"data": [{"dataViewWildcard": {"matchingOption": 1}}], "metadata": f"_Measures.{dot_measure}"}})
     v.filters += filters or []
     return v
 
@@ -550,10 +555,10 @@ def opportunity():
     left_w = (W - 2 * M - G) * 0.5
     # Widths sum to the inner width (930 - 2 x 16 padding) less 18 px for the scroll bar
     card = table([(col("Country", "Country"), "field.country", 150), (mea("Ember Year"), "field.year", 90),
-                  (mea("Wind Solar Share %"), "field.share", 120),
+                  (mea("Scorecard Share %"), "field.share", 120),
                   (mea("Emissions Intensity g/kWh"), "field.intensity", 90),
                   (mea("Operating GW"), "field.operating", 120), (mea("Construction GW"), "field.construction", 180),
-                  (mea("Pipeline GW"), "field.pipeline", 130)],
+                  (mea("Scorecard Pipeline GW"), "field.pipeline", 130)],
                  bar_measure="Construction GW", title_key="chart.scorecard")
     main = [("scatter", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, scatter()),
             ("scorecard", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, card)]
@@ -573,10 +578,10 @@ def detail():
     # Widths sum to the inner width (1880 - 2 x 16 padding) less 18 px for the scroll bar
     projects = table([(col("Plant", "Plant"), "field.plant", 440), (col("Country", "Country"), "field.country", 150),
                       (col("Technology", "Technology Group"), "field.technology", 130),
-                      (col("Status", "Status"), "field.status", 170), (mea("Capacity MW"), "field.capacity-mw", 140),
-                      (col("Unit", "Start Year"), "field.start-year", 110), (col("Unit", "Owner"), "field.owner", 590),
+                      (mea("Status Dot"), "field.status-dot", 24), (col("Status", "Status"), "field.status", 170), (mea("Capacity MW"), "field.capacity-mw", 140),
+                      (col("Unit", "Start Year"), "field.start-year", 110), (col("Unit", "Owner"), "field.owner", 566),
                       (mea("Hydrogen Marker"), "field.hydrogen", 100)],
-                     bar_measure="Capacity MW", title_key="chart.projects",
+                     bar_measure="Capacity MW", title_key="chart.projects", dot_measure="Status Dot",
                      filters=[in_filter("Status", "In Totals", "true")])
     main = [("top_projects", M, BODY_Y, left_w, top_h, top),
             ("top_owners", M + left_w + G, BODY_Y, W - 2 * M - left_w - G, top_h, owners),

@@ -559,6 +559,38 @@ table _Measures
 		isHidden
 		displayFolder: Formatting
 
+	measure 'Scorecard Share %' = [Wind Solar Share %]
+		displayFolder: Scorecard
+		formatStringDefinition =
+			-- ▲ / ▼ against the world share in the same year (the country's latest Ember year unless a year is chosen)
+			VAR ShareYear = IF ( ISFILTERED ( 'Generation'[Year] ), SELECTEDVALUE ( 'Generation'[Year] ), MAX ( 'Country'[Ember Latest Year] ) )
+			VAR World =
+			    CALCULATE (
+			        DIVIDE ( SUM ( 'World Generation'[Wind Solar TWh] ), SUM ( 'World Generation'[Total Generation TWh] ) ),
+			        'World Generation'[Year] = ShareYear
+			    )
+			RETURN
+			    IF (
+			        ISBLANK ( SELECTEDMEASURE () ) || ISBLANK ( World ),
+			        "0.0%",
+			        "0.0%" & IF ( SELECTEDMEASURE () >= World, """ ▲""", """ ▼""" )
+			    )
+
+	measure 'Scorecard Pipeline GW' = [Pipeline GW]
+		displayFolder: Scorecard
+		formatStringDefinition =
+			-- Pipeline as a multiple of operating capacity, e.g. 101.4 · 11×; skipped below 0.1 GW, where it means nothing
+			VAR Ratio = [Pipeline to Operating Ratio]
+			RETURN
+			    IF (
+			        [Operating GW] < 0.1 || SELECTEDMEASURE () < 0.1,
+			        "#,0.0",
+			        "#,0.0" & """ · " & FORMAT ( Ratio, IF ( Ratio < 10, "0.0", "#,0" ), "en-GB" ) & "×"""
+			    )
+
+	measure 'Status Dot' = IF ( NOT ISBLANK ( [Capacity MW] ), "●" )
+		displayFolder: Scorecard
+
 	measure 'Ember Year' =
 			IF (
 			    ISFILTERED ( 'Generation'[Year] ),

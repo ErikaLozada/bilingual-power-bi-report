@@ -214,6 +214,11 @@ Stacked with no gaps, on one white card:
 - Headers Segoe UI Semibold 12 pt in secondary text; values Segoe UI 12 pt; horizontal rules only.
 - Text and descriptive numbers (years) are left-aligned; values are right-aligned.
 - Value columns carry data bars in neutral (`#d3d2cc`) with the number visible.
+- Column formatting only where it adds information, through dynamic format strings on table-only measures (the number underneath is unchanged, so sorting still works):
+  - Wind + solar share: `▲` / `▼` against the world share in the same year.
+  - Pipeline: the multiple of operating capacity (`101.4 · 11×`), shown only when both are at least 0.1 GW.
+  - Status: a `●` in the status colour before each status.
+- Glyph bars (▉ characters) are not used: they don't mirror on Arabic pages. Native data bars do.
 - Column widths are set to fill the visual (less the scroll bar), so there is no horizontal scroll bar and the mirrored grid leaves no gap.
 
 ### 10.5 Scatter
@@ -253,3 +258,4 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 23 | Scatter axes | 0 to 1.2 × the largest value, so bubbles aren't clipped |
 | 24 | Unit column | Dropped from the projects table: GEM's unit names are partly Arabic-only |
 | 25 | Technology palette | Gold, teal, blue (candidate B): matched lightness and saturation so the hues don't clash; passes the colour-vision checks |
+| 26 | Table column formatting | ▲ / ▼ vs world share, pipeline × operating, status dot; native data bars kept |
