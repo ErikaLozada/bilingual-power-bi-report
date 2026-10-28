@@ -3,11 +3,11 @@
   "name": "kpi0_body",
   "position": {
     "x": 20,
-    "y": 226,
-    "z": 8,
+    "y": 246,
+    "z": 9,
     "width": 613.33,
     "height": 154,
-    "tabOrder": 8
+    "tabOrder": 9
   },
   "visual": {
     "visualType": "lineChart",

@@ -3,11 +3,11 @@
   "name": "menu_close",
   "position": {
     "x": 36,
-    "y": 132,
-    "z": 10019,
+    "y": 152,
+    "z": 10020,
     "width": 44,
     "height": 44,
-    "tabOrder": 10019
+    "tabOrder": 10020
   },
   "visual": {
     "visualType": "actionButton",
@@ -97,35 +97,10 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],

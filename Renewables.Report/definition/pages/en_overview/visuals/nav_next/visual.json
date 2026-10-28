@@ -3,11 +3,11 @@
   "name": "nav_next",
   "position": {
     "x": 1648,
-    "y": 32,
-    "z": 1,
+    "y": 42,
+    "z": 2,
     "width": 56,
     "height": 56,
-    "tabOrder": 1
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "actionButton",
@@ -97,35 +97,10 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],

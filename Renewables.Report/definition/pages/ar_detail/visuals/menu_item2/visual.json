@@ -3,11 +3,11 @@
   "name": "menu_item2",
   "position": {
     "x": 24,
-    "y": 550,
-    "z": 10014,
+    "y": 570,
+    "z": 10015,
     "width": 412,
     "height": 80,
-    "tabOrder": 10014
+    "tabOrder": 10015
   },
   "visual": {
     "visualType": "slicer",

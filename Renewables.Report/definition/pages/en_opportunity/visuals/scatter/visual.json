@@ -3,11 +3,11 @@
   "name": "scatter",
   "position": {
     "x": 20,
-    "y": 400,
-    "z": 16,
+    "y": 420,
+    "z": 17,
     "width": 930.0,
-    "height": 600,
-    "tabOrder": 16
+    "height": 580,
+    "tabOrder": 17
   },
   "visual": {
     "visualType": "scatterChart",
@@ -158,6 +158,25 @@
                   }
                 }
               }
+            },
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Scatter X Max"
+                }
+              }
             }
           }
         }
@@ -237,6 +256,25 @@
                       "Value": "'#e4e3df'"
                     }
                   }
+                }
+              }
+            },
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Scatter Y Max"
                 }
               }
             }

@@ -3,11 +3,11 @@
   "name": "nav_language",
   "position": {
     "x": 1724,
-    "y": 32,
-    "z": 2,
+    "y": 42,
+    "z": 3,
     "width": 100,
     "height": 56,
-    "tabOrder": 2
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "actionButton",
@@ -97,35 +97,10 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],

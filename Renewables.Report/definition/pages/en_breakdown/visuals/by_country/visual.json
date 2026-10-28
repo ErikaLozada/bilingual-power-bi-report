@@ -3,11 +3,11 @@
   "name": "by_country",
   "position": {
     "x": 20,
-    "y": 400,
-    "z": 16,
+    "y": 420,
+    "z": 17,
     "width": 1078.8,
-    "height": 600,
-    "tabOrder": 16
+    "height": 580,
+    "tabOrder": 17
   },
   "visual": {
     "visualType": "barChart",
@@ -283,6 +283,13 @@
               "expr": {
                 "Literal": {
                   "Value": "40D"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
                 }
               }
             }

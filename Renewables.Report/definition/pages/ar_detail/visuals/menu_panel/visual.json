@@ -3,11 +3,11 @@
   "name": "menu_panel",
   "position": {
     "x": 20,
-    "y": 120,
-    "z": 10009,
+    "y": 140,
+    "z": 10010,
     "width": 420,
-    "height": 880,
-    "tabOrder": 10009
+    "height": 860,
+    "tabOrder": 10010
   },
   "visual": {
     "visualType": "shape",

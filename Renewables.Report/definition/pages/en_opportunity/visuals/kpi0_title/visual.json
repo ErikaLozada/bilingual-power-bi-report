@@ -3,11 +3,11 @@
   "name": "kpi0_title",
   "position": {
     "x": 20,
-    "y": 120,
-    "z": 7,
+    "y": 140,
+    "z": 8,
     "width": 613.33,
     "height": 40,
-    "tabOrder": 7
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "textbox",

@@ -46,7 +46,7 @@ Every page follows the agreed frame (visual-guidelines.md sections 2–4 and 10)
 | Headline | `Headline Detail` | The 10 largest projects hold 35.4% of the pipeline; 56.6% is tied to green hydrogen |
 | Top left | Ten largest pipeline projects, stacked by status, H₂ marker | Two 30 GW Megaton Moon entries in Mauritania |
 | Top right | Owners of operating capacity, share-weighted | ACWA Power 5.7 GW |
-| Bottom | All projects table: project, unit, country, technology, status, MW (data bars), start year, owner, hydrogen | |
+| Bottom | All projects table: project, country, technology, status, MW (data bars), start year, owner, hydrogen | |
 | Menu | Status, technology, country; notes on owners and Arabic names | |
 
 No KPI row here: this page is the detail behind the other three.
@@ -57,7 +57,7 @@ No KPI row here: this page is the detail behind the other three.
 2. **Breakdown KPI 1** repeats Overview KPI 3 (pipeline by stage). Keep it, or swap for something new (e.g. pipeline-to-operating ratio)?
 3. **Opportunity scatter.** Add reference lines at the regional weighted share (agreed in scope) and quadrant labels?
 4. **Drillthrough** from Breakdown and Opportunity to Projects isn't built yet.
-5. **Projects table**: GEM's unit names are sometimes Arabic or "future phases"; keep the Unit column?
+5. ~~**Projects table**: keep the Unit column?~~ Dropped (visual-guidelines.md decision 24): GEM's English unit field holds Arabic for 6 units in 3 plants.
 
 ## 6. Known issues in v1
 

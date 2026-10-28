@@ -537,6 +537,16 @@ table _Measures
 		isHidden
 		displayFolder: Formatting
 
+	measure 'Scatter X Max' = 1.2 * MAXX ( VALUES ( 'Country'[Country ID] ), [Wind Solar Share %] )
+		formatString: 0.0%
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Scatter Y Max' = 1.2 * MAXX ( VALUES ( 'Country'[Country ID] ), [Construction GW] )
+		formatString: #,0.0
+		isHidden
+		displayFolder: Formatting
+
 	measure 'Ember Year' =
 			IF (
 			    ISFILTERED ( 'Generation'[Year] ),

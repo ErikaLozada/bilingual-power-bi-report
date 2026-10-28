@@ -3,11 +3,11 @@
   "name": "kpi0_value",
   "position": {
     "x": 20,
-    "y": 160,
-    "z": 7,
+    "y": 180,
+    "z": 8,
     "width": 613.33,
     "height": 66,
-    "tabOrder": 7
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "shape",

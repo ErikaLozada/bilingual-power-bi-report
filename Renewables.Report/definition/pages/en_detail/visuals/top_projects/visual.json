@@ -3,11 +3,11 @@
   "name": "top_projects",
   "position": {
     "x": 20,
-    "y": 120,
-    "z": 6,
+    "y": 140,
+    "z": 7,
     "width": 1078.8,
     "height": 380,
-    "tabOrder": 6
+    "tabOrder": 7
   },
   "visual": {
     "visualType": "barChart",
@@ -292,6 +292,13 @@
               "expr": {
                 "Literal": {
                   "Value": "40D"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
                 }
               }
             }

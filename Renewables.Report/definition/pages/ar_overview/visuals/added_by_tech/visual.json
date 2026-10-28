@@ -3,11 +3,11 @@
   "name": "added_by_tech",
   "position": {
     "x": 20,
-    "y": 400,
-    "z": 16,
+    "y": 420,
+    "z": 17,
     "width": 1880,
-    "height": 600,
-    "tabOrder": 16
+    "height": 580,
+    "tabOrder": 17
   },
   "visual": {
     "visualType": "columnChart",
@@ -231,6 +231,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Categorical'"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
                 }
               }
             }

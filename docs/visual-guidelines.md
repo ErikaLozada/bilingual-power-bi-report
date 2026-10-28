@@ -19,9 +19,10 @@ These elements are fixed on every page. The body between them changes with each 
 ```
 EN                                                        AR (mirrored)
 ┌ 20 ───────────────────────────────────── 20 ┐           ┌──────────────────────────────────────────┐
-│ Headline (DAX)        [◀ ▶] [EN|ع] [☰]      │ 20–100    │ [☰] [EN|ع] [▶ ◀]          (DAX) العنوان  │
+│ Page title            [◀ ▶] [EN|ع] [☰]      │ 20–120    │ [☰] [EN|ع] [▶ ◀]             عنوان الصفحة │
+│ Headline (DAX)                              │           │                           (DAX) العنوان  │
 ├─────────────────────────────────────────────┤           ├──────────────────────────────────────────┤
-│                                    ┌────────┤ 120–1000  ├────────┐                                 │
+│                                    ┌────────┤ 140–1000  ├────────┐                                 │
 │  body: key visual + supporting     │ menu   │           │ menu   │   body                          │
 │                                    │ panel  │           │ panel  │                                 │
 │                                    └────────┤           ├────────┘                                 │
@@ -30,12 +31,13 @@ EN                                                        AR (mirrored)
 └─────────────────────────────────────────────┘           └──────────────────────────────────────────┘
 ```
 
-### 2.1 Header (y 20–100)
+### 2.1 Header (y 20–120)
 
-- The dynamic headline sits on the reading-start side: left in English, right in Arabic.
+- The page title (20 pt Semibold) sits on the reading-start side: left in English, right in Arabic. The dynamic headline sits below it as a subtitle (18 pt regular, secondary text) and may wrap to two lines.
+- The header sits on the canvas: no white card behind the title, headline or buttons. Buttons have no fill, only a thin grey outline. Only visuals have white cards.
 - The buttons sit on the reading-end side, in this order: Back / Next, language switch, menu toggle.
 
-### 2.2 Body (y 120–1000)
+### 2.2 Body (y 140–1000)
 
 - Each page's layout follows its story. **The visual carrying the key message gets the most space and emphasis,** and the supporting visuals sit around it.
 - Body layouts are approved in the mock-up (section 5) before they are built.
@@ -95,6 +97,8 @@ Light theme: Power BI has no dark mode that viewers can switch on. All categoric
 
 Darkest means furthest along. A traffic-light scale was rejected: "announced" is not "bad".
 
+**Purple means project status and nothing else.** Charts split by stage use this scale on every page. Totals that aren't split by stage are neutral (`#d3d2cc`), and so are table data bars. Operating against planned capacity uses dark grey (`#5c5b57`) against neutral: Power BI can't colour bars by category when a chart has two measures, so the technology colours can't be used there.
+
 ### 6.3 Accent
 
 - One accent for the whole report: orange `#eb6834`. Red stays free for risk.
@@ -123,7 +127,8 @@ Greys run lightest to darkest: gridlines → neutral → Other.
 
 | Element | Size (pt) | Font |
 |---|---|---|
-| Page headline | 24 | Segoe UI Semibold |
+| Page title | 20 | Segoe UI Semibold |
+| Page headline (subtitle) | 18 | Segoe UI, secondary text colour |
 | KPI value | 36 | Segoe UI Semibold |
 | KPI label / status line | 13 | Segoe UI |
 | Visual title (charts and KPI panels alike) | 16 | Segoe UI Semibold |
@@ -163,7 +168,7 @@ Arabic pages are generated from the English pages by the mirror script.
 | Time axes (column, line) | Time runs right to left (earliest year on the right); value axis on the right. Done with a categorical year axis sorted descending, since a continuous axis can't be reversed |
 | Horizontal bars | Bars grow right to left; category labels on the right; legend top-right |
 | Opportunity scatter | Mirrored: X axis reversed (higher share further left), Y axis on the right; quadrant notes move with it |
-| Tables | Column order reversed (plant name rightmost), text right-aligned, data bars grow from the right |
+| Tables | Column order reversed (plant name rightmost), all columns right-aligned, data bars grow from the right. The native grid always starts at the left edge, so column widths fill the visual (section 10.4) |
 | Headers, tooltips | Arabic column names, set per visual by the mirror script |
 | Slicer values | Arabic columns from the model (country, status, technology) |
 | Text size | +1 pt for sizes of 16 pt or below (section 7) |
@@ -198,6 +203,7 @@ Stacked with no gaps, on one white card:
 
 ### 10.3 Bar charts
 
+- Bars are thin: the gap between bars is 50% of the category width (also on column charts).
 - Labels show the value and, as a detail label, the **% of total** in the current view (e.g. `19.6 · 38%`). Percentages under 1% are hidden instead of showing `0%`.
 - Highlight by rule: the key bar takes the accent through a model measure; the rest are neutral.
 - No value axis or gridlines; category labels 12 pt; categories sorted by value, or by stage order where the category has one (status).
@@ -205,9 +211,15 @@ Stacked with no gaps, on one white card:
 ### 10.4 Tables
 
 - Headers Segoe UI Semibold 12 pt in secondary text; values Segoe UI 12 pt; horizontal rules only.
-- GW columns carry data bars in a light tint (`#aaa8c6`) with the number visible; the column is kept narrow enough to avoid a horizontal scroll bar.
+- Text and descriptive numbers (years) are left-aligned; values are right-aligned.
+- Value columns carry data bars in neutral (`#d3d2cc`) with the number visible.
+- Column widths are set to fill the visual (less the scroll bar), so there is no horizontal scroll bar and the mirrored grid leaves no gap.
 
-### 10.5 Checking
+### 10.5 Scatter
+
+- Both axes start at 0 and end at 1.2 × the largest value in view (a model measure), so the biggest bubbles are never clipped.
+
+### 10.6 Checking
 
 Every page is rendered to PNG through the Power BI export API and looked at before review. Schema checks alone don't catch formatting that Fabric silently ignores.
 
@@ -233,3 +245,9 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 16 | Tables | Native table first; custom visual (HTML or Deneb) only if native mirroring fails |
 | 17 | Body font | Segoe UI regular replaces Light after the font test |
 | 18 | Visual patterns | KPI panel, bar, table and proportion rules in section 10, agreed from a rendered sample |
+| 19 | Page header | Page title above the headline subtitle (20 / 18 pt); header and buttons on the canvas, no cards or button fill |
+| 20 | Bar thickness | 50% gap between bars on every bar and column chart |
+| 21 | Colour roles | Purple only for status; totals not split by stage, and table data bars, in neutral; operating vs planned in dark grey vs neutral |
+| 22 | Table alignment | Text and years left, values right (English); everything right on Arabic pages; widths fill the visual |
+| 23 | Scatter axes | 0 to 1.2 × the largest value, so bubbles aren't clipped |
+| 24 | Unit column | Dropped from the projects table: GEM's unit names are partly Arabic-only |

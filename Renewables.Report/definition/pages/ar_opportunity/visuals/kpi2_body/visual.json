@@ -3,11 +3,11 @@
   "name": "kpi2_body",
   "position": {
     "x": 20.0,
-    "y": 226,
-    "z": 15,
+    "y": 246,
+    "z": 16,
     "width": 613.33,
     "height": 154,
-    "tabOrder": 15
+    "tabOrder": 16
   },
   "visual": {
     "visualType": "barChart",
@@ -198,6 +198,13 @@
               "expr": {
                 "Literal": {
                   "Value": "40D"
+                }
+              }
+            },
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
                 }
               }
             },

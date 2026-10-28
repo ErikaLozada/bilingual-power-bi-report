@@ -3,11 +3,11 @@
   "name": "menu_note",
   "position": {
     "x": 1484,
-    "y": 580,
-    "z": 10023,
+    "y": 600,
+    "z": 10024,
     "width": 412,
-    "height": 410,
-    "tabOrder": 10023
+    "height": 390,
+    "tabOrder": 10024
   },
   "visual": {
     "visualType": "textbox",

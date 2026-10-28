@@ -3,11 +3,11 @@
   "name": "menu_title",
   "position": {
     "x": 90,
-    "y": 120,
-    "z": 10010,
+    "y": 140,
+    "z": 10011,
     "width": 350,
     "height": 56,
-    "tabOrder": 10010
+    "tabOrder": 10011
   },
   "visual": {
     "visualType": "textbox",

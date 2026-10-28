@@ -189,8 +189,8 @@ def mirror_axes(visual):
         for entry in formatting:
             if "dataBars" in entry["properties"]:
                 entry["properties"]["dataBars"]["reverseDirection"] = lit("true")
-        for p in values:
-            formatting.append({"properties": {"alignment": lit("'Right'")}, "selector": {"metadata": p["queryRef"]}})
+            if "alignment" in entry["properties"]:
+                entry["properties"]["alignment"] = lit("'Right'")
         objects.setdefault("columnHeaders", [{"properties": {}}])[0]["properties"]["alignment"] = lit("'Right'")
 
 

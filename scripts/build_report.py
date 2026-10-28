@@ -21,15 +21,16 @@ SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/defini
 
 # Canvas and spacing (visual-guidelines.md sections 1-2)
 W, H, M, G = 1920, 1080, 20, 20
-HEADER_Y, HEADER_H = 20, 80
-BODY_Y, BODY_BOTTOM = 120, 1000
+HEADER_Y, HEADER_H = 20, 100
+BODY_Y, BODY_BOTTOM = 140, 1000
 FOOTER_Y, FOOTER_H = 1020, 40
 KPI_H = 260
+BAR_GAP = 50  # gap between bars, % of the category width
 MAIN_Y = BODY_Y + KPI_H + G
 
 # Colours and fonts (sections 6-7)
 CANVAS, CARD, RULE, INK, INK2 = "#f4f4f2", "#ffffff", "#e4e3df", "#1d1d1b", "#5c5b57"
-ACCENT, GREY_LINE = "#eb6834", "#b3b2ac"
+ACCENT, GREY_LINE, NEUTRAL = "#eb6834", "#b3b2ac", "#d3d2cc"
 TECH = {"Solar": "#eda100", "Wind": "#1baf7a", "Hydro": "#2a78d6", "Other": "#b3b2ac"}
 STATUS = {"Operating": "#2b2570", "Under construction": "#4a3fb0", "Pre-construction": "#7368d9",
           "Announced": "#a49cea", "Shelved": "#9e9d97", "Cancelled": "#9e9d97"}
@@ -255,7 +256,7 @@ def bars(category, values, title_key=None, visual_type="barChart", legend=None, 
                        "selector": {"data": [{"dataViewWildcard": {"matchingOption": 1}}]}})
     v.body["objects"] = {
         "dataPoint": data_point, "labels": labels,
-        "categoryAxis": axis(size=size, maxMarginFactor=n(40)),
+        "categoryAxis": axis(size=size, maxMarginFactor=n(40), innerPadding=lit(f"{BAR_GAP}L")),
         "valueAxis": axis(show=False),
         "legend": [{"properties": {"show": b(legend_show), "position": s("Top"), "fontSize": n(11),
                                    "fontFamily": s(FONT), "labelColor": colour(INK2), "showTitle": b(False)}}],
@@ -272,7 +273,7 @@ def columns_by_technology():
         "sortDefinition": {"sort": [{"field": col("Unit", "Start Year"), "direction": "Ascending"}], "isDefaultSort": True}}
     v.body["objects"] = {
         "dataPoint": series_colours("Technology", "Technology Group", TECH),
-        "categoryAxis": axis(size=12, color=INK2, axisType=s("Categorical")),
+        "categoryAxis": axis(size=12, color=INK2, axisType=s("Categorical"), innerPadding=lit(f"{BAR_GAP}L")),
         "valueAxis": axis(show=False),
         "labels": [{"properties": {"show": b(False)}}],
         "totals": [{"properties": {"show": b(True), "fontSize": n(12), "fontFamily": s(FONT_SEMI),
@@ -296,20 +297,27 @@ def scatter():
                        "selector": {"data": [{"dataViewWildcard": {"matchingOption": 1}}]}}],
         "categoryLabels": [{"properties": {"show": b(True), "color": colour(INK), "fontSize": n(11),
                                            "fontFamily": s(FONT)}}],
+        # Axes end at 1.2 x the largest value so the biggest bubbles are not clipped
         "categoryAxis": axis(size=11, color=INK2, showAxisTitle=b(True), titleFontSize=n(11),
-                             titleColor=colour(INK2), gridlineShow=b(True), gridlineColor=colour(RULE)),
+                             titleColor=colour(INK2), gridlineShow=b(True), gridlineColor=colour(RULE),
+                             start=n(0), end={"expr": mea("Scatter X Max")}),
         "valueAxis": axis(size=11, color=INK2, showAxisTitle=b(True), titleFontSize=n(11),
-                          titleColor=colour(INK2), gridlineShow=b(True), gridlineColor=colour(RULE)),
+                          titleColor=colour(INK2), gridlineShow=b(True), gridlineColor=colour(RULE),
+                          start=n(0), end={"expr": mea("Scatter Y Max")}),
         "legend": [{"properties": {"show": b(False)}}],
         "bubbles": [{"properties": {"bubbleSize": lit("-10L")}}],
     }
     return v
 
 
-def table(columns, bar_measure=None, title_key=None, widths=None, filters=None):
-    """columns: (field, display key)."""
+TEXT_MEASURES = {"Ember Year", "Hydrogen Marker"}
+
+
+def table(columns, bar_measure=None, title_key=None, filters=None):
+    """columns: (field, display key, width px). Widths fill the visual, so the mirrored grid leaves no gap.
+    Text and descriptive numbers (years) align left, values right."""
     v = Visual("tableEx", title_key=title_key)
-    v.body["query"] = {"queryState": {"Values": {"projections": [projection(v, f, key) for f, key in columns]}},
+    v.body["query"] = {"queryState": {"Values": {"projections": [projection(v, f, key) for f, key, _ in columns]}},
                        "sortDefinition": {"sort": [{"field": mea(bar_measure), "direction": "Descending"}],
                                           "isDefaultSort": True} if bar_measure else None}
     if not bar_measure:
@@ -323,18 +331,21 @@ def table(columns, bar_measure=None, title_key=None, widths=None, filters=None):
         "grid": [{"properties": {"gridHorizontal": b(True), "gridHorizontalColor": colour(RULE), "gridVertical": b(False),
                                  "outlineColor": colour(RULE), "rowPadding": n(4)}}],
         "total": [{"properties": {"totals": b(False)}}],
-        "columnFormatting": [],
+        "columnFormatting": [{"properties": {"alignment": s("Right" if is_value(f) else "Left")},
+                              "selector": {"metadata": ref(f)}} for f, _, _ in columns],
+        "columnWidth": [{"properties": {"value": n(w)}, "selector": {"metadata": ref(f)}} for f, _, w in columns],
     }
     if bar_measure:
         v.body["objects"]["columnFormatting"].append({
-            "properties": {"dataBars": {"positiveColor": colour("#aaa8c6"), "negativeColor": colour(ACCENT),
+            "properties": {"dataBars": {"positiveColor": colour(NEUTRAL), "negativeColor": colour(ACCENT),
                                         "axisColor": colour(RULE), "reverseDirection": b(False), "hideText": b(False)}},
             "selector": {"metadata": f"_Measures.{bar_measure}"}})
-    if widths:
-        v.body["objects"]["columnWidth"] = [{"properties": {"value": n(w)}, "selector": {"metadata": ref(f)}}
-                                            for f, w in widths]
     v.filters += filters or []
     return v
+
+
+def is_value(field):
+    return "Measure" in field and field["Measure"]["Property"] not in TEXT_MEASURES
 
 
 def slicer(field, display_key, single=False, mode="Basic"):
@@ -360,8 +371,7 @@ def button(text_key, action, role, size=20, width_text=None):
                  {"properties": {"text": s(TEXT[text_key]), "fontColor": colour(INK), "fontSize": n(size),
                                  "fontFamily": s(FONT_SEMI), "horizontalAlignment": s("center"),
                                  "verticalAlignment": s("middle")}, "selector": {"id": "default"}}],
-        "fill": [{"properties": {"show": b(True)}},
-                 {"properties": {"fillColor": colour(CARD), "transparency": n(0)}, "selector": {"id": "default"}}],
+        "fill": [{"properties": {"show": b(False)}}],
         "outline": [{"properties": {"show": b(True)}},
                     {"properties": {"lineColor": colour(RULE), "weight": n(1), "roundEdge": n(6)},
                      "selector": {"id": "default"}}],
@@ -389,17 +399,19 @@ def page_frame(page, headline_measure, menu_items, note_key):
     x_next = x_lang - G - btn
     x_back = x_next - gap - btn
     head_w = x_back - G - M
-    items.append(("headline", M, HEADER_Y, head_w, HEADER_H,
-                  measure_text(headline_measure, 20, INK, FONT_SEMI, pad=(6, 4, 16, 16))))
+    items.append(("page_title", M, HEADER_Y, head_w, 40,
+                  textbox([(f"page.{page}", 20, INK, FONT_SEMI)], pad=(4, 0, 0, 0), background=False)))
+    items.append(("headline", M, HEADER_Y + 40, head_w, HEADER_H - 30,
+                  measure_text(headline_measure, 18, INK2, FONT, pad=(4, 0, 0, 0), background=False)))
     if i > 0:
-        items.append(("nav_back", x_back, HEADER_Y + 12, btn, btn,
+        items.append(("nav_back", x_back, HEADER_Y + 22, btn, btn,
                       button("nav.back", ("page", f"en_{PAGES[i - 1]}"), "nav")))
     if i < len(PAGES) - 1:
-        items.append(("nav_next", x_next, HEADER_Y + 12, btn, btn,
+        items.append(("nav_next", x_next, HEADER_Y + 22, btn, btn,
                       button("nav.next", ("page", f"en_{PAGES[i + 1]}"), "nav")))
-    items.append(("nav_language", x_lang, HEADER_Y + 12, 100, btn,
+    items.append(("nav_language", x_lang, HEADER_Y + 22, 100, btn,
                   button("nav.language", ("page", f"ar_{page}"), "language", size=16)))
-    items.append(("menu_open", x_menu, HEADER_Y + 12, btn, btn,
+    items.append(("menu_open", x_menu, HEADER_Y + 22, btn, btn,
                   button("nav.menu-open", ("bookmark", f"bm_{name}_menu_open"), "bookmark")))
 
     items.append(("footer_source", M, FOOTER_Y, 1100, FOOTER_H,
@@ -510,9 +522,11 @@ def breakdown():
     by_tech = bars(col("Technology", "Technology Group"), [("Operating GW", "field.operating"), ("Pipeline GW", "field.pipeline")],
                    "chart.tech-operating-pipeline", visual_type="clusteredBarChart", legend_show=True,
                    sort_by_category=True)
+    # Purple is reserved for status: operating dark grey, planned light grey
     by_tech.body["objects"]["dataPoint"] = [
-        {"properties": {"fill": colour(STATUS["Operating"])}, "selector": {"metadata": "_Measures.Operating GW"}},
-        {"properties": {"fill": colour(STATUS["Announced"])}, "selector": {"metadata": "_Measures.Pipeline GW"}}]
+        {"properties": {"fill": colour(INK2)}, "selector": {"metadata": "_Measures.Operating GW"}},
+        {"properties": {"fill": colour(NEUTRAL)}, "selector": {"metadata": "_Measures.Pipeline GW"}},
+    ]
     main = [("by_country", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, by_country),
             ("by_technology", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, by_tech)]
     menu = [(slicer(col("Technology", "Technology Group"), "field.technology"), 170),
@@ -533,10 +547,12 @@ def opportunity():
             + kpi_panel(xs[1], pw, "kpi.construction.title", "Construction GW", None, builders)
             + kpi_panel(xs[2], pw, "kpi.announced.title", "Announced GW", None, announced))
     left_w = (W - 2 * M - G) * 0.5
-    card = table([(col("Country", "Country"), "field.country"), (mea("Ember Year"), "field.year"),
-                  (mea("Wind Solar Share %"), "field.share"), (mea("Emissions Intensity g/kWh"), "field.intensity"),
-                  (mea("Operating GW"), "field.operating"), (mea("Construction GW"), "field.construction"),
-                  (mea("Pipeline GW"), "field.pipeline")],
+    # Widths sum to the inner width (930 - 2 x 16 padding) less 18 px for the scroll bar
+    card = table([(col("Country", "Country"), "field.country", 150), (mea("Ember Year"), "field.year", 90),
+                  (mea("Wind Solar Share %"), "field.share", 120),
+                  (mea("Emissions Intensity g/kWh"), "field.intensity", 90),
+                  (mea("Operating GW"), "field.operating", 120), (mea("Construction GW"), "field.construction", 180),
+                  (mea("Pipeline GW"), "field.pipeline", 130)],
                  bar_measure="Construction GW", title_key="chart.scorecard")
     main = [("scatter", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, scatter()),
             ("scorecard", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, card)]
@@ -553,14 +569,13 @@ def detail():
                detail_measure="Hydrogen Marker", sort_measure="Top 10 Pipeline GW", legend_show=True)
     owners = bars(col("Ownership", "Owner"), [("Top 10 Owner Operating GW", "field.gw")], "chart.top-owners",
                   fill_measure="Neutral Colour")
-    owners.body["objects"]["dataPoint"] = [{"properties": {"fill": colour(STATUS["Operating"])}}]
-    projects = table([(col("Plant", "Plant"), "field.plant"), (col("Unit", "Unit"), "field.unit"),
-                      (col("Country", "Country"), "field.country"), (col("Technology", "Technology Group"), "field.technology"),
-                      (col("Status", "Status"), "field.status"), (mea("Capacity MW"), "field.capacity-mw"),
-                      (col("Unit", "Start Year"), "field.start-year"), (col("Unit", "Owner"), "field.owner"),
-                      (mea("Hydrogen Marker"), "field.hydrogen")],
+    # Widths sum to the inner width (1880 - 2 x 16 padding) less 18 px for the scroll bar
+    projects = table([(col("Plant", "Plant"), "field.plant", 440), (col("Country", "Country"), "field.country", 150),
+                      (col("Technology", "Technology Group"), "field.technology", 130),
+                      (col("Status", "Status"), "field.status", 170), (mea("Capacity MW"), "field.capacity-mw", 140),
+                      (col("Unit", "Start Year"), "field.start-year", 110), (col("Unit", "Owner"), "field.owner", 590),
+                      (mea("Hydrogen Marker"), "field.hydrogen", 100)],
                      bar_measure="Capacity MW", title_key="chart.projects",
-                     widths=[(mea("Capacity MW"), 110), (col("Unit", "Owner"), 330)],
                      filters=[in_filter("Status", "In Totals", "true")])
     main = [("top_projects", M, BODY_Y, left_w, top_h, top),
             ("top_owners", M + left_w + G, BODY_Y, W - 2 * M - left_w - G, top_h, owners),
