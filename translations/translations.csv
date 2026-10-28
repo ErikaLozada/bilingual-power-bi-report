@@ -38,3 +38,27 @@ status.shelved,Shelved,مُعلّق,machine
 status.cancelled,Cancelled,مُلغى,machine
 status.mothballed,Mothballed,متوقف مؤقتاً,machine
 status.retired,Retired,خارج الخدمة,machine
+scope.region,the region,المنطقة,machine
+scope.region.possessive,the region's,المنطقة,machine
+scope.selected,the selected countries,الدول المختارة,machine
+scope.selected.possessive,the selected countries',الدول المختارة,machine
+scope.country.possessive-suffix,'s,,machine
+focus.construction,Under construction,قيد الإنشاء,machine
+focus.operating,Came online,دخلت الخدمة,machine
+headline.overview.scale.claim,"{construction} GW is under construction, more than the {operating} GW already running, yet wind and solar supply only {share} of {scope_pos} electricity ({years}).",{construction} GW قيد الإنشاء، أي أكثر من {operating} GW قيد التشغيل حالياً، ومع ذلك لا تتجاوز حصة الرياح والطاقة الشمسية {share} من كهرباء {scope_pos} ({years}).,machine
+headline.overview.scale.neutral,"{construction} GW is under construction, against {operating} GW already running; wind and solar supply {share} of {scope_pos} electricity ({years}).",{construction} GW قيد الإنشاء مقابل {operating} GW قيد التشغيل حالياً، وتبلغ حصة الرياح والطاقة الشمسية {share} من كهرباء {scope_pos} ({years}).,machine
+headline.overview.speed.claim,"{added} GW came online in {year}, more than in 2010–2019 combined ({decade} GW).",دخلت {added} GW الخدمة في عام {year}، أي أكثر مما دخل الخدمة بين 2010 و2019 مجتمعة ({decade} GW).,machine
+headline.overview.speed.neutral,"{added} GW came online in {year}, against {decade} GW in 2010–2019 combined.",دخلت {added} GW الخدمة في عام {year}، مقابل {decade} GW بين 2010 و2019 مجتمعة.,machine
+headline.breakdown.claim,Only {construction_pct} of the {pipeline} GW pipeline is under construction,لا يتجاوز ما هو قيد الإنشاء {construction_pct} من المشاريع المخطط لها البالغة {pipeline} GW,machine
+headline.breakdown.neutral,{construction_pct} of the {pipeline} GW pipeline is under construction,{construction_pct} من المشاريع المخطط لها البالغة {pipeline} GW قيد الإنشاء,machine
+headline.breakdown.top-country,; {top_country} alone plans {top_country_pipeline} GW.,، وتخطط {top_country} وحدها لـ{top_country_pipeline} GW.,machine
+headline.opportunity.claim,"{top_builder} is building the most ({top_builder_gw} GW), while wind and solar supply {top_builder_share} of its electricity ({year}).",تتصدر {top_builder} البناء بـ{top_builder_gw} GW، بينما تبلغ حصة الرياح والطاقة الشمسية {top_builder_share} من كهربائها ({year}).,machine
+headline.opportunity.neutral,"{top_builder} is building {top_builder_gw} GW, while wind and solar supply {top_builder_share} of its electricity ({year}).",تبني {top_builder} {top_builder_gw} GW، بينما تبلغ حصة الرياح والطاقة الشمسية {top_builder_share} من كهربائها ({year}).,machine
+headline.opportunity.none,Nothing is under construction in {scope}.,لا توجد مشاريع قيد الإنشاء في {scope}.,machine
+headline.detail.claim,The 10 largest projects hold {top10_pct} of {scope_pos} pipeline,تستحوذ أكبر 10 مشاريع على {top10_pct} من المشاريع المخطط لها في {scope_pos},machine
+headline.detail.neutral,There are {projects} pipeline projects in {scope},عدد المشاريع المخطط لها في {scope}: {projects},machine
+headline.detail.hydrogen,", and {hydrogen_pct} of the pipeline is tied to green hydrogen.",، و{hydrogen_pct} منها مرتبط بإنتاج الهيدروجين الأخضر.,machine
+headline.no-pipeline,No capacity is planned in {scope}.,لا توجد مشاريع مخطط لها في {scope}.,machine
+footer.source,"Source: Global Energy Monitor, Global Integrated Power Tracker; Ember, Yearly electricity data (CC BY 4.0)",المصدر: Global Energy Monitor، Global Integrated Power Tracker؛ Ember، Yearly electricity data (CC BY 4.0),machine
+footer.refreshed,Refreshed: {date} UTC,آخر تحديث: {date} UTC,machine
+footer.data-to,"Data to: GEM Sep 2026, Ember {years}",البيانات حتى: GEM Sep 2026، Ember {years},machine
