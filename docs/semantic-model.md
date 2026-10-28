@@ -30,6 +30,7 @@ Table names follow section 6.
 - The extract script writes filtered CSV files into the repo.
 - Power Query reads each CSV from its raw GitHub URL. Refreshing in Fabric needs no gateway, and the footer's "Refreshed" time reflects a real refresh.
 - The repo must be public, and the CSV paths are part of the model's contract: moving a file breaks the refresh.
+- **Credentials (once per workspace):** model settings → Data source credentials → Anonymous, privacy Public, **Skip test connection**. The test fetches the repo root, which raw GitHub answers with 404, so it can't pass and can't be set by API.
 
 ## 3. Grain
 
