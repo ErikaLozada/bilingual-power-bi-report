@@ -125,10 +125,11 @@ def owner_shares(owners):
 
 def plant_arabic_name(local_names):
     # Units list comma-separated local names; the plant name is the one most units share
+    # Ties go to the name listed first, so reruns give the same result
     counts = Counter()
     for names in local_names:
-        counts.update({n.strip() for n in names.split(",") if ARABIC_SCRIPT.search(n)})
-    return counts.most_common(1)[0][0] if counts else None
+        counts.update(list(dict.fromkeys(n.strip() for n in names.split(",") if ARABIC_SCRIPT.search(n))))
+    return max(counts, key=counts.get) if counts else None
 
 
 def build_gem_tables(units, tr):
@@ -183,13 +184,19 @@ def build_gem_tables(units, tr):
 
 
 def build_ember_tables(raw, tr):
-    # One row per country and year: wind + solar and total generation, emissions
-    years = {}
+    # One row per country and year: wind + solar and total generation, emissions.
+    # The world total is kept separately as a benchmark.
+    years, world = {}, {}
     for r in csv.DictReader(io.StringIO(raw.decode("utf-8"))):
         iso = r["ISO 3 code"]
-        if iso not in COUNTRIES.values() or int(r["Year"]) < FIRST_EMBER_YEAR:
+        if int(r["Year"]) < FIRST_EMBER_YEAR:
             continue
-        row = years.setdefault((iso, int(r["Year"])), {})
+        if r["Area"] == "World":
+            row = world.setdefault(int(r["Year"]), {})
+        elif iso in COUNTRIES.values():
+            row = years.setdefault((iso, int(r["Year"])), {})
+        else:
+            continue
         if r["Electricity source"] == "Wind and solar":
             row["ws"] = r["Generation (TWh)"]
         elif r["Electricity source"] == "Total generation":
@@ -199,6 +206,8 @@ def build_ember_tables(raw, tr):
                 for (iso, year), v in sorted(years.items()) if v.get("total")]
     write_csv("generation.csv", ["Country ID", "Year", "Wind Solar TWh", "Total Generation TWh",
                                  "Emissions MtCO2e"], gen_rows)
+    write_csv("world_generation.csv", ["Year", "Wind Solar TWh", "Total Generation TWh"],
+              [[year, v.get("ws", ""), v["total"]] for year, v in sorted(world.items()) if v.get("total")])
 
     latest = {}
     for iso, year, *_ in gen_rows:
