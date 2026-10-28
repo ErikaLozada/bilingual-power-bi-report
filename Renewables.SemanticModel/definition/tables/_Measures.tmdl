@@ -1,0 +1,39 @@
+table _Measures
+
+	measure 'Operating GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[Status ID] = "operating" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Construction GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[Status ID] = "construction" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Pre-construction GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[Status ID] = "pre-construction" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Announced GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[Status ID] = "announced" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Pipeline GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[In Pipeline] = TRUE () ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Total GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[In Totals] = TRUE () ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	column Placeholder
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Placeholder
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Placeholder = text], {})
+				in
+				    Source

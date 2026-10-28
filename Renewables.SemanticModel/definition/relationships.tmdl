@@ -1,0 +1,24 @@
+relationship 1e417634-913b-517c-96a9-66c2f862078a
+	fromColumn: Unit.'Country ID'
+	toColumn: Country.'Country ID'
+
+relationship 8742ca1f-2514-5362-b8d4-dcf259658e79
+	fromColumn: Unit.'Technology ID'
+	toColumn: Technology.'Technology ID'
+
+relationship 735b0261-b814-5b4d-9592-f1b8c196620c
+	fromColumn: Unit.'Status ID'
+	toColumn: Status.'Status ID'
+
+relationship 9ff57e5f-bec8-51af-b733-a86e6742bd8d
+	fromColumn: Unit.'Plant ID'
+	toColumn: Plant.'Plant ID'
+
+relationship 96a7d5e1-e2f8-56db-a59e-68924540fdc2
+	fromColumn: Ownership.'Unit ID'
+	toColumn: Unit.'Unit ID'
+
+relationship bae7c84e-0ddc-5635-9089-227663d13e40
+	fromColumn: Generation.'Country ID'
+	toColumn: Country.'Country ID'
+

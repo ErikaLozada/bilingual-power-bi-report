@@ -1,0 +1,28 @@
+table Ownership
+
+	column 'Unit ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Unit ID
+
+	column Owner
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Owner
+
+	column Share
+		dataType: double
+		formatString: 0%
+		summarizeBy: none
+		sourceColumn: Share
+
+	partition Ownership = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/ownership.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Unit ID", type text}, {"Owner", type text}, {"Share", type number}}, "en-GB")
+				in
+				    Typed

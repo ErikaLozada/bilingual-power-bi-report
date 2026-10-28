@@ -1,0 +1,41 @@
+table Generation
+
+	column 'Country ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Country ID
+
+	column Year
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Wind Solar TWh'
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: Wind Solar TWh
+
+	column 'Total Generation TWh'
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: Total Generation TWh
+
+	column 'Emissions MtCO2e'
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: Emissions MtCO2e
+
+	partition Generation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/generation.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Country ID", type text}, {"Year", Int64.Type}, {"Wind Solar TWh", type number}, {"Total Generation TWh", type number}, {"Emissions MtCO2e", type number}}, "en-GB")
+				in
+				    Typed

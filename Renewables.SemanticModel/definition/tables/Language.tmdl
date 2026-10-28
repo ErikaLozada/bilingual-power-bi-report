@@ -1,0 +1,20 @@
+table Language
+	isHidden
+
+	column Code
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Code
+
+	column Language
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Language
+
+	partition Language = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Code = text, Language = text], {{"en", "English"}, {"ar", "العربية"}})
+				in
+				    Source

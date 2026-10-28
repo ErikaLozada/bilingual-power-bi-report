@@ -1,0 +1,39 @@
+table Country
+
+	column 'Country ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Country ID
+
+	column Country
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Country
+
+	column 'Country AR'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Country AR
+
+	column 'Country AR Provenance'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Country AR Provenance
+
+	column 'Ember Latest Year'
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Ember Latest Year
+
+	partition Country = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/country.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Country ID", type text}, {"Country", type text}, {"Country AR", type text}, {"Country AR Provenance", type text}, {"Ember Latest Year", Int64.Type}}, "en-GB")
+				in
+				    Typed

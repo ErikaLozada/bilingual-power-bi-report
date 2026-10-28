@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Renewables"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "418aa116-751d-5caf-8e6f-a2469b31a4b4"
+  }
+}

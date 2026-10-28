@@ -1,0 +1,68 @@
+table Unit
+
+	column 'Unit ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Unit ID
+
+	column 'Plant ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Plant ID
+
+	column 'Country ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Country ID
+
+	column 'Technology ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Technology ID
+
+	column 'Status ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Status ID
+
+	column Unit
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Unit
+
+	column 'Capacity MW'
+		dataType: double
+		formatString: #,0
+		summarizeBy: none
+		sourceColumn: Capacity MW
+
+	column 'Start Year'
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Start Year
+
+	column Owner
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Owner
+
+	column Hydrogen
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: Hydrogen
+
+	partition Unit = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/unit.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Unit ID", type text}, {"Plant ID", type text}, {"Country ID", type text}, {"Technology ID", type text}, {"Status ID", type text}, {"Unit", type text}, {"Capacity MW", type number}, {"Start Year", Int64.Type}, {"Owner", type text}, {"Hydrogen", type logical}}, "en-GB")
+				in
+				    Typed

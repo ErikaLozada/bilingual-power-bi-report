@@ -1,0 +1,1 @@
+expression RepoRoot = "https://raw.githubusercontent.com/ErikaLozada/bilingual-power-bi-report/main/" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]

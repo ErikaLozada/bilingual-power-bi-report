@@ -1,0 +1,32 @@
+table Translations
+	isHidden
+
+	column key
+		dataType: string
+		summarizeBy: none
+		sourceColumn: key
+
+	column en
+		dataType: string
+		summarizeBy: none
+		sourceColumn: en
+
+	column ar
+		dataType: string
+		summarizeBy: none
+		sourceColumn: ar
+
+	column provenance
+		dataType: string
+		summarizeBy: none
+		sourceColumn: provenance
+
+	partition Translations = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "translations/translations.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"key", type text}, {"en", type text}, {"ar", type text}, {"provenance", type text}}, "en-GB")
+				in
+				    Typed

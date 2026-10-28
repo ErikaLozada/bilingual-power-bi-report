@@ -1,0 +1,16 @@
+table 'Refresh Info'
+	isHidden
+
+	column 'Refreshed At UTC'
+		dataType: dateTime
+		formatString: dd mmm yy, HH:mm
+		summarizeBy: none
+		sourceColumn: Refreshed At UTC
+
+	partition 'Refresh Info' = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Refreshed At UTC = datetime], {{DateTimeZone.RemoveZone(DateTimeZone.FixedUtcNow())}})
+				in
+				    Source

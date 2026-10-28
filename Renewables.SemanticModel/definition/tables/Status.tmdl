@@ -1,0 +1,60 @@
+table Status
+
+	column 'Status ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Status ID
+
+	column Status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Status
+		sortByColumn: 'Sort Order'
+
+	column 'Status AR'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Status AR
+		sortByColumn: 'Sort Order'
+
+	column 'Status AR Provenance'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Status AR Provenance
+
+	column 'Sort Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Sort Order
+
+	column 'In Totals'
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: In Totals
+
+	column 'In Pipeline'
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: In Pipeline
+
+	column 'Delivery Risk'
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: Delivery Risk
+
+	partition Status = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/status.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Status ID", type text}, {"Status", type text}, {"Status AR", type text}, {"Status AR Provenance", type text}, {"Sort Order", Int64.Type}, {"In Totals", type logical}, {"In Pipeline", type logical}, {"Delivery Risk", type logical}}, "en-GB")
+				in
+				    Typed

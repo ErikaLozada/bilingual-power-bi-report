@@ -1,0 +1,67 @@
+table Technology
+
+	column 'Technology ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Technology ID
+
+	column Technology
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Technology
+		sortByColumn: 'Sort Order'
+
+	column 'Technology AR'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Technology AR
+		sortByColumn: 'Sort Order'
+
+	column 'Technology AR Provenance'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Technology AR Provenance
+
+	column 'Technology Group'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Technology Group
+		sortByColumn: 'Group Sort Order'
+
+	column 'Technology Group AR'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Technology Group AR
+		sortByColumn: 'Group Sort Order'
+
+	column 'Technology Group AR Provenance'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Technology Group AR Provenance
+
+	column 'Sort Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Sort Order
+
+	column 'Group Sort Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Group Sort Order
+
+	partition Technology = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/technology.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Technology ID", type text}, {"Technology", type text}, {"Technology AR", type text}, {"Technology AR Provenance", type text}, {"Technology Group", type text}, {"Technology Group AR", type text}, {"Technology Group AR Provenance", type text}, {"Sort Order", Int64.Type}, {"Group Sort Order", Int64.Type}}, "en-GB")
+				in
+				    Typed

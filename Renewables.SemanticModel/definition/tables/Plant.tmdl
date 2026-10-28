@@ -1,0 +1,39 @@
+table Plant
+
+	column 'Plant ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Plant ID
+
+	column Plant
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Plant
+
+	column 'Plant AR'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Plant AR
+
+	column 'Plant AR Provenance'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Plant AR Provenance
+
+	column 'Country ID'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Country ID
+
+	partition Plant = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "data/plant.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Plant ID", type text}, {"Plant", type text}, {"Plant AR", type text}, {"Plant AR Provenance", type text}, {"Country ID", type text}}, "en-GB")
+				in
+				    Typed
