@@ -24,6 +24,30 @@ table _Measures
 		formatString: #,0.0
 		displayFolder: Capacity
 
+	measure 'Shelved GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[Status ID] = "shelved" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Risk
+
+	measure 'Cancelled GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[Status ID] = "cancelled" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Risk
+
+	measure 'Construction % of Pipeline' = DIVIDE ( [Construction GW], [Pipeline GW] )
+		formatString: 0.0%
+		displayFolder: Risk
+
+	measure 'Pipeline to Operating Ratio' = DIVIDE ( [Pipeline GW], [Operating GW] )
+		formatString: #,0"×"
+		displayFolder: Risk
+
+	measure 'Hydrogen Pipeline GW' = DIVIDE ( CALCULATE ( SUM ( 'Unit'[Capacity MW] ), 'Status'[In Pipeline] = TRUE (), 'Unit'[Hydrogen] = TRUE () ), 1000 )
+		formatString: #,0.0
+		displayFolder: Hydrogen
+
+	measure 'Hydrogen % of Pipeline' = DIVIDE ( [Hydrogen Pipeline GW], [Pipeline GW] )
+		formatString: 0.0%
+		displayFolder: Hydrogen
+
 	column Placeholder
 		dataType: string
 		isHidden
