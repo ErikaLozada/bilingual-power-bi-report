@@ -115,6 +115,64 @@ table _Measures
 		formatString: #,0
 		displayFolder: Generation
 
+	measure 'Technology Colour' =
+			SWITCH (
+			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
+			    1, "#eda100",
+			    2, "#1baf7a",
+			    3, "#2a78d6",
+			    4, "#b3b2ac"
+			)
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Technology Colour Faded' =
+			SWITCH (
+			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
+			    1, "#f8d999",
+			    2, "#a4dfca",
+			    3, "#aac9ef",
+			    4, "#e1e0de"
+			)
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Status Colour' =
+			SWITCH (
+			    SELECTEDVALUE ( 'Status'[Status ID] ),
+			    "operating", "#2b2570",
+			    "construction", "#4a3fb0",
+			    "pre-construction", "#7368d9",
+			    "announced", "#a49cea",
+			    "shelved", "#9e9d97",
+			    "cancelled", "#9e9d97",
+			    "#d3d2cc"
+			)
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Status Colour Faded' =
+			SWITCH (
+			    SELECTEDVALUE ( 'Status'[Status ID] ),
+			    "operating", "#aaa8c6",
+			    "construction", "#b7b2df",
+			    "pre-construction", "#c7c3f0",
+			    "announced", "#dbd7f7",
+			    "shelved", "#d8d8d5",
+			    "cancelled", "#d8d8d5",
+			    "#e1e0de"
+			)
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Accent Colour' = "#eb6834"
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Neutral Colour' = "#d3d2cc"
+		isHidden
+		displayFolder: Formatting
+
 	measure 'Ember Year' =
 			IF (
 			    ISFILTERED ( 'Generation'[Year] ),

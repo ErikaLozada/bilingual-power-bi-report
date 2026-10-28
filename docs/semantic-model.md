@@ -83,7 +83,7 @@ The fact table is at **unit (phase) level**: 957 rows, as GEM publishes it. Stat
 | Hydrogen | `Hydrogen Pipeline GW`, `Hydrogen % of Pipeline` | |
 | Generation | `Wind Solar Share %`, `Emissions Intensity g/kWh`, `Total Generation TWh`, `Ember Year` | Latest year per country; region = weighted (summed TWh); trend to 2023 |
 | Headlines | One per page, from a translated template | |
-| Formatting | `Accent Colour`, `Status Colour`, `Technology Colour` | Return hex codes for conditional formatting |
+| Formatting | `Technology Colour`, `Status Colour` and their `… Faded` twins, `Accent Colour`, `Neutral Colour` | Hidden; return hex codes for conditional formatting. Which item gets the accent is decided per visual, by a small highlight measure built with that visual |
 | Footer | `Refreshed At`, `Data To` | `dd mmm yy, HH:mm` |
 
 **Insight titles:** visual titles start static. During development we test which visuals benefit from a dynamic takeaway; each one adopted becomes a dynamic measure (section 7).

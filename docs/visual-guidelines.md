@@ -99,7 +99,7 @@ Darkest means furthest along. A traffic-light scale was rejected: "announced" is
 
 - One accent for the whole report: orange `#eb6834`. Red stays free for risk.
 - **Single-series visuals:** the key item is in the accent; everything else is neutral `#d3d2cc`.
-- **Visuals already coloured by category:** the key item keeps full colour; everything else drops to 40% opacity.
+- **Visuals already coloured by category:** the key item keeps full colour; everything else uses the faded tint (the colour at 40% opacity over white, precomputed as hex, since conditional formatting takes plain hex codes).
 - The accent is applied by conditional-formatting rules, not hand-picked bars.
 
 ### 6.4 Neutrals
