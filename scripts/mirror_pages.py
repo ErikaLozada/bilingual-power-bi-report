@@ -194,9 +194,9 @@ def mirror_axes(visual):
                 entry["properties"]["dataBars"]["reverseDirection"] = lit("true")
 
 
-def mirror_position(visual):
+def mirror_position(visual, page_width=PAGE_WIDTH):
     pos = visual["position"]
-    pos["x"] = round(PAGE_WIDTH - pos["x"] - pos["width"], 2)
+    pos["x"] = round(page_width - pos["x"] - pos["width"], 2)
 
 
 def retarget(node, en_page, ar_page, role):
@@ -204,7 +204,7 @@ def retarget(node, en_page, ar_page, role):
     def fn(n):
         if not isinstance(n, dict):
             return
-        for key in ("navigationSection", "bookmark"):
+        for key in ("navigationSection", "bookmark", "section"):
             value = n.get(key)
             if isinstance(value, dict) and "expr" in value:
                 target = literal(value)
@@ -239,7 +239,7 @@ def mirror_page(en_dir):
         i18n = json.loads(next((a["value"] for a in visual.get("annotations", []) if a["name"] == "i18n"), "{}"))
         translate_text(visual, i18n)
         swap_fields(visual)
-        mirror_position(visual)
+        mirror_position(visual, page["width"])
         align_right(visual)
         mirror_axes(visual)
         bump_font_sizes(visual)

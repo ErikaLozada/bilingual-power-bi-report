@@ -5,10 +5,14 @@
     "en_breakdown",
     "en_opportunity",
     "en_detail",
+    "en_tt_tech",
+    "en_tt_gap",
     "ar_overview",
     "ar_breakdown",
     "ar_opportunity",
-    "ar_detail"
+    "ar_detail",
+    "ar_tt_tech",
+    "ar_tt_gap"
   ],
   "activePageName": "en_overview"
 }

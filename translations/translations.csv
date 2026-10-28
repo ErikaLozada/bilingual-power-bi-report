@@ -135,3 +135,12 @@ field.hydrogen-gw,Tied to green hydrogen,مرتبطة بالهيدروجين ا�
 field.other-pipeline,Rest of the pipeline,بقية المشاريع المخطط لها,machine
 chart.gap-to-world,Wind and solar share against the world (percentage points),حصة الرياح والشمسية مقارنة بالعالم (نقاط مئوية),machine
 field.gap,Gap to world (pts),الفرق عن العالم (نقطة),machine
+filter.prefix,Filtered: ,عوامل التصفية: ,machine
+filter.countries,{n} countries,{n} دول,machine
+tooltip.came-online,came online,دخلت الخدمة,machine
+tooltip.expected,expected (under construction),متوقعة (قيد الإنشاء),machine
+tooltip.share-label,wind and solar share,حصة الرياح والشمسية,machine
+tooltip.gap,World {world} · gap {gap} pts,العالم {world} · الفرق {gap} نقطة,machine
+tooltip.by-technology,By technology (GW),حسب التقنية (GW),machine
+page.tt-tech,Tooltip: technology,تلميح: التقنية,machine
+page.tt-gap,Tooltip: gap to world,تلميح: الفرق عن العالم,machine

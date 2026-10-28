@@ -3,11 +3,11 @@
   "name": "headline",
   "position": {
     "x": 20,
-    "y": 60,
-    "z": 1,
+    "y": 47,
+    "z": 2,
     "width": 1542,
     "height": 70,
-    "tabOrder": 1
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "shape",

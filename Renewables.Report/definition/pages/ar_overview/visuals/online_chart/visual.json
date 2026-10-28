@@ -4,10 +4,10 @@
   "position": {
     "x": 20,
     "y": 492,
-    "z": 20,
+    "z": 21,
     "width": 1880,
     "height": 508,
-    "tabOrder": 20
+    "tabOrder": 21
   },
   "visual": {
     "visualType": "lineStackedColumnComboChart",
@@ -20,7 +20,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2b2570'"
+                      "Value": "'#c9c6d6'"
                     }
                   }
                 }
@@ -426,6 +426,33 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ReportPage'"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ar_tt_tech'"
                 }
               }
             }

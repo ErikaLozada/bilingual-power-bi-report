@@ -3,11 +3,11 @@
   "name": "footer_status",
   "position": {
     "x": 1140,
-    "y": 1020,
-    "z": 7,
+    "y": 1037,
+    "z": 8,
     "width": 760,
     "height": 40,
-    "tabOrder": 7
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "shape",
@@ -176,14 +176,14 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "0D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "0D"
                 }
               }
             }

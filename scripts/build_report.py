@@ -24,6 +24,10 @@ W, H, M, G = 1920, 1080, 20, 20
 HEADER_Y, HEADER_H = 20, 100
 BODY_Y, BODY_BOTTOM = 140, 1000
 FOOTER_Y, FOOTER_H = 1020, 40
+# Text renders below its box top (title ~13 px) and above its box bottom (footer 11-17 px); measured on
+# exported PNGs. The nudges put the ink, not the boxes, 20 px from the canvas edges.
+HEADER_NUDGE, FOOTER_SOURCE_NUDGE, FOOTER_STATUS_NUDGE = 13, 11, 17
+TOOLTIP_W = 320
 KPI_H = 260
 BAR_GAP = 50  # gap between bars, % of the category width
 MAIN_Y = BODY_Y + KPI_H + G
@@ -31,7 +35,8 @@ MAIN_Y = BODY_Y + KPI_H + G
 # Colours and fonts (sections 6-7)
 CANVAS, CARD, RULE, INK, INK2 = "#f4f4f2", "#ffffff", "#e4e3df", "#1d1d1b", "#5c5b57"
 ACCENT, GREY_LINE, NEUTRAL = "#eb6834", "#b3b2ac", "#d3d2cc"
-STATUS = {"Operating": "#2b2570", "Under construction": "#4a3fb0", "Pre-construction": "#7368d9",
+# Operating is delivered, so recessive (purple-grey); the pipeline stages carry the focus
+STATUS = {"Operating": "#c9c6d6", "Under construction": "#4a3fb0", "Pre-construction": "#7368d9",
           "Announced": "#a49cea", "Shelved": "#9e9d97", "Cancelled": "#9e9d97"}
 FONT = "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
 FONT_SEMI = "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif"
@@ -292,7 +297,7 @@ def online_by_year():
         "legend": [{"properties": {"show": b(False)}}],
     }
     v.filters.append(range_filter("Unit", "Start Year", 2015, 2029))
-    return v
+    return report_tooltip(v, "tt_tech")
 
 
 def online_panel(x, y, w, h):
@@ -346,6 +351,13 @@ def table(columns, bar_measure=None, title_key=None, filters=None, dot_measure=N
             "properties": {"fontColor": {"solid": {"color": {"expr": mea("Status Colour")}}}},
             "selector": {"data": [{"dataViewWildcard": {"matchingOption": 1}}], "metadata": f"_Measures.{dot_measure}"}})
     v.filters += filters or []
+    return v
+
+
+def report_tooltip(v, page):
+    """Hover shows a tooltip page (value first, label after) instead of the default list."""
+    v.body["visualContainerObjects"]["visualTooltip"] = [{"properties": {
+        "show": b(True), "type": s("ReportPage"), "section": s(f"en_{page}")}}]
     return v
 
 
@@ -404,25 +416,30 @@ def page_frame(page, headline_measure, menu_items, note_key):
     x_next = x_lang - G - btn
     x_back = x_next - gap - btn
     head_w = x_back - G - M
-    items.append(("page_title", M, HEADER_Y, head_w, 40,
+    top = HEADER_Y - HEADER_NUDGE
+    title_w = 300
+    items.append(("page_title", M, top, title_w, 40,
                   textbox([(f"page.{page}", 20, INK, FONT_SEMI)], pad=(4, 0, 0, 0), background=False)))
-    items.append(("headline", M, HEADER_Y + 40, head_w, HEADER_H - 30,
+    # Active slicer filters, on the title row (blank when nothing is filtered)
+    items.append(("filter_state", M + title_w, top + 6, head_w - title_w, 34,
+                  measure_text("Filter State Text", 13, INK2, FONT, pad=(4, 0, 0, 0), background=False)))
+    items.append(("headline", M, top + 40, head_w, HEADER_H - 30,
                   measure_text(headline_measure, 18, INK2, FONT, pad=(4, 0, 0, 0), background=False)))
     if i > 0:
-        items.append(("nav_back", x_back, HEADER_Y + 22, btn, btn,
+        items.append(("nav_back", x_back, top + 22, btn, btn,
                       button("nav.back", ("page", f"en_{PAGES[i - 1]}"), "nav")))
     if i < len(PAGES) - 1:
-        items.append(("nav_next", x_next, HEADER_Y + 22, btn, btn,
+        items.append(("nav_next", x_next, top + 22, btn, btn,
                       button("nav.next", ("page", f"en_{PAGES[i + 1]}"), "nav")))
-    items.append(("nav_language", x_lang, HEADER_Y + 22, 100, btn,
+    items.append(("nav_language", x_lang, top + 22, 100, btn,
                   button("nav.language", ("page", f"ar_{page}"), "language", size=16)))
-    items.append(("menu_open", x_menu, HEADER_Y + 22, btn, btn,
+    items.append(("menu_open", x_menu, top + 22, btn, btn,
                   button("nav.menu-open", ("bookmark", f"bm_{name}_menu_open"), "bookmark")))
 
-    items.append(("footer_source", M, FOOTER_Y, 1100, FOOTER_H,
-                  textbox([("footer.source", 11, INK2, FONT)], pad=(10, 0, 16, 16), background=False)))
-    items.append(("footer_status", M + 1100 + G, FOOTER_Y, W - 2 * M - 1100 - G, FOOTER_H,
-                  measure_text("Footer Status", 11, INK2, FONT, pad=(4, 0, 16, 16), background=False)))
+    items.append(("footer_source", M, FOOTER_Y + FOOTER_SOURCE_NUDGE, 1100, FOOTER_H,
+                  textbox([("footer.source", 11, INK2, FONT)], pad=(10, 0, 0, 0), background=False)))
+    items.append(("footer_status", M + 1100 + G, FOOTER_Y + FOOTER_STATUS_NUDGE, W - 2 * M - 1100 - G, FOOTER_H,
+                  measure_text("Footer Status", 11, INK2, FONT, pad=(4, 0, 0, 0), background=False)))
     items[-1][5].body["visualContainerObjects"]["title"][0]["properties"]["alignment"] = s("right")
 
     # Menu panel: overlays the body from the menu button's side, hidden until opened
@@ -527,6 +544,7 @@ def breakdown():
                       legend=("Status", "Status", {k: v for k, v in STATUS.items() if k not in ("Shelved", "Cancelled")}),
                       sort_measure="Total GW", legend_show=True)
     by_country.filters.append(in_filter("Status", "In Totals", "true"))
+    report_tooltip(by_country, "tt_tech")
     # How dependent each country's pipeline is on green hydrogen: tied (dark grey) and the rest (neutral)
     tied, rest = mea("Hydrogen Pipeline GW"), mea("Non-hydrogen Pipeline GW")
     by_hydrogen = bars(col("Country", "Country"), [("Hydrogen Pipeline GW", "field.hydrogen-gw"),
@@ -572,6 +590,7 @@ def opportunity():
     # Gap to the world share: bars either side of zero (= the world); the top builder in the accent
     gap = bars(col("Country", "Country"), [("Share Gap to World pts", "field.gap")], "chart.gap-to-world",
                fill_measure="Top Builder Colour", axis_max="Share Gap Axis Max", axis_min="Share Gap Axis Min")
+    report_tooltip(gap, "tt_gap")
     main = [("gap_to_world", M, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, gap),
             ("scorecard", M + left_w + G, MAIN_Y, W - 2 * M - left_w - G, BODY_BOTTOM - MAIN_Y, card)]
     menu = [(slicer(col("Technology", "Technology Group"), "field.technology"), 170),
@@ -602,6 +621,48 @@ def detail():
             (slicer(col("Technology", "Technology Group"), "field.technology"), 170),
             (slicer(col("Country", "Country"), "field.country", mode="Dropdown"), 80)]
     return "Headline Detail", [], main, menu, "note.detail"
+
+
+# --- tooltip pages ------------------------------------------------------------
+
+def tooltip_tech():
+    """Value first (GW), then what was hovered, then the technology split."""
+    chart = bars(col("Technology", "Technology Group"), [("Tooltip GW", "field.gw")], fill_measure="Technology Colour",
+                 sort_by_category=True, axis_max="Tooltip GW Bar Max")
+    chart.title("tooltip.by-technology", 12, INK2, FONT)
+    chart.body["visualContainerObjects"]["padding"] = [{"properties": {"top": n(0), "bottom": n(4), "left": n(12),
+                                                                         "right": n(12)}}]
+    return 200, [("value", 0, 0, TOOLTIP_W, 46, measure_text("Tooltip GW Text", 24, INK, FONT_SEMI, pad=(8, 0, 12, 12))),
+                 ("context", 0, 46, TOOLTIP_W, 28, measure_text("Tooltip Context Text", 12, INK2, FONT, pad=(0, 0, 12, 12))),
+                 ("by_technology", 0, 74, TOOLTIP_W, 126, chart)]
+
+
+def tooltip_gap():
+    """Value first (the country's share), then country and year, then the world and the gap."""
+    return 110, [("value", 0, 0, TOOLTIP_W, 46, measure_text("Tooltip Share Text", 24, INK, FONT_SEMI, pad=(8, 0, 12, 12))),
+                 ("context", 0, 46, TOOLTIP_W, 28, measure_text("Tooltip Gap Context Text", 12, INK2, FONT, pad=(0, 0, 12, 12))),
+                 ("world", 0, 74, TOOLTIP_W, 32, measure_text("Tooltip Gap Text", 12, INK, FONT, pad=(0, 0, 12, 12)))]
+
+
+TOOLTIPS = {"tt_tech": tooltip_tech, "tt_gap": tooltip_gap}
+
+
+def build_tooltip(page, spec):
+    height, items = spec()
+    name = f"en_{page}"
+    folder = DEFINITION / "pages" / name
+    write(folder / "page.json", {
+        "$schema": f"{SCHEMA}/page/2.1.0/schema.json", "name": name, "displayName": TEXT[f"page.{page.replace('_', '-')}"],
+        "displayOption": "ActualSize", "width": TOOLTIP_W, "height": height, "type": "Tooltip",
+        "visibility": "HiddenInViewMode",
+        "objects": {"background": [{"properties": {"color": colour(CARD), "transparency": n(0)}}]},
+        "filterConfig": {"filters": [dict(in_filter("Language", "Code", "'en'", name=f"lang_{name}"),
+                                          isHiddenInViewMode=True, isLockedInViewMode=True)]},
+        "annotations": [{"name": "i18n", "value": json.dumps({"name": f"page.{page.replace('_', '-')}"})}],
+    })
+    for z, (nm, x, y, w, h, v) in enumerate(items):
+        v.body["visualContainerObjects"]["background"] = [{"properties": {"show": b(False)}}]
+        write(folder / "visuals" / nm / "visual.json", visual_json(nm, x, y, w, h, z, v))
 
 
 # --- writing ------------------------------------------------------------------
@@ -685,12 +746,15 @@ def main():
     marks = []
     for page in PAGES:
         marks += build_page(page, specs[page])
+    for page, spec in TOOLTIPS.items():
+        build_tooltip(page, spec)
     for name, obj in marks:
         write(DEFINITION / "bookmarks" / f"{name}.bookmark.json", obj)
     write(DEFINITION / "bookmarks" / "bookmarks.json",
           {"$schema": f"{SCHEMA}/bookmarksMetadata/1.0.0/schema.json", "items": [{"name": nm} for nm, _ in marks]})
     write(DEFINITION / "pages" / "pages.json", {"$schema": f"{SCHEMA}/pagesMetadata/1.1.0/schema.json",
-                                                "pageOrder": [f"en_{p}" for p in PAGES], "activePageName": "en_overview"})
+                                                "pageOrder": [f"en_{p}" for p in PAGES + list(TOOLTIPS)],
+                                                "activePageName": "en_overview"})
     print(f"built {len(PAGES)} English pages and {len(marks)} bookmarks in {REPORT.name}")
 
 

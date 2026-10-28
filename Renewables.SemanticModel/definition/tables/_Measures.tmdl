@@ -486,7 +486,7 @@ table _Measures
 	measure 'Status Colour' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Status'[Status ID] ),
-			    "operating", "#2b2570",
+			    "operating", "#c9c6d6",
 			    "construction", "#4a3fb0",
 			    "pre-construction", "#7368d9",
 			    "announced", "#a49cea",
@@ -500,7 +500,7 @@ table _Measures
 	measure 'Status Colour Faded' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Status'[Status ID] ),
-			    "operating", "#aaa8c6",
+			    "operating", "#e9e8ef",
 			    "construction", "#b7b2df",
 			    "pre-construction", "#c7c3f0",
 			    "announced", "#dbd7f7",
@@ -647,19 +647,116 @@ table _Measures
 		isHidden
 		displayFolder: Hydrogen
 
-	measure 'Share Gap to World pts' =
-			-- Wind + solar share minus the world's in the same year (the country's latest Ember year), in percentage points
+	measure 'World Share Same Year %' =
+			-- World wind + solar share in the country's latest Ember year
 			VAR ShareYear = MAX ( 'Country'[Ember Latest Year] )
-			VAR World =
+			RETURN
 			    CALCULATE (
 			        DIVIDE ( SUM ( 'World Generation'[Wind Solar TWh] ), SUM ( 'World Generation'[Total Generation TWh] ) ),
 			        'World Generation'[Year] = ShareYear
 			    )
+		formatString: 0.0%
+		isHidden
+		displayFolder: Generation
+
+	measure 'Share Gap to World pts' =
+			-- Wind + solar share minus the world's in the same year (the country's latest Ember year), in percentage points
+			VAR World = [World Share Same Year %]
 			VAR Share = [Wind Solar Share %]
 			RETURN
 			    IF ( HASONEVALUE ( 'Country'[Country ID] ) && NOT ISBLANK ( Share ) && NOT ISBLANK ( World ), ( Share - World ) * 100 )
 		formatString: +0.0;-0.0;0.0
 		displayFolder: Generation
+
+	measure 'Filter State Text' =
+			-- Header line naming the active slicer filters; blank when nothing is filtered
+			VAR IsAr = [Language Code] = "ar"
+			VAR CountryCount = COUNTROWS ( VALUES ( 'Country'[Country ID] ) )
+			VAR Countries =
+			    IF (
+			        ISFILTERED ( 'Country' ),
+			        IF (
+			            CountryCount <= 3,
+			            IF ( IsAr, CONCATENATEX ( VALUES ( 'Country'[Country AR] ), 'Country'[Country AR], "، " ), CONCATENATEX ( VALUES ( 'Country'[Country] ), 'Country'[Country], ", " ) ),
+			            SUBSTITUTE ( IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "filter.countries" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "filter.countries" ) ), "{n}", FORMAT ( CountryCount, "0" ) )
+			        )
+			    )
+			VAR Technologies =
+			    IF (
+			        ISFILTERED ( 'Technology' ),
+			        IF ( IsAr, CONCATENATEX ( VALUES ( 'Technology'[Technology Group AR] ), 'Technology'[Technology Group AR], "، " ), CONCATENATEX ( VALUES ( 'Technology'[Technology Group] ), 'Technology'[Technology Group], ", " ) )
+			    )
+			VAR Statuses =
+			    IF (
+			        ISFILTERED ( 'Status' ),
+			        IF ( IsAr, CONCATENATEX ( VALUES ( 'Status'[Status AR] ), 'Status'[Status AR], "، " ), CONCATENATEX ( VALUES ( 'Status'[Status] ), 'Status'[Status], ", " ) )
+			    )
+			VAR Parts = CONCATENATEX ( FILTER ( { Countries, Technologies, Statuses }, [Value] <> "" ), [Value], " · " )
+			VAR SentenceText = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "filter.prefix" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "filter.prefix" ) ) & Parts
+			RETURN
+			    IF ( Parts <> "", IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText ) )
+		displayFolder: Text
+
+	measure 'Tooltip GW' =
+			-- Year chart: came online + under construction in that year; elsewhere the in-totals capacity in view
+			IF ( ISFILTERED ( 'Unit'[Start Year] ), [Operating GW] + [Construction GW], [Total GW] )
+		formatString: #,0.0
+		isHidden
+		displayFolder: Tooltips
+
+	measure 'Tooltip GW Bar Max' = 1.4 * MAXX ( VALUES ( 'Technology'[Technology Group] ), [Tooltip GW] )
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Tooltip GW Text' = FORMAT ( [Tooltip GW], "#,0.0", "en-GB" ) & " GW"
+		isHidden
+		displayFolder: Tooltips
+
+	measure 'Tooltip Context Text' =
+			-- What the hovered mark is: year (came online / expected), country, status
+			VAR IsAr = [Language Code] = "ar"
+			VAR Year = IF ( HASONEVALUE ( 'Unit'[Start Year] ), VALUES ( 'Unit'[Start Year] ) )
+			VAR YearPart =
+			    IF (
+			        NOT ISBLANK ( Year ),
+			        FORMAT ( Year, "0" ) & " · "
+			            & IF (
+			                Year > [Latest Full Year],
+			                IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "tooltip.expected" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "tooltip.expected" ) ),
+			                IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "tooltip.came-online" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "tooltip.came-online" ) )
+			            )
+			    )
+			VAR CountryPart = IF ( ISFILTERED ( 'Country' ) && HASONEVALUE ( 'Country'[Country ID] ), IF ( IsAr, VALUES ( 'Country'[Country AR] ), VALUES ( 'Country'[Country] ) ) )
+			VAR StatusPart = IF ( ISFILTERED ( 'Status' ) && HASONEVALUE ( 'Status'[Status ID] ), IF ( IsAr, VALUES ( 'Status'[Status AR] ), VALUES ( 'Status'[Status] ) ) )
+			VAR SentenceText = CONCATENATEX ( FILTER ( { YearPart, CountryPart, StatusPart }, [Value] <> "" ), [Value], " · " )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		isHidden
+		displayFolder: Tooltips
+
+	measure 'Tooltip Share Text' = FORMAT ( [Wind Solar Share %], "0.0%", "en-GB" )
+		isHidden
+		displayFolder: Tooltips
+
+	measure 'Tooltip Gap Context Text' =
+			VAR IsAr = [Language Code] = "ar"
+			VAR SentenceText =
+			    IF ( IsAr, VALUES ( 'Country'[Country AR] ), VALUES ( 'Country'[Country] ) ) & " · "
+			        & IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "tooltip.share-label" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "tooltip.share-label" ) )
+			        & " (" & [Ember Year] & ")"
+			RETURN
+			    IF ( HASONEVALUE ( 'Country'[Country ID] ), IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText ) )
+		isHidden
+		displayFolder: Tooltips
+
+	measure 'Tooltip Gap Text' =
+			VAR IsAr = [Language Code] = "ar"
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "tooltip.gap" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "tooltip.gap" ) ), "{world}", FORMAT ( [World Share Same Year %], "0.0%", "en-GB" ) ), "{gap}", FORMAT ( [Share Gap to World pts], "+0.0;-0.0;0.0", "en-GB" ) )
+			RETURN
+			    IF ( NOT ISBLANK ( [Share Gap to World pts] ), IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText ) )
+		isHidden
+		displayFolder: Tooltips
 
 	column Placeholder
 		dataType: string

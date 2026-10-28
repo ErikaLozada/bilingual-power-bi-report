@@ -3,11 +3,11 @@
   "name": "nav_back",
   "position": {
     "x": 1582,
-    "y": 42,
-    "z": 2,
+    "y": 29,
+    "z": 3,
     "width": 56,
     "height": 56,
-    "tabOrder": 2
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "actionButton",

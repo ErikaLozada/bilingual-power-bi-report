@@ -3,11 +3,11 @@
   "name": "menu_open",
   "position": {
     "x": 20,
-    "y": 42,
-    "z": 10004,
+    "y": 29,
+    "z": 10005,
     "width": 56,
     "height": 56,
-    "tabOrder": 10004
+    "tabOrder": 10005
   },
   "visual": {
     "visualType": "actionButton",
