@@ -62,3 +62,4 @@ headline.no-pipeline,No capacity is planned in {scope}.,لا توجد مشاري
 footer.source,"Source: Global Energy Monitor, Global Integrated Power Tracker; Ember, Yearly electricity data (CC BY 4.0)",المصدر: Global Energy Monitor، Global Integrated Power Tracker؛ Ember، Yearly electricity data (CC BY 4.0),machine
 footer.refreshed,Refreshed: {date} UTC,آخر تحديث: {date} UTC,machine
 footer.data-to,"Data to: GEM Sep 2026, Ember {years}",البيانات حتى: GEM Sep 2026، Ember {years},machine
+headline.detail.neutral-single,There is 1 pipeline project in {scope},يوجد مشروع واحد مخطط له في {scope},machine
