@@ -71,3 +71,58 @@ kpi.share.above,▲ {gap} pts above the world ({world}) in {year},▲ أعلى �
 kpi.operating.added,▲ {added} GW came online in {year},▲ دخلت {added} GW الخدمة في عام {year},machine
 kpi.pipeline.only,Only {pct} is under construction,{pct} فقط قيد الإنشاء,machine
 kpi.pipeline.neutral,{pct} is under construction,{pct} قيد الإنشاء,machine
+kpi.risk.split,{shelved} GW shelved · {cancelled} GW cancelled,{shelved} GW مُعلّقة · {cancelled} GW مُلغاة,machine
+kpi.hydrogen.share,{pct} of the pipeline is tied to green hydrogen,{pct} من المشاريع المخطط لها مرتبطة بالهيدروجين الأخضر,machine
+kpi.intensity.year,"Region, {year}: the latest year all countries report",المنطقة، {year}: آخر عام تتوفر فيه بيانات جميع الدول,machine
+kpi.announced.share,{pct} of the pipeline is only announced,{pct} من المشاريع المخطط لها مُعلنة فقط,machine
+kpi.construction.vs-operating,Against {operating} GW already operating,مقابل {operating} GW قيد التشغيل,machine
+page.overview,Overview,نظرة عامة,machine
+page.breakdown,Breakdown,التوزيع,machine
+page.opportunity,Opportunity,الفرص,machine
+page.detail,Projects,المشاريع,machine
+nav.back,‹,›,machine
+nav.next,›,‹,machine
+nav.language,عربي,English,machine
+nav.menu-open,☰,☰,machine
+nav.menu-close,✕,✕,machine
+menu.title,Filters and notes,عوامل التصفية والملاحظات,machine
+field.country,Country,الدولة,machine
+field.technology,Technology,التقنية,machine
+field.status,Status,الحالة,machine
+field.focus,Headline focus,محور العنوان,machine
+field.plant,Project,المشروع,machine
+field.unit,Unit,الوحدة,machine
+field.owner,Owner,المالك,machine
+field.start-year,Start year,سنة التشغيل,machine
+field.hydrogen,Hydrogen,الهيدروجين,machine
+field.capacity-mw,MW,MW,machine
+field.gw,GW,GW,machine
+field.year,Ember year,سنة Ember,machine
+field.share,Wind + solar,الرياح + الشمسية,machine
+field.intensity,g/kWh,g/kWh,machine
+field.operating,Operating,قيد التشغيل,machine
+field.construction,Under construction,قيد الإنشاء,machine
+field.pipeline,Pipeline,المخطط لها,machine
+field.generation,Generation (TWh),التوليد (TWh),machine
+field.added,Came online,دخلت الخدمة,machine
+kpi.share.title,Wind and solar share of electricity,حصة الرياح والطاقة الشمسية من الكهرباء,machine
+kpi.operating.title,Operating capacity (GW),القدرة قيد التشغيل (GW),machine
+kpi.pipeline.title,Pipeline (GW),المشاريع المخطط لها (GW),machine
+kpi.hydrogen.title,Tied to green hydrogen (GW),مرتبطة بالهيدروجين الأخضر (GW),machine
+kpi.risk.title,Shelved or cancelled (GW),مُعلّقة أو مُلغاة (GW),machine
+kpi.intensity.title,Emissions intensity (g/kWh),كثافة الانبعاثات (g/kWh),machine
+kpi.construction.title,Under construction (GW),قيد الإنشاء (GW),machine
+kpi.announced.title,Announced only (GW),مُعلنة فقط (GW),machine
+chart.added-by-tech,"Capacity that came online each year, by technology (GW)",القدرة التي دخلت الخدمة سنوياً حسب التقنية (GW),machine
+chart.country-status,Capacity by country and status (GW),القدرة حسب الدولة والحالة (GW),machine
+chart.tech-operating-pipeline,Operating and planned capacity by technology (GW),القدرة قيد التشغيل والمخطط لها حسب التقنية (GW),machine
+chart.scatter,Where building is under way: wind and solar share against capacity under construction,أين يجري البناء: حصة الرياح والشمسية مقابل القدرة قيد الإنشاء,machine
+chart.scorecard,Country scorecard,بطاقة أداء الدول,machine
+chart.top-projects,Ten largest pipeline projects (GW),أكبر عشرة مشاريع مخطط لها (GW),machine
+chart.top-owners,"Owners of operating capacity (GW, by ownership share)",مالكو القدرة قيد التشغيل (GW، حسب حصة الملكية),machine
+chart.projects,All projects,جميع المشاريع,machine
+chart.top-builders,Building the most (GW),الأكثر بناءً (GW),machine
+note.overview,"Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced.",حصة الرياح والشمسية: Ember، آخر عام تتوفر فيه بيانات جميع الدول (2023)؛ المتوسط العالمي من إجمالي Ember العالمي. القدرة قيد التشغيل: المحطات الكبيرة التي يتتبعها GEM. المشاريع المخطط لها: قيد الإنشاء وما قبل الإنشاء والمُعلنة.,machine
+note.breakdown,Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM.,تشمل المجاميع القدرة قيد التشغيل والمخطط لها. تُحتسب المشاريع المُعلّقة والمُلغاة في لوحة المُعلّقة أو المُلغاة فقط. يحدد GEM ارتباط كل وحدة بالهيدروجين الأخضر.,machine
+note.opportunity,Low share with a lot under construction: the transition is under way. Low share with little under construction: untapped or stalled. High share: already advanced. Shares use each country's latest Ember year; bubble size is total generation.,حصة منخفضة مع بناء كبير: التحول جارٍ. حصة منخفضة مع بناء قليل: أسواق غير مستغلة أو متوقفة. حصة مرتفعة: أسواق متقدمة. تستخدم الحصص آخر سنة متاحة في Ember لكل دولة؛ حجم الفقاعة هو إجمالي التوليد.,machine
+note.detail,Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. H₂ marks projects tied to green hydrogen.,قدرة المالكين مرجحة بحصة الملكية. أسماء المشاريع العربية من GEM حيثما توفرت، وإلا يظهر الاسم الإنجليزي. يشير H₂ إلى المشاريع المرتبطة بالهيدروجين الأخضر.,machine
