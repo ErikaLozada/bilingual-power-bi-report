@@ -5,7 +5,7 @@
 ## 1. Canvas and spacing
 
 - **Page size:** 1920 × 1080 (16:9) on every page.
-- **Edge margin:** every header, visual and footer sits at least **20 px** from each canvas edge.
+- **Edge margin:** every header, visual and footer sits at least **20 px** from each canvas edge. For text (page title, footer) the rule applies to the rendered text, not its box: text renders inside its box, so the header boxes are nudged up 13 px and the footer boxes down 11–17 px (measured on exported PNGs), with no side padding on the footer.
 - **Gap between visuals:** **20 px**, made of 10 px on each visual's side. This applies to visuals side by side and visuals stacked vertically.
 - There is no column grid. Positions follow the spacing rules above.
 - **No mobile layout.**
@@ -90,13 +90,13 @@ Light theme: Power BI has no dark mode that viewers can switch on. All categoric
 
 | Status | Hex |
 |---|---|
-| Operating | `#2b2570` |
+| Operating | `#c9c6d6` (purple-grey, v2) |
 | Under construction | `#4a3fb0` |
 | Pre-construction | `#7368d9` |
 | Announced | `#a49cea` |
 | Shelved / cancelled | grey hatch (`#9e9d97` lines on `#e6e5e1`) |
 
-Darkest means furthest along. A traffic-light scale was rejected: "announced" is not "bad".
+The pipeline stages run darkest = furthest along. Operating capacity is already delivered, so it is recessive (light purple-grey) and the pipeline carries the focus (v2: the earlier dark purple was too close to under construction). Validated: operating vs under construction ΔE 40 (colour-blind) / 41 (full colour vision); it sits below 3:1 on white, so charts using it keep a legend or labels. A traffic-light scale was rejected: "announced" is not "bad".
 
 The Overview year chart uses the same two steps: operating (came online) and under construction (by expected year).
 
@@ -241,6 +241,14 @@ Every chart is checked against these before review:
 - **Say what the data can't cover** next to the chart (e.g. the share of under-construction capacity with no expected year).
 - **Two or more series get a legend**; on custom legends the swatch is coloured and the label stays in text colour.
 
+### 10.8 Filter line and tooltips (v2)
+
+- **Filter line:** on the title row, after the title, a text measure names the active slicer filters (`Filtered: Egypt, Oman · Solar`; more than three countries become a count). Blank when nothing is filtered.
+- **Tooltip pages, value first:** the number leads (24 pt Semibold), then what was hovered (12 pt, secondary text), then detail.
+  - Technology tooltip (Overview year chart, Breakdown country chart): GW, then year (came online / expected) or country · status, then GW by technology in technology colours. This replaces the technology split the v2 charts dropped.
+  - Gap tooltip (Opportunity gap bars): the country's share, then country and Ember year, then the world share and the gap.
+- Other charts keep the default tooltip.
+
 ### 10.6 Checking
 
 Every page is rendered to PNG through the Power BI export API and looked at before review. Schema checks alone don't catch formatting that Fabric silently ignores.
@@ -280,3 +288,7 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 29 | Overview main chart | Came online by year (2015–2025) plus under construction by expected year (2026–2029), status colours, with a coverage note |
 | 30 | Opportunity main chart | Gap-to-world bars replace the scatter |
 | 31 | Breakdown supporting chart | Hydrogen-tied vs rest of the pipeline by country replaces operating vs planned by technology |
+| 32 | Operating colour | Recessive purple-grey `#c9c6d6`; the pipeline stages carry the focus |
+| 33 | Edge margins | Measured on the rendered text: title text starts at y 20, footer text ends at y 1060, footer text 20 px from the sides |
+| 34 | Filter line | Active filters named on the title row (section 10.8) |
+| 35 | Tooltips | Value-first tooltip pages; technology split moves into the tooltip (section 10.8) |

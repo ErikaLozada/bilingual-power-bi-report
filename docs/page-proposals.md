@@ -16,12 +16,16 @@ v1 stays live in the `bilingual-report` workspace (main); v2 is in `bilingual-de
 | Key KPI | All values 36 pt | Key KPI 44 pt, others 30 pt (Overview: share; Breakdown: pipeline; Opportunity: under construction) | One lead number per page |
 | Breakdown supporting | Operating vs planned by technology | **Pipeline tied to green hydrogen by country**: tied (dark grey, labelled GW · %) vs rest (neutral) | Analysis 3: Mauritania 96%, Djibouti 98%, Oman 85%, Morocco 58% hydrogen-tied |
 | Opportunity main | Scatter: share × under construction | **Gap-to-world bars**: each country's wind + solar share minus the world's (pts), Egypt (top builder) in the accent | Answers Q8 directly; the scatter's labels overlapped |
+| Operating colour | Dark purple, close to under construction | Light purple-grey | Delivered capacity recedes; the pipeline is the focus; easier to tell apart |
+| Header / footer | Text 13 px low / 11–17 px high, footer 37 px from the side | Text 20 px from every canvas edge | Margin rule applies to the visible text |
+| All pages | No sign of active filters | **Filter line** on the title row | Readers see what the numbers are filtered to |
+| Tooltips | Default tooltips | **Value-first tooltip pages**: technology split on the year and country charts; share, world and gap on the gap bars | Technology detail kept without a chart for it |
 
 Not built from the review:
 - **Dumbbell (operating vs planned by country):** on one linear scale operating (≤ 12 GW) collapses against planned (up to 113 GW); the scorecard's pipeline multiple carries this instead.
-- Filter-state line in the header and value-first tooltips (review items C and D): not in this round.
+- Value-first tooltips on the KPI strips, hydrogen chart and Projects page (default tooltips there).
 
-Trade-off to review: the Overview no longer shows the technology split of added capacity, and Breakdown no longer compares operating vs planned by technology. Technology now shows only in the hydrogen KPI and the slicers.
+The technology split dropped from the Overview and Breakdown charts now shows in the technology tooltip.
 
 ## 1. Overview: "Building is accelerating, but from a very small base"
 
