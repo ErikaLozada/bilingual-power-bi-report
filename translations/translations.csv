@@ -1,0 +1,40 @@
+key,en,ar,provenance
+country.DZA,Algeria,الجزائر,machine
+country.BHR,Bahrain,البحرين,machine
+country.COM,Comoros,جزر القمر,machine
+country.DJI,Djibouti,جيبوتي,machine
+country.EGY,Egypt,مصر,machine
+country.IRQ,Iraq,العراق,machine
+country.JOR,Jordan,الأردن,machine
+country.KWT,Kuwait,الكويت,machine
+country.LBN,Lebanon,لبنان,machine
+country.LBY,Libya,ليبيا,machine
+country.MRT,Mauritania,موريتانيا,machine
+country.MAR,Morocco,المغرب,machine
+country.OMN,Oman,عُمان,machine
+country.PSE,Palestine,فلسطين,machine
+country.QAT,Qatar,قطر,machine
+country.SAU,Saudi Arabia,السعودية,machine
+country.SOM,Somalia,الصومال,machine
+country.SDN,Sudan,السودان,machine
+country.SYR,Syria,سوريا,machine
+country.TUN,Tunisia,تونس,machine
+country.ARE,United Arab Emirates,الإمارات,machine
+country.YEM,Yemen,اليمن,machine
+tech.solar,Solar,الطاقة الشمسية,machine
+tech.wind,Wind,طاقة الرياح,machine
+tech.hydro,Hydropower,الطاقة الكهرومائية,machine
+tech.bioenergy,Bioenergy,الطاقة الحيوية,machine
+tech.geothermal,Geothermal,الطاقة الحرارية الجوفية,machine
+techgroup.solar,Solar,الشمسية,machine
+techgroup.wind,Wind,الرياح,machine
+techgroup.hydro,Hydro,الكهرومائية,machine
+techgroup.other,Other,أخرى,machine
+status.operating,Operating,قيد التشغيل,machine
+status.construction,Under construction,قيد الإنشاء,machine
+status.pre-construction,Pre-construction,ما قبل الإنشاء,machine
+status.announced,Announced,مُعلن,machine
+status.shelved,Shelved,مُعلّق,machine
+status.cancelled,Cancelled,مُلغى,machine
+status.mothballed,Mothballed,متوقف مؤقتاً,machine
+status.retired,Retired,خارج الخدمة,machine

@@ -1,0 +1,15 @@
+{
+  "gem": {
+    "release": "Global Integrated Power Tracker, September 2026",
+    "file": "Global Integrated Power September 2026 V2.xlsx",
+    "sha256": "34749042643b15cac4423ae67864ad36c391013aa2d5acc65ae7492c5e33ee27",
+    "licence": "CC BY 4.0"
+  },
+  "ember": {
+    "dataset": "Yearly electricity data",
+    "url": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv",
+    "downloaded": "2026-10-28",
+    "sha256": "afe1e315ce8fef7ddb2e2569243b3ac4e93cfe8146ac1be5392e362bd6afbe72",
+    "licence": "CC BY 4.0"
+  }
+}

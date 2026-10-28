@@ -1,0 +1,6 @@
+Technology ID,Technology,Technology AR,Technology AR Provenance,Technology Group,Technology Group AR,Technology Group AR Provenance,Sort Order,Group Sort Order
+solar,Solar,الطاقة الشمسية,machine,Solar,الشمسية,machine,1,1
+wind,Wind,طاقة الرياح,machine,Wind,الرياح,machine,2,2
+hydro,Hydropower,الطاقة الكهرومائية,machine,Hydro,الكهرومائية,machine,3,3
+bioenergy,Bioenergy,الطاقة الحيوية,machine,Other,أخرى,machine,4,4
+geothermal,Geothermal,الطاقة الحرارية الجوفية,machine,Other,أخرى,machine,5,4

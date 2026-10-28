@@ -1,0 +1,958 @@
+Unit ID,Plant ID,Country ID,Technology ID,Status ID,Unit,Capacity MW,Start Year,Owner,Hydrogen
+G100000800008,L100000800008,DZA,solar,operating,,20,2015,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800010,L100000800010,DZA,solar,cancelled,,20,,Sonelgaz SpA [100%],False
+G100001018620,L100001016700,DZA,solar,pre-construction,,100,,,False
+G100000800012,L100000800012,DZA,solar,operating,PV 1,20,2016,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800013,L100000800012,DZA,solar,operating,PV 2,33,2017,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800014,L100000800013,DZA,solar,operating,,20,2017,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800015,L100000800014,DZA,solar,operating,,30,2016,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100001051336,L100001045587,DZA,solar,pre-construction,,20,,Sonelgaz SpA,False
+G100000831100,L100000827592,DZA,solar,pre-construction,,80,,Sonelgaz SpA [100%],False
+G100000831099,L100000827591,DZA,solar,pre-construction,,80,,Sonelgaz SpA [100%],False
+G100001051348,L100001045597,DZA,solar,pre-construction,,80,,Sonelgaz SpA,False
+G100000831102,L100000827593,DZA,solar,cancelled,,150,,,False
+G100000814047,L100000811545,DZA,solar,shelved,,15,,Sonatrach SpA [100%],False
+G100001018616,L100001016699,DZA,solar,construction,,50,,Sonelgaz SpA,False
+G100000800076,L100000800058,DZA,solar,operating,1,10,2018,Eni SpA [50%]; Sonatrach SpA; unknown [50%],False
+G100000831103,L100000800058,DZA,solar,construction,2,10,,Eni SpA; Sonatrach SpA,False
+G100000831106,L100000827594,DZA,solar,construction,Khenguet Sidi Nadj Solar PV Plant,150,,Sonelgaz SpA [100%],False
+G100000831104,L100000827594,DZA,solar,pre-construction,Leghrous Solar PV Plant,220,,Sonelgaz SpA [100%],False
+G100000831105,L100000827594,DZA,solar,construction,Tolga Solar PV Plant,80,2026,Sonelgaz SpA [100%],False
+G100000800083,L100000800065,DZA,solar,operating,,10,2024,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800084,L100000800066,DZA,solar,cancelled,,15,,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100001051337,L100001045588,DZA,solar,pre-construction,,150,,Sonelgaz SpA,False
+G100000814046,L100000811544,DZA,solar,construction,Abadla Solar PV Plant,80,,Sonelgaz SpA [100%],False
+G100000831101,L100000811544,DZA,solar,pre-construction,Kenadsa Solar PV Plant,120,2026,Sonelgaz SpA [100%],False
+G100000800102,L100000800079,DZA,solar,cancelled,,20,,,False
+G100000831107,L100000827595,DZA,solar,cancelled,1,10,,Algerian Power Generation Group [100%],False
+G100000831108,L100000827595,DZA,solar,cancelled,2,10,,Algerian Power Generation Group [100%],False
+G100000831109,L100000827595,DZA,solar,cancelled,3,10,,Algerian Power Generation Group [100%],False
+G100000831110,L100000827595,DZA,solar,cancelled,4,10,,Algerian Power Generation Group [100%],False
+G100000831111,L100000827595,DZA,solar,cancelled,5,10,,Algerian Power Generation Group [100%],False
+G100000800125,L100000800100,DZA,solar,operating,1,20,2016,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800126,L100000800100,DZA,solar,operating,2,40,2017,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000831112,L100000827596,DZA,solar,construction,Nakhla Solar PV Plant,200,2026,Sonelgaz SpA [100%],False
+G100000831113,L100000827596,DZA,solar,construction,Taleb Larbi Solar PV Plant,80,2027,Sonelgaz SpA [100%],False
+G100000800127,L100000800101,DZA,solar,operating,,23,2016,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100001018561,L100001016663,DZA,solar,construction,,220,,,False
+G100001018623,L100001016703,DZA,solar,construction,,300,2026,Sonelgaz SpA,False
+G100001051324,L100001045577,DZA,solar,construction,,200,2026,Sonelgaz SpA,False
+G100000831114,L100000827597,DZA,solar,pre-construction,,80,2028,Sonelgaz SpA [100%],False
+G100000800173,L100000800135,DZA,solar,operating,,30,2017,Sonelgaz SpA [100%],False
+G100000800171,L100000800133,DZA,solar,shelved,,10,,Sonatrach SpA [100%],False
+G100001018621,L100001016701,DZA,solar,pre-construction,,362,2028,Sonelgaz SpA,False
+G100000408032,L100000406051,DZA,solar,operating,Solar Thermal,20,2011,New Energy Algeria (NEAL); Sonatrach SpA,False
+G100000831116,L100000827599,DZA,solar,cancelled,,70,,,False
+G100001018607,L100001016695,DZA,solar,construction,,362,2026,,False
+G100000831117,L100000827600,DZA,solar,construction,,200,,Sonelgaz SpA [100%],False
+G100000831119,L100000827602,DZA,solar,construction,,220,,Sonelgaz SpA [100%],False
+G100001022812,L100001020039,DZA,solar,operating,,3.5,2024,,False
+G100000831120,L100000827603,DZA,solar,cancelled,,70,,,False
+G100000800261,L100000800215,DZA,solar,cancelled,,15,,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000831121,L100000827604,DZA,solar,cancelled,,70,,,False
+G100000800310,L100000800258,DZA,solar,operating,,15,2016,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100001051339,L100001045590,DZA,solar,pre-construction,,20,,Sonelgaz SpA,False
+G100001018565,L100001016667,DZA,solar,construction,,80,,Sonelgaz SpA,False
+G100001051330,L100001045583,DZA,solar,construction,,80,,,False
+G100000800323,L100000800271,DZA,solar,cancelled,,20,,,False
+G100000800336,L100000800284,DZA,solar,operating,,20,2016,Sonelgaz SpA [100%],False
+G100001051345,L100001045596,DZA,solar,pre-construction,,150,,Sonelgaz SpA,False
+G100001051338,L100001045589,DZA,solar,pre-construction,,20,,Sonelgaz SpA,False
+G100000800342,L100000800289,DZA,solar,cancelled,,15,,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000800386,L100000800316,DZA,solar,cancelled,1,800,,,False
+G100000831122,L100000800316,DZA,solar,cancelled,2,800,,,False
+G100000831123,L100000800316,DZA,solar,cancelled,3,800,,,False
+G100000831124,L100000800316,DZA,solar,cancelled,4,800,,,False
+G100000831125,L100000800316,DZA,solar,cancelled,5,800,,,False
+G100000800387,L100000800317,DZA,solar,cancelled,,11,,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100001018624,L100001016704,DZA,solar,pre-construction,,250,2028,Sonelgaz SpA,False
+G100001018562,L100001016664,DZA,solar,construction,,200,,,False
+G100000800400,L100000800329,DZA,solar,cancelled,,11,,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000831127,L100000827606,DZA,solar,pre-construction,,150,,Sonelgaz SpA [100%],False
+G100000831128,L100000827607,DZA,solar,announced,,50,,VNG AG; Sonatrach SpA,False
+G100000833172,L100000829383,BHR,solar,pre-construction,,11.4,,,False
+G100000804671,L100000804089,BHR,solar,pre-construction,,100,,Almoayyed Contracting Group WLL [10%]; ACWA Power Co [60%]; Mitsui Group [30%],False
+G100001021427,L100001019038,BHR,solar,construction,,95,2026,,False
+G100001021426,L100001019037,BHR,solar,announced,,100,,,False
+G100000833173,L100000829384,BHR,solar,operating,,4.1,2014,,False
+G100001070823,L100001061761,BHR,solar,announced,,100,2027,,False
+G100000833174,L100000829385,BHR,solar,pre-construction,,72,2027,Bahrain's Ministry of Electricity and Water Affairs [100%],False
+G100001051458,L100001045688,BHR,solar,pre-construction,,44,,,False
+G100001074362,L100001064600,COM,solar,operating,,2.5,2021,,False
+G100001074364,L100001064604,COM,solar,operating,,1.5,2021,,False
+G100001074363,L100001064602,COM,solar,operating,,2,2020,,False
+G100001074359,L100001064598,COM,solar,operating,,4,2020,,False
+G100001074354,L100001064596,COM,solar,operating,,6.3,2025,,False
+G100001074358,L100001064597,COM,solar,operating,,5,2021,,False
+G100001074365,L100001064605,COM,solar,operating,,1,2022,,False
+G100000831142,L100000827618,COM,solar,shelved,Anjouan 1,2.5,,TUGLIQ Energy [100%],False
+G100000831143,L100000827618,COM,solar,shelved,Anjouan 2,2,,TUGLIQ Energy [100%],False
+G100000831144,L100000827618,COM,solar,shelved,Ngazidja 1,2.8,,TUGLIQ Energy [100%],False
+G100000831145,L100000827618,COM,solar,shelved,Ngazidja 2,2.8,,TUGLIQ Energy [100%],False
+G100001074045,L100001064363,DJI,solar,operating,,15,2010,,False
+G100000814085,L100000811577,DJI,solar,pre-construction,,30,2026,AMEA Power [100%],False
+G100001074044,L100001064362,DJI,solar,operating,,20,2019,,False
+G100000831149,L100000827622,DJI,solar,pre-construction,,10000,,CWP Global [73%]; Copenhagen Infrastructure Partners P/S [26%],True
+G100001074040,L100001064358,DJI,solar,operating,,60,2021,,False
+G100000800129,L100000800103,DJI,solar,cancelled,1,50,,Green Enesys [100%],False
+G100000800130,L100000800103,DJI,solar,cancelled,2,50,,Green Enesys [100%],False
+G100000800131,L100000800103,DJI,solar,cancelled,3,50,,Green Enesys [100%],False
+G100000800132,L100000800103,DJI,solar,cancelled,4,50,,Green Enesys [100%],False
+G100000800133,L100000800103,DJI,solar,cancelled,5,50,,Green Enesys [100%],False
+G100000800134,L100000800103,DJI,solar,cancelled,6,50,,Green Enesys [100%],False
+G100001021295,L100000800103,DJI,solar,announced,Grand Bara Relaunch,25,,,False
+G100001074043,L100001064360,DJI,solar,operating,,25,2022,,False
+G100001074041,L100001064359,DJI,solar,operating,,30,2020,,False
+G100001074046,L100001064364,DJI,solar,operating,,10,2020,,False
+G100000800359,L100000800304,DJI,solar,cancelled,1,50,,SkyPower Global [100%],False
+G100000800360,L100000800304,DJI,solar,cancelled,2,50,,SkyPower Global [100%],False
+G100000800361,L100000800304,DJI,solar,cancelled,3,50,,SkyPower Global [100%],False
+G100000800362,L100000800304,DJI,solar,cancelled,4,50,,SkyPower Global [100%],False
+G100000800006,L100000800006,EGY,solar,operating,,200,2024,ACWA Power Co [100%],False
+G100000831153,L100000827625,EGY,solar,shelved,,500,,AMEA Power [100%],False
+G100000800028,L100000800025,EGY,solar,operating,,66,2019,Globeleq Africa Investments Ltd [100%],False
+G100000800003,L100000800003,EGY,solar,operating,"1-"" 1""محطة ابيدوس للطاقة الشمسية",500,2024,AMEA Power [100%],False
+G100001021304,L100000800003,EGY,solar,construction,"2-محطة ابيدوس للطاقة الشمسية""2 """,1000,2026,AMEA Power [60%]; Kyuden International Corp [40%],False
+G100000800016,L100000800015,EGY,solar,shelved,1,100,,Scatec ASA; Egypt Green Ammonia Co,True
+G100000831152,L100000827624,EGY,solar,operating,,6,2019,,False
+G100000800026,L100000800023,EGY,solar,operating,,20,2022,Administrative Capital For Urban Development [100%],False
+G100000831161,L100000827633,EGY,solar,pre-construction,1,20,,Heidelberg Materials AG [100%],False
+G100001072787,L100000827633,EGY,solar,construction,2,17.6,,Integrated Renewable & Sustainable Communities (IRSC) [100%],False
+G100000800033,L100000800029,EGY,solar,cancelled,,100,,KarmSolar [100%],False
+G100000800043,L100000800036,EGY,solar,operating,PV 1,68,2019,ACWA Power Co; CHINT Group Corp; Tawakol Electric,False
+G100000800044,L100000800036,EGY,solar,operating,PV 2,70,2019,ACWA Power Co; CHINT Group Corp; Tawakol Electric,False
+G100000800045,L100000800036,EGY,solar,operating,PV 3,28,2019,ACWA Power Co; CHINT Group Corp; Tawakol Electric,False
+G100000800038,L100000800034,EGY,solar,operating,PV 1,63,2019,Total Eren SA; Access Infra Africa,False
+G100000800039,L100000800034,EGY,solar,operating,PV 2,63,2019,Total Eren SA; Access Infra Africa,False
+G100000800040,L100000800035,EGY,solar,operating,PV 1,50,2019,Enara Bahrain [50%]; Acciona Energía SAU [50%],False
+G100000800041,L100000800035,EGY,solar,operating,PV 2,50,2019,Enara Bahrain; Acciona Energía SAU,False
+G100000800042,L100000800035,EGY,solar,operating,PV 3,50,2019,Enara Bahrain; Acciona Energía SAU,False
+G100000800046,L100000800037,EGY,solar,cancelled,,50,,Electrical Services; Bengoah; Acciona Energía SAU,False
+G100000800047,L100000800038,EGY,solar,operating,PV 1,64,2019,Enerpal SA; Alcazar Energy,False
+G100000800048,L100000800038,EGY,solar,operating,PV 2,64,2019,Alcazar Energy [100%],False
+G100000800049,L100000800038,EGY,solar,operating,PV 3,64,2019,Alcazar Energy [100%],False
+G100000800050,L100000800038,EGY,solar,operating,PV 4,64,2019,Alcazar Energy [100%],False
+G100000800051,L100000800039,EGY,solar,operating,,50,2019,Alfanar Group [100%],False
+G100000800053,L100000800041,EGY,solar,operating,,25,2019,Tech Project Development Group Incorporated [7%]; Al Bilal Group [52%]; Enerray SpA [15%]; Desert Technologies Co Ltd [25%],False
+G100000800056,L100000800043,EGY,solar,operating,,64,2019,BPE Partners; Infinity Energy SAE; ib vogt gmbH,False
+G100000800054,L100000800042,EGY,solar,cancelled,PV 1,50,,Building Energy SpA; New and Renewable Energy Authority,False
+G100000800055,L100000800042,EGY,solar,cancelled,PV 2,50,,Building Energy SpA; New and Renewable Energy Authority,False
+G100000800223,L100000800179,EGY,solar,operating,PV 1,65,2019,EDF Renewables; Elsewedy Electric,False
+G100000800224,L100000800179,EGY,solar,operating,PV 2,65,2019,EDF Renewables; Elsewedy Electric,False
+G100000800057,L100000800044,EGY,solar,cancelled,,47,,Enel SpA [100%],False
+G100000800058,L100000800045,EGY,solar,operating,,50,2018,Fas Energy LLC [100%],False
+G100000800059,L100000800046,EGY,solar,operating,,64,2018,New and Renewable Energy Authority; Masdar Clean Energy,False
+G100000814088,L100000811580,EGY,solar,operating,,64,2019,Infinity Energy SAE [100%],False
+G100000800060,L100000800047,EGY,solar,cancelled,,50,,Actis LLP; Mainstream Renewable Power,False
+G100000800061,L100000800048,EGY,solar,operating,,38,2019,BPE Partners; Infinity Energy SAE; ib vogt gmbH,False
+G100000800062,L100000800049,EGY,solar,operating,,50,2019,Shapoorji Pallonji Infrastructure Capital Company PVT LTD (SP INFRA) [100%],False
+G100000800063,L100000800050,EGY,solar,operating,,64,2019,BPE Partners; Infinity Energy SAE; ib vogt gmbH,False
+G100000800064,L100000800051,EGY,solar,operating,,32,2019,Voltalia SA [100%],False
+G100000800065,L100000800052,EGY,solar,operating,PV 1,65,2019,Africa50 SA; Scatec ASA; KLP Norfund Investments AS,False
+G100000800066,L100000800052,EGY,solar,operating,PV 2,65,2019,KLP Norfund Investments AS; Scatec ASA; Africa50 SA,False
+G100000800067,L100000800052,EGY,solar,operating,PV 3,65,2019,Africa50 SA; Scatec ASA; KLP Norfund Investments AS,False
+G100000800068,L100000800052,EGY,solar,operating,PV 4,65,2019,Africa50 SA; Scatec ASA; KLP Norfund Investments AS,False
+G100000800069,L100000800052,EGY,solar,operating,PV 5,65,2019,Africa50 SA; Scatec ASA; KLP Norfund Investments AS,False
+G100000800070,L100000800052,EGY,solar,operating,PV 6,65,2019,Africa50 SA; Scatec ASA; KLP Norfund Investments AS,False
+G100000800071,L100000800053,EGY,solar,operating,,65,2019,Infinity Energy SAE; ib vogt gmbH,False
+G100000800072,L100000800054,EGY,solar,operating,,25,2019,Spectrum International for Renewable Energy LLC; Enerray SpA; Desert Technologies Co Ltd; Al Tawakol Electrical (Gila) SAE; New and Renewable Energy Authority,False
+G100001050825,L100001045207,EGY,solar,construction,,300,,,False
+G100000800074,L100000800056,EGY,solar,shelved,,18,,Administrative Capital For Urban Development [100%],False
+G100001023821,L100001020852,EGY,solar,operating,,1.6,2017,,False
+G100001050955,L100001045294,EGY,solar,announced,,10000,,China Electric Power Equipment and Technology Co Ltd,False
+G100000831154,L100000827626,EGY,solar,pre-construction,,800,,New and Renewable Energy Authority [100%],True
+G100001018744,L100001016808,EGY,solar,announced,,40,,Alexandria National Refining and Petrochemical Company (ANRPC); Scatec ASA,True
+G100000831155,L100000827627,EGY,solar,pre-construction,,1000,,,True
+G100001050951,L100001045291,EGY,solar,pre-construction,1,500,,Scatec ASA [100%],False
+G100001050952,L100001045291,EGY,solar,pre-construction,2,500,,Scatec ASA [100%],False
+G100001018745,L100001016809,EGY,solar,construction,,130,,Egypt's Sovereign Fund; Scatec ASA; Fertiglobe,True
+G100000814089,L100000811581,EGY,solar,operating,,25,2018,Egyptian Ministry Of Industry (MTI); Industrial Modernization Center (IMC); Regional Centre for Renewable Energy and Energy Efficiency; United Nations Development Program (UNDP); New and Renewable Energy Authority; Global Environment Facility (GEF); Egypt Electric Utility and Consumer protection Regulatory Agency,False
+G100000814090,L100000811582,EGY,solar,operating,,10,,KarmSolar [100%],False
+G100000831156,L100000827628,EGY,solar,construction,,500,,New and Renewable Energy Authority [100%],False
+G100000814091,L100000811583,EGY,solar,shelved,,500,,Ministry of Electricity and Renewable Energy (Egypt); Egyptian Electricity Transmission CO (EETC); Fas Energy LLC,False
+G100000814092,L100000811584,EGY,solar,announced,,4600,,New and Renewable Energy Authority [100%],True
+G100000800157,L100000800121,EGY,solar,cancelled,,50,,Fas Energy LLC [100%],False
+G100000814093,L100000811585,EGY,solar,pre-construction,1,1500,2028,New and Renewable Energy Authority [100%],True
+G100000814094,L100000811585,EGY,solar,pre-construction,2,1500,2028,New and Renewable Energy Authority [100%],True
+G100000814095,L100000811585,EGY,solar,pre-construction,3,1500,2028,New and Renewable Energy Authority [100%],True
+G100000800174,L100000800136,EGY,solar,pre-construction,,20,2026,New and Renewable Energy Authority [100%],False
+G100000814096,L100000811586,EGY,solar,operating,,20,2011,New and Renewable Energy Authority [100%],False
+G100001072772,L100001063344,EGY,solar,pre-construction,,200,2026,Ministry of Electricity and Renewable Energy (Egypt),False
+G100001072773,L100001063345,EGY,solar,pre-construction,,1000,2027,Ministry of Electricity and Renewable Energy (Egypt),False
+G100000814097,L100000811587,EGY,solar,operating,,17,2022,KarmSolar [100%],False
+G100000800222,L100000800178,EGY,solar,cancelled,,50,,New and Renewable Energy Authority; Elsewedy Electric,False
+G100000800225,L100000800180,EGY,solar,operating,,26,2020,New and Renewable Energy Authority [100%],False
+G100000831157,L100000827629,EGY,solar,construction,,50,,New and Renewable Energy Authority [100%],False
+G100000814099,L100000811589,EGY,solar,shelved,,50,,Lumika Renewables [100%],False
+G100000814100,L100000811590,EGY,solar,pre-construction,1,1000,,New and Renewable Energy Authority [100%],True
+G100000814101,L100000811590,EGY,solar,pre-construction,2,1000,,New and Renewable Energy Authority [100%],True
+G100000814102,L100000811591,EGY,solar,operating,PV1,10,2022,New and Renewable Energy Authority [100%],False
+G100000814103,L100000811591,EGY,solar,operating,PV2,10,,New and Renewable Energy Authority [100%],False
+G100000831159,L100000827631,EGY,solar,operating,,500,2024,New and Renewable Energy Authority [100%],False
+G100001050953,L100001045292,EGY,solar,construction,1,561,2026,Scatec ASA [100%],False
+G100001053370,L100001045292,EGY,solar,pre-construction,2,564,2026,Scatec ASA [100%],False
+G100000814104,L100000811592,EGY,solar,operating,PV1,10,2019,Administrative Capital For Urban Development [100%],False
+G100000814105,L100000811592,EGY,solar,construction,PV2,130,,Administrative Capital For Urban Development [100%],False
+G100001071103,L100001061986,EGY,solar,announced,,140,2027,Scatec ASA,True
+G100000814106,L100000811593,EGY,solar,pre-construction,1,284,,New and Renewable Energy Authority [100%],True
+G100000814107,L100000811593,EGY,solar,pre-construction,2,2820,,New and Renewable Energy Authority [100%],True
+G100001072774,L100001063346,EGY,solar,announced,1,1250,2030,,False
+G100001072895,L100001063346,EGY,solar,announced,2,6875,,,False
+G100001072896,L100001063346,EGY,solar,announced,3,6875,,,False
+G100000831160,L100000827632,EGY,solar,operating,,5,2019,,False
+G100000814108,L100000811594,EGY,solar,pre-construction,,300,2026,SolarizEgypt | Amarenco & Co [100%],False
+G100000814109,L100000811595,EGY,solar,shelved,,36,,SolarizEgypt [100%],False
+G100001072765,L100001063339,EGY,solar,announced,,400,,Ministry of Electricity and Renewable Energy (Egypt),False
+G100001072764,L100001063337,EGY,solar,announced,,500,,,False
+G100000814110,L100000811596,EGY,solar,shelved,,300,,General Authority Suez Canal Economic Zone [100%],False
+G100000800384,L100000800314,EGY,solar,operating,,36,2022,Centamin PLC; Egyptian Modernization of Mining Sector,False
+G100000831162,L100000827634,EGY,solar,operating,,20,2017,Al-Dahra Agricultural Co [100%],False
+G100001018748,L100001016812,EGY,solar,construction,1,2100,2028,Voltalia SA; Taqa Power,True
+G100001050818,L100001045201,EGY,solar,construction,1,900,,Hassan Allam Utilities; Infinity; Masdar Clean Energy,False
+G100000800426,L100000800350,EGY,solar,construction,,200,,,False
+G100000831163,L100000827635,EGY,solar,construction,,100,,New and Renewable Energy Authority [100%],False
+G100001072775,L100001063348,EGY,solar,pre-construction,,20,,New and Renewable Energy Authority,False
+G100000800431,L100000800355,EGY,solar,operating,,50,2022,New and Renewable Energy Authority; Belectric,False
+G100000811412,L100000809092,IRQ,solar,pre-construction,,1000,,Ministry of Oil (Iraq) [100%],False
+G100000811411,L100000809091,IRQ,solar,shelved,,100,,Ministry of Electricity (Iraq) [100%],False
+G100000811413,L100000809093,IRQ,solar,pre-construction,,250,,Ministry of Electricity (Iraq) [100%],False
+G100000804610,L100000804037,IRQ,solar,construction,,50,2027,Scatec ASA; Al Bilal Group; Orascom Construction Industries SAE,False
+G100000811414,L100000809094,IRQ,solar,shelved,,130,,Ministry of Electricity (Iraq) [100%],False
+G100000811415,L100000809095,IRQ,solar,shelved,,50,,Ministry of Electricity (Iraq) [100%],False
+G100000811416,L100000809096,IRQ,solar,shelved,,50,,Ministry of Electricity (Iraq) [100%],False
+G100000811417,L100000809097,IRQ,solar,shelved,,200,,Ministry of Electricity (Iraq) [100%],False
+G100000804701,L100000804109,IRQ,solar,cancelled,,100,,Al Dana International Co [100%],False
+G100000804659,L100000804077,IRQ,solar,pre-construction,,450,,Masdar Clean Energy [100%],False
+G100001051028,L100001045336,IRQ,solar,announced,,120,,Ministry of Electricity (Iraq),False
+G100001029967,L100001025286,IRQ,solar,operating,,6.4,2024,,False
+G100001051031,L100001045338,IRQ,solar,announced,,100,,,False
+G100000804615,L100000804042,IRQ,solar,pre-construction,,225,,Al Bilal Group; Orascom Construction Industries SAE,False
+G100000804614,L100000804041,IRQ,solar,shelved,,50,,Scatec ASA; Al Bilal Group; Orascom Construction Industries SAE,False
+G100000804616,L100000804043,IRQ,solar,operating,1,22,2025,Al Bilal Group; Orascom Construction Industries SAE,False
+G100001073215,L100000804043,IRQ,solar,operating,2,53,2025,Al Bilal Group; Orascom Construction Industries SAE,False
+G100001073216,L100000804043,IRQ,solar,construction,3,225,2026,Al Bilal Group; Orascom Construction Industries SAE,False
+G100000804613,L100000804040,IRQ,solar,pre-construction,,50,,Al Bilal Group; Scatec ASA; Orascom Construction Industries SAE,False
+G100000834162,L100000830312,IRQ,solar,announced,,25,,Ministry of Electricity (Kurdistan) [100%],False
+G100000834163,L100000830313,IRQ,solar,construction,,25,,Ministry of Electricity (Kurdistan) [100%],False
+G100000804661,L100000804079,IRQ,solar,pre-construction,,100,,Masdar Clean Energy [100%],False
+G100000804660,L100000804078,IRQ,solar,pre-construction,,100,,Masdar Clean Energy [100%],False
+G100000804662,L100000804080,IRQ,solar,pre-construction,,1000,,Masdar Clean Energy [100%],False
+G100001051024,L100001045330,IRQ,solar,construction,,500,,Ministry of Electricity (Iraq),False
+G100001051063,L100001045361,IRQ,solar,construction,,35,,Ministry of Electricity (Iraq),False
+G100001050996,L100001045315,IRQ,solar,construction,,30,,Ministry of Electricity (Iraq),False
+G100001050997,L100001045316,IRQ,solar,pre-construction,,750,,,False
+G100000811421,L100000804054,IRQ,solar,pre-construction,,1250,,Power Construction Corporation of China Ltd [100%],False
+G100000811422,L100000809101,IRQ,solar,operating,1,350,2024,Masdar Clean Energy [100%],False
+G100000811423,L100000809101,IRQ,solar,operating,2,350,2024,Masdar Clean Energy [100%],False
+G100001051056,L100001045354,IRQ,solar,announced,,250,,,False
+G100001051032,L100001045339,IRQ,solar,announced,,250,,Ministry of Electricity (Iraq),False
+G100000804721,L100000804129,IRQ,solar,cancelled,,50,,Sama Baghdad Co [100%],False
+G100000804682,L100000804095,IRQ,solar,cancelled,,50,,Sama Baghdad Co; Blue Sky Energy,False
+G100000804681,L100000804094,IRQ,solar,cancelled,,40,,Sama Baghdad Co; Blue Sky Energy,False
+G100000804683,L100000804096,IRQ,solar,cancelled,,50,,Sama Baghdad Co; Blue Sky Energy,False
+G100000834165,L100000809102,IRQ,solar,construction,1,250,,Ministry of Electricity (Iraq) [100%],False
+G100000811424,L100000809102,IRQ,solar,construction,2,500,,Ministry of Electricity (Iraq) [100%],False
+G100000804611,L100000804038,IRQ,solar,construction,,30,,Scatec ASA; Al Bilal Group; Orascom Construction Industries SAE,False
+G100000804612,L100000804039,IRQ,solar,construction,,50,,Scatec ASA; Al Bilal Group; Orascom Construction Industries SAE,False
+G100001051020,L100001045327,IRQ,solar,announced,,120,,Government of Kurdistan Region,False
+G100000834166,L100000830315,IRQ,solar,announced,,100,,Ministry of Electricity (Kurdistan) [100%],False
+G100000811425,L100000809103,IRQ,solar,pre-construction,,25,,Ministry of Electricity (Kurdistan) [100%],False
+G100001051030,L100001045337,IRQ,solar,announced,,100,,,False
+G100001051058,L100001045356,IRQ,solar,pre-construction,,250,,,False
+G100000804696,L100000804104,IRQ,solar,construction,1,250,2026,TotalEnergies SE [45%]; QatarEnergy [25%]; Ministry of Electricity (Iraq) [30%],False
+G100000811426,L100000804104,IRQ,solar,pre-construction,2,250,2028,TotalEnergies SE [45%]; QatarEnergy [25%]; Ministry of Electricity (Iraq) [30%],False
+G100000811427,L100000804104,IRQ,solar,pre-construction,3,250,2028,TotalEnergies SE [45%]; QatarEnergy [25%]; Ministry of Electricity (Iraq) [30%],False
+G100001020826,L100000804104,IRQ,solar,announced,4,250,2028,QatarEnergy [25%]; TotalEnergies SE [45%]; Ministry of Electricity (Iraq) [30%],False
+G100001073217,L100001063694,IRQ,solar,pre-construction,1,250,,,False
+G100001073218,L100001063694,IRQ,solar,pre-construction,2,250,,,False
+G100001051026,L100001045332,IRQ,solar,construction,,300,,Ministry of Electricity (Iraq),False
+G100000804608,L100000804036,JOR,solar,operating,1,12,2015,Philadelphia Solar [100%],False
+G100000804609,L100000804036,JOR,solar,operating,2,11,2019,Philadelphia Solar [100%],False
+G100000804620,L100000804047,JOR,solar,operating,,50,2021,Philadelphia Solar [30%]; AMEA Power [70%],False
+G100000804619,L100000804046,JOR,solar,operating,,12,2016,Arabia Trading & Consulting Co [100%],False
+G100000804643,L100000804064,JOR,solar,operating,,67,2019,Fotowatio Renewable Ventures (FRV) BV [70%]; Arabia Trading & Consulting Co [30%],False
+G100000804654,L100000804072,JOR,solar,operating,,12,2016,RAI Energy International (RAI); Kingdom for Energy Investments Co,False
+G100000834546,L100000830688,JOR,solar,operating,,66,,,False
+G100000804655,L100000804073,JOR,solar,operating,,12,2016,Kingdom for Energy Investments Co [30%]; Voltalia SA [70%],False
+G100000804656,L100000804074,JOR,solar,operating,,11,2016,Kingdom for Energy Investments Co [30%]; Voltalia SA [70%],False
+G100000804618,L100000804045,JOR,solar,operating,,21,2016,Alcazar Energy [100%],False
+G100000804668,L100000804086,JOR,solar,operating,,52,2019,Mitsui & Co Ltd; Nebras Power QPSC; AES Corp,False
+G100000834547,L100000830689,JOR,solar,pre-construction,,530,2029,Fidelity Group; Hynfra,True
+G100001030108,L100001025427,JOR,solar,operating,,3.9,2024,,False
+G100001030109,L100001025428,JOR,solar,operating,,3.2,2017,,False
+G100001030110,L100001025429,JOR,solar,operating,,4,2024,,False
+G100000804623,L100000804050,JOR,solar,operating,,200,2020,Masdar Clean Energy [70%]; Taaleri Energia Funds Management Oy [30%],False
+G100000804695,L100000804103,JOR,solar,operating,,33,2023,,False
+G100000804723,L100000804131,JOR,solar,operating,,20,2016,Scatec ASA [50%]; European Jordanian Renewable Energy Projects LLC [50%],False
+G100000804607,L100000804035,JOR,solar,operating,,67,2019,Fotowatio Renewable Ventures (FRV) BV [100%],False
+G100000804684,L100000804097,JOR,solar,operating,,10,2016,European Jordanian Renewable Energy Projects LLC; Scatec ASA [40%]; Greenland Alternative Energy (GLAE),False
+G100000804663,L100000804081,JOR,solar,shelved,,600,,Masdar Clean Energy [100%],False
+G100001090816,L100001080858,JOR,solar,announced,,200,,,False
+G100000804714,L100000804122,JOR,solar,operating,,24,2016,RAI Energy International (RAI); Kingdom for Energy Investments Co,False
+G100000804734,L100000804141,JOR,solar,cancelled,,50,,,False
+G100000804667,L100000804085,JOR,solar,operating,,23,2016,SECI Energia SpA [1%]; Enerray SpA [24%]; Desert Technologies Co Ltd [25%]; Catalyst Investment Management (CIM) [50%],False
+G100000804711,L100000804119,JOR,solar,operating,,67,2019,Fotowatio Renewable Ventures (FRV) BV [100%],False
+G100000804624,L100000804051,JOR,solar,operating,,50,2018,ACWA Power Co [100%],False
+G100001030106,L100001025425,JOR,solar,operating,,2.4,2017,,False
+G100001030087,L100001025406,JOR,solar,operating,,1.1,2017,,False
+G100000834553,L100000830695,JOR,solar,operating,1,22,2019,Orange Renewable [100%],False
+G100000834554,L100000830695,JOR,solar,operating,2,7.5,2019,Orange Renewable [100%],False
+G100000834555,L100000830695,JOR,solar,operating,3,7,2019,Orange Renewable [100%],False
+G100000804724,L100000804132,JOR,solar,operating,,10,2016,Quest Energy Investments (QEI) [10%]; Scatec ASA [90%],False
+G100001030113,L100001025432,JOR,solar,operating,,1.8,2017,,False
+G100000804641,L100000804062,JOR,solar,operating,,103,2018,Ministry of Energy and Mineral Resources (Jordan) [100%],False
+G100000804625,L100000804052,JOR,solar,operating,,50,2019,ACWA Power Co [100%],False
+G100000804642,L100000804063,JOR,solar,operating,,53,2016,Nebras Power QPSC; Diamond Generating Europe; Kawar Group,False
+G100000834557,L100000830697,JOR,solar,operating,,46,2020,Belectric [100%],False
+G100000804647,L100000804068,JOR,solar,operating,,16,2021,Jordan Electric Power Company (JEPCO); The University of Jordan,False
+G100000834567,L100000830706,KWT,solar,pre-construction,,60,2027,Government of Kuwait [42%]; Government of China [42%],False
+G100000804648,L100000804069,KWT,solar,pre-construction,1,1100,2027,Kuwait Authority for Partnership Projects [100%],False
+G100000811435,L100000804069,KWT,solar,shelved,2,200,,Kuwait Authority for Partnership Projects [100%],False
+G100000804649,L100000804069,KWT,solar,announced,3-Zone1,500,2028,,False
+G100001053547,L100000804069,KWT,solar,announced,3-Zone2,1000,2028,Government of Kuwait [42%]; Government of China [42%],False
+G100001021172,L100000804069,KWT,solar,announced,4,1700,2028,Government of Kuwait [42%]; Government of China [42%],False
+G100000811434,L100000804069,KWT,solar,mothballed,Pilot-CSP,50,2019,Kuwait Institute for Scientific Research [100%],False
+G100000804715,L100000804069,KWT,solar,operating,Pilot-PV,10,2018,Kuwait Institute for Scientific Research [100%],False
+G100000804736,L100000804143,KWT,solar,shelved,,5000,,,False
+G100000834572,L100000830707,KWT,solar,shelved,,30,,,False
+G100000811436,L100000809108,LBN,solar,shelved,,15,,Staunch Machinery Co; Dawtec; Looop Inc,False
+G100000811437,L100000809109,LBN,solar,shelved,,15,,,False
+G100000811438,L100000809110,LBN,solar,shelved,,15,,Midware Data Systems SAL; KACO new energy GmbH,False
+G100000811439,L100000809111,LBN,solar,shelved,,15,,,False
+G100000811440,L100000809112,LBN,solar,shelved,,15,,,False
+G100000811441,L100000809113,LBN,solar,shelved,,15,,,False
+G100000811442,L100000809114,LBN,solar,shelved,,15,,Phoenix Energy SAL; ib vogt gmbH,False
+G100000811443,L100000809115,LBN,solar,shelved,,15,,IBC Solar; Arina Energy; MAN Enterprise,False
+G100000811444,L100000809116,LBN,solar,shelved,,15,,,False
+G100000811445,L100000809117,LBN,solar,shelved,,15,,,False
+G100000811446,L100000809118,LBN,solar,shelved,,15,,,False
+G100000814144,L100000811610,LBY,solar,pre-construction,,50,,Renewable Energy Authority of Libya [100%],False
+G100001051549,L100001045744,LBY,solar,pre-construction,,50,,Ministry of Electricity and Renewable Energy (Libya),False
+G100000814145,L100000811611,LBY,solar,pre-construction,,200,2027,AG Energy,False
+G100000814146,L100000811612,LBY,solar,pre-construction,,70,,Renewable Energy Authority of Libya [100%],False
+G100000800230,L100000800185,LBY,solar,pre-construction,,100,,General Authority for Electricity and Renewable Energy (GAERE) [100%],False
+G100000831181,L100000827651,LBY,solar,cancelled,CSP phases,150,,iQ Power [100%],False
+G100000831182,L100000827651,LBY,solar,cancelled,PV phases,150,,iQ Power [100%],False
+G100000800403,L100000800332,LBY,solar,operating,,500,2023,TotalEnergies SE; General Electricity Company of Libya,False
+G100000831183,L100000827652,LBY,solar,shelved,,25000,,Crepe Group Co [100%],False
+G100001051554,L100001045748,LBY,solar,construction,,115,,,False
+G100000814147,L100000811613,LBY,solar,shelved,,20,,Renewable Energy Authority of Libya [100%],False
+G100000831184,L100000827653,LBY,solar,pre-construction,1,500,,Alpha Dhabi Holding; General Electricity Company of Libya,False
+G100000831185,L100000827653,LBY,solar,pre-construction,future phases,1500,,Alpha Dhabi Holding; Libyan General Electric C,False
+G100000814148,L100000811614,LBY,solar,pre-construction,,20,,Renewable Energy Authority of Libya [100%],False
+G100001018733,L100001016796,MRT,solar,pre-construction,,12000,,CWP Global,True
+G100000831192,L100000827660,MRT,solar,announced,1,200,,Conjuncta; Infinity Power AS,True
+G100000831193,L100000827660,MRT,solar,announced,future phases,4800,,Conjuncta; Infinity Power AS,True
+G100001073289,L100001063753,MRT,solar,pre-construction,,160,,,False
+G100001090887,L100001080905,MRT,solar,announced,,39,2026,Iwa Green Energy,False
+G100001090888,L100001080906,MRT,solar,announced,,160,,Iwa Green Energy,False
+G100001020559,L100001018417,MRT,solar,announced,1,600,2028,GreenGo Energy Group,True
+G100001021091,L100001018417,MRT,solar,announced,Future phases,29400,2033,GreenGo Energy Group,True
+G100001090893,L100001080910,MRT,solar,announced,Fast Track,50,2029,Möhring Energie,False
+G100001090894,L100001080910,MRT,solar,announced,future phases,450,,Möhring Energie,False
+G100000800301,L100000800250,MRT,solar,cancelled,,30,,Mauritanian Electricity Co [100%],False
+G100001073397,L100001063842,MRT,solar,pre-construction,,276,,"Ministry of Petroleum, Energy, and Mines",False
+G100000831194,L100000827661,MRT,solar,announced,1,1500,,Chariot Ltd [100%],True
+G100001020552,L100000827661,MRT,solar,announced,Future Phases,3500,,Chariot Ltd [100%],True
+G100000831195,L100000827662,MRT,solar,operating,1,1,2016,Consolidated Contractors Co [100%],False
+G100000831196,L100000827662,MRT,solar,operating,2,1,2016,Consolidated Contractors Co [100%],False
+G100000831197,L100000827662,MRT,solar,operating,3,1,2016,Consolidated Contractors Co [100%],False
+G100000831198,L100000827662,MRT,solar,operating,4,2,2016,Consolidated Contractors Co [100%],False
+G100000831199,L100000827662,MRT,solar,operating,5,2,2016,Consolidated Contractors Co [100%],False
+G100000831200,L100000827662,MRT,solar,operating,6,2,2016,Consolidated Contractors Co [100%],False
+G100000831201,L100000827662,MRT,solar,operating,7,3,2016,Consolidated Contractors Co [100%],False
+G100000814157,L100000811619,MRT,solar,operating,,34,2024,Kinross Gold Corp [100%],False
+G100000800406,L100000800334,MRT,solar,operating,,50,2017,Mauritanian Electricity Co [100%],False
+G100000831223,L100000827679,MAR,solar,pre-construction,,7500,,,True
+G100000831221,L100000827678,MAR,solar,shelved,1,2500,,,True
+G100000831222,L100000827678,MAR,solar,shelved,2,2500,,,True
+G100000800011,L100000800011,MAR,solar,pre-construction,,69,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000800037,L100000800033,MAR,solar,shelved,,48,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000814160,L100000811621,MAR,solar,operating,,4.4,2024,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100001064475,L100001056433,MAR,solar,pre-construction,,500,,Total Eren SA,True
+G100000800124,L100000800099,MAR,solar,pre-construction,,36,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000831224,L100000827680,MAR,solar,pre-construction,,2000,,,True
+G100000814161,L100000811622,MAR,solar,operating,,34,,GreenPower Morocco; AMEA Power,False
+G100000831225,L100000827681,MAR,solar,pre-construction,,10,,,True
+G100001023844,L100001020875,MAR,solar,operating,,10.4,2024,,False
+G100000800162,L100000800126,MAR,solar,operating,,30,2024,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100001018741,L100001016805,MAR,solar,pre-construction,,100,2026,MASEN; Kreditanstalt für Wiederaufbau,True
+G100000814162,L100000811623,MAR,solar,construction,,48,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000814163,L100000811624,MAR,solar,operating,محطة عين بني مطهر للطاقة الشمسية,20,2010,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE); Abengoa SA,False
+G100000814164,L100000811625,MAR,solar,pre-construction,,10,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000800203,L100000800163,MAR,solar,construction,,48,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100001073061,L100001063566,MAR,solar,pre-construction,,7500,,,False
+G100000800001,L100000800001,MAR,solar,cancelled,,7000,,Xlinks; Octopus Energy Group Ltd,False
+G100000800280,L100000800234,MAR,solar,cancelled,,200,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000800281,L100000800235,MAR,solar,shelved,PV 5,42,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800282,L100000800236,MAR,solar,construction,PV 7,30,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800283,L100000800237,MAR,solar,construction,PV 6,42,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800284,L100000800238,MAR,solar,construction,PV 8,42,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800285,L100000800239,MAR,solar,construction,PV 4,36,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800286,L100000800240,MAR,solar,cancelled,PV 2,25,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800287,L100000800241,MAR,solar,construction,PV 3,36,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000800288,L100000800242,MAR,solar,construction,PV 1,36,,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE) [100%],False
+G100000814165,L100000827475,MAR,solar,pre-construction,,400,,,False
+G100000831226,L100000827682,MAR,solar,pre-construction,,400,,,False
+G100000814166,L100000800243,MAR,solar,pre-construction,1-PV,400,,EDF Renewables; Green of Africa; MASEN; Masdar Clean Energy,False
+G100000800289,L100000800243,MAR,solar,pre-construction,1-Solar Thermal,400,,EDF Renewables; Green of Africa; MASEN; Masdar Clean Energy,False
+G100000800291,L100000800244,MAR,solar,operating,1,160,2016,ASRA [1%]; MASEN [25%]; ACWA Power Co [73%],False
+G100000800292,L100000800244,MAR,solar,operating,2,200,2018,ACWA Power Co; SENER,False
+G100000800293,L100000800244,MAR,solar,operating,3,150,2018,ACWA Power Co; SENER,False
+G100000800294,L100000800244,MAR,solar,operating,4,72,2018,ACWA Power Co; MASEN,False
+G100000800297,L100000800246,MAR,solar,operating,PV 1,40,2020,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE); Moroccan Agency for Sustainable Energy (MASEN),False
+G100000800298,L100000800247,MAR,solar,operating,PV 2,40,2021,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE); Moroccan Agency for Sustainable Energy (MASEN),False
+G100000800299,L100000800248,MAR,solar,operating,PV 3,40,2021,Electricity Branch of the Moroccan Water Conservancy and Electricity Bureau (ONEE-BE); Moroccan Agency for Sustainable Energy (MASEN),False
+G100000831227,L100000827683,MAR,solar,operating,,22,2025,OCP Group,False
+G100000831228,L100000827684,MAR,solar,operating,,45,2025,OCP Group,False
+G100000831229,L100000827685,MAR,solar,operating,,30,2025,OCP Group,False
+G100000831230,L100000827686,MAR,solar,operating,,105,2025,OCP Group,False
+G100000800351,L100000800297,MAR,solar,shelved,,48,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100000800391,L100000800321,MAR,solar,pre-construction,,36,,Moroccan Agency for Sustainable Energy (MASEN) [100%],False
+G100001073062,L100001063568,MAR,solar,pre-construction,,48,2027,,False
+G100000800402,L100000800331,MAR,solar,pre-construction,,5000,2027,Total Eren SA [100%],True
+G100000811447,L100000809119,OMN,solar,pre-construction,,500,,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100001051442,L100001045674,OMN,solar,pre-construction,,280,2028,Nama Power and Water Procurement Company SAOC,False
+G100000834609,L100000830742,OMN,solar,operating,,558,2015,Nama [100%],False
+G100000811448,L100000809120,OMN,solar,shelved,,15,,Oman Food Investment Holding [100%],False
+G100000804621,L100000804048,OMN,solar,operating,,105,2020,Bahwan Renewable Energy Co LLC [10%]; Marubeni Corp [50%]; OQ Gas Networks SAOC [30%]; Nebras Power QPSC [10%],False
+G100000834610,L100000830743,OMN,solar,pre-construction,,2250,,Energy Development Oman SAOC [100%],True
+G100000834611,L100000830744,OMN,solar,pre-construction,,1750,,Energy Development Oman SAOC [100%],True
+G100000834612,L100000830745,OMN,solar,pre-construction,,1750,,Energy Development Oman SAOC [100%],True
+G100001020517,L100001018390,OMN,solar,construction,,35,,,False
+G100000804669,L100000804087,OMN,solar,cancelled,,400,,Ningxia Zhongke Jiaye New Energy and Technology Management Co [100%],False
+G100000811450,L100000809122,OMN,solar,pre-construction,,600,2027,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100000834614,L100000830747,OMN,solar,pre-construction,,2600,2030,Energy Development Oman SAOC [100%],False
+G100001072758,L100001063331,OMN,solar,construction,,450,,,False
+G100000834615,L100000830748,OMN,solar,pre-construction,,4150,2027,Energy Development Oman SAOC [100%],True
+G100000834616,L100000830749,OMN,solar,announced,,650,,Energy Development Oman SAOC [100%],True
+G100000811451,L100000809123,OMN,solar,pre-construction,1,650,,Energy Development Oman SAOC [100%],True
+G100000834617,L100000809123,OMN,solar,pre-construction,2,1350,,Energy Development Oman SAOC [100%],True
+G100000804670,L100000804088,OMN,solar,operating,,500,2022,ACWA Power Co [70%]; Al Gihaz Holding [30%],False
+G100000834618,L100000830750,OMN,solar,pre-construction,,500,2027,Al Khadra Partners; Abu Dhabi Future Energy Co; OQ SAOC; Korea Midland Power Co Ltd,False
+G100000834619,L100000830751,OMN,solar,construction,,93,,OQ SAOC [100%],False
+G100000834621,L100000830753,OMN,solar,pre-construction,,500,2026,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100000834622,L100000830754,OMN,solar,announced,,500,2027,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100000804653,L100000804071,OMN,solar,announced,,100,2028,Wadi Solar; Mubadrah; Madayn,False
+G100000804728,L100000804136,OMN,solar,operating,1,500,2025,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100000804729,L100000804136,OMN,solar,operating,2,500,2024,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100000811452,L100000809124,OMN,solar,operating,1,100,2018,GlassPoint Solar; Petroleum Development Oman LLC,False
+G100000811453,L100000809124,OMN,solar,operating,2,300,,GlassPoint Solar; Petroleum Development Oman LLC,False
+G100000811454,L100000809124,OMN,solar,operating,3,621,,GlassPoint Solar; Petroleum Development Oman LLC,False
+G100000834625,L100000830756,OMN,solar,shelved,,15,,Nama [100%],False
+G100000804673,L100000804091,OMN,solar,pre-construction,1,2000,2032,Shell PLC; Enertech Holding Co; OQ SAOC; Intercontinental Energy,True
+G100000834624,L100000804091,OMN,solar,pre-construction,2,7650,2038,OQ SAOC; Intercontinental Energy; Enertech Holding Co; Shell PLC,True
+G100000804717,L100000804125,OMN,solar,construction,1,100,2026,Energy Development Oman SAOC; Petroleum Development Oman LLC,False
+G100001072763,L100001063336,OMN,solar,announced,,700,,,False
+G100001072755,L100001063328,OMN,solar,construction,,105,2026,OQ SAOC [51%]; TotalEnergies SE [49%],False
+G100000834627,L100000830758,OMN,solar,pre-construction,,1550,,,True
+G100000834626,L100000830757,OMN,solar,pre-construction,,1900,,Energy Development Oman SAOC [100%],True
+G100000804685,L100000804098,OMN,solar,shelved,1,500,,Scatec ASA; ACME Group,True
+G100000834628,L100000804098,OMN,solar,shelved,2,5000,,,True
+G100001020586,L100001018444,OMN,solar,announced,,300,,,False
+G100001051441,L100001045673,OMN,solar,pre-construction,,300,2028,,False
+G100000834629,L100000830759,OMN,solar,pre-construction,1,35,,Jindal Shadeed Iron & Steel LLC [100%],True
+G100000834630,L100000830759,OMN,solar,announced,2,350,,Jindal Shadeed Iron & Steel LLC [100%],True
+G100000804725,L100000804133,OMN,solar,operating,,25,2021,Public Authority of Special Economic Zones and Free Zones [100%],False
+G100000804716,L100000804124,OMN,solar,cancelled,,500,,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100001020495,L100001018383,OMN,solar,announced,1,500,2029,,False
+G100001020496,L100001018383,OMN,solar,announced,2,500,2029,,False
+G100000834631,L100000830760,OMN,solar,announced,1,1900,2030,,True
+G100000834632,L100000830760,OMN,solar,announced,2,1900,2030,,True
+G100000811456,L100000809126,OMN,solar,operating,,17,,Oman Energy and Water Procurement Firm (OPWP) [100%],False
+G100000811457,L100000809127,OMN,solar,pre-construction,,46,2026,Tanweer Alliances SA [100%],True
+G100001030161,L100001025480,PSE,solar,operating,,7,2019,,False
+G100000811458,L100000809128,PSE,solar,cancelled,,35,,Massader Co [100%],False
+G100000811459,L100000809129,PSE,solar,cancelled,,35,,Massader Co [100%],False
+G100001092049,L100001081772,PSE,solar,operating,,24,2026,Palestine Investment Fund,False
+G100000804693,L100000804101,QAT,solar,operating,1,350,2022,TotalEnergies SE [20%]; Marubeni Corp [20%]; Siraj Energy [60%],False
+G100000804692,L100000804101,QAT,solar,operating,2,450,2022,TotalEnergies SE [20%]; Marubeni Corp [20%]; Siraj Energy [60%],False
+G100001090817,L100001080859,QAT,solar,announced,1,1000,2028,QatarEnergy,False
+G100001090818,L100001080859,QAT,solar,announced,2,1000,2029,QatarEnergy,False
+G100000804674,L100000804092,QAT,solar,cancelled,,15,,Qatar General Electricity & Water Corp [100%],False
+G100000811460,L100000809130,QAT,solar,operating,,417,2025,QatarEnergy [100%],False
+G100000811461,L100000809131,QAT,solar,operating,,458,2025,QatarEnergy [100%],False
+G100001030164,L100001025483,QAT,solar,operating,,2.1,2022,,False
+G100001051284,L100001045545,SAU,solar,pre-construction,,600,2027,Masdar Clean Energy,False
+G100001072537,L100001063152,SAU,solar,pre-construction,,2000,2028,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100001072540,L100001063155,SAU,solar,pre-construction,,2000,2028,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100000834785,L100000830896,SAU,solar,pre-construction,,1100,2026,,False
+G100001021038,L100001018773,SAU,solar,pre-construction,,400,2026,SPIC Huanghe Hydropower Development Co Ltd; EDF Renewables,False
+G100001051297,L100001045559,SAU,solar,pre-construction,,22,,,False
+G100000804737,L100000804144,SAU,solar,cancelled,,50,,TotalEnergies SE [100%],False
+G100000834786,L100000830897,SAU,solar,pre-construction,,110,,Saline Water Conversion Corp Corp [100%],False
+G100000834787,L100000830898,SAU,solar,operating,,1425,2025,ACWA Power Co [50%]; Water and Electricity Holding CO (Badeel) [49%],False
+G100001021005,L100001018741,SAU,solar,pre-construction,,1000,2027,SPIC Huanghe Hydropower Development Co Ltd; EDF Renewables,False
+G100001021007,L100001018745,SAU,solar,pre-construction,,2000,2027,Abu Dhabi Future Energy Co; Korea Electric Power Corp; GD POWER Development Co Ltd,False
+G100001051285,L100001045546,SAU,solar,pre-construction,,400,2027,Saudi Power Procurement Company (SPPC) ,False
+G100000804699,L100000804107,SAU,solar,operating,,600,2024,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100001021032,L100001018767,SAU,solar,construction,,1500,2027,ACWA Power Co; Saudi Aramco Power Co; Public Investment Fund (Saudi Arabia),False
+G100001021033,L100001018768,SAU,solar,construction,,2000,2027,ACWA Power Co; Saudi Aramco Power Co; Public Investment Fund (Saudi Arabia),False
+G100001021044,L100001018775,SAU,solar,operating,,250,2025,Electricité de France SA; Abu Dhabi Future Energy Co; Red Sea Global,False
+G100000804602,L100000804031,SAU,solar,operating,,700,2024,Water and Electricity Holding CO (Badeel) [20%]; State Power Investment CORP (SPIC) [39%]; ACWA Power Co [40%],False
+G100000834788,L100000830899,SAU,solar,operating,,2000,2025,ACWA Power Co [50%]; Water and Electricity Holding CO (Badeel) [49%],False
+G100001072529,L100001063143,SAU,solar,pre-construction,,3000,,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100001021035,L100001018770,SAU,solar,construction,,2000,2027,ACWA Power Co; Saudi Aramco Power Co; Public Investment Fund (Saudi Arabia),False
+G100001072534,L100001063148,SAU,solar,pre-construction,1,3000,,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100000811462,L100000809132,SAU,solar,operating,,43,2018,Saudi Electricity Co [100%],False
+G100000811463,L100000809133,SAU,solar,operating,,50,,Saudi Electricity Co [100%],False
+G100000804665,L100000804083,SAU,solar,operating,,300,2023,EDF Renewables; Nesma Holding Co Ltd; Masdar Clean Energy,False
+G100000834789,L100000830900,SAU,solar,operating,,45.5,2023,Gulf Investment Corp [40%]; Al Bawani Water & Power Co [20%]; ACWA Power Co [40%],False
+G100000804640,L100000804061,SAU,solar,operating,,61,2024,ENGIE SA [40%]; Abdul Aziz Al Ajlan Sons Company for Commerical & Real Estate Investment [30%]; Nesma Holding Co Ltd [30%],False
+G100000804713,L100000804121,SAU,solar,operating,,10,2012,King Abdulaziz City for Science and Technology [100%],False
+G100001072535,L100001063151,SAU,solar,pre-construction,1,2000,,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100000811464,L100000804146,SAU,solar,operating,1,10,2019,King Abdulaziz City for Science and Technology; Saudi Electricity Co; Taqnia Energy,False
+G100000804739,L100000804146,SAU,solar,construction,2,80,2027,Saudi Ministry of Energy [59%]; ACWA Power Co [40%],False
+G100000804617,L100000804044,SAU,solar,announced,,50,,Al-Balagha; Alfanar Group; Desert Technologies Co Ltd,False
+G100001072643,L100001063245,SAU,solar,pre-construction,,600,,,False
+G100000804712,L100000804120,SAU,solar,cancelled,,100,,Holy Makkah Municipality (HMM) [100%],False
+G100000811465,L100000809134,SAU,solar,construction,,2200,2026,NEOM Green Hydrogen Co [33%]; ACWA Power Co [33%]; Air Products and Chemicals Inc [33%],True
+G100000804638,L100000804059,SAU,solar,operating,,30,2021,ENGIE SA; National Agricultural Development Company (NADEC),False
+G100001051283,L100001045544,SAU,solar,pre-construction,,1400,2028,Masdar Clean Energy,False
+G100000804698,L100000804106,SAU,solar,pre-construction,,200,,ACWA Power Co; Gulf Investment Corp; Al-Babtain Holding Investment Co,False
+G100000811466,L100000809135,SAU,solar,pre-construction,,300,2026,TotalEnergies SE; Aljomaih Energy & Water Co Ltd,False
+G100000804626,L100000804053,SAU,solar,operating,,400,2023,Marubeni Corp; Aljomaih Energy & Water Co Ltd,False
+G100000804726,L100000804134,SAU,solar,construction,,20,,Alfanar Group; Desert Technologies Co Ltd; Tamasuk Holding Co,False
+G100000804738,L100000804145,SAU,solar,cancelled,,50,,,False
+G100000804720,L100000804128,SAU,solar,operating,,20,2017,Rawafid Industrial; Advanced Water Technolgoy (AWT),False
+G100000804605,L100000804033,SAU,solar,operating,,400,2024,Saudi Tabreed District Cooling Co; ACWA Power Co [50%]; SPIC Huanghe Hydropower Development Co Ltd,False
+G100001030168,L100001025487,SAU,solar,operating,,1.5,2024,,False
+G100001030171,L100001025490,SAU,solar,operating,,2,2024,,False
+G100001030174,L100001025493,SAU,solar,operating,,4.4,2024,,False
+G100000804646,L100000804067,SAU,solar,construction,,300,,Jinko Power Technology Co Ltd [100%],False
+G100000834790,L100000830901,SAU,solar,operating,,1125,2025,ACWA Power Co [50%]; Water and Electricity Holding CO (Badeel) [49%],False
+G100000804672,L100000804090,SAU,solar,operating,,300,2020,ACWA Power Co; Al Gihaz Holding,False
+G100001051286,L100001045547,SAU,solar,pre-construction,,600,2028,Saudi Electricity Co; EDF Saudi Arabia,False
+G100000811467,L100000809136,SAU,solar,operating,,2060,2025,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100001072645,L100001063247,SAU,solar,pre-construction,,500,,,False
+G100000811468,L100000804108,SAU,solar,operating,1,1050,2023,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [35%]; ACWA Power Co [35%],False
+G100000804700,L100000804108,SAU,solar,operating,2,450,2024,Water and Electricity Holding CO (Badeel) [30%]; Saudi Aramco Power Co [35%]; ACWA Power Co [35%],False
+G100001072613,L100001063220,SAU,solar,pre-construction,,1400,,Saudi Power Procurement Co,False
+G100001072644,L100001063246,SAU,solar,pre-construction,,600,,,False
+G100000834791,L100000830902,SAU,solar,pre-construction,,400,2026,,False
+G100000804741,L100000804148,SAU,solar,operating,,119,2025,Toyota Tsusho Corp; TotalEnergies SE; Altaaqa Renewables [100%],False
+G100000804639,L100000804060,SAU,solar,operating,,11,2024,ENGIE SA [40%]; Mowah Co [30%]; Nesma Holding Co Ltd [30%],False
+G100001090067,L100001080217,SOM,solar,announced,,8,,,False
+G100001051507,L100001045721,SOM,solar,pre-construction,,12,,,False
+G100001051509,L100001045723,SOM,solar,pre-construction,,55,,,False
+G100001021555,L100001019125,SOM,solar,shelved,,100,,Geel Power,False
+G100001051508,L100001045722,SOM,solar,pre-construction,,10,,,False
+G100001051503,L100001045719,SOM,solar,pre-construction,,55,,,False
+G100000831271,L100000827724,SOM,solar,operating,1,8,2020,Banadir Electrical Company (BECO) [100%],False
+G100000831272,L100000827724,SOM,solar,shelved,future phases,92,,Banadir Electrical Company (BECO) [100%],False
+G100000800210,L100000800168,SDN,solar,shelved,,10,,Ministry of Water Resources and Electricity (Sudan) [100%],False
+G100001052405,L100001046385,SDN,solar,operating,1,54,2022,Mass Group Holding Ltd,False
+G100001090315,L100001080412,SYR,solar,announced,Plant 1,100,,20Solar,False
+G100001090316,L100001080412,SYR,solar,announced,Plant 2,100,,20Solar,False
+G100000804742,L100000804149,SYR,solar,operating,1,10,2022,,False
+G100000834941,L100000804149,SYR,solar,construction,future phases,90,,,False
+G100001090310,L100001080407,SYR,solar,announced,,300,,Sakalko; Al-Harfi,False
+G100000804743,L100000804150,SYR,solar,operating,1,42,2021,,False
+G100000811470,L100000804150,SYR,solar,construction,2,58,,,False
+G100000804740,L100000804147,SYR,solar,shelved,,300,,,False
+G100000834942,L100000831044,SYR,solar,pre-construction,,10,,Gemacy Solar [100%],False
+G100000834943,L100000831045,SYR,solar,operating,1,10,,Homs Chamber of Industry [100%],False
+G100001052997,L100000831045,SYR,solar,operating,2,20,2025,Homs Chamber of Industry [100%],False
+G100001052998,L100000831045,SYR,solar,announced,Future phases,40,,Homs Chamber of Industry [100%],False
+G100000834944,L100000831046,SYR,solar,pre-construction,,10,,International Rolling Mill [100%],False
+G100000804718,L100000804126,SYR,solar,pre-construction,2,14,,,False
+G100000804719,L100000804126,SYR,solar,pre-construction,3,24,,,False
+G100001090313,L100001080409,SYR,solar,pre-construction,,100,2026,Syrian-Turkish Energy Company (STE),False
+G100001090321,L100001080415,SYR,solar,announced,,100,,Manarat Al Shahba Renwable Energy Company,False
+G100001090322,L100001080416,SYR,solar,announced,,100,,Solar Rex,False
+G100001090323,L100001080417,SYR,solar,announced,,70,,Solar Rex,False
+G100001052995,L100001046772,SYR,solar,construction,,100,,,False
+G100001090314,L100001080410,SYR,solar,announced,1,250,,UCC Holding,False
+G100001090317,L100001080410,SYR,solar,announced,2,250,,UCC Holding,False
+G100001090318,L100001080410,SYR,solar,announced,3,250,,UCC Holding,False
+G100001090319,L100001080410,SYR,solar,announced,4,250,,UCC Holding,False
+G100000814237,L100000811678,TUN,solar,shelved,,10,,ABO Wind [100%],False
+G100000831297,L100000827746,TUN,solar,operating,,4.8,2019,,False
+G100000831298,L100000827747,TUN,solar,pre-construction,,162,,,False
+G100001073237,L100001063711,TUN,solar,construction,,230,,"Tunisian Ministry of Industry, Energy and Mines",False
+G100000800085,L100000800067,TUN,solar,construction,,200,,Tunisian Company of Electricity and Gas [100%],False
+G100000800147,L100000800113,TUN,solar,pre-construction,,10,,TuNur Ltd [100%],False
+G100000800148,L100000800114,TUN,solar,pre-construction,1,130,2026,Votalia [100%],False
+G100000800193,L100000800154,TUN,solar,operating,,120,2025,TBEA Xinjiang New Energy Co; AMEA Power,False
+G100000800255,L100000800210,TUN,solar,construction,,10,,Mazarine Energy [61%]; Qair Group [39%],False
+G100000800256,L100000800211,TUN,solar,shelved,,10,,Hatem Mabrouk; Eco Delta Group; BOT Energy,False
+G100000831299,L100000827748,TUN,solar,shelved,,197,,,False
+G100001051198,L100001045487,TUN,solar,pre-construction,,200,,,False
+G100000800320,L100000800268,TUN,solar,operating,1,10,2025,Qair Group [100%],False
+G100001023417,L100000800268,TUN,solar,operating,2,10,2025,Mazarine Energy; Qair Group [100%],False
+G100000831301,L100000827750,TUN,solar,pre-construction,,100,2027,"Tunisian Ministry of Industry, Energy and Mines",False
+G100000831304,L100000827753,TUN,solar,announced,,100,,,False
+G100000831306,L100000827755,TUN,solar,announced,,100,,,False
+G100000831302,L100000827751,TUN,solar,announced,,100,,,False
+G100000831303,L100000827752,TUN,solar,announced,,100,,,False
+G100000831305,L100000827754,TUN,solar,pre-construction,,100,2027,"Tunisian Ministry of Industry, Energy and Mines",False
+G100000800352,L100000800298,TUN,solar,operating,,10,,Scatec ASA [100%],False
+G100000814239,L100000811680,TUN,solar,construction,,50,,AEOLUS SAS [49%]; Scatec ASA [51%],False
+G100001073257,L100001063730,TUN,solar,pre-construction,,60,,,False
+G100000800392,L100000800322,TUN,solar,pre-construction,1,200,2026,AMEA Power [100%],False
+G100000800409,L100000800337,TUN,solar,operating,1,10,2019,Tunisian Company of Electricity and Gas [100%],False
+G100000800410,L100000800337,TUN,solar,operating,2,10,2022,Kreditanstalt für Wiederaufbau; Tunisian Company of Electricity and Gas,False
+G100000800412,L100000800339,TUN,solar,construction,---,50,,AEOLUS SAS [49%]; Scatec ASA [51%],False
+G100000814241,L100000811681,TUN,solar,construction,PV-1,2250,2027,,False
+G100000814242,L100000811681,TUN,solar,construction,Solar Thermal-1,250,2027,,False
+G100000814243,L100000811681,TUN,solar,construction,Solar Thermal-2,2000,2027,,False
+G100000831300,L100000827749,TUN,solar,pre-construction,,139,2027,"Tunisian Ministry of Industry, Energy and Mines",False
+G100001073247,L100001063722,TUN,solar,pre-construction,,400,,,False
+G100001051534,L100001045733,ARE,solar,construction,,1000,2027,Emirates Water and Electricity Company PJSC; Masdar Clean Energy,False
+G100001030195,L100001025514,ARE,solar,operating,,16.1,2024,,False
+G100000811471,L100000809137,ARE,solar,construction,,1500,2026,Korea Western Power Co Ltd [20%]; EDF Renewables [20%]; Masdar Clean Energy [60%],False
+G100000804601,L100000804030,ARE,solar,operating,2,2000,2022,Masdar Clean Energy [20%]; EDF Renewables [20%]; Jinko Power Technology Co Ltd [20%]; Abu Dhabi National Energy Company PJSC [40%],False
+G100000835485,L100000831547,ARE,solar,announced,,200,,,False
+G100001073128,L100001063623,ARE,solar,announced,,1500,,,False
+G100001021094,L100001018813,ARE,solar,pre-construction,,1500,2027,Emirates Water and Electricity Company PJSC,False
+G100000804635,L100000804058,ARE,solar,construction,1,60,,Bee'ah; Sharjah Electricity & Water Authority; Masdar Clean Energy,False
+G100000804636,L100000804058,ARE,solar,announced,2,30,,Bee'ah; Sharjah Electricity & Water Authority; Masdar Clean Energy,False
+G100000804637,L100000804058,ARE,solar,announced,3,30,,Bee'ah; Sharjah Electricity & Water Authority; Masdar Clean Energy,False
+G100000811472,L100000809138,ARE,solar,operating,,70,2024,Abu Dhabi National Energy Company PJSC [30%]; Mubadala Capital LLC [30%]; ACWA Power Co [40%],False
+G100000835486,L100000831548,ARE,solar,pre-construction,,650,,Brooge Renewable Energy (BRE) [100%],True
+G100001030197,L100001025516,ARE,solar,operating,,1.3,2024,,False
+G100001030203,L100001025522,ARE,solar,operating,,7.1,2017,,False
+G100001073145,L100001063639,ARE,solar,pre-construction,,31.5,2026,,False
+G100001021109,L100001018827,ARE,solar,operating,,60,2025,Electricité de France SA; Abu Dhabi Future Energy Co; Sharjah National Oil  Corp,False
+G100001051527,L100001045731,ARE,solar,announced,,39,2026,,False
+G100000835487,L100000831549,ARE,solar,shelved,1,100,,Khalifa Industrial Zone Abu Dhabi (KIZAD) [100%],True
+G100000835488,L100000831549,ARE,solar,shelved,2,700,,Khalifa Industrial Zone Abu Dhabi (KIZAD) [100%],True
+G100000835489,L100000831550,ARE,solar,shelved,,1000,,,True
+G100001073136,L100001063627,ARE,solar,construction,,5200,2027,Masdar Clean Energy,False
+G100000835490,L100000831551,ARE,solar,shelved,1,200,,,True
+G100000835491,L100000831551,ARE,solar,announced,2,1800,2030,,True
+G100000804628,L100000804032,ARE,solar,operating,1,13,2013,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804688,L100000804032,ARE,solar,operating,2,200,2017,ACWA Power Co; Dubai Electricity and Water Authority PJSC,False
+G100000804689,L100000804032,ARE,solar,operating,3a,200,2018,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804690,L100000804032,ARE,solar,operating,3b,300,2019,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804691,L100000804032,ARE,solar,operating,3c,300,2020,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804629,L100000804032,ARE,solar,operating,4a,417,2023,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804630,L100000804032,ARE,solar,operating,4b,100,2023,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804631,L100000804032,ARE,solar,operating,4c,250,2023,Dubai Electricity and Water Authority PJSC [100%],False
+G100000835492,L100000804032,ARE,solar,operating,4d,183,2023,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804604,L100000804032,ARE,solar,operating,5a,300,2021,Dubai Electricity and Water Authority PJSC [100%],False
+G100000835493,L100000804032,ARE,solar,operating,5b,300,2023,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804603,L100000804032,ARE,solar,operating,5c,300,2023,Dubai Electricity and Water Authority PJSC [100%],False
+G100000835494,L100000804032,ARE,solar,operating,6a,600,2025,Dubai Electricity and Water Authority PJSC [100%],False
+G100000835495,L100000804032,ARE,solar,construction,6b,1200,2026,Dubai Electricity and Water Authority PJSC [100%],False
+G100001051529,L100000804032,ARE,solar,pre-construction,7a,1600,2027,Dubai Electricity and Water Authority PJSC [100%],False
+G100001051531,L100000804032,ARE,solar,pre-construction,7b,400,2029,Dubai Electricity and Water Authority PJSC [100%],False
+G100000804694,L100000804102,ARE,solar,operating,,1177,2019,Abu Dhabi National Energy Company PJSC [60%]; Marubeni Corp [20%]; Jinko Power Technology Co Ltd [20%],False
+G100000804686,L100000804099,ARE,solar,operating,,100,2013,TotalEnergies SE; Masdar Clean Energy,False
+G100000811473,L100000809139,ARE,solar,operating,,299,2021,Dubai Electricity and Water Authority PJSC [100%],False
+G100001030194,L100001025513,ARE,solar,operating,,3,2024,,False
+G100000835496,L100000831552,ARE,solar,shelved,,2000,,Abu Dhabi Ports (ADP) [100%],True
+G100001021099,L100001018818,ARE,solar,announced,,500,,,False
+G100001021106,L100001018824,ARE,solar,pre-construction,,1300,2026,,False
+G100001051535,L100001045734,ARE,solar,pre-construction,,1500,,EDF Power Solutions [20%]; Korea Western Power Co Ltd [20%]; Emirates Water and Electricity Company PJSC [60%],False
+G100001090294,L100001080391,YEM,solar,announced,,10,,,False
+G100000835553,L100000831598,YEM,solar,operating,1,120,2024,Abu Dhabi Future Energy Co; Yemen Energy Ministry,False
+G100001090287,L100000831598,YEM,solar,construction,2,120,2026,,False
+G100001090296,L100001080395,YEM,solar,announced,,5,,,False
+G100001090295,L100001080394,YEM,solar,announced,,10,,,False
+G100001021320,L100001018975,YEM,solar,operating,1,10,2023,,False
+G100001021321,L100001018975,YEM,solar,operating,2,10,2023,,False
+G100001021322,L100001018975,YEM,solar,operating,3,10,2024,,False
+G100001021323,L100001018975,YEM,solar,operating,4,10,2024,,False
+G100001090291,L100001080390,YEM,solar,construction,,10,,,False
+G100001021315,L100001018971,YEM,solar,cancelled,,20,,,False
+G100001090290,L100001080389,YEM,solar,construction,,10,,,False
+G100001051460,L100001045690,YEM,solar,pre-construction,,10,,,False
+G100001021317,L100001018972,YEM,solar,cancelled,,20,,,False
+G100001021318,L100001018973,YEM,solar,operating,,20,,,False
+G100001051472,L100001045699,YEM,solar,operating,,53,2025,,False
+G100000900162,L100000900124,DZA,wind,operating,,10,2014,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100000900178,L100000900137,DZA,wind,cancelled,,20,,,False
+G100000920620,L100000916594,DZA,wind,cancelled,,50,,Shariket Kahraba wa Taket Moutadjadida SPA (SKTM) [100%],False
+G100001021462,L100001019058,BHR,wind,announced,,2000,,Abu Dhabi Future Energy Co; Bahrain Petroleum Co,False
+G100000900159,L100000900121,DJI,wind,operating,1,59,2023,Red Sea Power [100%],False
+G100001021298,L100000900121,DJI,wind,announced,2,45,,,False
+G100001072801,L100001063368,EGY,wind,pre-construction,,2000,,,False
+G100000927393,L100000900062,EGY,wind,pre-construction,1-1 محطة رياح السويس للطاقة,550,2027,Nasr General Contracting (HASSAN M. ALLAM) [25%]; ACWA Power Co [75%],False
+G100001050879,L100000900062,EGY,wind,pre-construction,1-2 محطة رياح السويس للطاقة,550,2027,Nasr General Contracting (HASSAN M. ALLAM) [25%]; ACWA Power Co [75%],False
+G100000927394,L100000900062,EGY,wind,construction,2-  محطة طاقة رياح سوهاج,10000,,New and Renewable Energy Authority [100%],True
+G100000920637,L100000916609,EGY,wind,shelved,,160,,New and Renewable Energy Authority [100%],True
+G100001072806,L100001063374,EGY,wind,pre-construction,1,500,,,False
+G100001072866,L100001063374,EGY,wind,pre-construction,2,1500,,,False
+G100000900003,L100000900003,EGY,wind,operating,,502,2025,AMEA Power [100%],False
+G100001018743,L100001016807,EGY,wind,construction,,120,,Alexandria National Refining and Petrochemical Company (ANRPC); Scatec ASA,True
+G100000927395,L100000921986,EGY,wind,pre-construction,,700,,New and Renewable Energy Authority [100%],True
+G100000927396,L100000921987,EGY,wind,pre-construction,,1000,,Ministry of Electricity and Renewable Energy (Egypt); General Authority Suez Canal Economic Zone,True
+G100000927397,L100000921988,EGY,wind,shelved,,1500,,General Electric Co; Egyptian Natural Gas Holding Co; Seasplit Technologies,False
+G100001018746,L100001016810,EGY,wind,construction,,100,,Fertiglobe,True
+G100000920638,L100000916610,EGY,wind,shelved,,4600,,New and Renewable Energy Authority [100%],True
+G100000920639,L100000916611,EGY,wind,pre-construction,1,1500,2028,New and Renewable Energy Authority [100%],True
+G100000920640,L100000916611,EGY,wind,pre-construction,2,1500,2028,New and Renewable Energy Authority [100%],True
+G100000920641,L100000916611,EGY,wind,pre-construction,3,1500,2028,New and Renewable Energy Authority [100%],True
+G100000927398,L100000921989,EGY,wind,operating,,252,2024,New and Renewable Energy Authority [100%],False
+G100000900057,L100000900045,EGY,wind,operating,1,240,2018,New and Renewable Energy Authority [100%],False
+G100000900058,L100000900045,EGY,wind,operating,2,220,2018,New and Renewable Energy Authority [100%],False
+G100000900059,L100000900045,EGY,wind,operating,3,120,2018,New and Renewable Energy Authority [100%],False
+G100001072796,L100001063364,EGY,wind,construction,,200,2027,Masdar Clean Energy,False
+G100000927399,L100000921990,EGY,wind,pre-construction,,160,,New and Renewable Energy Authority [100%],False
+G100000927400,L100000921991,EGY,wind,pre-construction,1,2000,,New and Renewable Energy Authority [100%],False
+G100000927401,L100000921991,EGY,wind,pre-construction,2,8000,,New and Renewable Energy Authority [100%],False
+G100001050934,L100001045285,EGY,wind,construction,,3000,,,False
+G100001050891,L100001045262,EGY,wind,announced,,317,2027,Scatec ASA,True
+G100000900028,L100000900026,EGY,wind,operating,1,263,2019,ENGIE SA [40%]; Eurus Energy Holdings Corp [40%]; Orascom Construction PLC [20%]; Toyota Tsusho Corp,False
+G100000900064,L100000900026,EGY,wind,operating,2,306,2025,Eurus Energy Holdings Corp [40%]; Orascom Construction PLC [25%]; ENGIE SA [35%]; Toyota Tsusho Corp,False
+G100001050895,L100000900026,EGY,wind,operating,3,344,2025,Eurus Energy Holdings Corp [40%]; Orascom Construction PLC [25%]; ENGIE SA [35%]; Toyota Tsusho Corp,False
+G100000920644,L100000916613,EGY,wind,pre-construction,1,283,2026,New and Renewable Energy Authority [100%],True
+G100000920645,L100000916613,EGY,wind,pre-construction,2,2820,2026,New and Renewable Energy Authority [100%],True
+G100000920646,L100000916614,EGY,wind,pre-construction,1,1500,2026,New and Renewable Energy Authority [100%],False
+G100000920647,L100000916614,EGY,wind,pre-construction,2,1500,2026,New and Renewable Energy Authority [100%],False
+G100001072802,L100001063369,EGY,wind,pre-construction,,500,,,False
+G100001018750,L100001016813,EGY,wind,pre-construction,1,1100,,Voltalia SA; Taqa Power,True
+G100000900044,L100000900035,EGY,wind,operating,,252,2021,Lekela Power [100%],False
+G100000927402,L100000921992,EGY,wind,pre-construction,,5000,,Scatec ASA [100%],False
+G100000900054,L100000900044,EGY,wind,operating,1,30,2000,New and Renewable Energy Authority [100%],False
+G100000900055,L100000900044,EGY,wind,operating,2,33,2001,New and Renewable Energy Authority [100%],False
+G100000900056,L100000900044,EGY,wind,operating,3,30,2003,New and Renewable Energy Authority [100%],False
+G100000900149,L100000900044,EGY,wind,operating,4,47,2004,New and Renewable Energy Authority [100%],False
+G100000900053,L100000900044,EGY,wind,operating,5,85,2006,New and Renewable Energy Authority [100%],False
+G100000900150,L100000900044,EGY,wind,operating,6,80,2008,New and Renewable Energy Authority [100%],False
+G100000900151,L100000900044,EGY,wind,operating,7,120,2009,New and Renewable Energy Authority [100%],False
+G100000900152,L100000900044,EGY,wind,operating,8,121,,New and Renewable Energy Authority [100%],False
+G100001051064,L100001045362,IRQ,wind,construction,,15,,Ministry of Electricity (Iraq),False
+G100000927749,L100000922254,IRQ,wind,pre-construction,,500,,Ministry of Electricity (Iraq) [100%],False
+G100000908131,L100000905948,JOR,wind,operating,,52,2021,XENEL Industries Ltd; AMEA Power,False
+G100000908140,L100000905955,JOR,wind,cancelled,,35,,EP Global Energy [100%],False
+G100000908103,L100000905924,JOR,wind,operating,,86,2018,Alcazar Energy [100%],False
+G100000908108,L100000905929,JOR,wind,operating,,52,2021,Korea Southern Power Co Ltd [50%]; DL Energy Co Ltd [50%],False
+G100000908107,L100000905928,JOR,wind,operating,,89,2019,KEPCO [100%],False
+G100000908101,L100000905922,JOR,wind,operating,1,66,2016,Ministry of Energy and Mineral Resources (Jordan) [100%],False
+G100000921329,L100000905922,JOR,wind,operating,2,14,2016,Ministry of Energy and Mineral Resources (Jordan) [100%],False
+G100001021390,L100001019018,JOR,wind,announced,,1000,,Abu Dhabi Future Energy Co; Ministry of Energy and Mineral Resources (Jordan),False
+G100000908130,L100000905947,JOR,wind,operating,,45,2020,Hecate Energy [10%]; Alcazar Energy [90%],False
+G100000908144,L100000905959,JOR,wind,operating,,100,2020,Mass Energy [100%],False
+G100000908141,L100000905956,JOR,wind,operating,,117,2017,Jordan Wind Project Company (JWPC) [100%],False
+G100000908102,L100000905923,KWT,wind,operating,1,10,2017,Kuwait Institute for Scientific Research [100%],False
+G100000908159,L100000905923,KWT,wind,cancelled,2a,50,,,False
+G100000908160,L100000905923,KWT,wind,cancelled,2b,50,,,False
+G100000908104,L100000905925,LBN,wind,pre-construction,,70,,Hawa Akkar [100%],False
+G100000908142,L100000905957,LBN,wind,pre-construction,,68,,Lebanon Wind Power [100%],False
+G100000908121,L100000905940,LBN,wind,pre-construction,,82,,Sustainable Akkar [100%],False
+G100000900158,L100000900120,LBY,wind,announced,1,60,,Public Electrical Works Company (PEWCO) [100%],False
+G100001051560,L100000900120,LBY,wind,announced,2,60,,Public Electrical Works Company (PEWCO) [100%],False
+G100001051561,L100000900120,LBY,wind,announced,3,60,,Public Electrical Works Company (PEWCO) [100%],False
+G100001051562,L100000900120,LBY,wind,announced,4,60,,Public Electrical Works Company (PEWCO) [100%],False
+G100000900160,L100000900122,LBY,wind,cancelled,,26,,Renewable Energy Authority of Libya [100%],False
+G100001022191,L100001019601,LBY,wind,shelved,1,50,,,False
+G100001022192,L100001019601,LBY,wind,shelved,future phases,550,,,False
+G100001018734,L100001016797,MRT,wind,pre-construction,,18000,2035,CWP Global,True
+G100000900018,L100000900016,MRT,wind,operating,,100,2022,Mauritanian Electricity Co [100%],False
+G100000927410,L100000922000,MRT,wind,announced,1,200,,Conjuncta; Infinity Power AS,True
+G100000927411,L100000922000,MRT,wind,announced,future potential,4900,,Conjuncta; Infinity Power AS,True
+G100001073308,L100001063770,MRT,wind,pre-construction,,60,,,False
+G100001073403,L100001063849,MRT,wind,pre-construction,,276,,"Ministry of Petroleum, Energy, and Mines",False
+G100001090889,L100001080907,MRT,wind,announced,,30,,Iwa Green Energy,False
+G100001090890,L100001080908,MRT,wind,announced,,60,,Iwa Green Energy,False
+G100001051236,L100001018418,MRT,wind,pre-construction,1,600,2029,GreenGo Energy Group,True
+G100001020560,L100001018418,MRT,wind,announced,Future phases,29400,,GreenGo Energy Group,True
+G100001090891,L100001080909,MRT,wind,announced,Fast track,50,2029,Möhring Energie,True
+G100001090892,L100001080909,MRT,wind,announced,future phases,450,,Möhring Energie,True
+G100001073368,L100001063821,MRT,wind,pre-construction,1,50,2029,"Ministry of Petroleum, Energy, and Mines",True
+G100001073373,L100001063821,MRT,wind,pre-construction,Future Phases,450,,"Ministry of Petroleum, Energy, and Mines",True
+G100000900163,L100000900125,MRT,wind,operating,,30,2016,Mauritanian Electricity Co [100%],False
+G100000927412,L100000922001,MRT,wind,announced,1,1500,,Chariot Ltd [100%],True
+G100001020551,L100000922001,MRT,wind,announced,Future Phases,3500,,Chariot Ltd [100%],False
+G100000927413,L100000922002,MAR,wind,shelved,1,2500,,,False
+G100000927414,L100000922002,MAR,wind,shelved,2,2500,,,False
+G100000900025,L100000900023,MAR,wind,pre-construction,,80,,Enel Green Power SpA [100%],False
+G100000900130,L100000900101,MAR,wind,operating,1,102,2014,Moroccan Wind Energy Company (EEM) [100%],False
+G100000900133,L100000900101,MAR,wind,operating,2,100,2016,Moroccan Wind Energy Company (EEM) [100%],False
+G100000900131,L100000900101,MAR,wind,construction,3,50,,Moroccan Wind Energy Company (EEM) [100%],False
+G100000900075,L100000900056,MAR,wind,retired,1,54,2000,Office National de l'Electricité et de l'Eau Potable (Morocco); Theolia SA,False
+G100000900166,L100000900056,MAR,wind,construction,Expansion,200,,Office National de l'Electricité et de l'Eau Potable (Morocco); Theolia SA,False
+G100000900165,L100000900056,MAR,wind,operating,RP-2022,120,2024,Office National de l'Electricité et de l'Eau Potable (Morocco); Theolia SA,False
+G100000900067,L100000900051,MAR,wind,operating,,60,2007,,False
+G100000927415,L100000922003,MAR,wind,pre-construction,,7500,,Hydrogenious LOHC Technologies; CWP Global,True
+G100001073053,L100001063556,MAR,wind,construction,1,100,2027,,False
+G100001073054,L100001063556,MAR,wind,pre-construction,2,100,,,False
+G100000900110,L100000900087,MAR,wind,construction,,108,,Green Breeze Co [100%],False
+G100001064473,L100001056432,MAR,wind,pre-construction,,500,,Total Eren SA,True
+G100000927416,L100000922004,MAR,wind,pre-construction,,4000,,,True
+G100001073035,L100001063542,MAR,wind,announced,,1000,,,False
+G100000927417,L100000922005,MAR,wind,pre-construction,,10,,,True
+G100001018742,L100001016806,MAR,wind,pre-construction,,100,2026,Kreditanstalt für Wiederaufbau; MASEN,True
+G100000900186,L100000900145,MAR,wind,operating,,51,2014,,False
+G100000900139,L100000900106,MAR,wind,operating,,270,2024,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100000900083,L100000900063,MAR,wind,operating,,120,2021,ACWA Power Co [100%],False
+G100000900187,L100000900146,MAR,wind,operating,1,10,2005,,False
+G100000900188,L100000900146,MAR,wind,operating,2,10,2008,,False
+G100000900189,L100000900146,MAR,wind,operating,3,12,2009,,False
+G100000900190,L100000900147,MAR,wind,operating,,210,2020,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100001073027,L100001063531,MAR,wind,pre-construction,,7500,,Xlinks,False
+G100000920661,L100000916623,MAR,wind,cancelled,,3500,,Xlinks; Octopus Energy,False
+G100001051065,L100001045363,MAR,wind,pre-construction,,250,,,False
+G100001051066,L100001045364,MAR,wind,pre-construction,,150,,,False
+G100000900113,L100000900089,MAR,wind,operating,1,18,2022,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100000900114,L100000900089,MAR,wind,operating,2,17,2022,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100000900140,L100000900107,MAR,wind,pre-construction,,70,,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100000900061,L100000900047,MAR,wind,operating,1,107,2009,,False
+G100000900062,L100000900047,MAR,wind,operating,2,33,2011,,False
+G100000900141,L100000900108,MAR,wind,operating,,300,2014,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100000900192,L100000900148,MAR,wind,operating,1,87,2022,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100000900191,L100000900148,MAR,wind,pre-construction,2,63,,Office National de l'Electricité et de l'Eau Potable (Morocco) [100%],False
+G100001073015,L100001063519,MAR,wind,pre-construction,,130,2029,,False
+G100000920662,L100000916624,MAR,wind,pre-construction,,500,2027,,True
+G100000927449,L100000922024,OMN,wind,pre-construction,,2250,2030,Energy Development Oman SAOC [100%],True
+G100000927478,L100000922043,OMN,wind,pre-construction,,1750,2030,Energy Development Oman SAOC [100%],True
+G100000927479,L100000922044,OMN,wind,pre-construction,,1750,2030,Energy Development Oman SAOC [100%],True
+G100000927529,L100000922077,OMN,wind,pre-construction,,123,2027,Nama Power and Water Procurement Company SAOC [100%],False
+G100000927530,L100000905967,OMN,wind,operating,1,50,2019,Abu Dhabi Future Energy Co [100%],False
+G100001072715,L100000905967,OMN,wind,pre-construction,2,130,,Abu Dhabi Future Energy Co [100%],False
+G100000927533,L100000917194,OMN,wind,pre-construction,,250,2027,Nama Power and Water Procurement Company SAOC [100%],False
+G100000927535,L100000922081,OMN,wind,pre-construction,,2500,2030,Energy Development Oman SAOC [100%],True
+G100000927561,L100000922101,OMN,wind,pre-construction,,4150,2027,Energy Development Oman SAOC [100%],True
+G100000927583,L100000922120,OMN,wind,pre-construction,,2225,,Energy Development Oman SAOC [100%],True
+G100000927584,L100000922121,OMN,wind,construction,1,650,2029,Energy Development Oman SAOC [100%],True
+G100000927585,L100000922121,OMN,wind,pre-construction,2,675,,Energy Development Oman SAOC [100%],True
+G100000927597,L100000922130,OMN,wind,pre-construction,,100,2027,Nama Power and Water Procurement Company SAOC [100%],False
+G100000927644,L100000922164,OMN,wind,pre-construction,,400,2027,Nama Power and Water Procurement Company SAOC,False
+G100000927664,L100000922180,OMN,wind,pre-construction,1,2000,2032,Energy Development Oman SAOC [100%],True
+G100001020654,L100000922180,OMN,wind,announced,2,10000,,Energy Development Oman SAOC,True
+G100000927532,L100000922079,OMN,wind,pre-construction,,270,2027,Nama Power and Water Procurement Company SAOC [100%],False
+G100001020698,L100001018524,OMN,wind,construction,,100,2026,Petroleum Development Oman LLC,False
+G100001020701,L100001018525,OMN,wind,construction,,100,2026,Petroleum Development Oman LLC,False
+G100001020683,L100001018513,OMN,wind,pre-construction,,99,2027,Nama Power and Water Procurement Company SAOC,False
+G100000927694,L100000922204,OMN,wind,pre-construction,,2250,,Energy Development Oman SAOC [100%],True
+G100000927695,L100000922205,OMN,wind,pre-construction,,1550,,Energy Development Oman SAOC [100%],True
+G100001020717,L100001018533,OMN,wind,announced,,200,2029,Nama Power and Water Procurement Company SAOC,False
+G100000927447,L100000922022,SAU,wind,pre-construction,,600,,,False
+G100001072646,L100001063248,SAU,wind,pre-construction,,1300,,,False
+G100001051245,L100001045519,SAU,wind,pre-construction,,1500,,Saudi Power Procurement Company (SPPC) ,False
+G100000908119,L100000905938,SAU,wind,operating,,400,2021,EDF Renewables [51%]; Masdar Clean Energy [49%],False
+G100000927650,L100000922170,SAU,wind,construction,,1670,2027,NEOM Green Hydrogen Co [33%]; Air Products LLC [33%]; ACWA Power Co [33%],True
+G100000908150,L100000905965,SAU,wind,cancelled,,500,,Plambeck Emirates Global Renewable Energy LLC; Saipem SpA,False
+G100001072653,L100001063253,SAU,wind,pre-construction,,900,,,False
+G100001072671,L100001063269,SAU,wind,pre-construction,,1000,2028,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100001072666,L100001063265,SAU,wind,pre-construction,,2000,2028,Saudi Aramco Power Co [30%]; Water and Electricity Holding CO (Badeel) [34%]; ACWA Power Co [35%],False
+G100000927747,L100000922252,SAU,wind,pre-construction,,500,2026,,False
+G100000927753,L100000922258,SAU,wind,pre-construction,,700,,,False
+G100000900195,L100000900151,SDN,wind,shelved,1,20,,Ministry of Water Resources Irrigation and Electricity (Sudan) [100%],False
+G100000900196,L100000900151,SDN,wind,shelved,2,80,,Ministry of Water Resources Irrigation and Electricity (Sudan) [100%],False
+G100000900200,L100000900152,SDN,wind,cancelled,,20,,,False
+G100000900201,L100000900153,SDN,wind,pre-construction,,20,,,False
+G100000900202,L100000900154,SDN,wind,pre-construction,,180,,,False
+G100001090308,L100001080404,SYR,wind,announced,,200,,Al-Harfi,False
+G100000908155,L100000905970,SYR,wind,cancelled,,50,,Kharafi Group; Cham Holding; Vestas Wind Systems A/S,False
+G100000908154,L100000905969,SYR,wind,cancelled,,50,,Kharafi Group; Cham Holding; Vestas Wind Systems A/S,False
+G100000927545,L100000922088,SYR,wind,cancelled,,50,,,False
+G100000927575,L100000922113,SYR,wind,shelved,,10,,,False
+G100000927576,L100000922114,SYR,wind,shelved,,100,,,False
+G100000908146,L100000905961,SYR,wind,cancelled,,50,,National Energy Research Center [100%],False
+G100000900174,L100000900134,TUN,wind,cancelled,,30,,VSB Energies Nouvelles [100%],False
+G100000900073,L100000900055,TUN,wind,operating,1,60,,Tunisian Company of Electricity and Gas [100%],False
+G100000900074,L100000900055,TUN,wind,operating,2,34,,Tunisian Company of Electricity and Gas [100%],False
+G100000900071,L100000900054,TUN,wind,operating,1,60,,Tunisian Company of Electricity and Gas [100%],False
+G100000900072,L100000900054,TUN,wind,operating,2,34,,Tunisian Company of Electricity and Gas [100%],False
+G100000927429,L100000922014,TUN,wind,pre-construction,,75,2027,,False
+G100000900124,L100000900095,TUN,wind,shelved,,30,,Lucia Holding SAS [100%],False
+G100000900169,L100000900129,TUN,wind,shelved,,30,,UPC Tunisia Renewables BV [100%],False
+G100000900079,L100000900060,TUN,wind,shelved,,30,,ABO Wind AG [100%],False
+G100000927430,L100000900053,TUN,wind,operating,2,55,2009,Tunisian Company of Electricity and Gas [100%],False
+G100000900069,L100000900053,TUN,wind,operating,1-1,10,2000,Tunisian Company of Electricity and Gas [100%],False
+G100001073267,L100000900053,TUN,wind,pre-construction,clone of 1-2,21.5,2027,Tunisian Company of Electricity and Gas [100%],False
+G100000900168,L100000900128,TUN,wind,shelved,,30,,Climate Fund Managers (CFM); UPC Renewables,False
+G100000927431,L100000922015,TUN,wind,announced,1,75,,,False
+G100000927432,L100000922015,TUN,wind,announced,2,75,,,False
+G100000927433,L100000922015,TUN,wind,announced,3,75,,,False
+G100000927434,L100000922015,TUN,wind,announced,4,75,,,False
+G100000927435,L100000922015,TUN,wind,announced,5,75,,,False
+G100000927436,L100000922015,TUN,wind,announced,6,75,,,False
+G100000927437,L100000922015,TUN,wind,announced,7,75,,,False
+G100000900208,L100000900160,TUN,wind,cancelled,,60,,,False
+G100001021117,L100001018834,ARE,wind,operating,,27,2023,Abu Dhabi Future Energy Co,False
+G100001021115,L100001018832,ARE,wind,operating,,27,2023,Abu Dhabi Future Energy Co,False
+G100000927569,L100000922107,ARE,wind,shelved,,28,,Dubai Electricity and Water Authority PJSC [100%],False
+G100001051536,L100001045735,ARE,wind,pre-construction,,140,,Emirates Water and Electricity Company PJSC,False
+G100000908143,L100000905958,ARE,wind,operating,,45,2023,Abu Dhabi Tourism Development and Investment Co; Masdar Clean Energy,False
+G100000908147,L100000905962,YEM,wind,cancelled,,60,,Public Electricity Corp [100%],False
+G100000927480,L100000922045,YEM,wind,cancelled,,27,,Estidama [100%],False
+G100000927740,L100000922245,YEM,wind,cancelled,,50,,Estidama [100%],False
+G100001071245,L100001062092,DJI,geothermal,pre-construction,1,20,,,False
+G100001071246,L100001062092,DJI,geothermal,announced,2,30,,,False
+G100001071166,L100001062045,COM,geothermal,announced,,15,2029,,False
+G100001051881,L100001046011,DZA,hydro,operating,,72,1952,Sonelgaz SpA,False
+G100000604599,L100000604277,DZA,hydro,operating,,100,1963,Sonelgaz SpA [100%],False
+G100000601579,L100000601561,EGY,hydro,operating,,2100,1967,Egyptian Electricity Holding Co [100%],False
+G100000601580,L100000601562,EGY,hydro,operating,,322,1960,Egyptian Electricity Holding Co [100%],False
+G100000601581,L100000601563,EGY,hydro,operating,,270,1985,Egyptian Electricity Holding Co [100%],False
+G100000601582,L100000601564,EGY,hydro,operating,,86,1993,Egyptian Electricity Holding Co [100%],False
+G100000601583,L100000601565,EGY,hydro,pre-construction,,2100,,Egyptian Ministry of Electricity [100%],False
+G100001051885,L100001046013,EGY,hydro,operating,,64,2008,Egyptian Electricity Holding Co,False
+G100001073803,L100001064168,EGY,hydro,operating,,32,2018,Ministry of Irrigation and Water Resources,False
+G100000604220,L100000604166,IRQ,hydro,mothballed,,170,,,False
+G100000602206,L100000602180,IRQ,hydro,operating,,240,1961,Iraq Ministry of Water Resources,False
+G100001072948,L100001063480,IRQ,hydro,operating,,38,2023,Ministry of Electricity (Kurdistan),False
+G100000602207,L100000602181,IRQ,hydro,operating,,400,1959,Government of Iraq,False
+G100000602208,L100000602182,IRQ,hydro,operating,,660,1986,Ministry of Electricity (Iraq) [100%],False
+G100001027303,L100001023098,IRQ,hydro,operating,,50,1981,Government of Iraq,False
+G100000604591,L100000604274,IRQ,hydro,shelved,,250,,,False
+G100000602209,L100000602183,IRQ,hydro,operating,,1052,1986,Ministry of Electricity (Iraq) [100%],False
+G100001027304,L100001023099,IRQ,hydro,operating,,62,1986,Government of Iraq,False
+G100000602210,L100000602184,IRQ,hydro,operating,,84,1972,Ministry of Electricity (Iraq) [100%],False
+G100000604204,L100000604158,JOR,hydro,pre-construction,,450,2030,Gesellschaft für Internationale Zusammenarbeit GmbH,False
+G100000602447,L100000602417,LBN,hydro,operating,,108,1965,Litani River Authority [100%],False
+G100001051887,L100001046015,LBN,hydro,operating,,48,1968,Litani River Authority,False
+G100001072947,L100001063479,LBN,hydro,operating,,34,1962,Litani River Authority,False
+G100000602448,L100000602418,LBN,hydro,construction,,100,2027,Ministry of Energy and Water Resources [100%],False
+G100000602528,L100000602497,MAR,hydro,operating,,350,2024,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602529,L100000602498,MAR,hydro,operating,,466,2004,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602530,L100000602499,MAR,hydro,operating,,92,2003,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602531,L100000602500,MAR,hydro,operating,,94,1955,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602532,L100000602501,MAR,hydro,operating,,128,1980,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602533,L100000602502,MAR,hydro,operating,,240,1998,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602534,L100000602503,MAR,hydro,operating,,240,1994,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000602535,L100000602504,MAR,hydro,operating,,135,1953,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000604367,L100000602505,MAR,hydro,announced,,300,2027,Office National de L'Electricite de L'Eau Potable [100%],False
+G100001027333,L100001023128,MAR,hydro,operating,,67,1991,Office National de l'Electricite et de l'Eau Potable,False
+G100001062661,L100001054769,MAR,hydro,operating,,41,1973,,False
+G100000604442,L100000602506,MAR,hydro,construction,,300,2029,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000604508,L100000604256,MAR,hydro,announced,,62,2027,Office National de L'Electricite de L'Eau Potable [100%],False
+G100001062662,L100001054770,MAR,hydro,operating,,32,1944,,False
+G100001062663,L100001054771,MAR,hydro,operating,,36,1979,,False
+G100000604987,L100000604405,MAR,hydro,announced,,38,2027,Office National de L'Electricite de L'Eau Potable [100%],False
+G100000604938,L100000604387,OMN,hydro,cancelled,,250,,,False
+G100000603444,L100000603409,SDN,hydro,operating,,1250,2009,Ministry of Irrigation and Water Resources [100%],False
+G100000603445,L100000603410,SDN,hydro,operating,,280,1966,Ministry of Irrigation and Water Resources [100%],False
+G100000603446,L100000603411,SDN,hydro,operating,,320,2018,Ministry of Irrigation and Water Resources [100%],False
+G100000603567,L100000603532,SYR,hydro,operating,,75,1986,Syrian Ministry of Electricity,False
+G100000603568,L100000603533,SYR,hydro,operating,,880,1978,Syrian Ministry of Electricity [100%],False
+G100000603569,L100000603534,SYR,hydro,operating,,630,2009,Syrian Ministry of Electricity [100%],False
+G100000604853,L100000603576,TUN,hydro,pre-construction,,400,2029,Tunisian Company of Electricity and Gas [100%],False
+G100000603732,L100000603694,ARE,hydro,operating,,250,2025,Dubai Electricity and Water Authority (DEWA) [100%],False
+G100001090704,L100001080771,DZA,hydro,operating,,24,1952,Sonelgaz SpA,False
+G100000604986,L100000604404,MAR,hydro,announced,,28,2027,Office National de L'Electricite de L'Eau Potable [100%],False
+G100001062765,L100001054873,TUN,hydro,operating,,25,1983,,False
+G100001053610,L100001047171,EGY,bioenergy,construction,,123,,,False
+G100001019958,L100001017968,EGY,bioenergy,construction,1,30,2026,Renergy Group Partners LLC [100%],False
+G100000200358,L100000200322,ARE,bioenergy,pre-construction,1,80,2027,unknown [100%],False
+G100001055421,L100001048291,KWT,bioenergy,shelved,,100,,Al Mulla Group Holding Company KSCC [33%]; CNIM Groupe SA [33%]; Gulf Investment Corp [33%],False
+G100001070571,L100001019004,ARE,bioenergy,cancelled,1,12,,Dubai Electricity and Water Authority PJSC [100%],False
+G100001021369,L100001019004,ARE,bioenergy,retired,Pilot,1,2014,Dubai Electricity and Water Authority PJSC [100%],False
+G100001021325,L100001018976,BHR,bioenergy,pre-construction,,25,2027,"Ministry of Works, Municipalities Affairs and Urban Planning [100%]",False
+G100001054067,L100001047486,SDN,bioenergy,operating,Assalaya Factory ST 2,6.8,,,False
+G100001054068,L100001047486,SDN,bioenergy,operating,Assalaya Factory ST 4,13,,,False
+G100001055420,L100001048290,JOR,bioenergy,operating,,13,2008,,False
+G100001055409,L100001048280,IRQ,bioenergy,construction,,100,,,False
+G100000200802,L100000200706,OMN,bioenergy,pre-construction,1,100,2031,Nama Power and Water Procurement Company SAOC [100%],False
+G100000200020,L100000200018,DJI,bioenergy,pre-construction,1,40,,CR Energy Concepts [100%],False
+G100000200359,L100000200323,QAT,bioenergy,operating,1,50,2011,Ministry of Municipality and Urban Planning (Qatar) [100%],False
+G100000200360,L100000200324,ARE,bioenergy,operating,1,190,2023,Municipality of Dubai [100%],False
+G100001054102,L100001047520,SDN,bioenergy,operating,,6,1962,,False
+G100001093705,L100001083045,SAU,bioenergy,announced,,100,2030,,False
+G100000201699,L100000201411,SDN,bioenergy,operating,1,76,,Kenana Sugar Co [100%],False
+G100001055478,L100001048320,PSE,bioenergy,cancelled,,60,,,False
+G100001054104,L100001047522,SDN,bioenergy,operating,,6,1966,,False
+G100001053603,L100001047164,EGY,bioenergy,operating,,45,,,False
+G100001019965,L100001017973,EGY,bioenergy,announced,1,100,2026,Fas Energy LLC [100%],False
+G100001093704,L100001083044,SAU,bioenergy,pre-construction,,200,2030,Riyadh Municipality [33%]; National Center for Waste Management [33%]; Saudi Investment Recycling Co [33%],False
+G100000200987,L100000103053,MAR,bioenergy,operating,Biomass,4.6,2007,Safi Energy Company SA [100%],False
+G100001054103,L100001047521,SDN,bioenergy,operating,,6,1976,,False
+G100000200361,L100000200325,ARE,bioenergy,operating,1,30,2022,Emirates Waste to Energy Co [100%],False
+G100000200362,L100000200326,ARE,bioenergy,announced,1,60,2027,Tadweer Waste Treatment LLC [100%],False
+G100000200017,L100000200015,SDN,bioenergy,operating,3,31,2012,unknown [70%]; Kenana Sugar Co [30%],False
+G100000201701,L100000200015,SDN,bioenergy,operating,4,31,2012,unknown [70%]; Kenana Sugar Co [30%],False
+G100000200363,L100000200327,PSE,bioenergy,cancelled,1,40,,Harvest Waste BV [100%],False

@@ -1,0 +1,9 @@
+Status ID,Status,Status AR,Status AR Provenance,Sort Order,In Totals,In Pipeline,Delivery Risk
+operating,Operating,قيد التشغيل,machine,1,True,False,False
+construction,Under construction,قيد الإنشاء,machine,2,True,True,False
+pre-construction,Pre-construction,ما قبل الإنشاء,machine,3,True,True,False
+announced,Announced,مُعلن,machine,4,True,True,False
+shelved,Shelved,مُعلّق,machine,5,False,False,True
+cancelled,Cancelled,مُلغى,machine,6,False,False,True
+mothballed,Mothballed,متوقف مؤقتاً,machine,7,False,False,False
+retired,Retired,خارج الخدمة,machine,8,False,False,False

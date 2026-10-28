@@ -1,0 +1,8 @@
+# Raw source downloads (large; re-download per README)
+*.xlsx
+# Local Python environment
+.venv/
+# Power BI local settings
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+.DS_Store
