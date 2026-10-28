@@ -1,0 +1,45 @@
+table 'Overview Focus'
+
+	column Code
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Code
+
+	column Focus
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Focus
+		sortByColumn: 'Sort Order'
+
+	column 'Focus AR'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Focus AR
+		sortByColumn: 'Sort Order'
+
+	column 'Focus AR Provenance'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Focus AR Provenance
+
+	column 'Sort Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Sort Order
+
+	partition 'Overview Focus' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents(RepoRoot, [RelativePath = "translations/translations.csv"]), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Focus = Table.SelectRows(Promoted, each Text.StartsWith([key], "focus.")),
+				    Indexed = Table.AddIndexColumn(Focus, "Sort Order", 1, 1, Int64.Type),
+				    Shaped = Table.FromRecords(List.Transform(Table.ToRecords(Indexed), each [Code = Text.AfterDelimiter([key], "."), Focus = [en], #"Focus AR" = [ar], #"Focus AR Provenance" = [provenance], #"Sort Order" = [Sort Order]]),
+				        type table [Code = text, Focus = text, #"Focus AR" = text, #"Focus AR Provenance" = text, #"Sort Order" = Int64.Type])
+				in
+				    Shaped

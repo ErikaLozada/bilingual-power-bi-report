@@ -30,6 +30,7 @@ Table names follow section 6.
 - The extract script writes filtered CSV files into the repo.
 - Power Query reads each CSV from its raw GitHub URL. Refreshing in Fabric needs no gateway, and the footer's "Refreshed" time reflects a real refresh.
 - The repo must be public, and the CSV paths are part of the model's contract: moving a file breaks the refresh.
+- **Caching:** raw GitHub caches files for about 5 minutes, and Fabric can lag a little longer. After a push, wait before refreshing or the model loads the previous file.
 - **Credentials (once per tenant user):** Fabric stores the credential per data source, so setting it on one model covers every model using the same URL. Model settings → Data source credentials → Anonymous, privacy Public, **Skip test connection**. The test fetches the repo root, which raw GitHub answers with 404, so it can't pass and can't be set by API.
 
 ## 3. Grain
@@ -82,11 +83,26 @@ The fact table is at **unit (phase) level**: 957 rows, as GEM publishes it. Stat
 | Risk | `Shelved GW`, `Cancelled GW`, `Construction % of Pipeline`, `Pipeline to Operating Ratio` | |
 | Hydrogen | `Hydrogen Pipeline GW`, `Hydrogen % of Pipeline` | |
 | Generation | `Wind Solar Share %`, `Emissions Intensity g/kWh`, `Total Generation TWh`, `Ember Year` | Latest year per country; region = weighted (summed TWh); trend to 2023 |
-| Headlines | One per page, from a translated template | |
+| Headlines | `Headline Overview`, `Headline Breakdown`, `Headline Opportunity`, `Headline Detail` | Built from translated templates; see section 8a |
+| Text (hidden) | `Language Code`, `Scope Text`, `Scope Possessive Text` | Page language; "the region" / country name / "the selected countries" |
 | Formatting | `Technology Colour`, `Status Colour` and their `… Faded` twins, `Accent Colour`, `Neutral Colour` | Hidden; return hex codes for conditional formatting. Which item gets the accent is decided per visual, by a small highlight measure built with that visual |
-| Footer | `Refreshed At`, `Data To` | `dd mmm yy, HH:mm` |
+| Footer | `Footer Refreshed`, `Footer Data To` | Full translated sentences; dates `dd mmm yy, HH:mm` UTC |
 
 **Insight titles:** visual titles start static. During development we test which visuals benefit from a dynamic takeaway; each one adopted becomes a dynamic measure (section 7).
+
+## 8a. Headlines
+
+Each headline picks a template by threshold, then fills its `{placeholders}`. Numbers are formatted with the en-GB culture in both languages; GW values above 0 but under 0.05 show as `<0.1`.
+
+| Headline | Variants |
+|---|---|
+| Overview | Focus *Under construction* (default): construction vs operating, "more than" only when construction exceeds operating. Focus *Came online*: GW added in the latest full year vs 2010–2019, "more than" only when it is larger. Focus comes from the `Overview Focus` slicer |
+| Breakdown | "None of" when nothing is under construction; "Only" below 25% of the pipeline; otherwise neutral. "{country} alone plans…" only when more than one country is in view |
+| Opportunity | "is building the most" when more than one country is in view; neutral for one country; "Nothing is under construction" when there is none |
+| Detail | Top-10 share when there are more than 10 pipeline projects; otherwise a project count (singular for 1). Hydrogen clause only when the share is above 0 |
+| Any | "No capacity is planned in {scope}" when the pipeline is empty |
+
+`Overview Focus` is a small table built from the `focus.*` rows of `translations.csv`, shown as a slicer in the Overview menu.
 
 ## 9. Decisions log
 
@@ -106,3 +122,6 @@ The fact table is at **unit (phase) level**: 957 rows, as GEM publishes it. Stat
 | 12 | Unit names | GEM's "--" placeholder stored as blank |
 | 13 | Hydrogen | Unit-level flag as published |
 | 14 | Generation shape | One row per country and year with wind+solar TWh, total TWh and emissions, so regional shares and intensity are sums of TWh and emissions |
+| 15 | Headline variants | Alternative wording chosen by thresholds (section 8a) |
+| 16 | Scope wording | "the region", the country name, or "the selected countries", written to read naturally in each language |
+| 17 | Overview focus | Slicer toggles the Overview headline between construction (scale) and capacity that came online (speed) |

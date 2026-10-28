@@ -115,6 +115,118 @@ table _Measures
 		formatString: #,0
 		displayFolder: Generation
 
+	measure 'Language Code' = SELECTEDVALUE ( 'Language'[Code], "en" )
+		isHidden
+		displayFolder: Text
+
+	measure 'Scope Text' =
+			VAR CountriesInContext = COUNTROWS ( 'Country' )
+			VAR AllCountries = CALCULATE ( COUNTROWS ( 'Country' ), REMOVEFILTERS ( 'Country' ) )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        CountriesInContext = AllCountries, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "scope.region" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "scope.region" ) ),
+			        CountriesInContext = 1, IF ( [Language Code] = "ar", SELECTEDVALUE ( 'Country'[Country AR] ), SELECTEDVALUE ( 'Country'[Country] ) ),
+			        IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "scope.selected" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "scope.selected" ) )
+			    )
+		isHidden
+		displayFolder: Text
+
+	measure 'Scope Possessive Text' =
+			VAR CountriesInContext = COUNTROWS ( 'Country' )
+			VAR AllCountries = CALCULATE ( COUNTROWS ( 'Country' ), REMOVEFILTERS ( 'Country' ) )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        CountriesInContext = AllCountries, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "scope.region.possessive" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "scope.region.possessive" ) ),
+			        CountriesInContext = 1, [Scope Text] & IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "scope.country.possessive-suffix" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "scope.country.possessive-suffix" ) ),
+			        IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "scope.selected.possessive" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "scope.selected.possessive" ) )
+			    )
+		isHidden
+		displayFolder: Text
+
+	measure 'Headline Overview' =
+			VAR Focus = SELECTEDVALUE ( 'Overview Focus'[Code], "construction" )
+			VAR Construction = [Construction GW]
+			VAR Operating = [Operating GW]
+			VAR Scale =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( Construction > Operating, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.overview.scale.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.overview.scale.claim" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.overview.scale.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.overview.scale.neutral" ) ) ), "{construction}", IF ( Construction > 0 && Construction < 0.05, "<0.1", FORMAT ( Construction, "#,0.0", "en-GB" ) ) ), "{operating}", IF ( Operating > 0 && Operating < 0.05, "<0.1", FORMAT ( Operating, "#,0.0", "en-GB" ) ) ), "{share}", FORMAT ( [Wind Solar Share %], "0.0%", "en-GB" ) ), "{scope_pos}", [Scope Possessive Text] ), "{years}", [Ember Year] )
+			-- Latest full year: the GEM release (Sep 2026) is part-way through 2026
+			VAR ReleaseYear = 2026
+			VAR LatestYear = CALCULATE ( MAX ( 'Unit'[Start Year] ), 'Status'[Status ID] = "operating", 'Unit'[Start Year] < ReleaseYear )
+			VAR Added = CALCULATE ( [Operating GW], 'Unit'[Start Year] = LatestYear )
+			VAR Decade = CALCULATE ( [Operating GW], 'Unit'[Start Year] >= 2010, 'Unit'[Start Year] <= 2019 )
+			VAR Speed =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( Added > Decade, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.overview.speed.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.overview.speed.claim" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.overview.speed.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.overview.speed.neutral" ) ) ), "{added}", IF ( Added > 0 && Added < 0.05, "<0.1", FORMAT ( Added, "#,0.0", "en-GB" ) ) ), "{year}", FORMAT ( LatestYear, "0" ) ), "{decade}", IF ( Decade > 0 && Decade < 0.05, "<0.1", FORMAT ( Decade, "#,0.0", "en-GB" ) ) )
+			RETURN
+			    IF ( Focus = "operating", Speed, Scale )
+		displayFolder: Headlines
+
+	measure 'Headline Breakdown' =
+			VAR Pipeline = [Pipeline GW]
+			VAR ConstructionShare = COALESCE ( [Construction % of Pipeline], 0 )
+			-- Below this share of the pipeline, construction is called out as "only"
+			VAR OnlyThreshold = 0.25
+			VAR Main =
+			    SUBSTITUTE ( SUBSTITUTE ( SWITCH ( TRUE (), ConstructionShare = 0, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.breakdown.none-building" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.breakdown.none-building" ) ), ConstructionShare < OnlyThreshold, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.breakdown.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.breakdown.claim" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.breakdown.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.breakdown.neutral" ) ) ), "{construction_pct}", FORMAT ( ConstructionShare, "0.0%", "en-GB" ) ), "{pipeline}", IF ( Pipeline > 0 && Pipeline < 0.05, "<0.1", FORMAT ( Pipeline, "#,0.0", "en-GB" ) ) )
+			VAR TopCountry = TOPN ( 1, ADDCOLUMNS ( VALUES ( 'Country'[Country ID] ), "@Pipeline", [Pipeline GW] ), [@Pipeline], DESC )
+			VAR TopName = MAXX ( TopCountry, IF ( [Language Code] = "ar", CALCULATE ( MAX ( 'Country'[Country AR] ) ), CALCULATE ( MAX ( 'Country'[Country] ) ) ) )
+			VAR TopPart =
+			    SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.breakdown.top-country" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.breakdown.top-country" ) ), "{top_country}", TopName ), "{top_country_pipeline}", IF ( MAXX ( TopCountry, [@Pipeline] ) > 0 && MAXX ( TopCountry, [@Pipeline] ) < 0.05, "<0.1", FORMAT ( MAXX ( TopCountry, [@Pipeline] ), "#,0.0", "en-GB" ) ) )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( Pipeline ), SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.no-pipeline" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.no-pipeline" ) ), "{scope}", [Scope Text] ),
+			        COUNTROWS ( 'Country' ) > 1, Main & TopPart,
+			        Main & "."
+			    )
+		displayFolder: Headlines
+
+	measure 'Headline Opportunity' =
+			VAR TopBuilder = TOPN ( 1, ADDCOLUMNS ( VALUES ( 'Country'[Country ID] ), "@Construction", [Construction GW] ), [@Construction], DESC )
+			VAR TopGW = MAXX ( TopBuilder, [@Construction] )
+			VAR Sentence =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( COUNTROWS ( 'Country' ) > 1, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.opportunity.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.opportunity.claim" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.opportunity.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.opportunity.neutral" ) ) ), "{top_builder}", MAXX ( TopBuilder, IF ( [Language Code] = "ar", CALCULATE ( MAX ( 'Country'[Country AR] ) ), CALCULATE ( MAX ( 'Country'[Country] ) ) ) ) ), "{top_builder_gw}", IF ( TopGW > 0 && TopGW < 0.05, "<0.1", FORMAT ( TopGW, "#,0.0", "en-GB" ) ) ), "{top_builder_share}", FORMAT ( MAXX ( TopBuilder, [Wind Solar Share %] ), "0.0%", "en-GB" ) ), "{year}", MAXX ( TopBuilder, [Ember Year] ) )
+			RETURN
+			    IF ( TopGW > 0, Sentence, SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.opportunity.none" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.opportunity.none" ) ), "{scope}", [Scope Text] ) )
+		displayFolder: Headlines
+
+	measure 'Headline Detail' =
+			VAR Projects = FILTER ( ADDCOLUMNS ( VALUES ( 'Unit'[Plant ID] ), "@Pipeline", [Pipeline GW] ), [@Pipeline] > 0 )
+			VAR ProjectCount = COUNTROWS ( Projects )
+			VAR Top10Share = DIVIDE ( SUMX ( TOPN ( 10, Projects, [@Pipeline], DESC ), [@Pipeline] ), [Pipeline GW] )
+			VAR HydrogenShare = [Hydrogen % of Pipeline]
+			VAR Main =
+			    IF (
+			        ProjectCount > 10,
+			        SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.detail.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.detail.claim" ) ), "{top10_pct}", FORMAT ( Top10Share, "0.0%", "en-GB" ) ), "{scope_pos}", [Scope Possessive Text] ),
+			        IF (
+			            ProjectCount = 1,
+			            SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.detail.neutral-single" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.detail.neutral-single" ) ), "{scope}", [Scope Text] ),
+			            SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.detail.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.detail.neutral" ) ), "{projects}", FORMAT ( ProjectCount, "0" ) ), "{scope}", [Scope Text] )
+			        )
+			    )
+			VAR HydrogenPart = SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.detail.hydrogen" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.detail.hydrogen" ) ), "{hydrogen_pct}", FORMAT ( HydrogenShare, "0.0%", "en-GB" ) )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ProjectCount = 0 || ISBLANK ( ProjectCount ), SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.no-pipeline" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.no-pipeline" ) ), "{scope}", [Scope Text] ),
+			        HydrogenShare > 0, Main & HydrogenPart,
+			        Main & "."
+			    )
+		displayFolder: Headlines
+
+	measure 'Footer Refreshed' = SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "footer.refreshed" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "footer.refreshed" ) ), "{date}", FORMAT ( MAX ( 'Refresh Info'[Refreshed At UTC] ), "dd mmm yy, HH:mm", "en-GB" ) )
+		displayFolder: Footer
+
+	measure 'Footer Data To' =
+			VAR FirstYear = CALCULATE ( MIN ( 'Country'[Ember Latest Year] ), REMOVEFILTERS ( 'Country' ) )
+			VAR LastYear = CALCULATE ( MAX ( 'Country'[Ember Latest Year] ), REMOVEFILTERS ( 'Country' ) )
+			VAR Years = IF ( FirstYear = LastYear, FORMAT ( FirstYear, "0" ), FORMAT ( FirstYear, "0" ) & "–" & FORMAT ( LastYear, "0" ) )
+			RETURN
+			    SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "footer.data-to" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "footer.data-to" ) ), "{years}", Years )
+		displayFolder: Footer
+
 	measure 'Technology Colour' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),

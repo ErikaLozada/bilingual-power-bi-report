@@ -50,7 +50,7 @@ The footer holds three items and no buttons:
 ## 3. Menu panel
 
 - The menu opens and closes with bookmarks.
-- It holds the page's **slicers** and any **KPI explanations** that need one.
+- It holds the page's **slicers** and any **KPI explanations** that need one. On Overview it also holds the **Overview focus** slicer (Under construction / Came online), which switches the headline.
 - **Icons:** ☰ when closed, ✕ when open, as custom SVGs. Both are symmetric, so the Arabic pages use the same icons.
 - **Opening:** it slides in over the body from the side where its button sits (right in English, left in Arabic). It does not push the body aside.
 - **Stacking:** the menu panel is always the top layer of the canvas (highest z-order), so it never opens behind a visual.
