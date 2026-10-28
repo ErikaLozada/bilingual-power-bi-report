@@ -267,6 +267,18 @@
                 }
               }
             },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total GW Bar Max"
+                }
+              }
+            },
             "invertAxis": {
               "expr": {
                 "Literal": {

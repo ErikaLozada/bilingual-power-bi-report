@@ -31,7 +31,7 @@ MAIN_Y = BODY_Y + KPI_H + G
 # Colours and fonts (sections 6-7)
 CANVAS, CARD, RULE, INK, INK2 = "#f4f4f2", "#ffffff", "#e4e3df", "#1d1d1b", "#5c5b57"
 ACCENT, GREY_LINE, NEUTRAL = "#eb6834", "#b3b2ac", "#d3d2cc"
-TECH = {"Solar": "#eda100", "Wind": "#1baf7a", "Hydro": "#2a78d6", "Other": "#b3b2ac"}
+TECH = {"Solar": "#daa932", "Wind": "#189e8c", "Hydro": "#3a70b3", "Other": "#b3b2ac"}
 STATUS = {"Operating": "#2b2570", "Under construction": "#4a3fb0", "Pre-construction": "#7368d9",
           "Announced": "#a49cea", "Shelved": "#9e9d97", "Cancelled": "#9e9d97"}
 FONT = "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
@@ -230,7 +230,7 @@ def series_colours(entity, prop, colours):
 
 
 def bars(category, values, title_key=None, visual_type="barChart", legend=None, fill_measure=None,
-         detail_measure=None, sort_by_category=False, sort_measure=None, legend_show=False, size=12):
+         detail_measure=None, sort_by_category=False, sort_measure=None, legend_show=False, size=12, axis_max=None):
     """values: (measure, display key). legend: (entity, prop, colours) for stacked series."""
     v = Visual(visual_type, title_key=title_key)
     state = {"Category": {"projections": [projection(v, category)]},
@@ -257,7 +257,8 @@ def bars(category, values, title_key=None, visual_type="barChart", legend=None, 
     v.body["objects"] = {
         "dataPoint": data_point, "labels": labels,
         "categoryAxis": axis(size=size, maxMarginFactor=n(40), innerPadding=lit(f"{BAR_GAP}L")),
-        "valueAxis": axis(show=False),
+        # axis_max: a measure giving headroom so labels stay outside the longest bar
+        "valueAxis": axis(show=False, **({"end": {"expr": mea(axis_max)}} if axis_max else {})),
         "legend": [{"properties": {"show": b(legend_show), "position": s("Top"), "fontSize": n(11),
                                    "fontFamily": s(FONT), "labelColor": colour(INK2), "showTitle": b(False)}}],
     }
@@ -470,7 +471,7 @@ def kpi_panel(x, w, title_key, value_measure, status_measure, body=None, status_
 def stage_bars(status_filter, measure="Total GW", detail="Share of Pipeline %", status_measure="KPI Pipeline Status",
                status_color=INK2):
     v = bars(col("Status", "Status"), [(measure, "field.gw")], fill_measure="Status Colour",
-             detail_measure=detail, sort_by_category=True)
+             detail_measure=detail, sort_by_category=True, axis_max=f"{measure} Bar Max")
     v.body["visualContainerObjects"]["padding"] = [{"properties": {"top": n(4), "bottom": n(4), "left": n(16),
                                                                      "right": n(16)}}]
     v.measure_title(status_measure, 13, status_color)
@@ -540,7 +541,7 @@ def opportunity():
                       "Emissions Intensity Last Point", "KPI Intensity Status", INK2, label_precision="0L")
     intensity.filters.append(range_filter("Generation", "Year", 2015, 2023))
     builders = bars(col("Country", "Country"), [("Top 3 Construction GW", "field.gw")], fill_measure="Top Builder Colour",
-                    detail_measure="Construction % of Total Label")
+                    detail_measure="Construction % of Total Label", axis_max="Top 3 Construction GW Bar Max")
     builders.measure_title("KPI Construction Status", 13, INK2)
     announced = stage_bars("In Pipeline", status_measure="KPI Announced Status")
     kpis = (kpi_panel(xs[0], pw, "kpi.intensity.title", "Emissions Intensity Full Coverage", None, intensity)

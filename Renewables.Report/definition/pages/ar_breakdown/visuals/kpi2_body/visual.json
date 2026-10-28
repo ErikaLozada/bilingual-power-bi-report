@@ -217,6 +217,18 @@
                 }
               }
             },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Dropped GW Bar Max"
+                }
+              }
+            },
             "invertAxis": {
               "expr": {
                 "Literal": {

@@ -469,9 +469,9 @@ table _Measures
 	measure 'Technology Colour' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
-			    1, "#eda100",
-			    2, "#1baf7a",
-			    3, "#2a78d6",
+			    1, "#daa932",
+			    2, "#189e8c",
+			    3, "#3a70b3",
 			    4, "#b3b2ac"
 			)
 		isHidden
@@ -480,9 +480,9 @@ table _Measures
 	measure 'Technology Colour Faded' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
-			    1, "#f8d999",
-			    2, "#a4dfca",
-			    3, "#aac9ef",
+			    1, "#f0ddad",
+			    2, "#a3d8d1",
+			    3, "#b0c6e1",
 			    4, "#e1e0de"
 			)
 		isHidden
@@ -534,6 +534,18 @@ table _Measures
 		displayFolder: Formatting
 
 	measure 'Neutral Colour' = "#d3d2cc"
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Total GW Bar Max' = 1.3 * MAXX ( VALUES ( 'Status'[Status ID] ), [Total GW] )
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Dropped GW Bar Max' = 1.3 * MAXX ( VALUES ( 'Status'[Status ID] ), [Dropped GW] )
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Top 3 Construction GW Bar Max' = 1.3 * MAXX ( VALUES ( 'Country'[Country ID] ), [Top 3 Construction GW] )
 		isHidden
 		displayFolder: Formatting
 

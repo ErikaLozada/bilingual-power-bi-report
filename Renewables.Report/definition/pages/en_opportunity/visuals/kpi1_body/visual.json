@@ -259,6 +259,18 @@
                   "Value": "false"
                 }
               }
+            },
+            "end": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Top 3 Construction GW Bar Max"
+                }
+              }
             }
           }
         }

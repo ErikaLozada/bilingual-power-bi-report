@@ -77,13 +77,14 @@ Light theme: Power BI has no dark mode that viewers can switch on. All categoric
 
 | Technology | Hex |
 |---|---|
-| Solar | `#eda100` |
-| Wind | `#1baf7a` |
-| Hydro | `#2a78d6` |
+| Solar | `#daa932` |
+| Wind | `#189e8c` |
+| Hydro | `#3a70b3` |
 | Other (bioenergy, geothermal) | `#b3b2ac` |
 
 - Bioenergy and geothermal fold into "Other" (about 0.5 GW operating). A fourth hue failed the validator.
-- Solar, wind and Other sit below 3:1 contrast on white, so any visual using them shows a legend or data labels.
+- Solar and Other sit below 3:1 contrast on white, so any visual using them shows a legend or data labels.
+- The first palette (`#eda100`, `#1baf7a`, `#2a78d6`) clashed: its lightness and saturation were uneven. These three hues have matched lightness and saturation, and solar's gold stays clear of the orange accent.
 
 ### 6.2 Status (ordinal, one hue)
 
@@ -251,3 +252,4 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 22 | Table alignment | Text and years left, values right (English); everything right on Arabic pages; widths fill the visual |
 | 23 | Scatter axes | 0 to 1.2 × the largest value, so bubbles aren't clipped |
 | 24 | Unit column | Dropped from the projects table: GEM's unit names are partly Arabic-only |
+| 25 | Technology palette | Gold, teal, blue (candidate B): matched lightness and saturation so the hues don't clash; passes the colour-vision checks |
