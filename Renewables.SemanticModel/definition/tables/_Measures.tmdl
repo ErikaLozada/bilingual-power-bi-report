@@ -146,6 +146,7 @@ table _Measures
 		displayFolder: Text
 
 	measure 'Headline Overview' =
+			VAR SentenceText =
 			VAR Focus = SELECTEDVALUE ( 'Overview Focus'[Code], "construction" )
 			VAR Construction = [Construction GW]
 			VAR Operating = [Operating GW]
@@ -160,9 +161,12 @@ table _Measures
 			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( Added > Decade, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.overview.speed.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.overview.speed.claim" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.overview.speed.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.overview.speed.neutral" ) ) ), "{added}", IF ( Added > 0 && Added < 0.05, "<0.1", FORMAT ( Added, "#,0.0", "en-GB" ) ) ), "{year}", FORMAT ( LatestYear, "0" ) ), "{decade}", IF ( Decade > 0 && Decade < 0.05, "<0.1", FORMAT ( Decade, "#,0.0", "en-GB" ) ) )
 			RETURN
 			    IF ( Focus = "operating", Speed, Scale )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Headlines
 
 	measure 'Headline Breakdown' =
+			VAR SentenceText =
 			VAR Pipeline = [Pipeline GW]
 			VAR ConstructionShare = COALESCE ( [Construction % of Pipeline], 0 )
 			-- Below this share of the pipeline, construction is called out as "only"
@@ -180,18 +184,24 @@ table _Measures
 			        COUNTROWS ( 'Country' ) > 1, Main & TopPart,
 			        Main & "."
 			    )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Headlines
 
 	measure 'Headline Opportunity' =
+			VAR SentenceText =
 			VAR TopBuilder = TOPN ( 1, ADDCOLUMNS ( VALUES ( 'Country'[Country ID] ), "@Construction", [Construction GW] ), [@Construction], DESC )
 			VAR TopGW = MAXX ( TopBuilder, [@Construction] )
 			VAR Sentence =
 			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( COUNTROWS ( 'Country' ) > 1, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.opportunity.claim" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.opportunity.claim" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.opportunity.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.opportunity.neutral" ) ) ), "{top_builder}", MAXX ( TopBuilder, IF ( [Language Code] = "ar", CALCULATE ( MAX ( 'Country'[Country AR] ) ), CALCULATE ( MAX ( 'Country'[Country] ) ) ) ) ), "{top_builder_gw}", IF ( TopGW > 0 && TopGW < 0.05, "<0.1", FORMAT ( TopGW, "#,0.0", "en-GB" ) ) ), "{top_builder_share}", FORMAT ( MAXX ( TopBuilder, [Wind Solar Share %] ), "0.0%", "en-GB" ) ), "{year}", MAXX ( TopBuilder, [Ember Year] ) )
 			RETURN
 			    IF ( TopGW > 0, Sentence, SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "headline.opportunity.none" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "headline.opportunity.none" ) ), "{scope}", [Scope Text] ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Headlines
 
 	measure 'Headline Detail' =
+			VAR SentenceText =
 			VAR Projects = FILTER ( ADDCOLUMNS ( VALUES ( 'Unit'[Plant ID] ), "@Pipeline", [Pipeline GW] ), [@Pipeline] > 0 )
 			VAR ProjectCount = COUNTROWS ( Projects )
 			VAR Top10Share = DIVIDE ( SUMX ( TOPN ( 10, Projects, [@Pipeline], DESC ), [@Pipeline] ), [Pipeline GW] )
@@ -214,17 +224,26 @@ table _Measures
 			        HydrogenShare > 0, Main & HydrogenPart,
 			        Main & "."
 			    )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Headlines
 
-	measure 'Footer Refreshed' = SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "footer.refreshed" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "footer.refreshed" ) ), "{date}", FORMAT ( MAX ( 'Refresh Info'[Refreshed At UTC] ), "dd mmm yy, HH:mm", "en-GB" ) )
+	measure 'Footer Refreshed' =
+			VAR SentenceText =
+			SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "footer.refreshed" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "footer.refreshed" ) ), "{date}", FORMAT ( MAX ( 'Refresh Info'[Refreshed At UTC] ), "dd mmm yy, HH:mm", "en-GB" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Footer
 
 	measure 'Footer Data To' =
+			VAR SentenceText =
 			VAR FirstYear = CALCULATE ( MIN ( 'Country'[Ember Latest Year] ), REMOVEFILTERS ( 'Country' ) )
 			VAR LastYear = CALCULATE ( MAX ( 'Country'[Ember Latest Year] ), REMOVEFILTERS ( 'Country' ) )
 			VAR Years = IF ( FirstYear = LastYear, FORMAT ( FirstYear, "0" ), FORMAT ( FirstYear, "0" ) & "–" & FORMAT ( LastYear, "0" ) )
 			RETURN
 			    SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "footer.data-to" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "footer.data-to" ) ), "{years}", Years )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Footer
 
 	measure 'Full Coverage Year' =
@@ -266,11 +285,14 @@ table _Measures
 		displayFolder: Generation
 
 	measure 'KPI Share Status' =
+			VAR SentenceText =
 			VAR Region = [Wind Solar Share % Full Coverage]
 			VAR World = [World Wind Solar Share %]
 			VAR Gap = ABS ( World - Region ) * 100
 			RETURN
 			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( IF ( Region < World, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.share.below" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.share.below" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.share.above" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.share.above" ) ) ), "{gap}", FORMAT ( Gap, "0.0", "en-GB" ) ), "{world}", FORMAT ( World, "0.0%", "en-GB" ) ), "{year}", FORMAT ( [Full Coverage Year], "0" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Text
 
 	measure 'Latest Full Year' =
@@ -288,16 +310,22 @@ table _Measures
 		displayFolder: Capacity
 
 	measure 'KPI Operating Status' =
+			VAR SentenceText =
 			VAR LatestYear = [Latest Full Year]
 			VAR Added = CALCULATE ( [Operating GW], 'Unit'[Start Year] = LatestYear )
 			RETURN
 			    SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.operating.added" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.operating.added" ) ), "{added}", IF ( Added > 0 && Added < 0.05, "<0.1", FORMAT ( Added, "#,0.0", "en-GB" ) ) ), "{year}", FORMAT ( LatestYear, "0" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Text
 
 	measure 'KPI Pipeline Status' =
+			VAR SentenceText =
 			VAR ConstructionShare = COALESCE ( [Construction % of Pipeline], 0 )
 			RETURN
 			    SUBSTITUTE ( IF ( ConstructionShare < 0.25, IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.pipeline.only" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.pipeline.only" ) ), IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.pipeline.neutral" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.pipeline.neutral" ) ) ), "{pct}", FORMAT ( ConstructionShare, "0.0%", "en-GB" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Text
 
 	measure 'Construction % of Total Label' =
@@ -315,6 +343,128 @@ table _Measures
 	measure 'Construction % of Total' = DIVIDE ( [Construction GW], CALCULATE ( [Construction GW], ALLSELECTED ( 'Country' ) ) )
 		formatString: 0%
 		displayFolder: Risk
+
+	measure 'Capacity MW' = SUM ( 'Unit'[Capacity MW] )
+		formatString: #,0
+		displayFolder: Capacity
+
+	measure 'Dropped GW' = [Shelved GW] + [Cancelled GW]
+		formatString: #,0.0
+		displayFolder: Risk
+
+	measure 'Owner Operating GW' = DIVIDE ( CALCULATE ( SUMX ( 'Ownership', 'Ownership'[Share] * RELATED ( 'Unit'[Capacity MW] ) ), 'Status'[Status ID] = "operating" ), 1000 )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Top 10 Owner Operating GW' =
+			-- Ten owners with the most operating capacity (share-weighted)
+			VAR OwnerRank = RANKX ( ALLSELECTED ( 'Ownership'[Owner] ), [Owner Operating GW], , DESC )
+			RETURN IF ( OwnerRank <= 10, [Owner Operating GW] )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Top 10 Pipeline GW' =
+			-- Ten largest pipeline projects; ranked across statuses so a stacked bar keeps the same ten
+			VAR ProjectGW = CALCULATE ( [Pipeline GW], REMOVEFILTERS ( 'Status' ) )
+			VAR ProjectRank = RANKX ( ALLSELECTED ( 'Plant' ), CALCULATE ( [Pipeline GW], REMOVEFILTERS ( 'Status' ) ), ProjectGW, DESC )
+			RETURN IF ( ProjectRank <= 10 && ProjectGW > 0, [Pipeline GW] )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Top 3 Construction GW' =
+			VAR CountryRank = RANKX ( ALLSELECTED ( 'Country' ), [Construction GW], , DESC )
+			RETURN IF ( CountryRank <= 3 && [Construction GW] > 0, [Construction GW] )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Hydrogen Marker' = IF ( CALCULATE ( [Hydrogen Pipeline GW], REMOVEFILTERS ( 'Status' ) ) > 0, "H₂" )
+		isHidden
+		displayFolder: Hydrogen
+
+	measure 'Emissions Intensity Last Point' = IF ( SELECTEDVALUE ( 'Generation'[Year] ) = [Full Coverage Year], [Emissions Intensity g/kWh] )
+		formatString: #,0
+		isHidden
+		displayFolder: Generation
+
+	measure 'Emissions Intensity Full Coverage' =
+			VAR CoverageYear = [Full Coverage Year]
+			RETURN CALCULATE ( [Emissions Intensity g/kWh], 'Generation'[Year] = CoverageYear )
+		formatString: #,0
+		displayFolder: Generation
+
+	measure 'KPI Risk Status' =
+			VAR SentenceText =
+			SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.risk.split" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.risk.split" ) ), "{shelved}", IF ( [Shelved GW] > 0 && [Shelved GW] < 0.05, "<0.1", FORMAT ( [Shelved GW], "#,0.0", "en-GB" ) ) ), "{cancelled}", IF ( [Cancelled GW] > 0 && [Cancelled GW] < 0.05, "<0.1", FORMAT ( [Cancelled GW], "#,0.0", "en-GB" ) ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Text
+
+	measure 'KPI Hydrogen Status' =
+			VAR SentenceText =
+			SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.hydrogen.share" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.hydrogen.share" ) ), "{pct}", FORMAT ( COALESCE ( [Hydrogen % of Pipeline], 0 ), "0.0%", "en-GB" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Text
+
+	measure 'KPI Intensity Status' =
+			VAR SentenceText =
+			SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.intensity.year" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.intensity.year" ) ), "{year}", FORMAT ( [Full Coverage Year], "0" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Text
+
+	measure 'KPI Announced Status' =
+			VAR SentenceText =
+			SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.announced.share" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.announced.share" ) ), "{pct}", FORMAT ( COALESCE ( DIVIDE ( [Announced GW], [Pipeline GW] ), 0 ), "0.0%", "en-GB" ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Text
+
+	measure 'KPI Construction Status' =
+			VAR SentenceText =
+			SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.construction.vs-operating" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.construction.vs-operating" ) ), "{operating}", IF ( [Operating GW] > 0 && [Operating GW] < 0.05, "<0.1", FORMAT ( [Operating GW], "#,0.0", "en-GB" ) ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Text
+
+	measure 'Wind Solar Share % Full Coverage Text' = FORMAT ( [Wind Solar Share % Full Coverage], "0.0%", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Operating GW Text' = FORMAT ( [Operating GW], "#,0.0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Pipeline GW Text' = FORMAT ( [Pipeline GW], "#,0.0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Hydrogen Pipeline GW Text' = FORMAT ( [Hydrogen Pipeline GW], "#,0.0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Dropped GW Text' = FORMAT ( [Dropped GW], "#,0.0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Emissions Intensity Full Coverage Text' = FORMAT ( [Emissions Intensity Full Coverage], "#,0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Construction GW Text' = FORMAT ( [Construction GW], "#,0.0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Announced GW Text' = FORMAT ( [Announced GW], "#,0.0", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
+	measure 'Footer Status' =
+			VAR SentenceText =
+			[Footer Refreshed] & "  ·  " & [Footer Data To]
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Footer
 
 	measure 'Technology Colour' =
 			SWITCH (

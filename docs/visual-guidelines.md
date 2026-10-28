@@ -169,6 +169,7 @@ Arabic pages are generated from the English pages by the mirror script.
 | Text size | +1 pt for sizes of 16 pt or below (section 7) |
 | Not mirrored | Digits, unit symbols, dates, the ☰ / ✕ icons, Latin plant names with no Arabic name |
 
+- **Arabic text direction:** Power BI text boxes and titles are left-to-right. Every Arabic sentence (static text from the mirror script, and the headline, KPI and footer measures) is wrapped in a right-to-left embedding (U+202B … U+202C); otherwise text that starts with a number comes out in the wrong order.
 - **Tables:** the native table visual is tested first. If it can't mirror correctly (column order, alignment, data-bar direction), the fallback is a custom visual (an HTML visual or Deneb), checked for Publish to web support before adoption.
 - **Service page list:** all 8 pages are visible, English 1–4 then Arabic 1–4, with Arabic page names.
 
