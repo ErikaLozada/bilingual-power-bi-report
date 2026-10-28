@@ -61,6 +61,7 @@ No KPI row here: this page is the detail behind the other three.
 
 ## 6. Known issues in v1
 
+- **Arabic plant names are not unique.** GEM gives some separate plants the same Arabic name (e.g. AMUN wind and AMUN solar are both "آمون للهيدروجين الأخضر"), so Arabic visuals grouped by plant merge them: the Arabic top-10 differs from the English one. Needs a decision: make `Plant AR` unique (e.g. add the technology) or group by plant ID and show the name as a label.
 - Arabic Projects page: the top-10 bars lose their value and H₂ labels (the English page shows them).
 - Slicer UI words ("Select all", "All") stay in English on Arabic pages; they come from Power BI, not the report.
 - Scatter labels overlap for the small countries near the origin.
