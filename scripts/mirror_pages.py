@@ -9,7 +9,7 @@ docs/visual-guidelines.md section 9:
 - static text translated from the "i18n" annotation keys (translations.csv);
 - fields swapped to their Arabic columns, series literals translated;
 - bar charts grow right to left, time axes run right to left, scatter X reversed;
-- table columns reversed, data bars from the right;
+- table columns reversed (text right, values left), data bars from the right;
 - sizes of 16 pt and below grow by 1 pt;
 - language filter, page navigation and menu bookmarks point at the Arabic pages.
 """
@@ -120,7 +120,10 @@ def align_right(visual):
                 p["horizontalTextAlignment"] = "left" if p.get("horizontalTextAlignment") == "right" else "right"
         alignment = node.get("alignment")
         if isinstance(alignment, dict) and "expr" in alignment:
-            set_literal(alignment, "'left'" if literal(alignment) == "'right'" else "'right'")
+            # Mirror left <-> right (anything else goes right); keep the case, table columns need 'Left' / 'Right'
+            value = literal(alignment)
+            target = "left" if value.lower() == "'right'" else "right"
+            set_literal(alignment, f"'{target.capitalize() if value[1:2].isupper() else target}'")
     walk(visual["visual"].get("objects", {}), fn)
     walk(visual["visual"].get("visualContainerObjects", {}), fn)
 
@@ -189,9 +192,6 @@ def mirror_axes(visual):
         for entry in formatting:
             if "dataBars" in entry["properties"]:
                 entry["properties"]["dataBars"]["reverseDirection"] = lit("true")
-            if "alignment" in entry["properties"]:
-                entry["properties"]["alignment"] = lit("'Right'")
-        objects.setdefault("columnHeaders", [{"properties": {}}])[0]["properties"]["alignment"] = lit("'Right'")
 
 
 def mirror_position(visual):

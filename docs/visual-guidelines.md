@@ -169,7 +169,7 @@ Arabic pages are generated from the English pages by the mirror script.
 | Time axes (column, line) | Time runs right to left (earliest year on the right); value axis on the right. Done with a categorical year axis sorted descending, since a continuous axis can't be reversed |
 | Horizontal bars | Bars grow right to left; category labels on the right; legend top-right |
 | Opportunity scatter | Mirrored: X axis reversed (higher share further left), Y axis on the right; quadrant notes move with it |
-| Tables | Column order reversed (plant name rightmost), all columns right-aligned, data bars grow from the right. The native grid always starts at the left edge, so column widths fill the visual (section 10.4) |
+| Tables | Column order reversed (plant name rightmost), alignment mirrored (text right, values left), data bars grow from the right. The native grid always starts at the left edge, so column widths fill the visual (section 10.4) |
 | Headers, tooltips | Arabic column names, set per visual by the mirror script |
 | Slicer values | Arabic columns from the model (country, status, technology) |
 | Text size | +1 pt for sizes of 16 pt or below (section 7) |
@@ -212,7 +212,7 @@ Stacked with no gaps, on one white card:
 ### 10.4 Tables
 
 - Headers Segoe UI Semibold 12 pt in secondary text; values Segoe UI 12 pt; horizontal rules only.
-- Text and descriptive numbers (years) are left-aligned; values are right-aligned.
+- Text and descriptive numbers (years) are left-aligned; values are right-aligned. Each header aligns with its column.
 - Value columns carry data bars in neutral (`#d3d2cc`) with the number visible.
 - Column formatting only where it adds information, through dynamic format strings on table-only measures (the number underneath is unchanged, so sorting still works):
   - Wind + solar share: `▲` / `▼` against the world share in the same year.
@@ -254,7 +254,7 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 19 | Page header | Page title above the headline subtitle (20 / 18 pt); header and buttons on the canvas, no cards or button fill |
 | 20 | Bar thickness | 50% gap between bars on every bar and column chart |
 | 21 | Colour roles | Purple only for status; totals not split by stage, and table data bars, in neutral; operating vs planned in dark grey vs neutral |
-| 22 | Table alignment | Text and years left, values right (English); everything right on Arabic pages; widths fill the visual |
+| 22 | Table alignment | Text and years left, values right (English), mirrored on Arabic pages; headers follow their column; widths fill the visual |
 | 23 | Scatter axes | 0 to 1.2 × the largest value, so bubbles aren't clipped |
 | 24 | Unit column | Dropped from the projects table: GEM's unit names are partly Arabic-only |
 | 25 | Technology palette | Gold, teal, blue (candidate B): matched lightness and saturation so the hues don't clash; passes the colour-vision checks |

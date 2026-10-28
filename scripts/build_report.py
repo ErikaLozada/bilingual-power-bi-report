@@ -332,7 +332,8 @@ def table(columns, bar_measure=None, title_key=None, filters=None, dot_measure=N
         "grid": [{"properties": {"gridHorizontal": b(True), "gridHorizontalColor": colour(RULE), "gridVertical": b(False),
                                  "outlineColor": colour(RULE), "rowPadding": n(4)}}],
         "total": [{"properties": {"totals": b(False)}}],
-        "columnFormatting": [{"properties": {"alignment": s("Right" if is_value(f) else "Left")},
+        # styleHeader: the header aligns with its column
+        "columnFormatting": [{"properties": {"alignment": s("Right" if is_value(f) else "Left"), "styleHeader": b(True)},
                               "selector": {"metadata": ref(f)}} for f, _, _ in columns],
         "columnWidth": [{"properties": {"value": n(w)}, "selector": {"metadata": ref(f)}} for f, _, w in columns],
     }
