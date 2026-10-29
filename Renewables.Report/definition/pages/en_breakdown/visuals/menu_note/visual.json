@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM. Hydrogen chart: only countries with hydrogen-tied capacity.",
+                    "value": "Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM. Hydrogen chart: only countries with hydrogen-tied capacity. Top 3 countries: ranked by pipeline under the current filters. Right-click a country to see its projects.",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",

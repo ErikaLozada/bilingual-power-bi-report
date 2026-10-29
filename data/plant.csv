@@ -85,20 +85,20 @@ L100000800006,ACWA Kom Ombo solar farm,محطة كوم أمبو للطاقة ا�
 L100000827625,AMEA solar farm,AMEA solar farm,none,EGY
 L100000800025,ARC Benban Solar PV Plant,ARC Benban Solar PV Plant,none,EGY
 L100000800003,Abydos Kom Ombo solar farm,محطة ابيدوس للطاقة الشمسية,source,EGY
-L100000800015,Ain Sokhna Solar,محطة العين السخنة للأمونيا الخضراء,source,EGY
+L100000800015,Ain Sokhna Solar,محطة العين السخنة للأمونيا الخضراء – الطاقة الشمسية,machine,EGY
 L100000827624,Ain Sokhna solar project,Ain Sokhna solar project,none,EGY
 L100000800023,Aoi/Madkour Nac Military Complex Rooftop Solar,محطة الهيئة العربية للتصنيع ومدكور للطاقة الشمسية,source,EGY
 L100000827633,Arabian Cement solar farm,محطة السويس للأسمنت للطاقة الشمسية، محطة العربية للأسمنت للطاقة الشمسية,source,EGY
 L100000800029,Bahariya Oasis solar farm,محطة الواحات البحرية للطاقة الشمسية,source,EGY
 L100000800036,Benban ACWA solar farm,Benban ACWA solar farm,none,EGY
-L100000800034,Benban Access/Eren solar farm,محطة بنبان للطاقة الشمسية,source,EGY
+L100000800034,Benban Access/Eren solar farm,محطة بنبان للطاقة الشمسية – أكسس/إيرين,machine,EGY
 L100000800035,Benban Acciona/Enara solar farm,Benban Acciona/Enara solar farm,none,EGY
 L100000800037,Benban Adenium solar farm,Benban Adenium solar farm,none,EGY
 L100000800038,Benban Alcazar solar farm,Benban Alcazar solar farm,none,EGY
 L100000800039,Benban Alfanar solar farm,Benban Alfanar solar farm,none,EGY
 L100000800041,Benban Arinna solar farm,Benban Arinna solar farm,none,EGY
 L100000800043,Benban BESP 50 solar farm,Benban BESP 50 solar farm,none,EGY
-L100000800042,Benban Bea solar farm,محطة بنبان للطاقة الشمسية,source,EGY
+L100000800042,Benban Bea solar farm,محطة بنبان للطاقة الشمسية – بيا,machine,EGY
 L100000800179,Benban Elsewedy/EDF solar farm,Benban Elsewedy/EDF solar farm,none,EGY
 L100000800044,Benban Enel solar farm,Benban Enel solar farm,none,EGY
 L100000800045,Benban Fas solar farm,Benban Fas solar farm,none,EGY
@@ -109,7 +109,7 @@ L100000800048,Benban MMID 30 solar farm,Benban MMID 30 solar farm,none,EGY
 L100000800049,Benban Pallonji solar farm,Benban Pallonji solar farm,none,EGY
 L100000800050,Benban Phoenix 50 solar farm,Benban Phoenix 50 solar farm,none,EGY
 L100000800051,Benban Ra solar farm,Benban Ra solar farm,none,EGY
-L100000800052,Benban Scatec solar farm,محطة بنبان للطاقة الشمسية,source,EGY
+L100000800052,Benban Scatec solar farm,محطة بنبان للطاقة الشمسية – سكاتك,machine,EGY
 L100000800053,Benban Taqa solar farm,Benban Taqa solar farm,none,EGY
 L100000800054,Benban Winnergy solar farm,Benban Winnergy solar farm,none,EGY
 L100001045207,Benban-Masdar/Infinity solar farm,Benban-Masdar/Infinity solar farm,none,EGY
@@ -142,7 +142,7 @@ L100000811591,Nabq Global solar farm,"محطة نبق ""جلوبال"" للطا�
 L100000827631,New Fars solar farm,محطة فارس الجديدة للطاقة الشمسية,source,EGY
 L100001045292,Obelisk solar farm,Obelisk solar farm,none,EGY
 L100000811592,Photovoltaic Rooftops solar farm,Photovoltaic Rooftops solar farm,none,EGY
-L100001061986,Port Said Green Methanol solar farm,محطة  طاقة رياح مصنع  بورسعيد للميثانول الأخضر,source,EGY
+L100001061986,Port Said Green Methanol solar farm,محطة  طاقة رياح مصنع  بورسعيد للميثانول الأخضر – الطاقة الشمسية,machine,EGY
 L100000811593,ReNew Green Hydrogen solar farm,ReNew Green Hydrogen solar farm,none,EGY
 L100001063346,Renergy Sinia solar farm,محطة جبل الطور للطاقة الشمسية,source,EGY
 L100000827632,Sharm el Sheikh solar project,Sharm el Sheikh solar project,none,EGY
@@ -280,7 +280,7 @@ L100000827661,Project Nour hybrid solar farm,Project Nour hybrid solar farm,none
 L100000827662,Seven 12MW solar farm,Seven 12MW solar farm,none,MRT
 L100000811619,Tasiast mine solar farm,Tasiast mine solar farm,none,MRT
 L100000800334,Toujounine solar farm,Toujounine solar farm,none,MRT
-L100000827679,AMUN solar farm,آمون للهيدروجين الأخضر,source,MAR
+L100000827679,AMUN solar farm,آمون للهيدروجين الأخضر – الطاقة الشمسية,machine,MAR
 L100000827678,Adani Green solar farm,Adani Green solar farm,none,MAR
 L100000800011,Ain Beni Mathar solar farm,محطة  عين بني مطهر للطاقة الشمسية (البرنامج الشمسي الفوتوضوئي),source,MAR
 L100000800033,Bajaad solar farm,(محطة  أبي الجعد للطاقة الشمسية (البرنامج الشمسي الفوتوضوئي,source,MAR
@@ -300,21 +300,21 @@ L100000800163,Kelaa Sraghna Solar,(محطة قلعة السراغنة للطاق
 L100001063566,Morocco-Germany solar farm,Morocco-Germany solar farm,none,MAR
 L100000800001,Morocco-UK Solar Power,محطة إكس لينكس للطاقة الشمسية,source,MAR
 L100000800234,Noor Argana solar farm,Noor Argana solar farm,none,MAR
-L100000800235,Noor Atlas Ain Beni Mathar solar farm,محطة نور أطلس,source,MAR
+L100000800235,Noor Atlas Ain Beni Mathar solar farm,محطة نور أطلس – عين بني مطهر,machine,MAR
 L100000800236,Noor Atlas Bouanane solar farm,محطة نور بوعنان,source,MAR
 L100000800237,Noor Atlas Boudnib solar farm,محطة نور بودنيب,source,MAR
 L100000800238,Noor Atlas Boulmane (Enjil) solar farm,محطة نور إنجيل,source,MAR
 L100000800239,Noor Atlas Outat El Haj solar farm,محطة نور أوطاط الحاج,source,MAR
-L100000800240,Noor Atlas Tahla (Bouizakarne) solar farm,محطة نور أطلس,source,MAR
+L100000800240,Noor Atlas Tahla (Bouizakarne) solar farm,محطة نور أطلس – تاهلة (بويزكارن),machine,MAR
 L100000800241,Noor Atlas Tan Tan solar farm,محطة نور طانطان,source,MAR
 L100000800242,Noor Atlas Tata solar farm,محطة  نور طاطا,source,MAR
 L100000827475,Noor Midelt II solar farm,محطة نور ميدلت للطاقة الشمسية ٢,source,MAR
 L100000827682,Noor Midelt III solar farm,محطة نور ميدلت للطاقة الشمسية ٣,source,MAR
 L100000800243,Noor Midelt solar farm,محطة نور ميدلت للطاقة الشمسية ١,source,MAR
 L100000800244,Noor Ouarzazate solar farm,محطة نور للطاقة الشمسية,source,MAR
-L100000800246,Noor Tafilalt Erfoud Solar,محطة نور تافيلالت,source,MAR
-L100000800247,Noor Tafilalt Missour Solar,محطة نور تافيلالت,source,MAR
-L100000800248,Noor Tafilalt Zagora Solar,محطة نور تافيلالت,source,MAR
+L100000800246,Noor Tafilalt Erfoud Solar,محطة نور تافيلالت – أرفود,machine,MAR
+L100000800247,Noor Tafilalt Missour Solar,محطة نور تافيلالت – ميسور,machine,MAR
+L100000800248,Noor Tafilalt Zagora Solar,محطة نور تافيلالت – زاكورة,machine,MAR
 L100000827683,OCP-Benguerir I solar farm,محطة بنجرير للطاقة الشمسية 1,source,MAR
 L100000827684,OCP-Benguerir II solar farm,محطة بنجريرللطاقة الشمسية ٢,source,MAR
 L100000827685,OCP-Khouribga I solar farm,محطة خريبكة للطاقة الشمسية ١,source,MAR
@@ -322,7 +322,7 @@ L100000827686,OCP-Khouribga II solar farm,محطة خريبكة للطاقة ا�
 L100000800297,Sidi Bennour solar farm,(محطة سيدي بنور للطاقة الشمسية (البرنامج الشمسي الفوتوضوئي,source,MAR
 L100000800321,Taroudant Solar,محطة  نور تارودانت,source,MAR
 L100001063568,Tiznit solar farm,Tiznit solar farm,none,MAR
-L100000800331,Total Eren-Guelmim-Oued Noun Solar,محطة توتال آيرين- كلميم واد نون,source,MAR
+L100000800331,Total Eren-Guelmim-Oued Noun Solar,محطة توتال آيرين- كلميم واد نون – الطاقة الشمسية,machine,MAR
 L100000809119,Adam solar farm,محطة ادم للطاقة الشمسية,source,OMN
 L100001045674,Al Kamil Solar IPP,Al Kamil Solar IPP,none,OMN
 L100000830742,Al Mazyunah solar farm,محطة المزيونة للطاقة الشمسية,source,OMN
@@ -365,8 +365,8 @@ L100000830760,Sur Hydrogen Cluster solar farm,Sur Hydrogen Cluster solar farm,no
 L100000809126,Sur solar farm,Sur solar farm,none,OMN
 L100000809127,Tanweer solar farm,مشروع تنوير الاسطح الطاقة الشمسية,source,OMN
 L100001025480,Gaza solar project III,Gaza solar project III,none,PSE
-L100000809128,Noor Palestine School Solar Program,الطاقة الشمسية,source,PSE
-L100000809129,Noor Palestine Solar Rooftops Program,الطاقة الشمسية,source,PSE
+L100000809128,Noor Palestine School Solar Program,الطاقة الشمسية – برنامج المدارس,machine,PSE
+L100000809129,Noor Palestine Solar Rooftops Program,الطاقة الشمسية – برنامج الأسطح,machine,PSE
 L100001081772,Noor Tubas solar farm,Noor Tubas solar farm,none,PSE
 L100000804101,Al Kharsaah Solar,محطة الخرسعة للطاقة الشمسية ١,source,QAT
 L100001080859,Dukhan solar farm,محطة دخان للطاقة الشمسية,source,QAT
@@ -530,7 +530,7 @@ L100001019058,Masdar-Bapco wind farm,Masdar-Bapco wind farm,none,BHR
 L100000900121,Ghoubet wind farm,Ghoubet wind farm,none,DJI
 L100001063368,ACWA Hurghada wind farm,ACWA Hurghada wind farm,none,EGY
 L100000900062,ACWA wind farm,ACWA wind farm,none,EGY
-L100000916609,Ain Skhouna wind farm,محطة العين السخنة للأمونيا الخضراء,source,EGY
+L100000916609,Ain Skhouna wind farm,محطة العين السخنة للأمونيا الخضراء – طاقة الرياح,machine,EGY
 L100001063374,Alcazar-Zaafarana wind farm,Alcazar-Zaafarana wind farm,none,EGY
 L100000900003,Amunet wind farm,محطة أمونت لطاقة الرياح,source,EGY
 L100001016807,Damietta Green Methanol wind farm,محطة  طاقة رياح مصنع  دمياط  للميثانول الأخضر,source,EGY
@@ -546,7 +546,7 @@ L100001063364,Infinity Ras Ghareb wind farm,Infinity Ras Ghareb wind farm,none,E
 L100000921990,Maersk -Gabal El-Zeit wind farm,Maersk -Gabal El-Zeit wind farm,none,EGY
 L100000921991,Masdar -Infinity wind farm,Masdar -Infinity wind farm,none,EGY
 L100001045285,Orascom-Engie West Sohag wind farm,Orascom-Engie West Sohag wind farm,none,EGY
-L100001045262,Port Said Green Methanol wind farm,محطة  طاقة رياح مصنع  بورسعيد للميثانول الأخضر,source,EGY
+L100001045262,Port Said Green Methanol wind farm,محطة  طاقة رياح مصنع  بورسعيد للميثانول الأخضر – طاقة الرياح,machine,EGY
 L100000900026,Ras Ghareb wind farm,محطة رأس غارب لطاقة الرياح ٢، مشروع خليج السويس 2,source,EGY
 L100000916613,ReNew Green Hydrogen wind farm,ReNew Green Hydrogen wind farm,none,EGY
 L100000916614,Scatec wind farm,Scatec wind farm,none,EGY
@@ -591,7 +591,7 @@ L100000900023,Aferkat wind farm,مزرعة الطاقة الريحية أفرك�
 L100000900101,Akhfenir wind farm,الحقل الريحي أخفنير٣,source,MAR
 L100000900056,Al Koudia wind farm,"الرحبة الريحية ""عبد الخالق الطريس""",source,MAR
 L100000900051,Amougdoul Essaouira wind farm,الرحبة الريحية امكدول,source,MAR
-L100000922003,AMUN wind farm,آمون للهيدروجين الأخضر,source,MAR
+L100000922003,AMUN wind farm,آمون للهيدروجين الأخضر – طاقة الرياح,machine,MAR
 L100001063556,Boujmil wind farm,Boujmil wind farm,none,MAR
 L100000900087,Cap Cantin wind farm,"الحقل الريحي ""كاب كونتان""",source,MAR
 L100001056432,Chbika Green Hydrogen wind farm,محطة شبيكة  للهيدروجين الأخضر,source,MAR
@@ -614,7 +614,7 @@ L100000900047,Tangier wind farm,الرحبة الريحية طنجة,source,MAR
 L100000900108,Tarfaya wind farm,حقل طرفاية لالطاقة الريحية,source,MAR
 L100000900148,Taza wind farm,الرحبة الريحية تازة,source,MAR
 L100001063519,Tetouan wind farm,محطة طاقة رياح تطوان، مزرعة رياح تطوان,source,MAR
-L100000916624,Total Eren-Guelmim-Oued Noun wind farm,محطة توتال آيرين- كلميم واد نون,source,MAR
+L100000916624,Total Eren-Guelmim-Oued Noun wind farm,محطة توتال آيرين- كلميم واد نون – طاقة الرياح,machine,MAR
 L100000922024,Amnah-Duqm wind farm,محطة آمنة- الدقم لطاقة الرياح,source,OMN
 L100000922043,BP Oman-Dhofar wind farm,محطة بي بي- ظفار لطاقة الرياح,source,OMN
 L100000922044,BP Oman-Duqm wind farm,محطة بي بي- الدقم لطاقة الرياح,source,OMN

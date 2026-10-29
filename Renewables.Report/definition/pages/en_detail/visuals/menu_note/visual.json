@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. H₂ marks projects tied to green hydrogen.",
+                    "value": "Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. Where GEM gives separate plants the same Arabic name, the technology or site is added. H₂ marks projects tied to green hydrogen.",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",

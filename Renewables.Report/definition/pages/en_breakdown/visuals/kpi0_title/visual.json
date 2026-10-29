@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Pipeline (GW)",
+                    "value": "Pipeline in the top 3 countries",
                     "textStyle": {
                       "fontFamily": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
                       "fontSize": "16pt",
@@ -156,7 +156,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"runs\": [\"kpi.pipeline.title\"]}"
+      "value": "{\"runs\": [\"kpi.concentration.title\"]}"
     }
   ]
 }

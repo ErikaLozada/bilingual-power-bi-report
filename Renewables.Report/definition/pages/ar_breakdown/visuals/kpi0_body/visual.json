@@ -25,7 +25,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "Status Colour"
+                      "Property": "Neutral Colour"
                     }
                   }
                 }
@@ -129,7 +129,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Share of Pipeline %"
+                  "Property": "Pipeline % of Total Label"
                 }
               }
             }
@@ -275,7 +275,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total GW Bar Max"
+                  "Property": "Top 3 Pipeline GW Bar Max"
                 }
               }
             },
@@ -361,7 +361,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "KPI Pipeline Status"
+                  "Property": "KPI Concentration Status"
                 }
               }
             },
@@ -470,14 +470,14 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "12D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "12D"
                 }
               }
             },
@@ -521,14 +521,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Status"
+                      "Entity": "Country"
                     }
                   },
-                  "Property": "Status AR"
+                  "Property": "Country AR"
                 }
               },
-              "queryRef": "Status.Status AR",
-              "nativeQueryRef": "Status AR"
+              "queryRef": "Country.Country AR",
+              "nativeQueryRef": "Country AR"
             }
           ]
         },
@@ -542,11 +542,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total GW"
+                  "Property": "Top 3 Pipeline GW"
                 }
               },
-              "queryRef": "_Measures.Total GW",
-              "nativeQueryRef": "Total GW",
+              "queryRef": "_Measures.Top 3 Pipeline GW",
+              "nativeQueryRef": "Top 3 Pipeline GW",
               "displayName": "GW"
             }
           ]
@@ -556,83 +556,26 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Status"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "Status AR"
+                "Property": "Top 3 Pipeline GW"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true
       }
     }
   },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f_Status_In_Pipeline",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Status"
-              }
-            },
-            "Property": "In Pipeline"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "Status",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "t"
-                          }
-                        },
-                        "Property": "In Pipeline"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "true"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"display\": {\"_Measures.Total GW\": \"field.gw\"}}"
+      "value": "{\"display\": {\"_Measures.Top 3 Pipeline GW\": \"field.gw\"}}"
     }
   ]
 }

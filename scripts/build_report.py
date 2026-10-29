@@ -42,6 +42,8 @@ FONT = "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
 FONT_SEMI = "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif"
 
 PAGES = ["overview", "breakdown", "opportunity", "detail"]
+# Right-click a country on any page to see its projects
+DRILLTHROUGH = {"detail": ("Country", "Country")}
 
 with open(ROOT / "translations" / "translations.csv", encoding="utf-8", newline="") as f:
     TEXT = {row["key"]: row["en"] for row in csv.DictReader(f)}
@@ -532,11 +534,15 @@ def overview():
 
 def breakdown():
     pw, xs = thirds()
+    top3 = bars(col("Country", "Country"), [("Top 3 Pipeline GW", "field.gw")], fill_measure="Neutral Colour",
+                detail_measure="Pipeline % of Total Label", sort_measure="Top 3 Pipeline GW",
+                axis_max="Top 3 Pipeline GW Bar Max")
+    top3.measure_title("KPI Concentration Status", 13, INK2)
     hydrogen = bars(col("Technology", "Technology Group"), [("Hydrogen Pipeline GW", "field.gw")],
                     fill_measure="Technology Colour", sort_measure="Hydrogen Pipeline GW")
     hydrogen.measure_title("KPI Hydrogen Status", 13, INK2)
     risk = stage_bars("Delivery Risk", measure="Dropped GW", detail=None, status_measure="KPI Risk Status")
-    kpis = (kpi_panel(xs[0], pw, "kpi.pipeline.title", "Pipeline GW", None, stage_bars("In Pipeline"), key=True)
+    kpis = (kpi_panel(xs[0], pw, "kpi.concentration.title", "Top 3 Pipeline Share %", None, top3, key=True)
             + kpi_panel(xs[1], pw, "kpi.hydrogen.title", "Hydrogen Pipeline GW", None, hydrogen)
             + kpi_panel(xs[2], pw, "kpi.risk.title", "Dropped GW", None, risk))
     left_w = (W - 2 * M - G) * 0.58
@@ -716,6 +722,14 @@ def build_page(page, spec):
                                           isHiddenInViewMode=True, isLockedInViewMode=True)]},
         "annotations": [{"name": "i18n", "value": json.dumps({"name": f"page.{page}"})}],
     })
+    if page in DRILLTHROUGH:
+        entity, prop = DRILLTHROUGH[page]
+        page_json = json.loads((folder / "page.json").read_text(encoding="utf-8"))
+        page_json["pageBinding"] = {"name": f"drill_{name}", "type": "Drillthrough", "parameters": [
+            {"name": f"drill_{name}_param", "boundFilter": f"drill_{name}_filter", "fieldExpr": col(entity, prop)}]}
+        page_json["filterConfig"]["filters"].append({"name": f"drill_{name}_filter", "field": col(entity, prop),
+                                                     "type": "Categorical", "howCreated": "Drillthrough"})
+        write(folder / "page.json", page_json)
     # KPI items get stable names per panel: kpi<panel>_<part>
     named, panel_index = [], -1
     for part, x, y, w, h, v in kpis:

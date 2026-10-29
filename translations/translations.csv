@@ -30,6 +30,16 @@ techgroup.solar,Solar,الشمسية,machine
 techgroup.wind,Wind,الرياح,machine
 techgroup.hydro,Hydro,الكهرومائية,machine
 techgroup.other,Other,أخرى,machine
+plant.L100000800034,Access/Eren,أكسس/إيرين,machine
+plant.L100000800042,Bea,بيا,machine
+plant.L100000800052,Scatec,سكاتك,machine
+plant.L100000800235,Ain Beni Mathar,عين بني مطهر,machine
+plant.L100000800240,Tahla (Bouizakarne),تاهلة (بويزكارن),machine
+plant.L100000800246,Erfoud,أرفود,machine
+plant.L100000800247,Missour,ميسور,machine
+plant.L100000800248,Zagora,زاكورة,machine
+plant.L100000809128,School programme,برنامج المدارس,machine
+plant.L100000809129,Rooftops programme,برنامج الأسطح,machine
 status.operating,Operating,قيد التشغيل,machine
 status.construction,Under construction,قيد الإنشاء,machine
 status.pre-construction,Pre-construction,ما قبل الإنشاء,machine
@@ -73,6 +83,7 @@ kpi.pipeline.only,Only {pct} is under construction,{pct} فقط قيد الإن�
 kpi.pipeline.neutral,{pct} is under construction,{pct} قيد الإنشاء,machine
 kpi.risk.split,{shelved} GW shelved · {cancelled} GW cancelled,{shelved} GW مُعلّقة · {cancelled} GW مُلغاة,machine
 kpi.hydrogen.share,{pct} of the pipeline is tied to green hydrogen,{pct} من المشاريع المخطط لها مرتبطة بالهيدروجين الأخضر,machine
+kpi.concentration.of-total,{top} GW of the {pipeline} GW pipeline,{top} GW من أصل {pipeline} GW من المشاريع المخطط لها,machine
 kpi.intensity.year,"Region, {year}: the latest year all countries report",المنطقة، {year}: آخر عام تتوفر فيه بيانات جميع الدول,machine
 kpi.announced.share,{pct} of the pipeline is only announced,{pct} من المشاريع المخطط لها مُعلنة فقط,machine
 kpi.construction.vs-operating,Against {operating} GW already operating,مقابل {operating} GW قيد التشغيل,machine
@@ -108,6 +119,7 @@ field.added,Came online,دخلت الخدمة,machine
 kpi.share.title,Wind and solar share of electricity,حصة الرياح والشمسية من الكهرباء,machine
 kpi.operating.title,Operating capacity (GW),القدرة قيد التشغيل (GW),machine
 kpi.pipeline.title,Pipeline (GW),المشاريع المخطط لها (GW),machine
+kpi.concentration.title,Pipeline in the top 3 countries,المشاريع المخطط لها في أكبر 3 دول,machine
 kpi.hydrogen.title,Tied to green hydrogen (GW),مرتبطة بالهيدروجين الأخضر (GW),machine
 kpi.risk.title,Shelved or cancelled (GW),مُعلّقة أو مُلغاة (GW),machine
 kpi.intensity.title,Emissions intensity (g/kWh),كثافة الانبعاثات (g/kWh),machine
@@ -120,9 +132,9 @@ chart.top-owners,"Owners of operating capacity (GW, by ownership share)",مال�
 chart.projects,All projects,جميع المشاريع,machine
 chart.top-builders,Building the most (GW),الأكثر بناءً (GW),machine
 note.overview,"Wind and solar share: Ember, latest year every country reports (2023); world from Ember's world total. Operating capacity: utility-scale plants tracked by GEM. Pipeline: under construction, pre-construction and announced. Expected years: GEM's planned start year for projects under construction.",حصة الرياح والشمسية: Ember، آخر عام تتوفر فيه بيانات جميع الدول (2023)؛ المتوسط العالمي من إجمالي Ember العالمي. القدرة قيد التشغيل: المحطات الكبيرة التي يتتبعها GEM. المشاريع المخطط لها: قيد الإنشاء وما قبل الإنشاء والمُعلنة. السنوات المتوقعة: سنة التشغيل المخططة لدى GEM للمشاريع قيد الإنشاء.,machine
-note.breakdown,Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM. Hydrogen chart: only countries with hydrogen-tied capacity.,تشمل المجاميع القدرة قيد التشغيل والمخطط لها. تُحتسب المشاريع المُعلّقة والمُلغاة في لوحة المُعلّقة أو المُلغاة فقط. يحدد GEM ارتباط كل وحدة بالهيدروجين الأخضر. مخطط الهيدروجين: الدول التي لديها قدرة مرتبطة بالهيدروجين فقط.,machine
-note.opportunity,Bars: each country's wind and solar share minus the world share in the same year (its latest Ember year); the orange bar is the country building the most. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity.,الأعمدة: حصة الرياح والشمسية في كل دولة ناقص الحصة العالمية في العام نفسه (آخر سنة متاحة في Ember)؛ العمود البرتقالي هو الدولة الأكثر بناءً. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل.,machine
-note.detail,Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. H₂ marks projects tied to green hydrogen.,قدرة المالكين مرجحة بحصة الملكية. أسماء المشاريع العربية من GEM حيثما توفرت، وإلا يظهر الاسم الإنجليزي. يشير H₂ إلى المشاريع المرتبطة بالهيدروجين الأخضر.,machine
+note.breakdown,Totals include operating and planned capacity. Shelved and cancelled projects count only in the shelved-or-cancelled panel. Green-hydrogen links are flagged per unit by GEM. Hydrogen chart: only countries with hydrogen-tied capacity. Top 3 countries: ranked by pipeline under the current filters. Right-click a country to see its projects.,تشمل المجاميع القدرة قيد التشغيل والمخطط لها. تُحتسب المشاريع المُعلّقة والمُلغاة في لوحة المُعلّقة أو المُلغاة فقط. يحدد GEM ارتباط كل وحدة بالهيدروجين الأخضر. مخطط الهيدروجين: الدول التي لديها قدرة مرتبطة بالهيدروجين فقط. أكبر 3 دول: حسب المشاريع المخطط لها وفق عوامل التصفية الحالية. انقر بزر الماوس الأيمن على دولة لعرض مشاريعها.,machine
+note.opportunity,Bars: each country's wind and solar share minus the world share in the same year (its latest Ember year); the orange bar is the country building the most. Scorecard: ▲ / ▼ = above or below the world share in the same year; × = pipeline as a multiple of operating capacity. Right-click a country to see its projects.,الأعمدة: حصة الرياح والشمسية في كل دولة ناقص الحصة العالمية في العام نفسه (آخر سنة متاحة في Ember)؛ العمود البرتقالي هو الدولة الأكثر بناءً. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل. انقر بزر الماوس الأيمن على دولة لعرض مشاريعها.,machine
+note.detail,"Owner capacity is weighted by ownership share. Arabic project names come from GEM where published; otherwise the English name is shown. Where GEM gives separate plants the same Arabic name, the technology or site is added. H₂ marks projects tied to green hydrogen.",قدرة المالكين مرجحة بحصة الملكية. أسماء المشاريع العربية من GEM حيثما توفرت، وإلا يظهر الاسم الإنجليزي. وحيث يعطي GEM الاسم العربي نفسه لمحطات مختلفة، تُضاف التقنية أو الموقع. يشير H₂ إلى المشاريع المرتبطة بالهيدروجين الأخضر.,machine
 legend.region,━ Arab League   ,━ الدول العربية   ,machine
 legend.world,━ World,━ العالم,machine
 chart.online-by-year,Capacity coming online each year (GW),القدرة التي تدخل الخدمة سنوياً (GW),machine

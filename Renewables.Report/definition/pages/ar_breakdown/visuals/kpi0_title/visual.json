@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "‫المشاريع المخطط لها (GW)‬",
+                    "value": "‫المشاريع المخطط لها في أكبر 3 دول‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
                       "fontSize": "17pt",
@@ -157,7 +157,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"runs\": [\"kpi.pipeline.title\"]}"
+      "value": "{\"runs\": [\"kpi.concentration.title\"]}"
     }
   ]
 }

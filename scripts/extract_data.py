@@ -7,7 +7,9 @@ The Ember yearly CSV is downloaded unless a local copy is given.
 
 Writes one CSV per model table into data/, plus data/sources.json.
 Arabic names for countries, technologies and statuses come from
-translations/translations.csv; Arabic plant names come from GEM.
+translations/translations.csv; Arabic plant names come from GEM. Where GEM gives
+separate plants the same Arabic name, the technology (or, within one technology,
+a machine-drafted site name from translations.csv) is appended so each is unique.
 """
 import csv
 import datetime
@@ -132,8 +134,26 @@ def plant_arabic_name(local_names):
     return max(counts, key=counts.get) if counts else None
 
 
+def unique_arabic_names(plant_rows, plant_techs, tr):
+    # Visuals group by name, so plants sharing an Arabic name would merge. Append the technology
+    # when the group mixes technologies, else the site name; the suffix is a draft, so mark it machine
+    groups = defaultdict(list)
+    for row in plant_rows:
+        if row[3] == "source":
+            groups[row[2]].append(row)
+    for name, rows in groups.items():
+        if len(rows) < 2:
+            continue
+        techs = [sorted(plant_techs[r[0]]) for r in rows]
+        mixed = len({tuple(t) for t in techs}) == len(rows)
+        for row, t in zip(rows, techs):
+            suffix = tr[f"tech.{t[0]}"]["ar"] if mixed else tr[f"plant.{row[0]}"]["ar"]
+            row[2], row[3] = f"{name} – {suffix}", "machine"
+
+
 def build_gem_tables(units, tr):
     unit_rows, ownership_rows, plants, local_names = [], [], {}, defaultdict(list)
+    plant_techs = defaultdict(set)
     for u in units:
         plant_id = u["GEM location ID"]
         unit_id = u["GEM unit/phase ID"]
@@ -148,11 +168,13 @@ def build_gem_tables(units, tr):
             ownership_rows += [[unit_id, o, round(s, 4)] for o, s in owner_shares(u["Owner(s)"])]
         plants.setdefault(plant_id, [plant_id, u["Plant / Project name"], COUNTRIES[u["Country/area"]]])
         local_names[plant_id].append(u["Plant / Project name (local)"] or "")
+        plant_techs[plant_id].add(tech_id)
 
     plant_rows = []
     for plant_id, name, country in plants.values():
         ar = plant_arabic_name(local_names[plant_id])
         plant_rows.append([plant_id, name, ar or name, "source" if ar else "none", country])
+    unique_arabic_names(plant_rows, plant_techs, tr)
     write_csv("unit.csv", ["Unit ID", "Plant ID", "Country ID", "Technology ID", "Status ID",
                            "Unit", "Capacity MW", "Start Year", "Owner", "Hydrogen"], unit_rows)
     write_csv("ownership.csv", ["Unit ID", "Owner", "Share"], ownership_rows)

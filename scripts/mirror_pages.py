@@ -232,6 +232,14 @@ def mirror_page(en_dir):
     for flt in page["filterConfig"]["filters"]:
         flt["name"] = flt["name"].replace(en_page, ar_page)
         walk(flt, lambda n: isinstance(n, dict) and n.get("Value") == "'en'" and n.update(Value="'ar'"))
+    if "pageBinding" in page:
+        # Arabic visuals show the Arabic columns, so the drillthrough field must be the Arabic one too
+        binding = page["pageBinding"]
+        binding["name"] = binding["name"].replace(en_page, ar_page)
+        for param in binding["parameters"]:
+            param["name"] = param["name"].replace(en_page, ar_page)
+            param["boundFilter"] = param["boundFilter"].replace(en_page, ar_page)
+        swap_fields(page)
     page_file.write_text(json.dumps(page, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     for visual_file in sorted(ar_dir.glob("visuals/*/visual.json")):

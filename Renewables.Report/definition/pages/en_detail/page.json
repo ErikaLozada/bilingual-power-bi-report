@@ -104,6 +104,21 @@
         },
         "isHiddenInViewMode": true,
         "isLockedInViewMode": true
+      },
+      {
+        "name": "drill_en_detail_filter",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Country"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
       }
     ]
   },
@@ -112,5 +127,25 @@
       "name": "i18n",
       "value": "{\"name\": \"page.detail\"}"
     }
-  ]
+  ],
+  "pageBinding": {
+    "name": "drill_en_detail",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "drill_en_detail_param",
+        "boundFilter": "drill_en_detail_filter",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Country"
+              }
+            },
+            "Property": "Country"
+          }
+        }
+      }
+    ]
+  }
 }

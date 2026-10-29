@@ -331,6 +331,14 @@ table _Measures
 		isHidden
 		displayFolder: Risk
 
+	measure 'Pipeline % of Total Label' =
+			-- Detail label: hidden under 1%, where it would round to 0%
+			VAR Share = DIVIDE ( [Pipeline GW], CALCULATE ( [Pipeline GW], ALLSELECTED ( 'Country' ) ) )
+			RETURN IF ( Share >= 0.01, Share )
+		formatString: 0%
+		isHidden
+		displayFolder: Risk
+
 	measure 'Share of Pipeline %' = DIVIDE ( [Total GW], CALCULATE ( [Pipeline GW], REMOVEFILTERS ( 'Status' ) ) )
 		formatString: 0%
 		displayFolder: Risk
@@ -370,6 +378,20 @@ table _Measures
 			VAR CountryRank = RANKX ( ALLSELECTED ( 'Country' ), [Construction GW], , DESC )
 			RETURN IF ( CountryRank <= 3 && [Construction GW] > 0, [Construction GW] )
 		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Top 3 Pipeline GW' =
+			VAR CountryRank = RANKX ( ALLSELECTED ( 'Country' ), [Pipeline GW], , DESC )
+			RETURN IF ( CountryRank <= 3 && [Pipeline GW] > 0, [Pipeline GW] )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Top 3 Pipeline Total GW' = SUMX ( ALLSELECTED ( 'Country' ), [Top 3 Pipeline GW] )
+		formatString: #,0.0
+		displayFolder: Capacity
+
+	measure 'Top 3 Pipeline Share %' = DIVIDE ( [Top 3 Pipeline Total GW], CALCULATE ( [Pipeline GW], ALLSELECTED ( 'Country' ) ) )
+		formatString: 0.0%
 		displayFolder: Capacity
 
 	measure 'Hydrogen Marker' = IF ( CALCULATE ( [Hydrogen Pipeline GW], REMOVEFILTERS ( 'Status' ) ) > 0, "H₂" )
@@ -418,6 +440,13 @@ table _Measures
 	measure 'KPI Construction Status' =
 			VAR SentenceText =
 			SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.construction.vs-operating" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.construction.vs-operating" ) ), "{operating}", IF ( [Operating GW] > 0 && [Operating GW] < 0.05, "<0.1", FORMAT ( [Operating GW], "#,0.0", "en-GB" ) ) )
+			RETURN
+			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Text
+
+	measure 'KPI Concentration Status' =
+			VAR SentenceText =
+			SUBSTITUTE ( SUBSTITUTE ( IF ( [Language Code] = "ar", LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], "kpi.concentration.of-total" ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], "kpi.concentration.of-total" ) ), "{top}", FORMAT ( COALESCE ( [Top 3 Pipeline Total GW], 0 ), "#,0.0", "en-GB" ) ), "{pipeline}", FORMAT ( COALESCE ( CALCULATE ( [Pipeline GW], ALLSELECTED ( 'Country' ) ), 0 ), "#,0.0", "en-GB" ) )
 			RETURN
 			    IF ( [Language Code] = "ar", UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
 		displayFolder: Text
@@ -541,6 +570,10 @@ table _Measures
 		displayFolder: Formatting
 
 	measure 'Top 3 Construction GW Bar Max' = 1.3 * MAXX ( VALUES ( 'Country'[Country ID] ), [Top 3 Construction GW] )
+		isHidden
+		displayFolder: Formatting
+
+	measure 'Top 3 Pipeline GW Bar Max' = 1.3 * MAXX ( VALUES ( 'Country'[Country ID] ), [Top 3 Pipeline GW] )
 		isHidden
 		displayFolder: Formatting
 
