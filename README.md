@@ -23,6 +23,7 @@ The report is written for a **market-screening team at a renewable-energy develo
 
 - **49.8 GW is operating, and 51.6 GW is under construction**: more is being built than is running today.
 - **The pipeline is 447.1 GW, but only 11.5% of it is under construction**; 55% is pre-construction and 33% only announced.
+- **64% of the pipeline sits in three countries**: Mauritania (112.7 GW), Egypt (101.4 GW) and Oman (72.2 GW).
 - **Wind and solar supply 3.8% of the region's electricity** (2023, the latest year every country reports), 9.6 points below the world.
 - **56.6% of the pipeline is tied to green hydrogen.** In Mauritania it is 96%, in Oman 85%; Mauritania alone plans 112.7 GW.
 - **8.8 GW is expected online in 2026 and 18.5 GW in 2027**, but only 59% of the capacity under construction has an expected year, and the report says so next to the chart.
@@ -32,9 +33,11 @@ The report is written for a **market-screening team at a renewable-energy develo
 | Page | Key visual | Story |
 |---|---|---|
 | **Overview** | Capacity coming online each year: built (2015–2025) and under construction by expected year (2026–2029) | Building is accelerating, from a small base |
-| **Breakdown** | Capacity by country and status; pipeline tied to green hydrogen by country | The pipeline is concentrated, and most of it is still on paper |
+| **Breakdown** | Share of the pipeline in the top 3 countries; capacity by country and status; pipeline tied to green hydrogen by country | The pipeline is concentrated, and most of it is still on paper |
 | **Opportunity** | Each country's wind and solar share against the world's; country scorecard | Where the transition gap is, and who is building into it |
 | **Projects** | Ten largest projects, top owners, and every project | A few megaprojects and a few owners |
+
+Right-click any country, on any page, to drill through to its projects.
 
 ![Breakdown page](docs/images/en_breakdown.png)
 
@@ -65,7 +68,7 @@ Tooltips lead with the value, then say what was hovered, then add detail (here t
 
 I built this report with Claude Code, an AI coding agent working in my repo and terminal. I set the direction and made the decisions; the agent did most of the typing, and every step had a check that didn't depend on trusting it.
 
-**I own the decisions.** Each phase was decided together, one at a time: dataset, persona and business questions, visual guidelines, semantic model, then each page. The agent laid out options with trade-offs and a recommendation; I chose. Early on it ran ahead and started generating files after a single answer, so I stopped it and restarted from dataset selection, and "decide each phase together" became a standing rule. The decisions logs in [`docs/`](docs/) record what was chosen and why (35 visual decisions so far).
+**I own the decisions.** Each phase was decided together, one at a time: dataset, persona and business questions, visual guidelines, semantic model, then each page. The agent laid out options with trade-offs and a recommendation; I chose. Early on it ran ahead and started generating files after a single answer, so I stopped it and restarted from dataset selection, and "decide each phase together" became a standing rule. The decisions logs in [`docs/`](docs/) record what was chosen and why (39 visual decisions so far).
 
 **The agent builds; scripts make it repeatable.** Rather than editing Power BI by hand, the agent wrote generators: `build_report.py` for the English pages, `mirror_pages.py` for the Arabic twins, `extract_data.py` for the data. A change is a change to a script or a spec, rebuilt in seconds, so a design decision applies to all eight pages at once.
 
@@ -74,7 +77,7 @@ I built this report with Claude Code, an AI coding agent working in my repo and 
 - DAX measures are checked with queries against the deployed model.
 - Colour isn't judged by eye: every palette went through a colour-vision-deficiency validator, and when I asked for a more distinct "came online" colour, the candidate was measured before it was used.
 
-**I review and redirect.** v1 was built as a complete draft so I could judge real pages. I reviewed it and asked for changes (page headers, thinner bars, colour roles, table alignment). I then had the agent evaluate the report against a data-visualisation checklist; that review became v2, with new analysis (what comes online next, hydrogen dependence) and fixes. My feedback on v2 (colours too close for colour-blind readers, margins off by a few pixels, technology detail moved into a tooltip) went into the same loop. Both rounds are written up in [`docs/page-proposals.md`](docs/page-proposals.md).
+**I review and redirect.** v1 was built as a complete draft so I could judge real pages. I reviewed it and asked for changes (page headers, thinner bars, colour roles, table alignment). I then had the agent evaluate the report against a data-visualisation checklist; that review became v2, with new analysis (what comes online next, hydrogen dependence) and fixes. My feedback on v2 (colours too close for colour-blind readers, margins off by a few pixels, technology detail moved into a tooltip) went into the same loop, and my answers to the remaining open questions became v3 (a concentration KPI, country drillthrough, unique Arabic plant names). Each round is written up in [`docs/page-proposals.md`](docs/page-proposals.md).
 
 **Honesty is built in.** The agent drafts the Arabic, but every string is flagged `machine` until a native speaker reviews it, and it is never marked reviewed without a real reviewer. Data limits are shown next to the number they qualify (for example, the share of capacity under construction with no expected year).
 
@@ -89,6 +92,8 @@ The project is a clean-room rebuild of techniques I had used before, done in a p
 - **Dynamic text is translated in the model.** Headlines, KPI status lines and notes are DAX measures that fill translated templates (`{construction} GW is under construction…`) and pick English or Arabic from a page-level language filter.
 - **Right-to-left text in a left-to-right engine.** Power BI text boxes are left-to-right, so every Arabic sentence is wrapped in a right-to-left embedding (U+202B … U+202C); without it, sentences that start with a number come out in the wrong order.
 - **Formats never change with language.** Numbers, units and dates look the same on both pages (Western digits, `28 Oct 26`); only words are translated.
+- **Each language drills to its own page.** The Arabic Projects page binds the drillthrough to the Arabic country column, so right-clicking a country on an Arabic page opens the Arabic Projects page.
+- **Unique names in both languages.** GEM gives some separate plants the same Arabic name, which would merge their bars. The extract adds the technology (or, within one technology, the site) to those names, flagged as a draft.
 - **Honest provenance.** Every Arabic string records where it came from (`source` for GEM's own Arabic names, `machine` for drafts). None is marked reviewed until a native speaker has reviewed it.
 
 ## Built as code
@@ -134,7 +139,6 @@ Open `Renewables.Report/definition.pbir` in Power BI Desktop, or connect a Fabri
 ## Known limitations
 
 - **The Arabic is machine-drafted.** Every Arabic UI string is a draft awaiting a native-speaker review, and is flagged as such.
-- **GEM gives some separate plants the same Arabic name**, so Arabic visuals grouped by plant can merge them.
 - **Slicer controls show "Select all" and "All" in English** on Arabic pages; those words come from Power BI, not the report.
 - **The expected year is known for 59% of capacity under construction**; the rest has no planned year in GEM.
 

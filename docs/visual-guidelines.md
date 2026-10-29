@@ -292,3 +292,7 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 33 | Edge margins | Measured on the rendered text: title text starts at y 20, footer text ends at y 1060, footer text 20 px from the sides |
 | 34 | Filter line | Active filters named on the title row (section 10.8) |
 | 35 | Tooltips | Value-first tooltip pages; technology split moves into the tooltip (section 10.8) |
+| 36 | Overview year highlight | None: the selective labels already pick out 2025 |
+| 37 | Breakdown KPI 1 | Pipeline share of the top 3 countries, neutral bars for those countries; no repeat of the Overview pipeline panel |
+| 38 | Drillthrough | Country level, to Projects; the Arabic Projects page binds `Country AR`, so each language drills to its own page |
+| 39 | Unique Arabic plant names | Technology added where plants sharing a name differ by technology, else a site name; flagged `machine` |

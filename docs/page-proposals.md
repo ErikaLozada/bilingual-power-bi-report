@@ -1,12 +1,12 @@
 # Page proposals (v1)
 
-> **Status: draft for review.** Built overnight as v1 on the `report-v1` branch so the pages can be judged rendered, not on paper. Nothing here is agreed until reviewed; `main` is unchanged. Numbers are the live values from the model.
+> **Status: agreed and live.** v1 was built as a complete draft so the pages could be judged rendered, not on paper; two review rounds (v2, v3) followed and each was merged to `main` after review. v1 and v2 are kept as the git tags `v1` and `v2`. Sections 1–4 describe the v1 proposals; the change tables below record what replaced them. Numbers are the live values from the model.
 
 Every page follows the agreed frame (visual-guidelines.md sections 2–4 and 10): dynamic headline, Back / Next, language switch and ☰ menu in the header; KPI row ≈ 30% and main visuals ≈ 70% of the body; footer with source, refresh time and data period; a bookmark menu panel holding slicers and notes.
 
 ## v2 changes
 
-v2 was reviewed against v1 and replaced it on `main` on 29 Oct 2026; v1 remains in the git history (branch `report-v1`). Changes come from the dataviz skill review (visual-guidelines.md section 10.7) and two new analyses.
+v2 was reviewed against v1 and replaced it on `main` on 29 Oct 2026; v1 remains in the git history (tag `v1`). Changes come from the dataviz skill review (visual-guidelines.md section 10.7) and two new analyses.
 
 | Page | v1 | v2 | Why |
 |---|---|---|---|
@@ -26,6 +26,17 @@ Not built from the review:
 - Value-first tooltips on the KPI strips, hydrogen chart and Projects page (default tooltips there).
 
 The technology split dropped from the Overview and Breakdown charts now shows in the technology tooltip.
+
+## v3 changes
+
+Answers to the open questions (section 5), 29 Oct 2026:
+
+| Page | v2 | v3 | Why |
+|---|---|---|---|
+| Breakdown KPI 1 | Pipeline by stage (same panel as Overview KPI 3) | **Pipeline in the top 3 countries**: 64.0% (286.3 of 447.1 GW), bars for the three countries with GW and % of the pipeline | Supports the page headline ("the pipeline is concentrated") instead of repeating Overview |
+| Projects | Reached only from the page buttons | **Drillthrough by country**: right-click a country on any chart or table to see its projects (Arabic pages drill to the Arabic Projects page) | Question 4 |
+| Arabic plant names | 8 names shared by 18 plants, so their bars merged | Unique names: the technology is added where the plants differ by technology, a machine-drafted site name where they don't (e.g. Benban – Scatec); all 18 flagged `machine` | Arabic visuals now match the English ones |
+| Overview main | | No 2025 highlight | Question 1: the selective labels already pick out 2025 |
 
 ## 1. Overview: "Building is accelerating, but from a very small base"
 
@@ -76,18 +87,17 @@ No KPI row here: this page is the detail behind the other three.
 
 ## 5. Open questions for review
 
-1. **Overview main visual.** Should 2025 be highlighted (other years faded)? The legend uses technology colours, so the guideline's "fade the rest" would need per-year colour rules.
-2. **Breakdown KPI 1** repeats Overview KPI 3 (pipeline by stage). Keep it, or swap for something new (e.g. pipeline-to-operating ratio)?
-3. **Opportunity scatter.** Add reference lines at the regional weighted share (agreed in scope) and quadrant labels?
-4. **Drillthrough** from Breakdown and Opportunity to Projects isn't built yet.
+1. ~~**Overview main visual.** Should 2025 be highlighted (other years faded)?~~ No (v3). The legend uses technology colours, so the guideline's "fade the rest" would need per-year colour rules.
+2. ~~**Breakdown KPI 1** repeats Overview KPI 3 (pipeline by stage). Keep it, or swap for something new?~~ Replaced by pipeline concentration in the top 3 countries (v3).
+3. ~~**Opportunity scatter.** Add reference lines and quadrant labels?~~ Not needed: v2 replaced the scatter with the gap-to-world bars.
+4. ~~**Drillthrough** from Breakdown and Opportunity to Projects isn't built yet.~~ Built at country level (v3).
 5. ~~**Projects table**: keep the Unit column?~~ Dropped (visual-guidelines.md decision 24): GEM's English unit field holds Arabic for 6 units in 3 plants.
 
 ## 6. Known issues in v1
 
-- **Arabic plant names are not unique.** GEM gives some separate plants the same Arabic name (e.g. AMUN wind and AMUN solar are both "آمون للهيدروجين الأخضر"), so Arabic visuals grouped by plant merge them: the Arabic top-10 differs from the English one. Needs a decision: make `Plant AR` unique (e.g. add the technology) or group by plant ID and show the name as a label.
+- ~~**Arabic plant names are not unique.**~~ Fixed in v3 (see v3 changes). GEM's Arabic name for the Port Said Green Methanol solar farm says "wind" (طاقة رياح); it is kept as published.
 - Projects page: the top-10 bars show no value or H₂ labels (seen in English too in the v2 render; this page is unchanged from v1).
 - Slicer UI words ("Select all", "All") stay in English on Arabic pages; they come from Power BI, not the report.
-- Scatter labels overlap for the small countries near the origin (v1 only; v2 replaces the scatter).
 - The language button keeps the current page; filters chosen on one language page don't carry over.
 
 ## 7. How v1 is built and checked
