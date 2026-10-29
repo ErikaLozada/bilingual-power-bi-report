@@ -459,6 +459,10 @@ table _Measures
 		isHidden
 		displayFolder: KPI values
 
+	measure 'Top 3 Pipeline Share % Text' = FORMAT ( [Top 3 Pipeline Share %], "0.0%", "en-GB" )
+		isHidden
+		displayFolder: KPI values
+
 	measure 'Pipeline GW Text' = FORMAT ( [Pipeline GW], "#,0.0", "en-GB" )
 		isHidden
 		displayFolder: KPI values
