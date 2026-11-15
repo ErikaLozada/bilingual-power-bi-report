@@ -349,7 +349,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#7a877f'"
+                      "Value": "'#c2ccc5'"
                     }
                   }
                 }
@@ -462,8 +462,13 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Pipeline tied to green hydrogen, by country (GW · % of the country''s pipeline)'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Finding Hydrogen"
                 }
               }
             },
@@ -650,6 +655,65 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pipeline tied to green hydrogen, by country (GW · % of the country''s pipeline)'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#46534b'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "query": {
@@ -730,7 +794,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.hydrogen-by-country\", \"alt\": \"chart.hydrogen-by-country\", \"display\": {\"_Measures.Hydrogen Pipeline GW\": \"field.hydrogen-gw\", \"_Measures.Non-hydrogen Pipeline GW\": \"field.other-pipeline\"}}"
+      "value": "{\"alt\": \"chart.hydrogen-by-country\", \"display\": {\"_Measures.Hydrogen Pipeline GW\": \"field.hydrogen-gw\", \"_Measures.Non-hydrogen Pipeline GW\": \"field.other-pipeline\"}, \"subtitle\": \"chart.hydrogen-by-country\"}"
     }
   ]
 }

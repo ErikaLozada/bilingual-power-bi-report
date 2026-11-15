@@ -3,10 +3,10 @@
   "name": "projects",
   "position": {
     "x": 48,
-    "y": 414,
+    "y": 439,
     "z": 16,
     "width": 1224,
-    "height": 274,
+    "height": 249,
     "tabOrder": 16
   },
   "visual": {
@@ -794,6 +794,65 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Every project in the totals, largest first (MW)'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#46534b'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "query": {
@@ -1018,7 +1077,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.projects\", \"alt\": \"chart.projects\", \"display\": {\"Plant.Plant\": \"field.plant\", \"Country.Country\": \"field.country\", \"Technology.Technology Group\": \"field.technology\", \"_Measures.Status Dot\": \"field.status-dot\", \"Status.Status\": \"field.status\", \"_Measures.Capacity MW\": \"field.capacity-mw\", \"Unit.Start Year\": \"field.start-year\", \"Unit.Owner\": \"field.owner\", \"_Measures.Hydrogen Marker\": \"field.hydrogen\"}}"
+      "value": "{\"title\": \"chart.projects\", \"alt\": \"chart.projects\", \"display\": {\"Plant.Plant\": \"field.plant\", \"Country.Country\": \"field.country\", \"Technology.Technology Group\": \"field.technology\", \"_Measures.Status Dot\": \"field.status-dot\", \"Status.Status\": \"field.status\", \"_Measures.Capacity MW\": \"field.capacity-mw\", \"Unit.Start Year\": \"field.start-year\", \"Unit.Owner\": \"field.owner\", \"_Measures.Hydrogen Marker\": \"field.hydrogen\"}, \"subtitle\": \"subtitle.projects\"}"
     }
   ]
 }

@@ -694,6 +694,65 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'‫آخر سنة متاحة في Ember لكل دولة؛ ▲ / ▼ مقارنة بالحصة العالمية؛ المشاريع المخطط لها × القدرة قيد التشغيل‬'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#46534b'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'right'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "query": {
@@ -831,7 +890,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.scorecard\", \"alt\": \"chart.scorecard\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Ember Year\": \"field.year\", \"_Measures.Scorecard Share %\": \"field.share\", \"_Measures.Emissions Intensity g/kWh\": \"field.intensity\", \"_Measures.Operating GW\": \"field.operating\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Scorecard Pipeline GW\": \"field.pipeline\"}}"
+      "value": "{\"title\": \"chart.scorecard\", \"alt\": \"chart.scorecard\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Ember Year\": \"field.year\", \"_Measures.Scorecard Share %\": \"field.share\", \"_Measures.Emissions Intensity g/kWh\": \"field.intensity\", \"_Measures.Operating GW\": \"field.operating\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Scorecard Pipeline GW\": \"field.pipeline\"}, \"subtitle\": \"subtitle.scorecard\"}"
     }
   ]
 }

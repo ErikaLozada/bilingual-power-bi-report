@@ -5,7 +5,7 @@
     "x": 12,
     "y": 0,
     "z": 6,
-    "width": 180,
+    "width": 460,
     "height": 40,
     "tabOrder": 6
   },
@@ -19,11 +19,27 @@
               {
                 "textRuns": [
                   {
-                    "value": "Projects",
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "12pt",
+                      "color": "#1d6a44"
+                    }
+                  },
+                  {
+                    "value": "Renewables in the Arab League   ",
                     "textStyle": {
                       "fontFamily": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
-                      "fontSize": "14pt",
+                      "fontSize": "12pt",
                       "color": "#111a15"
+                    }
+                  },
+                  {
+                    "value": "Projects",
+                    "textStyle": {
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "12pt",
+                      "color": "#46534b"
                     }
                   }
                 ]
@@ -92,7 +108,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "10D"
                 }
               }
             },
@@ -138,7 +154,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"runs\": [\"page.detail\"]}"
+      "value": "{\"runs\": [\"legend.swatch\", \"report.title\", \"page.detail\"]}"
     }
   ]
 }

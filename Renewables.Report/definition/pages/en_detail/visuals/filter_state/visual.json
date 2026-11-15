@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "filter_state",
   "position": {
-    "x": 192,
+    "x": 472,
     "y": 0,
     "z": 7,
-    "width": 940,
+    "width": 660,
     "height": 40,
     "tabOrder": 7
   },

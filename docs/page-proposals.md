@@ -1,6 +1,6 @@
 # Page proposals (v1)
 
-> **Status: agreed and live.** v1 was built as a complete draft so the pages could be judged rendered, not on paper; two review rounds (v2, v3) and a rework to the fabric-kit look (v4) followed, and each was merged to `main` after review. Earlier versions are kept as git tags (`v1` to `v3`). Sections 1–4 describe the v1 proposals; the change tables below record what replaced them. Numbers are the live values from the model.
+> **Status: agreed and live.** v1 was built as a complete draft so the pages could be judged rendered, not on paper; two review rounds (v2, v3), a rework to the fabric-kit look (v4) and finding titles (v5) followed, and each was merged to `main` after review. Earlier versions are kept as git tags (`v1` to `v4`). Sections 1–4 describe the v1 proposals; the change tables below record what replaced them. Numbers are the live values from the model.
 
 Every page follows the agreed frame (visual-guidelines.md sections 2–4 and 10): dynamic headline, Back / Next, language switch and ☰ menu in the header; KPI row ≈ 30% and main visuals ≈ 70% of the body; footer with source, refresh time and data period; a bookmark menu panel holding slicers and notes.
 
@@ -26,6 +26,19 @@ Not built from the review:
 - Value-first tooltips on the KPI strips, hydrogen chart and Projects page (default tooltips there).
 
 The technology split dropped from the Overview and Breakdown charts now shows in the technology tooltip.
+
+## v5 changes
+
+15 Nov 2026: closer to a styled page built with the same fabric-kit theme (visual-guidelines.md decisions 53–57).
+
+| Area | v4 | v5 | Why |
+|---|---|---|---|
+| Top bar | Page name, 14 pt | **■ Renewables in the Arab League · page name**, 12 pt, page name muted | The kit's app title |
+| Chart titles | Fixed descriptions | **Findings** from DAX measures that update with filters (e.g. "16 of 22 countries trail the world's wind and solar share, including Egypt, which is building the most"); the description becomes a muted subtitle | Titles say what the chart shows; each finding is checked to stay true under filters (one item, ties, empty) |
+| Highlight | Fern green on light grey `#c2ccc5` | Fern green on the kit's context grey `#87938c`, and the highlighted bar is named in the title | The kit's chart tokens |
+| Axis line | `#7a877f` | `#c2ccc5` | The kit's chart-axis colour |
+| Frame | White top bar, rail, footer and filter pane | **Page colour** with hairlines | Only visual panels are lighter than the page |
+| Projects | Top-ten chart 320 px | 345 px | Room for the subtitle so all ten bars fit |
 
 ## v4 changes
 

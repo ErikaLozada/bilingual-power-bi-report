@@ -161,3 +161,26 @@ alt.next,Next page,الصفحة التالية,machine
 alt.language,Show this page in Arabic,عرض هذه الصفحة بالإنجليزية,machine
 alt.menu-open,Open filters and notes,فتح عوامل التصفية والملاحظات,machine
 alt.menu-close,Close filters and notes,إغلاق عوامل التصفية والملاحظات,machine
+report.title,Renewables in the Arab League   ,الطاقة المتجددة في جامعة الدول العربية   ,machine
+finding.online.rising,"{expected_year} is expected to bring {expected} GW, more than any year so far ({built} GW in {built_year})",من المتوقع أن يشهد عام {expected_year} دخول {expected} GW الخدمة، أكثر من أي عام سابق ({built} GW في {built_year}),machine
+finding.online.peak-built,The most came online in {built_year} ({built} GW); the busiest expected year is {expected_year} ({expected} GW),دخلت أكبر قدرة الخدمة في عام {built_year} ({built} GW)؛ وأكثر الأعوام المتوقعة هو {expected_year} ({expected} GW),machine
+finding.online.built,The most came online in {built_year}: {built} GW,دخلت أكبر قدرة الخدمة في عام {built_year}: {built} GW,machine
+finding.online.expected,{expected_year} is the busiest expected year: {expected} GW,عام {expected_year} هو أكثر الأعوام المتوقعة: {expected} GW,machine
+finding.country.top,"{country} has the most capacity: {gw} GW, {pct} of the total",تمتلك {country} أكبر قدرة: {gw} GW، أي {pct} من الإجمالي,machine
+finding.country.one,{country}: {gw} GW operating and planned,{country}: {gw} GW قيد التشغيل ومخطط لها,machine
+finding.hydrogen.top,"{country} has the most tied to green hydrogen: {gw} GW, {pct} of its pipeline",تمتلك {country} أكبر قدرة مرتبطة بالهيدروجين الأخضر: {gw} GW، أي {pct} من مشاريعها المخطط لها,machine
+finding.hydrogen.one,"{country}: {gw} GW tied to green hydrogen, {pct} of its pipeline",{country}: {gw} GW مرتبطة بالهيدروجين الأخضر، أي {pct} من مشاريعها المخطط لها,machine
+finding.hydrogen.none,None of the pipeline in view is tied to green hydrogen,لا توجد مشاريع مخطط لها مرتبطة بالهيدروجين الأخضر ضمن التحديد,machine
+finding.gap.some-below,{below} of {count} countries trail the world's wind and solar share,{below} من أصل {count} دولة دون الحصة العالمية للرياح والطاقة الشمسية,machine
+finding.gap.all-below,All {count} countries trail the world's wind and solar share,جميع الدول الـ{count} دون الحصة العالمية للرياح والطاقة الشمسية,machine
+finding.gap.none-below,All {count} countries are at or above the world's wind and solar share,جميع الدول الـ{count} عند الحصة العالمية للرياح والطاقة الشمسية أو أعلى منها,machine
+finding.gap.one,{country}: {gap} pts against the world's wind and solar share,{country}: {gap} نقطة مقارنة بالحصة العالمية للرياح والطاقة الشمسية,machine
+finding.project.top,{project} is the largest project in the pipeline: {gw} GW,{project} هو أكبر مشروع مخطط له: {gw} GW,machine
+finding.project.tied,{count} projects share the top spot: {gw} GW each,{count} مشاريع تتصدر القائمة: {gw} GW لكل منها,machine
+finding.project.one,{project}: {gw} GW in the pipeline,{project}: {gw} GW مخطط لها,machine
+finding.owner.top,{owner} owns the most operating capacity: {gw} GW,تمتلك {owner} أكبر قدرة قيد التشغيل: {gw} GW,machine
+finding.owner.one,"{owner}: {gw} GW operating, by ownership share",{owner}: {gw} GW قيد التشغيل، حسب حصة الملكية,machine
+subtitle.scorecard,Latest Ember year per country; ▲ / ▼ against the world share; pipeline × operating,آخر سنة متاحة في Ember لكل دولة؛ ▲ / ▼ مقارنة بالحصة العالمية؛ المشاريع المخطط لها × القدرة قيد التشغيل,machine
+subtitle.projects,"Every project in the totals, largest first (MW)",جميع المشاريع المحتسبة في الإجماليات، الأكبر أولاً (MW),machine
+finding.gap.builder-below,", including {builder}, which is building the most",، ومنها {builder} الأكثر بناءً,machine
+finding.gap.builder-above,"; {builder}, which is building the most, is above it",؛ أما {builder}، الأكثر بناءً، فهي أعلى منها,machine

@@ -85,6 +85,8 @@ def translate_text(visual, i18n):
         runs = [run for p in body["objects"]["general"][0]["properties"]["paragraphs"] for run in p["textRuns"]]
         for run, key in zip(runs, i18n["runs"]):
             run["value"] = rtl(AR[key])
+    if "subtitle" in i18n:
+        set_literal(vco["subTitle"][0]["properties"]["text"], quoted(rtl(AR[i18n["subtitle"]])))
     if "alt" in i18n:
         # Screen readers get the plain sentence, without the embedding marks
         set_literal(vco["general"][0]["properties"]["altText"], quoted(AR[i18n["alt"]]))

@@ -384,7 +384,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#7a877f'"
+                      "Value": "'#c2ccc5'"
                     }
                   }
                 }
@@ -497,8 +497,13 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Capacity by country and status (GW)'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Finding Country"
                 }
               }
             },
@@ -686,6 +691,65 @@
           }
         }
       ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Capacity by country and status (GW)'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#46534b'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
       "visualTooltip": [
         {
           "properties": {
@@ -852,7 +916,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.country-status\", \"alt\": \"chart.country-status\", \"display\": {\"_Measures.Total GW\": \"field.gw\"}}"
+      "value": "{\"alt\": \"chart.country-status\", \"display\": {\"_Measures.Total GW\": \"field.gw\"}, \"subtitle\": \"chart.country-status\"}"
     }
   ]
 }

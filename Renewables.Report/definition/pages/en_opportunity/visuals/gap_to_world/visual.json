@@ -273,7 +273,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#7a877f'"
+                      "Value": "'#c2ccc5'"
                     }
                   }
                 }
@@ -386,8 +386,13 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Wind and solar share against the world (percentage points)'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Finding Gap"
                 }
               }
             },
@@ -575,6 +580,65 @@
           }
         }
       ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Wind and solar share against the world (percentage points)'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#46534b'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
       "visualTooltip": [
         {
           "properties": {
@@ -666,7 +730,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.gap-to-world\", \"alt\": \"chart.gap-to-world\", \"display\": {\"_Measures.Share Gap to World pts\": \"field.gap\"}}"
+      "value": "{\"alt\": \"chart.gap-to-world\", \"display\": {\"_Measures.Share Gap to World pts\": \"field.gap\"}, \"subtitle\": \"chart.gap-to-world\"}"
     }
   ]
 }

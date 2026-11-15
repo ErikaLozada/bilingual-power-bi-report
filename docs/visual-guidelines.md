@@ -35,8 +35,8 @@ EN                                                        AR (mirrored)
 
 ### 2.1 Top bar and rail
 
-- **Top bar** (40 px, white, 1 px border below): the page title (14 pt Semibold) on the reading-start side, the filter line after it, and Back / Next and the language switch on the reading-end side. Buttons are 28 px, no fill, with a thin border.
-- **Rail** (40 px, white, 1 px border on its body side) runs down the reading-start edge, below the top bar. It holds only the ☰ button that opens the filter pane.
+- **Top bar** (40 px, page colour, 1 px border below): on the reading-start side a fern-green ■, the report name (12 pt Semibold) and the page name (12 pt, secondary text), as in the kit's app title; the filter line after it, and Back / Next and the language switch on the reading-end side. Buttons are 28 px, no fill, with a thin border.
+- **Rail** (40 px, page colour, 1 px border on its body side) runs down the reading-start edge, below the top bar. It holds only the ☰ button that opens the filter pane.
 
 ### 2.2 Body
 
@@ -47,7 +47,7 @@ EN                                                        AR (mirrored)
 
 ### 2.3 Footer (y 696–720, every page)
 
-A white bar with a 1 px border above. It holds three items and no buttons:
+A bar in the page colour with a 1 px border above. It holds three items and no buttons:
 - **Source:** Global Energy Monitor, *Global Integrated Power Tracker*; Ember, *Yearly electricity data* (both CC BY 4.0).
 - **Refreshed:** the date and time the model last refreshed in Fabric, captured by a one-row Power Query table.
 - **Data to:** `GEM Sep 2026, Ember 2023–2025` (the latest Ember year per country).
@@ -55,7 +55,7 @@ A white bar with a 1 px border above. It holds three items and no buttons:
 ## 3. Filter pane
 
 - The ☰ button on the rail opens the pane; ✕ closes it. Both use bookmarks.
-- The pane is 232 px wide, white, with a border and a soft shadow, and covers the rail and the body's reading-start edge. **It is closed by default.**
+- The pane is 232 px wide, in the page colour, with a border and a soft shadow, and covers the rail and the body's reading-start edge. **It is closed by default.**
 - **It overlays the body instead of reflowing it:** Power BI bookmarks can show and hide visuals but cannot move or resize them, so a reflow would need two copies of every visual.
 - It holds the page's **dropdown slicers** and the **notes** behind the numbers. On Overview it also holds the **Overview focus** slicer (Under construction / Came online), which switches the headline.
 - **Power BI's own filter pane is hidden** on every page (report setting `outspacePane.visible = false`), so readers see only this pane.
@@ -95,7 +95,7 @@ The kit's four colour-blind-safe series colours plus its "Other" grey-green:
 
 ### 6.2 Highlight
 
-- One highlight per visual: the key item in **fern green `#1d6a44`**, everything else in light grey `#c2ccc5`, with a data label on the highlight. The kit's darker grey `#5b6960` is almost as dark as fern green, so the light grey keeps the highlight visible to colour-blind readers.
+- One highlight per visual: the key item in **fern green `#1d6a44`**, everything else in the kit's context grey `#87938c` (clearly lighter than fern green), with a data label on the highlight. The chart's finding title names the highlighted item (section 10.9).
 - The highlight is applied by model measures (`Accent Colour`, `Neutral Colour`, `Top Builder Colour`), not hand-picked bars.
 - Good versus bad, where a measure has one, is blue versus burnt orange (`#3a64ad` / `#9c5520`) with an icon and a word, never green versus red.
 
@@ -105,11 +105,12 @@ The kit's four colour-blind-safe series colours plus its "Other" grey-green:
 |---|---|
 | Canvas | `#f8faf8` |
 | Panel | `#fcfdfc` |
-| Top bar, rail, footer, filter pane | `#ffffff` |
+| Top bar, rail, footer, filter pane | `#f8faf8` (the page colour: only visual panels are lighter than the page) |
 | Panel and bar borders | `#d6ded8` |
 | Gridlines | `#e4eae5` |
-| Axis line | `#7a877f` |
-| Neutral (not highlighted, totals, table data bars) | `#c2ccc5` |
+| Axis line | `#c2ccc5` (the kit's chart axis) |
+| Context (bars that are not highlighted) | `#87938c` |
+| Neutral (table data bars, the hydrogen chart's rest of the pipeline) | `#c2ccc5` |
 | Secondary text | `#46534b` |
 | Primary text | `#111a15` |
 
@@ -122,10 +123,11 @@ Totals not split by stage and table data bars are neutral. The hydrogen chart's 
 
 | Element | Size (pt) | Font |
 |---|---|---|
-| Page title | 14 | Segoe UI Semibold |
+| Report name / page name (top bar) | 12 | Segoe UI Semibold / Segoe UI, secondary text colour |
 | Headline | 12 | Segoe UI, secondary text colour |
 | Filter line | 10 | Segoe UI, secondary text colour |
-| Visual title | 12 | Segoe UI Semibold |
+| Visual title (the finding) | 12 | Segoe UI Semibold |
+| Visual subtitle | 10 | Segoe UI, secondary text colour |
 | KPI label | 10 | Segoe UI, secondary text colour |
 | KPI value | 22 on the page's key KPI, 18 on the others | Segoe UI Semibold |
 | KPI status line | 9 (primary text on the key KPI, secondary on the others) | Segoe UI |
@@ -203,8 +205,8 @@ One panel across the body, one cell per KPI, with a 1 px divider between cells (
 - Bars are thin: the gap between bars is 50% of the category width (also on column charts).
 - **Every bar chart is labelled.** Where each bar has one value, the label sits at its end; the hydrogen chart adds the % of the country's pipeline as a detail label (`107.6 · 96%`).
 - **Stacked bars:** segment labels don't fit, so the chart shows a value axis with labels (9 pt, secondary text) instead. The hydrogen chart keeps its labels inside the tied segment and also gets the axis.
-- **Axis line:** every bar and column chart has a 1 px axis line in `#7a877f`, lighter than the axis text. Power BI charts have no axis-line setting, so it is a constant line at 0 on the value axis: the baseline the bars grow from, and the zero line of the gap bars.
-- Highlight by rule: the key bar takes fern green through a model measure; the rest are neutral.
+- **Axis line:** every bar and column chart has a 1 px axis line in `#c2ccc5` (the kit's chart-axis colour), lighter than the axis text. Power BI charts have no axis-line setting, so it is a constant line at 0 on the value axis: the baseline the bars grow from, and the zero line of the gap bars.
+- Highlight by rule: the key bar takes fern green through a model measure; the rest take the context grey.
 - No gridlines on bar charts; category labels 9 pt; categories sorted by value, or by stage order where the category has one (status).
 
 ### 10.4 Tables
@@ -243,6 +245,24 @@ Every chart is checked against these before review:
   - Technology tooltip (Overview year chart, Breakdown country chart): GW, then year (came online / expected) or country · status, then GW by technology in technology colours. This replaces the technology split the v2 charts dropped.
   - Gap tooltip (Opportunity gap bars): the country's share, then country and Ember year, then the world share and the gap.
 - Other charts keep the default tooltip.
+
+### 10.9 Finding titles (v5)
+
+Following the kit, a chart's title states what it shows, and the descriptive title moves to a muted subtitle (10 pt) below it.
+
+- Each finding is a DAX measure (display folder *Findings*) that fills a translated template, so it updates with the slicers and follows the page language.
+- **A finding must stay true under every filter:** with one item left it states that item's value; with a tie it says so (*"2 projects share the top spot"*) or falls back to the descriptive title; with nothing in view it shows the descriptive title.
+- A highlighted bar is named in the title (the gap chart names the top builder whenever its bar is shown).
+- Tables keep a plain title and get a subtitle.
+
+| Chart | Finding (live values, 15 Nov 2026) |
+|---|---|
+| Overview: capacity coming online | 2027 is expected to bring 18.5 GW, more than any year so far (10.9 GW in 2025) |
+| Breakdown: capacity by country and status | Mauritania has the most capacity: 112.9 GW, 22.7% of the total |
+| Breakdown: pipeline tied to green hydrogen | Mauritania has the most tied to green hydrogen: 107.6 GW, 96% of its pipeline |
+| Opportunity: share against the world | 16 of 22 countries trail the world's wind and solar share, including Egypt, which is building the most |
+| Projects: ten largest projects | 2 projects share the top spot: 30.0 GW each |
+| Projects: owners of operating capacity | ACWA Power Co owns the most operating capacity: 5.7 GW |
 
 ### 10.6 Checking
 
@@ -304,3 +324,8 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 50 | Axis line | 1 px `#7a877f` (lighter than the axis text) on every bar and column chart, drawn as a constant line at 0 on the value axis |
 | 51 | Bar labels | Every bar chart is labelled; stacked bars, where segment labels don't fit, get a labelled value axis instead |
 | 52 | Power BI filter pane | Hidden on every page (report-level setting); the report's own filter pane replaces it |
+| 53 | Report title (v5) | Top bar shows a fern-green ■, the report name and the page name, like the kit's app title; 12 pt |
+| 54 | Finding titles | Every chart's title is a DAX finding that stays true under every filter; the descriptive title becomes a 10 pt subtitle; tables keep plain titles with subtitles (section 10.9) |
+| 55 | Kit chart greys | Bars that are not highlighted take the kit's context grey `#87938c`; the axis line takes the kit's `#c2ccc5`. Supersedes the colours in 47 and 50 |
+| 56 | Frame colour | Top bar, rail, footer and filter pane in the page colour, with hairlines; only visual panels are lighter than the page |
+| 57 | Highlight in the title | A highlighted bar is named in its chart's finding (Opportunity: the top builder, Egypt) |

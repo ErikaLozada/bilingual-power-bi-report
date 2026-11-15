@@ -561,7 +561,7 @@ table _Measures
 		isHidden
 		displayFolder: Formatting
 
-	measure 'Neutral Colour' = "#c2ccc5"
+	measure 'Neutral Colour' = "#87938c"
 		isHidden
 		displayFolder: Formatting
 
@@ -794,6 +794,162 @@ table _Measures
 			    IF ( NOT ISBLANK ( [Share Gap to World pts] ), IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText ) )
 		isHidden
 		displayFolder: Tooltips
+
+	measure 'Finding Online' =
+			-- Chart title: the busiest year built (2015-2025) against the busiest expected year (2026-2029)
+			VAR IsAr = [Language Code] = "ar"
+			VAR Built = FILTER ( ADDCOLUMNS ( FILTER ( VALUES ( 'Unit'[Start Year] ), 'Unit'[Start Year] >= 2015 && 'Unit'[Start Year] <= 2025 ), "@GW", [Operating GW] ), [@GW] > 0 )
+			VAR Expected = FILTER ( ADDCOLUMNS ( FILTER ( VALUES ( 'Unit'[Start Year] ), 'Unit'[Start Year] >= 2026 && 'Unit'[Start Year] <= 2029 ), "@GW", [Construction GW] ), [@GW] > 0 )
+			VAR BuiltTop = TOPN ( 1, Built, [@GW], DESC, 'Unit'[Start Year], DESC )
+			VAR ExpectedTop = TOPN ( 1, Expected, [@GW], DESC, 'Unit'[Start Year], ASC )
+			VAR BuiltGW = MAXX ( BuiltTop, [@GW] )
+			VAR ExpectedGW = MAXX ( ExpectedTop, [@GW] )
+			VAR TemplateKey =
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( BuiltGW ) && ISBLANK ( ExpectedGW ), "chart.online-by-year",
+			        ISBLANK ( ExpectedGW ), "finding.online.built",
+			        ISBLANK ( BuiltGW ), "finding.online.expected",
+			        ExpectedGW > BuiltGW, "finding.online.rising",
+			        "finding.online.peak-built"
+			    )
+			VAR Template = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], TemplateKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], TemplateKey ) )
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( Template, "{built_year}", FORMAT ( MAXX ( BuiltTop, 'Unit'[Start Year] ), "0" ) ), "{built}", IF ( BuiltGW < 0.05, "<0.1", FORMAT ( BuiltGW, "#,0.0", "en-GB" ) ) ), "{expected_year}", FORMAT ( MAXX ( ExpectedTop, 'Unit'[Start Year] ), "0" ) ), "{expected}", IF ( ExpectedGW < 0.05, "<0.1", FORMAT ( ExpectedGW, "#,0.0", "en-GB" ) ) )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Findings
+
+	measure 'Finding Country' =
+			-- Chart title: the country with the most capacity (operating and planned) and its share of the total
+			VAR IsAr = [Language Code] = "ar"
+			VAR Countries = FILTER ( ADDCOLUMNS ( VALUES ( 'Country'[Country ID] ), "@GW", [Total GW] ), [@GW] > 0 )
+			VAR TopGW = MAXX ( Countries, [@GW] )
+			VAR Leaders = FILTER ( Countries, [@GW] = TopGW )
+			VAR TemplateKey =
+			    SWITCH (
+			        TRUE (),
+			        COUNTROWS ( Countries ) = 1, "finding.country.one",
+			        COUNTROWS ( Countries ) > 1 && COUNTROWS ( Leaders ) = 1, "finding.country.top",
+			        "chart.country-status"
+			    )
+			VAR Template = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], TemplateKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], TemplateKey ) )
+			VAR TopName = MAXX ( Leaders, IF ( IsAr, CALCULATE ( MAX ( 'Country'[Country AR] ) ), CALCULATE ( MAX ( 'Country'[Country] ) ) ) )
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( Template, "{country}", TopName ), "{gw}", IF ( TopGW < 0.05, "<0.1", FORMAT ( TopGW, "#,0.0", "en-GB" ) ) ), "{pct}", FORMAT ( DIVIDE ( TopGW, [Total GW] ), "0.0%", "en-GB" ) )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Findings
+
+	measure 'Finding Hydrogen' =
+			-- Chart title: the country with the most pipeline tied to green hydrogen, and that share of its pipeline
+			VAR IsAr = [Language Code] = "ar"
+			VAR Countries = FILTER ( ADDCOLUMNS ( VALUES ( 'Country'[Country ID] ), "@GW", [Hydrogen Pipeline GW] ), [@GW] > 0 )
+			VAR TopGW = MAXX ( Countries, [@GW] )
+			VAR Leaders = FILTER ( Countries, [@GW] = TopGW )
+			VAR TemplateKey =
+			    SWITCH (
+			        TRUE (),
+			        ISEMPTY ( Countries ), "finding.hydrogen.none",
+			        COUNTROWS ( Countries ) = 1, "finding.hydrogen.one",
+			        COUNTROWS ( Leaders ) = 1, "finding.hydrogen.top",
+			        "chart.hydrogen-by-country"
+			    )
+			VAR Template = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], TemplateKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], TemplateKey ) )
+			VAR TopName = MAXX ( Leaders, IF ( IsAr, CALCULATE ( MAX ( 'Country'[Country AR] ) ), CALCULATE ( MAX ( 'Country'[Country] ) ) ) )
+			VAR TopShare = MAXX ( Leaders, [Hydrogen % of Pipeline] )
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( Template, "{country}", TopName ), "{gw}", IF ( TopGW < 0.05, "<0.1", FORMAT ( TopGW, "#,0.0", "en-GB" ) ) ), "{pct}", FORMAT ( TopShare, "0%", "en-GB" ) )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Findings
+
+	measure 'Finding Gap' =
+			-- Chart title: how many countries trail the world's wind and solar share, naming the highlighted top builder
+			VAR IsAr = [Language Code] = "ar"
+			VAR Countries = FILTER ( ADDCOLUMNS ( VALUES ( 'Country'[Country ID] ), "@Gap", [Share Gap to World pts] ), NOT ISBLANK ( [@Gap] ) )
+			-- Same rule as Top Builder Colour, so the title names the bar that is highlighted
+			VAR TopBuilder =
+			    TOPN (
+			        1,
+			        ADDCOLUMNS ( ALL ( 'Country'[Country ID] ), "@Construction", CALCULATE ( [Construction GW], ALLEXCEPT ( 'Country', 'Country'[Country ID] ) ) ),
+			        [@Construction], DESC
+			    )
+			VAR BuilderID = MAXX ( TopBuilder, 'Country'[Country ID] )
+			VAR BuilderGap = MAXX ( FILTER ( Countries, 'Country'[Country ID] = BuilderID ), [@Gap] )
+			VAR BuilderShown = COUNTROWS ( TopBuilder ) = 1 && MAXX ( TopBuilder, [@Construction] ) > 0 && NOT ISBLANK ( BuilderGap )
+			VAR CountryCount = COUNTROWS ( Countries )
+			VAR Below = COUNTROWS ( FILTER ( Countries, [@Gap] < 0 ) ) + 0
+			VAR TemplateKey =
+			    SWITCH (
+			        TRUE (),
+			        ISEMPTY ( Countries ), "chart.gap-to-world",
+			        CountryCount = 1, "finding.gap.one",
+			        Below = CountryCount, "finding.gap.all-below",
+			        Below = 0, "finding.gap.none-below",
+			        "finding.gap.some-below"
+			    )
+			VAR Template = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], TemplateKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], TemplateKey ) )
+			VAR OneName = MAXX ( Countries, IF ( IsAr, CALCULATE ( MAX ( 'Country'[Country AR] ) ), CALCULATE ( MAX ( 'Country'[Country] ) ) ) )
+			VAR SuffixKey = IF ( BuilderGap < 0, "finding.gap.builder-below", "finding.gap.builder-above" )
+			VAR Suffix =
+			    IF (
+			        BuilderShown && CountryCount > 1,
+			        SUBSTITUTE (
+			            IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], SuffixKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], SuffixKey ) ),
+			            "{builder}",
+			            IF ( IsAr, LOOKUPVALUE ( 'Country'[Country AR], 'Country'[Country ID], BuilderID ), LOOKUPVALUE ( 'Country'[Country], 'Country'[Country ID], BuilderID ) )
+			        )
+			    )
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( Template & Suffix, "{below}", FORMAT ( Below, "0" ) ), "{count}", FORMAT ( CountryCount, "0" ) ), "{country}", OneName ), "{gap}", FORMAT ( MAXX ( Countries, [@Gap] ), "+0.0;-0.0;0.0", "en-GB" ) )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Findings
+
+	measure 'Finding Project' =
+			-- Chart title: the largest project in the pipeline, or how many share the top spot
+			VAR IsAr = [Language Code] = "ar"
+			VAR Plants = FILTER ( ADDCOLUMNS ( VALUES ( 'Plant'[Plant ID] ), "@GW", [Pipeline GW] ), [@GW] > 0 )
+			VAR TopGW = MAXX ( Plants, [@GW] )
+			VAR Leaders = FILTER ( Plants, [@GW] = TopGW )
+			VAR LeaderCount = COUNTROWS ( Leaders )
+			VAR TemplateKey =
+			    SWITCH (
+			        TRUE (),
+			        ISEMPTY ( Plants ), "chart.top-projects",
+			        COUNTROWS ( Plants ) = 1, "finding.project.one",
+			        LeaderCount = 1, "finding.project.top",
+			        -- Tied projects are not named: the names would wrap the title, and the bars name them
+			        "finding.project.tied"
+			    )
+			VAR Template = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], TemplateKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], TemplateKey ) )
+			VAR TopName = MAXX ( Leaders, IF ( IsAr, CALCULATE ( COALESCE ( MAX ( 'Plant'[Plant AR] ), MAX ( 'Plant'[Plant] ) ) ), CALCULATE ( MAX ( 'Plant'[Plant] ) ) ) )
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( SUBSTITUTE ( Template, "{project}", TopName ), "{gw}", IF ( TopGW < 0.05, "<0.1", FORMAT ( TopGW, "#,0.0", "en-GB" ) ) ), "{count}", FORMAT ( LeaderCount, "0" ) )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Findings
+
+	measure 'Finding Owner' =
+			-- Chart title: the owner with the most operating capacity (share-weighted)
+			VAR IsAr = [Language Code] = "ar"
+			VAR Owners = FILTER ( ADDCOLUMNS ( VALUES ( 'Ownership'[Owner] ), "@GW", [Owner Operating GW] ), [@GW] > 0 )
+			VAR TopGW = MAXX ( Owners, [@GW] )
+			VAR Leaders = FILTER ( Owners, [@GW] = TopGW )
+			VAR TemplateKey =
+			    SWITCH (
+			        TRUE (),
+			        COUNTROWS ( Owners ) = 1, "finding.owner.one",
+			        COUNTROWS ( Owners ) > 1 && COUNTROWS ( Leaders ) = 1, "finding.owner.top",
+			        "chart.top-owners"
+			    )
+			VAR Template = IF ( IsAr, LOOKUPVALUE ( 'Translations'[ar], 'Translations'[key], TemplateKey ), LOOKUPVALUE ( 'Translations'[en], 'Translations'[key], TemplateKey ) )
+			VAR SentenceText =
+			    SUBSTITUTE ( SUBSTITUTE ( Template, "{owner}", MAXX ( Leaders, 'Ownership'[Owner] ) ), "{gw}", IF ( TopGW < 0.05, "<0.1", FORMAT ( TopGW, "#,0.0", "en-GB" ) ) )
+			RETURN
+			    IF ( IsAr, UNICHAR ( 8235 ) & SentenceText & UNICHAR ( 8236 ), SentenceText )
+		displayFolder: Findings
 
 	column Placeholder
 		dataType: string

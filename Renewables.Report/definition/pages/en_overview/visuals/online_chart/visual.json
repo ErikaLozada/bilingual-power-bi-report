@@ -3,11 +3,11 @@
   "name": "online_chart",
   "position": {
     "x": 48,
-    "y": 236,
-    "z": 30,
+    "y": 252,
+    "z": 31,
     "width": 1224,
-    "height": 452,
-    "tabOrder": 30
+    "height": 436,
+    "tabOrder": 31
   },
   "visual": {
     "visualType": "lineStackedColumnComboChart",
@@ -315,7 +315,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#7a877f'"
+                      "Value": "'#c2ccc5'"
                     }
                   }
                 }

@@ -3,11 +3,11 @@
   "name": "online_legend",
   "position": {
     "x": 48,
-    "y": 214,
-    "z": 28,
+    "y": 230,
+    "z": 29,
     "width": 489.6,
     "height": 22,
-    "tabOrder": 28
+    "tabOrder": 29
   },
   "visual": {
     "visualType": "textbox",

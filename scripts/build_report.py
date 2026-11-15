@@ -35,12 +35,14 @@ TOOLTIP_W = 320
 BAR_GAP = 50  # gap between bars, % of the category width
 
 # Colours and fonts (sections 6-7): Fern & Stone Tidepool (light), registered as the report theme
-CANVAS, PANEL, CHROME, BORDER, RULE = "#f8faf8", "#fcfdfc", "#ffffff", "#d6ded8", "#e4eae5"
+# Only the visual panels are lighter than the page; the top bar, rail, footer and filter pane share the page colour
+CANVAS, PANEL, WHITE, BORDER, RULE = "#f8faf8", "#fcfdfc", "#ffffff", "#d6ded8", "#e4eae5"
 INK, INK2 = "#111a15", "#46534b"
-# One highlight per visual in fern green; the rest light grey, so the highlight also differs in lightness
+# One highlight per visual in fern green; the rest take the kit's context grey (the Neutral Colour measure).
+# NEUTRAL is the lighter grey for table data bars and totals with no highlight.
 ACCENT, NEUTRAL, BAD = "#1d6a44", "#c2ccc5", "#9c5520"
-# Axis line: 1 px, lighter than the axis text (INK2); the theme's grey-green
-AXIS_LINE = "#7a877f"
+# Axis line: 1 px, lighter than the axis text (INK2); the kit's chart-axis colour
+AXIS_LINE = "#c2ccc5"
 # Kit series colours in stage order; status and technology share hues, so their charts always carry a legend
 STATUS = {"Operating": "#28a19c", "Under construction": "#b6801f", "Pre-construction": "#5a71cd",
           "Announced": "#b25e6a", "Shelved": "#7a877f", "Cancelled": "#7a877f"}
@@ -112,6 +114,19 @@ class Visual:
         self.body["visualContainerObjects"]["title"] = [{"properties": {
             "show": b(True), "text": s(TEXT[key]), "fontFamily": s(font), "fontSize": n(size),
             "fontColor": colour(color), "alignment": s("left"), "titleWrap": b(True)}}]
+        return self
+
+    def finding(self, measure, subtitle_key):
+        """Title states the finding (a DAX measure); the descriptive title moves to a muted subtitle."""
+        self.i18n.pop("title", None)
+        self.measure_title(measure, 12, INK, FONT_SEMI)
+        return self.subtitle(subtitle_key)
+
+    def subtitle(self, key):
+        self.i18n["subtitle"] = key
+        self.body["visualContainerObjects"]["subTitle"] = [{"properties": {
+            "show": b(True), "text": s(TEXT[key]), "fontFamily": s(FONT), "fontSize": n(10),
+            "fontColor": colour(INK2), "alignment": s("left"), "titleWrap": b(True)}}]
         return self
 
     def alt(self, key):
@@ -189,7 +204,7 @@ def value_card(measure, size=36):
 
 def block(fill=None):
     """An empty rectangle: a panel behind grouped visuals (no fill given), or a solid fill for the
-    top bar, rail and footer (white) and their hairlines."""
+    top bar, rail and footer (page colour) and their hairlines."""
     v = Visual("shape", objects={
         "shape": [{"properties": {"tileShape": s("rectangle")}}],
         "fill": [{"properties": {"show": b(False)}}],
@@ -327,8 +342,8 @@ def online_by_year():
 
 
 def online_panel(x, y, w, h):
-    """Title, legend + coverage note row, then the chart, stacked on one panel."""
-    title_h, row_h = 28, 22
+    """Finding title, subtitle, legend + coverage note row, then the chart, stacked on one panel."""
+    title_h, sub_h, row_h = 26, 18, 22
     legend = textbox([("legend.swatch", 9, STATUS["Operating"], FONT), ("legend.came-online", 9, INK2, FONT),
                       ("legend.swatch", 9, STATUS["Under construction"], FONT), ("legend.expected", 9, INK2, FONT)],
                      pad=(2, 0, 8, 8), background=False)
@@ -337,10 +352,12 @@ def online_panel(x, y, w, h):
     chart = online_by_year().plain().alt("chart.online-by-year")
     return [("online_panel", x, y, w, h, block()),
             ("online_title", x, y, w, title_h,
-             textbox([("chart.online-by-year", 12, INK, FONT_SEMI)], pad=(6, 0, 8, 8), background=False)),
-            ("online_legend", x, y + title_h, w * 0.4, row_h, legend),
-            ("online_note", x + w * 0.4, y + title_h, w * 0.6, row_h, note),
-            ("online_chart", x, y + title_h + row_h, w, h - title_h - row_h, chart)]
+             measure_text("Finding Online", 12, INK, FONT_SEMI, pad=(6, 0, 8, 8), background=False)),
+            ("online_subtitle", x, y + title_h, w, sub_h,
+             textbox([("chart.online-by-year", 10, INK2, FONT)], pad=(0, 0, 8, 8), background=False)),
+            ("online_legend", x, y + title_h + sub_h, w * 0.4, row_h, legend),
+            ("online_note", x + w * 0.4, y + title_h + sub_h, w * 0.6, row_h, note),
+            ("online_chart", x, y + title_h + sub_h + row_h, w, h - title_h - sub_h - row_h, chart)]
 
 
 TEXT_MEASURES = {"Ember Year", "Hydrogen Marker", "Status Dot"}
@@ -439,19 +456,21 @@ def page_frame(page, headline_measure, menu_items, note_key):
     filter toggle, the footer, the headline, and the hidden filter pane that opens over the body."""
     i = PAGES.index(page)
     name = f"en_{page}"
-    btn, lang_w, title_w = 28, 64, 180
+    btn, lang_w, title_w = 28, 64, 460
     by = (TOP_H - btn) / 2
     x_lang = W - G - lang_w
     x_next = x_lang - G - btn
     x_back = x_next - 4 - btn
-    items = [("top_bar", 0, 0, W, TOP_H, block(CHROME)),
+    items = [("top_bar", 0, 0, W, TOP_H, block(CANVAS)),
              ("top_rule", 0, TOP_H, W, 1, block(BORDER)),
-             ("rail", 0, TOP_H + 1, RAIL_W, FOOTER_Y - TOP_H - 1, block(CHROME)),
+             ("rail", 0, TOP_H + 1, RAIL_W, FOOTER_Y - TOP_H - 1, block(CANVAS)),
              ("rail_rule", RAIL_W, TOP_H + 1, 1, FOOTER_Y - TOP_H - 1, block(BORDER)),
-             ("footer_bar", 0, FOOTER_Y, W, FOOTER_H, block(CHROME)),
+             ("footer_bar", 0, FOOTER_Y, W, FOOTER_H, block(CANVAS)),
              ("footer_rule", 0, FOOTER_Y, W, 1, block(BORDER))]
+    # Fern-green mark, report name, then the page name in muted text (fabric-kit app title)
     items.append(("page_title", 12, 0, title_w, TOP_H,
-                  textbox([(f"page.{page}", 14, INK, FONT_SEMI)], pad=(8, 0, 0, 0), background=False)))
+                  textbox([("legend.swatch", 12, ACCENT, FONT), ("report.title", 12, INK, FONT_SEMI),
+                           (f"page.{page}", 12, INK2, FONT)], pad=(10, 0, 0, 0), background=False)))
     # Active slicer filters, on the title row (blank when nothing is filtered)
     items.append(("filter_state", 12 + title_w, 0, x_back - G - 12 - title_w, TOP_H,
                   measure_text("Filter State Text", 10, INK2, FONT, pad=(12, 0, 0, 0), background=False)))
@@ -494,7 +513,7 @@ def page_frame(page, headline_measure, menu_items, note_key):
 
 
 def menu_background():
-    v = block(CHROME)
+    v = block(CANVAS)
     v.body["objects"]["outline"] = [{"properties": {"show": b(True)}},
                                     {"properties": {"lineColor": colour(BORDER), "weight": n(1)},
                                      "selector": {"id": "default"}}]
@@ -550,6 +569,7 @@ def breakdown():
     by_country = bars(col("Country", "Country"), [("Total GW", "field.gw")], "chart.country-status",
                       legend=("Status", "Status", {k: v for k, v in STATUS.items() if k not in ("Shelved", "Cancelled")}),
                       sort_measure="Total GW", legend_show=True, value_axis=True, show_labels=False)
+    by_country.finding("Finding Country", "chart.country-status")
     by_country.filters.append(in_filter("Status", "In Totals", "true"))
     report_tooltip(by_country, "tt_tech")
     # How dependent each country's pipeline is on green hydrogen: tied (dark grey) and the rest (neutral)
@@ -558,13 +578,14 @@ def breakdown():
                                                    ("Non-hydrogen Pipeline GW", "field.other-pipeline")],
                        "chart.hydrogen-by-country", detail_measure="Hydrogen % of Pipeline Label",
                        sort_measure="Hydrogen Pipeline GW", legend_show=True, value_axis=True)
+    by_hydrogen.finding("Finding Hydrogen", "chart.hydrogen-by-country")
     by_hydrogen.body["objects"]["dataPoint"] = [
         {"properties": {"fill": colour(INK2)}, "selector": {"metadata": ref(tied)}},
         {"properties": {"fill": colour(NEUTRAL)}, "selector": {"metadata": ref(rest)}},
     ]
     # Label the tied segment only, in white inside the dark fill; the rest of the pipeline stays in the tooltip
     by_hydrogen.body["objects"]["labels"] += [
-        {"properties": {"color": colour(CHROME), "detailColor": colour(CHROME)}, "selector": {"metadata": ref(tied)}},
+        {"properties": {"color": colour(WHITE), "detailColor": colour(WHITE)}, "selector": {"metadata": ref(tied)}},
         {"properties": {"showSeries": b(False)}, "selector": {"metadata": ref(rest)}},
     ]
     main = [("by_country", BODY_X, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, by_country),
@@ -587,10 +608,11 @@ def opportunity():
                   (mea("Emissions Intensity g/kWh"), "field.intensity", 59),
                   (mea("Operating GW"), "field.operating", 78), (mea("Construction GW"), "field.construction", 105),
                   (mea("Scorecard Pipeline GW"), "field.pipeline", 85)],
-                 bar_measure="Construction GW", title_key="chart.scorecard")
+                 bar_measure="Construction GW", title_key="chart.scorecard").subtitle("subtitle.scorecard")
     # Gap to the world share: bars either side of zero (= the world); the top builder in the accent
     gap = bars(col("Country", "Country"), [("Share Gap to World pts", "field.gap")], "chart.gap-to-world",
                fill_measure="Top Builder Colour", axis_max="Share Gap Axis Max", axis_min="Share Gap Axis Min")
+    gap.finding("Finding Gap", "chart.gap-to-world")
     report_tooltip(gap, "tt_gap")
     main = [("gap_to_world", BODY_X, MAIN_Y, left_w, BODY_BOTTOM - MAIN_Y, gap),
             ("scorecard", BODY_X + left_w + G, MAIN_Y, BODY_W - left_w - G, BODY_BOTTOM - MAIN_Y, card)]
@@ -600,14 +622,14 @@ def opportunity():
 
 
 def detail():
-    top_h = 320
+    top_h = 345
     left_w = (BODY_W - G) * 0.58
     top = bars(col("Plant", "Plant"), [("Top 10 Pipeline GW", "field.gw")], "chart.top-projects",
                legend=("Status", "Status", {k: STATUS[k] for k in ("Under construction", "Pre-construction", "Announced")}),
                detail_measure="Hydrogen Marker", sort_measure="Top 10 Pipeline GW", legend_show=True, value_axis=True,
-               show_labels=False)
+               show_labels=False).finding("Finding Project", "chart.top-projects")
     owners = bars(col("Ownership", "Owner"), [("Top 10 Owner Operating GW", "field.gw")], "chart.top-owners",
-                  fill_measure="Neutral Colour")
+                  fill_measure="Neutral Colour").finding("Finding Owner", "chart.top-owners")
     # Widths sum to the inner width (1224 - 2 x 8 padding) less 18 px for the scroll bar
     projects = table([(col("Plant", "Plant"), "field.plant", 286), (col("Country", "Country"), "field.country", 98),
                       (col("Technology", "Technology Group"), "field.technology", 85),
@@ -615,7 +637,7 @@ def detail():
                       (col("Unit", "Start Year"), "field.start-year", 72), (col("Unit", "Owner"), "field.owner", 333),
                       (mea("Hydrogen Marker"), "field.hydrogen", 80)],
                      bar_measure="Capacity MW", title_key="chart.projects", dot_measure="Status Dot",
-                     filters=[in_filter("Status", "In Totals", "true")])
+                     filters=[in_filter("Status", "In Totals", "true")]).subtitle("subtitle.projects")
     y = STRIP_Y
     main = [("top_projects", BODY_X, y, left_w, top_h, top),
             ("top_owners", BODY_X + left_w + G, y, BODY_W - left_w - G, top_h, owners),
@@ -658,7 +680,7 @@ def build_tooltip(page, spec):
         "$schema": f"{SCHEMA}/page/2.1.0/schema.json", "name": name, "displayName": TEXT[f"page.{page.replace('_', '-')}"],
         "displayOption": "ActualSize", "width": TOOLTIP_W, "height": height, "type": "Tooltip",
         "visibility": "HiddenInViewMode",
-        "objects": {"background": [{"properties": {"color": colour(CHROME), "transparency": n(0)}}]},
+        "objects": {"background": [{"properties": {"color": colour(WHITE), "transparency": n(0)}}]},
         "filterConfig": {"filters": [dict(in_filter("Language", "Code", "'en'", name=f"lang_{name}"),
                                           isHiddenInViewMode=True, isLockedInViewMode=True)]},
         "annotations": [{"name": "i18n", "value": json.dumps({"name": f"page.{page.replace('_', '-')}"})}],

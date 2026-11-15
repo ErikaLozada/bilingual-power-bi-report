@@ -6,7 +6,7 @@
     "y": 86,
     "z": 15,
     "width": 510.72,
-    "height": 320,
+    "height": 345,
     "tabOrder": 15
   },
   "visual": {
@@ -249,7 +249,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#7a877f'"
+                      "Value": "'#c2ccc5'"
                     }
                   }
                 }
@@ -362,8 +362,13 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Owners of operating capacity (GW, by ownership share)'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Finding Owner"
                 }
               }
             },
@@ -550,6 +555,65 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Owners of operating capacity (GW, by ownership share)'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#46534b'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "query": {
@@ -615,7 +679,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.top-owners\", \"alt\": \"chart.top-owners\", \"display\": {\"_Measures.Top 10 Owner Operating GW\": \"field.gw\"}}"
+      "value": "{\"alt\": \"chart.top-owners\", \"display\": {\"_Measures.Top 10 Owner Operating GW\": \"field.gw\"}, \"subtitle\": \"chart.top-owners\"}"
     }
   ]
 }
