@@ -58,6 +58,7 @@ A white bar with a 1 px border above. It holds three items and no buttons:
 - The pane is 232 px wide, white, with a border and a soft shadow, and covers the rail and the body's reading-start edge. **It is closed by default.**
 - **It overlays the body instead of reflowing it:** Power BI bookmarks can show and hide visuals but cannot move or resize them, so a reflow would need two copies of every visual.
 - It holds the page's **dropdown slicers** and the **notes** behind the numbers. On Overview it also holds the **Overview focus** slicer (Under construction / Came online), which switches the headline.
+- **Power BI's own filter pane is hidden** on every page (report setting `outspacePane.visible = false`), so readers see only this pane.
 - **Stacking:** the pane is always the top layer of the canvas (highest z-order).
 - **Bookmarks:** one open/closed pair per page per language, so 4 pages × 2 languages × 2 states = 16. They do not capture data, so opening or closing the pane never resets the slicers. The mirror script generates the Arabic ones.
 
@@ -302,3 +303,4 @@ Every page is rendered to PNG through the Power BI export API and looked at befo
 | 49 | Alt text | On every chart, table, slicer, KPI value and button, from translation keys; Arabic machine-drafted |
 | 50 | Axis line | 1 px `#7a877f` (lighter than the axis text) on every bar and column chart, drawn as a constant line at 0 on the value axis |
 | 51 | Bar labels | Every bar chart is labelled; stacked bars, where segment labels don't fit, get a labelled value axis instead |
+| 52 | Power BI filter pane | Hidden on every page (report-level setting); the report's own filter pane replaces it |

@@ -699,6 +699,8 @@ def write_theme():
     write(resources / file_name, theme)
     write(DEFINITION / "report.json", {
         "$schema": f"{SCHEMA}/report/3.3.0/schema.json",
+        # Power BI's own filter pane is hidden on every page: the report has its own filter pane (bookmarks)
+        "objects": {"outspacePane": [{"properties": {"visible": b(False)}}]},
         "themeCollection": {"customTheme": {"name": file_name, "type": "RegisteredResources",
                                             "reportVersionAtImport": {"visual": "1.8.81", "report": "2.0.81",
                                                                       "page": "1.3.81"}}},
