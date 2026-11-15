@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "gap_to_world",
   "position": {
-    "x": 20,
-    "y": 420,
-    "z": 18,
-    "width": 930.0,
-    "height": 580,
-    "tabOrder": 18
+    "x": 48,
+    "y": 186,
+    "z": 27,
+    "width": 608.0,
+    "height": 502,
+    "tabOrder": 27
   },
   "visual": {
     "visualType": "barChart",
@@ -58,7 +58,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -67,7 +67,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -115,7 +115,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -124,7 +124,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -181,7 +181,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -190,7 +190,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -207,6 +207,20 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
                 }
               }
             },
@@ -237,6 +251,75 @@
           }
         }
       ],
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7a877f'"
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'front'"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ],
       "legend": [
         {
           "properties": {
@@ -257,7 +340,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "9D"
                 }
               }
             },
@@ -273,7 +356,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -318,7 +401,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "12D"
                 }
               }
             },
@@ -327,7 +410,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -365,7 +448,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -387,7 +470,32 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#d6ded8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -413,28 +521,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }
@@ -448,6 +556,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Wind and solar share against the world (percentage points)'"
                 }
               }
             }
@@ -545,7 +666,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.gap-to-world\", \"display\": {\"_Measures.Share Gap to World pts\": \"field.gap\"}}"
+      "value": "{\"title\": \"chart.gap-to-world\", \"alt\": \"chart.gap-to-world\", \"display\": {\"_Measures.Share Gap to World pts\": \"field.gap\"}}"
     }
   ]
 }

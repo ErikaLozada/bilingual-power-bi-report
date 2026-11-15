@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_open",
   "position": {
-    "x": 20,
-    "y": 29,
-    "z": 10005,
-    "width": 56,
-    "height": 56,
-    "tabOrder": 10005
+    "x": 1246.0,
+    "y": 48,
+    "z": 10010,
+    "width": 28,
+    "height": 28,
+    "tabOrder": 10010
   },
   "visual": {
     "visualType": "actionButton",
@@ -51,7 +51,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -60,7 +60,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "13D"
                 }
               }
             },
@@ -123,7 +123,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#d6ded8'"
                     }
                   }
                 }
@@ -139,7 +139,7 @@
             "roundEdge": {
               "expr": {
                 "Literal": {
-                  "Value": "6D"
+                  "Value": "4D"
                 }
               }
             }
@@ -276,13 +276,26 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'فتح عوامل التصفية والملاحظات'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   },
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"button\": \"nav.menu-open\", \"role\": \"bookmark\"}"
+      "value": "{\"button\": \"nav.menu-open\", \"role\": \"bookmark\", \"alt\": \"alt.menu-open\"}"
     }
   ]
 }

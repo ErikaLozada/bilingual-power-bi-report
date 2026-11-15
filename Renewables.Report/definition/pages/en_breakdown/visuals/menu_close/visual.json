@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_close",
   "position": {
-    "x": 1840,
-    "y": 152,
-    "z": 10022,
-    "width": 44,
-    "height": 44,
-    "tabOrder": 10022
+    "x": 198,
+    "y": 47,
+    "z": 10031,
+    "width": 28,
+    "height": 28,
+    "tabOrder": 10031
   },
   "visual": {
     "visualType": "actionButton",
@@ -51,7 +51,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -60,7 +60,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "12D"
                 }
               }
             },
@@ -123,7 +123,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#d6ded8'"
                     }
                   }
                 }
@@ -139,7 +139,7 @@
             "roundEdge": {
               "expr": {
                 "Literal": {
-                  "Value": "6D"
+                  "Value": "4D"
                 }
               }
             }
@@ -276,6 +276,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Close filters and notes'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   },
@@ -283,7 +296,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"button\": \"nav.menu-close\", \"role\": \"bookmark\"}"
+      "value": "{\"button\": \"nav.menu-close\", \"role\": \"bookmark\", \"alt\": \"alt.menu-close\"}"
     }
   ]
 }

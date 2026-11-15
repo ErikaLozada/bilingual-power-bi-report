@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_note",
   "position": {
-    "x": 24,
-    "y": 660,
-    "z": 10017,
-    "width": 412,
-    "height": 330,
-    "tabOrder": 10017
+    "x": 1052,
+    "y": 285,
+    "z": 10023,
+    "width": 224,
+    "height": 407,
+    "tabOrder": 10023
   },
   "visual": {
     "visualType": "textbox",
@@ -22,8 +22,8 @@
                     "value": "‫قدرة المالكين مرجحة بحصة الملكية. أسماء المشاريع العربية من GEM حيثما توفرت، وإلا يظهر الاسم الإنجليزي. وحيث يعطي GEM الاسم العربي نفسه لمحطات مختلفة، تُضاف التقنية أو الموقع. يشير H₂ إلى المشاريع المرتبطة بالهيدروجين الأخضر.‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#5c5b57"
+                      "fontSize": "10pt",
+                      "color": "#46534b"
                     }
                   }
                 ],
@@ -54,25 +54,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -111,28 +93,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }

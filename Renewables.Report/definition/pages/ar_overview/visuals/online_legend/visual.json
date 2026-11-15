@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "online_legend",
   "position": {
-    "x": 1148.0,
-    "y": 460,
-    "z": 19,
-    "width": 752.0,
-    "height": 32,
-    "tabOrder": 19
+    "x": 742.4,
+    "y": 214,
+    "z": 28,
+    "width": 489.6,
+    "height": 22,
+    "tabOrder": 28
   },
   "visual": {
     "visualType": "textbox",
@@ -22,32 +22,32 @@
                     "value": "‫■ ‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#c9c6d6"
+                      "fontSize": "10pt",
+                      "color": "#28a19c"
                     }
                   },
                   {
                     "value": "‫دخلت الخدمة      ‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#5c5b57"
+                      "fontSize": "10pt",
+                      "color": "#46534b"
                     }
                   },
                   {
                     "value": "‫■ ‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#4a3fb0"
+                      "fontSize": "10pt",
+                      "color": "#b6801f"
                     }
                   },
                   {
                     "value": "‫قيد الإنشاء، حسب سنة التشغيل المتوقعة‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#5c5b57"
+                      "fontSize": "10pt",
+                      "color": "#46534b"
                     }
                   }
                 ],
@@ -78,25 +78,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -135,7 +117,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "2D"
                 }
               }
             },
@@ -149,14 +131,14 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }

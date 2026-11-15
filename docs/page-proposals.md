@@ -1,6 +1,6 @@
 # Page proposals (v1)
 
-> **Status: agreed and live.** v1 was built as a complete draft so the pages could be judged rendered, not on paper; two review rounds (v2, v3) followed and each was merged to `main` after review. v1 and v2 are kept as the git tags `v1` and `v2`. Sections 1–4 describe the v1 proposals; the change tables below record what replaced them. Numbers are the live values from the model.
+> **Status: agreed and live.** v1 was built as a complete draft so the pages could be judged rendered, not on paper; two review rounds (v2, v3) and a rework to the fabric-kit look (v4) followed, and each was merged to `main` after review. Earlier versions are kept as git tags (`v1` to `v3`). Sections 1–4 describe the v1 proposals; the change tables below record what replaced them. Numbers are the live values from the model.
 
 Every page follows the agreed frame (visual-guidelines.md sections 2–4 and 10): dynamic headline, Back / Next, language switch and ☰ menu in the header; KPI row ≈ 30% and main visuals ≈ 70% of the body; footer with source, refresh time and data period; a bookmark menu panel holding slicers and notes.
 
@@ -26,6 +26,21 @@ Not built from the review:
 - Value-first tooltips on the KPI strips, hydrogen chart and Projects page (default tooltips there).
 
 The technology split dropped from the Overview and Breakdown charts now shows in the technology tooltip.
+
+## v4 changes
+
+15 Nov 2026: the report was reworked to the visual and theme guidelines of fabric-kit, my own (private) starter kit for Microsoft Fabric projects (its report design rules, the Fern & Stone Tidepool Light theme and its Report layout A). Content and numbers are unchanged; visual-guidelines.md decisions 40–51 record the choices.
+
+| Area | v3 | v4 | Why |
+|---|---|---|---|
+| Canvas | 1920 × 1080, 20 px margins and gaps | **1280 × 720**, 8 px gaps, the kit's type sizes (12 pt titles, 9–10 pt labels) | The kit's page size and theme sizes |
+| Frame | Header with Back / Next, language and ☰; menu panel over the body from the button's side | **Report layout A**: 40 px top bar (title, filter line, Back / Next, language), a 40 px rail with ☰ that opens a 232 px filter pane over the body (closed by default), footer bar | The kit's layout; bookmarks can't move visuals, so the pane overlays the body instead of reflowing it |
+| Slicers | Lists and one dropdown | **Dropdowns** in the filter pane | The kit's filter pane |
+| Visual cards | White cards on a grey canvas | **Tint panels** (`#fcfdfc`) with a 1 px border and 6 px corners on `#f8faf8` | The kit's compact app look |
+| KPIs | Three panels: title, value, status line and a trend line or small bar chart | **One KPI strip**: label, value and status line per KPI; the trend lines and small charts are gone | Fits 720 px; the status lines keep their old filters, so their numbers are unchanged |
+| Colours | Technology gold / teal / blue / grey; status purple scale; orange accent | **Kit series colours** for status and technology (they share hues, so those charts always carry a legend); **fern green** highlight on light grey | The kit's theme; no colours outside it |
+| Axes and labels | No axis line; stacked bars unlabelled | **1 px axis line** on every chart; every bar chart labelled; stacked charts get a labelled value axis instead | Owner review of the v4 draft |
+| Accessibility | No alt text | **Alt text** on every chart, table, slicer, KPI value and button (Arabic machine-drafted) | The kit's accessibility rules |
 
 ## v3 changes
 

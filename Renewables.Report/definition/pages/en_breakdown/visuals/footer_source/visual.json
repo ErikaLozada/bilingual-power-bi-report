@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "footer_source",
   "position": {
-    "x": 20,
-    "y": 1031,
-    "z": 7,
-    "width": 1100,
-    "height": 40,
-    "tabOrder": 7
+    "x": 12,
+    "y": 696,
+    "z": 13,
+    "width": 820,
+    "height": 24,
+    "tabOrder": 13
   },
   "visual": {
     "visualType": "textbox",
@@ -22,8 +22,8 @@
                     "value": "Source: Global Energy Monitor, Global Integrated Power Tracker; Ember, Yearly electricity data (CC BY 4.0)",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "11pt",
-                      "color": "#5c5b57"
+                      "fontSize": "9pt",
+                      "color": "#46534b"
                     }
                   }
                 ]
@@ -92,7 +92,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "4D"
                 }
               }
             },

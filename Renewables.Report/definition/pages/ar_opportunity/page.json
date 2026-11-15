@@ -3,8 +3,8 @@
   "name": "ar_opportunity",
   "displayName": "الفرص",
   "displayOption": "FitToPage",
-  "width": 1920,
-  "height": 1080,
+  "width": 1280,
+  "height": 720,
   "objects": {
     "background": [
       {
@@ -14,7 +14,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#f4f4f2'"
+                    "Value": "'#f8faf8'"
                   }
                 }
               }
@@ -38,7 +38,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#f4f4f2'"
+                    "Value": "'#f8faf8'"
                   }
                 }
               }

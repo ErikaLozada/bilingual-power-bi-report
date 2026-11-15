@@ -497,10 +497,10 @@ table _Measures
 	measure 'Technology Colour' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
-			    1, "#daa932",
-			    2, "#189e8c",
-			    3, "#3a70b3",
-			    4, "#b3b2ac"
+			    1, "#b6801f",
+			    2, "#28a19c",
+			    3, "#5a71cd",
+			    4, "#7a877f"
 			)
 		isHidden
 		displayFolder: Formatting
@@ -508,10 +508,10 @@ table _Measures
 	measure 'Technology Colour Faded' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Technology'[Group Sort Order] ),
-			    1, "#f0ddad",
-			    2, "#a3d8d1",
-			    3, "#b0c6e1",
-			    4, "#e1e0de"
+			    1, "#e2cca5",
+			    2, "#a9d9d7",
+			    3, "#bdc6eb",
+			    4, "#cacfcc"
 			)
 		isHidden
 		displayFolder: Formatting
@@ -519,13 +519,13 @@ table _Measures
 	measure 'Status Colour' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Status'[Status ID] ),
-			    "operating", "#c9c6d6",
-			    "construction", "#4a3fb0",
-			    "pre-construction", "#7368d9",
-			    "announced", "#a49cea",
-			    "shelved", "#9e9d97",
-			    "cancelled", "#9e9d97",
-			    "#d3d2cc"
+			    "operating", "#28a19c",
+			    "construction", "#b6801f",
+			    "pre-construction", "#5a71cd",
+			    "announced", "#b25e6a",
+			    "shelved", "#7a877f",
+			    "cancelled", "#7a877f",
+			    "#c2ccc5"
 			)
 		isHidden
 		displayFolder: Formatting
@@ -533,13 +533,13 @@ table _Measures
 	measure 'Status Colour Faded' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Status'[Status ID] ),
-			    "operating", "#e9e8ef",
-			    "construction", "#b7b2df",
-			    "pre-construction", "#c7c3f0",
-			    "announced", "#dbd7f7",
-			    "shelved", "#d8d8d5",
-			    "cancelled", "#d8d8d5",
-			    "#e1e0de"
+			    "operating", "#a9d9d7",
+			    "construction", "#e2cca5",
+			    "pre-construction", "#bdc6eb",
+			    "announced", "#e0bfc3",
+			    "shelved", "#cacfcc",
+			    "cancelled", "#cacfcc",
+			    "#e7ebe8"
 			)
 		isHidden
 		displayFolder: Formatting
@@ -557,11 +557,11 @@ table _Measures
 		isHidden
 		displayFolder: Formatting
 
-	measure 'Accent Colour' = "#eb6834"
+	measure 'Accent Colour' = "#1d6a44"
 		isHidden
 		displayFolder: Formatting
 
-	measure 'Neutral Colour' = "#d3d2cc"
+	measure 'Neutral Colour' = "#c2ccc5"
 		isHidden
 		displayFolder: Formatting
 

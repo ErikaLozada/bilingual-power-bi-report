@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "scorecard",
   "position": {
-    "x": 20.0,
-    "y": 420,
-    "z": 19,
-    "width": 930.0,
-    "height": 580,
-    "tabOrder": 19
+    "x": 8.0,
+    "y": 186,
+    "z": 28,
+    "width": 608.0,
+    "height": 502,
+    "tabOrder": 28
   },
   "visual": {
     "visualType": "tableEx",
@@ -25,7 +25,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "13D"
+                  "Value": "10D"
                 }
               }
             },
@@ -34,7 +34,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -45,7 +45,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -74,7 +74,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "13D"
+                  "Value": "11D"
                 }
               }
             },
@@ -83,7 +83,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -94,7 +94,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -105,7 +105,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -116,7 +116,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -140,7 +140,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#e4eae5'"
                     }
                   }
                 }
@@ -158,7 +158,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#d6ded8'"
                     }
                   }
                 }
@@ -167,7 +167,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "3D"
                 }
               }
             }
@@ -343,7 +343,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#d3d2cc'"
+                        "Value": "'#c2ccc5'"
                       }
                     }
                   }
@@ -354,7 +354,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#eb6834'"
+                        "Value": "'#9c5520'"
                       }
                     }
                   }
@@ -365,7 +365,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#e4e3df'"
+                        "Value": "'#e4eae5'"
                       }
                     }
                   }
@@ -398,7 +398,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "150D"
+                  "Value": "110D"
                 }
               }
             }
@@ -412,7 +412,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "90D"
+                  "Value": "59D"
                 }
               }
             }
@@ -426,7 +426,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "120D"
+                  "Value": "78D"
                 }
               }
             }
@@ -440,7 +440,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "90D"
+                  "Value": "59D"
                 }
               }
             }
@@ -454,7 +454,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "120D"
+                  "Value": "78D"
                 }
               }
             }
@@ -468,7 +468,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "180D"
+                  "Value": "105D"
                 }
               }
             }
@@ -482,7 +482,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "130D"
+                  "Value": "85D"
                 }
               }
             }
@@ -521,7 +521,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "17D"
+                  "Value": "13D"
                 }
               }
             },
@@ -530,7 +530,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -568,7 +568,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -590,7 +590,32 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#d6ded8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -616,28 +641,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }
@@ -651,6 +676,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'بطاقة أداء الدول'"
                 }
               }
             }
@@ -793,7 +831,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.scorecard\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Ember Year\": \"field.year\", \"_Measures.Scorecard Share %\": \"field.share\", \"_Measures.Emissions Intensity g/kWh\": \"field.intensity\", \"_Measures.Operating GW\": \"field.operating\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Scorecard Pipeline GW\": \"field.pipeline\"}}"
+      "value": "{\"title\": \"chart.scorecard\", \"alt\": \"chart.scorecard\", \"display\": {\"Country.Country\": \"field.country\", \"_Measures.Ember Year\": \"field.year\", \"_Measures.Scorecard Share %\": \"field.share\", \"_Measures.Emissions Intensity g/kWh\": \"field.intensity\", \"_Measures.Operating GW\": \"field.operating\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Scorecard Pipeline GW\": \"field.pipeline\"}}"
     }
   ]
 }

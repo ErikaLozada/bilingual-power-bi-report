@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "online_chart",
   "position": {
-    "x": 20,
-    "y": 492,
-    "z": 21,
-    "width": 1880,
-    "height": 508,
-    "tabOrder": 21
+    "x": 48,
+    "y": 236,
+    "z": 30,
+    "width": 1224,
+    "height": 452,
+    "tabOrder": 30
   },
   "visual": {
     "visualType": "lineStackedColumnComboChart",
@@ -20,7 +20,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#c9c6d6'"
+                      "Value": "'#28a19c'"
                     }
                   }
                 }
@@ -38,7 +38,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#4a3fb0'"
+                      "Value": "'#b6801f'"
                     }
                   }
                 }
@@ -85,7 +85,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -94,7 +94,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -170,7 +170,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -179,7 +179,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -236,7 +236,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "9D"
                 }
               }
             },
@@ -245,7 +245,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -270,7 +270,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#e4eae5'"
                     }
                   }
                 }
@@ -290,6 +290,75 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7a877f'"
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'front'"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
           }
         }
       ],
@@ -327,25 +396,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -384,28 +435,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "0D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }
@@ -446,6 +497,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'en_tt_tech'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Capacity coming online each year (GW)'"
                 }
               }
             }
@@ -626,7 +690,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"display\": {\"_Measures.Operating GW\": \"field.added\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Online Label GW\": \"field.gw\"}}"
+      "value": "{\"display\": {\"_Measures.Operating GW\": \"field.added\", \"_Measures.Construction GW\": \"field.construction\", \"_Measures.Online Label GW\": \"field.gw\"}, \"alt\": \"chart.online-by-year\"}"
     }
   ]
 }

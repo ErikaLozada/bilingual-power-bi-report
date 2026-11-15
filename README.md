@@ -44,17 +44,17 @@ Right-click any country, on any page, to drill through to its projects.
 ![Opportunity page](docs/images/en_opportunity.png)
 
 <details>
-<summary>More screenshots: Projects page, the Arabic Opportunity page, the menu, a filtered page, a tooltip</summary>
+<summary>More screenshots: Projects page, the Arabic Opportunity page, the filter pane, a filtered page, a tooltip</summary>
 
 ![Projects page](docs/images/en_detail.png)
 
 ![Opportunity page in Arabic](docs/images/ar_opportunity.png)
 
-The menu holds the slicers and the notes behind each number:
+The filter pane (☰ on the rail) holds the slicers and the notes behind each number:
 
-![Overview with the menu open](docs/images/en_overview_menu.png)
+![Overview with the filter pane open](docs/images/en_overview_menu.png)
 
-When a slicer is active, the title row says what the page is filtered to:
+When a slicer is active, the top bar says what the page is filtered to:
 
 ![Breakdown filtered to Egypt, Oman and solar](docs/images/en_breakdown_filtered.png)
 
@@ -68,7 +68,7 @@ Tooltips lead with the value, then say what was hovered, then add detail (here t
 
 I built this report with Claude Code, an AI coding agent working in my repo and terminal. I set the direction and made the decisions; the agent did most of the typing, and every step had a check that didn't depend on trusting it.
 
-**I own the decisions.** Each phase was decided together, one at a time: dataset, persona and business questions, visual guidelines, semantic model, then each page. The agent laid out options with trade-offs and a recommendation; I chose. Early on it ran ahead and started generating files after a single answer, so I stopped it and restarted from dataset selection, and "decide each phase together" became a standing rule. The decisions logs in [`docs/`](docs/) record what was chosen and why (39 visual decisions so far).
+**I own the decisions.** Each phase was decided together, one at a time: dataset, persona and business questions, visual guidelines, semantic model, then each page. The agent laid out options with trade-offs and a recommendation; I chose. Early on it ran ahead and started generating files after a single answer, so I stopped it and restarted from dataset selection, and "decide each phase together" became a standing rule. The decisions logs in [`docs/`](docs/) record what was chosen and why (51 visual decisions so far).
 
 **The agent builds; scripts make it repeatable.** Rather than editing Power BI by hand, the agent wrote generators: `build_report.py` for the English pages, `mirror_pages.py` for the Arabic twins, `extract_data.py` for the data. A change is a change to a script or a spec, rebuilt in seconds, so a design decision applies to all eight pages at once.
 
@@ -77,7 +77,7 @@ I built this report with Claude Code, an AI coding agent working in my repo and 
 - DAX measures are checked with queries against the deployed model.
 - Colour isn't judged by eye: every palette went through a colour-vision-deficiency validator, and when I asked for a more distinct "came online" colour, the candidate was measured before it was used.
 
-**I review and redirect.** v1 was built as a complete draft so I could judge real pages. I reviewed it and asked for changes (page headers, thinner bars, colour roles, table alignment). I then had the agent evaluate the report against a data-visualisation checklist; that review became v2, with new analysis (what comes online next, hydrogen dependence) and fixes. My feedback on v2 (colours too close for colour-blind readers, margins off by a few pixels, technology detail moved into a tooltip) went into the same loop, and my answers to the remaining open questions became v3 (a concentration KPI, country drillthrough, unique Arabic plant names). Each round is written up in [`docs/page-proposals.md`](docs/page-proposals.md).
+**I review and redirect.** v1 was built as a complete draft so I could judge real pages. I reviewed it and asked for changes (page headers, thinner bars, colour roles, table alignment). I then had the agent evaluate the report against a data-visualisation checklist; that review became v2, with new analysis (what comes online next, hydrogen dependence) and fixes. My feedback on v2 (colours too close for colour-blind readers, margins off by a few pixels, technology detail moved into a tooltip) went into the same loop, and my answers to the remaining open questions became v3 (a concentration KPI, country drillthrough, unique Arabic plant names). v4 reworked the look to my own Fabric starter kit (its theme, page layout and report design rules): the agent laid out where the report and the kit disagreed, I made the calls, and I reviewed a real render before anything was merged. Each round is written up in [`docs/page-proposals.md`](docs/page-proposals.md).
 
 **Honesty is built in.** The agent drafts the Arabic, but every string is flagged `machine` until a native speaker reviews it, and it is never marked reviewed without a real reviewer. Data limits are shown next to the number they qualify (for example, the share of capacity under construction with no expected year).
 
@@ -88,7 +88,7 @@ The project is a clean-room rebuild of techniques I had used before, done in a p
 ## How the bilingual design works
 
 - **One source, two languages.** `scripts/build_report.py` writes the four English pages. Every piece of static text carries a translation key. `scripts/mirror_pages.py` turns each English page into its Arabic twin.
-- **What the mirror does:** positions mirrored (`x_ar = 1920 − x − width`), text right-aligned, bar charts grow right to left, time axes run right to left with the value axis on the right, table columns reversed with data bars from the right, fields swapped to their Arabic columns, Arabic text 1 pt larger, navigation and menu bookmarks re-pointed to the Arabic pages.
+- **What the mirror does:** positions mirrored (`x_ar = 1280 − x − width`), text right-aligned, bar charts grow right to left, time axes run right to left with the value axis on the right, table columns reversed with data bars from the right, fields swapped to their Arabic columns, Arabic text 1 pt larger, navigation and menu bookmarks re-pointed to the Arabic pages.
 - **Dynamic text is translated in the model.** Headlines, KPI status lines and notes are DAX measures that fill translated templates (`{construction} GW is under construction…`) and pick English or Arabic from a page-level language filter.
 - **Right-to-left text in a left-to-right engine.** Power BI text boxes are left-to-right, so every Arabic sentence is wrapped in a right-to-left embedding (U+202B … U+202C); without it, sentences that start with a number come out in the wrong order.
 - **Formats never change with language.** Numbers, units and dates look the same on both pages (Western digits, `28 Oct 26`); only words are translated.
@@ -113,7 +113,7 @@ translations/              every UI string: key, English, Arabic, provenance
 - **Model:** a star schema at unit (phase) grain, 957 units in 758 plants, with ownership shares, Ember generation by country and year, and a world benchmark. Measures live in the model, so the report also works with Publish to web.
 - **Refresh without a gateway:** Power Query reads each CSV from its raw GitHub URL, so a refresh in Fabric pulls the committed data.
 - **Checks:** each build is validated against Microsoft's PBIR JSON schemas, imported into a development workspace with the Fabric CLI, refreshed, and every page is exported to PNG through the Power BI API and looked at. Formatting that Fabric silently ignores only shows up in a render.
-- **Design system:** documented in [`docs/visual-guidelines.md`](docs/visual-guidelines.md). Colours have fixed roles (technology, project status, one accent, neutrals), and every categorical palette was checked with a colour-vision-deficiency validator. Chart rules include: one value axis per chart, selective labels, labels never clipped by their mark, and a KPI's trend line showing the same thing as its number.
+- **Design system:** documented in [`docs/visual-guidelines.md`](docs/visual-guidelines.md). The report uses the colour-blind-checked theme and layout of my Fabric starter kit (a top bar, a collapsible filter pane, a KPI strip and visuals on light panels). Colours have fixed roles (technology and project status share the kit's series colours and always carry a legend; one highlight per visual). Chart rules include: one value axis per chart, an axis line on every chart, every bar chart labelled (stacked bars get a labelled axis instead), labels never clipped by their mark, and alt text on every visual.
 
 ## Data and reproducing it
 

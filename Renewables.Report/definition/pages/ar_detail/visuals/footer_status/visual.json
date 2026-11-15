@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "footer_status",
   "position": {
-    "x": 20,
-    "y": 1037,
-    "z": 7,
-    "width": 760,
-    "height": 40,
-    "tabOrder": 7
+    "x": 12,
+    "y": 696,
+    "z": 13,
+    "width": 424,
+    "height": 24,
+    "tabOrder": 13
   },
   "visual": {
     "visualType": "shape",
@@ -85,7 +85,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
@@ -94,7 +94,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }

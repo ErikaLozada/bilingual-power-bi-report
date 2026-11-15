@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_note",
   "position": {
-    "x": 24,
-    "y": 600,
-    "z": 10028,
-    "width": 412,
-    "height": 390,
-    "tabOrder": 10028
+    "x": 1052,
+    "y": 285,
+    "z": 10037,
+    "width": 224,
+    "height": 407,
+    "tabOrder": 10037
   },
   "visual": {
     "visualType": "textbox",
@@ -22,8 +22,8 @@
                     "value": "‫حصة الرياح والشمسية: Ember، آخر عام تتوفر فيه بيانات جميع الدول (2023)؛ المتوسط العالمي من إجمالي Ember العالمي. القدرة قيد التشغيل: المحطات الكبيرة التي يتتبعها GEM. المشاريع المخطط لها: قيد الإنشاء وما قبل الإنشاء والمُعلنة. السنوات المتوقعة: سنة التشغيل المخططة لدى GEM للمشاريع قيد الإنشاء.‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#5c5b57"
+                      "fontSize": "10pt",
+                      "color": "#46534b"
                     }
                   }
                 ],
@@ -54,25 +54,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -111,28 +93,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }

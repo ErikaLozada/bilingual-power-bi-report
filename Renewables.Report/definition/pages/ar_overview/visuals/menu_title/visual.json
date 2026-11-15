@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_title",
   "position": {
-    "x": 90,
-    "y": 140,
-    "z": 10023,
-    "width": 350,
-    "height": 56,
-    "tabOrder": 10023
+    "x": 1088,
+    "y": 41,
+    "z": 10032,
+    "width": 192,
+    "height": 62,
+    "tabOrder": 10032
   },
   "visual": {
     "visualType": "textbox",
@@ -22,8 +22,8 @@
                     "value": "‫عوامل التصفية والملاحظات‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
-                      "fontSize": "17pt",
-                      "color": "#1d1d1b"
+                      "fontSize": "13pt",
+                      "color": "#111a15"
                     }
                   }
                 ],
@@ -54,25 +54,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -111,7 +93,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "10D"
                 }
               }
             },
@@ -125,14 +107,14 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "12D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "kpi0_value",
   "position": {
-    "x": 20,
-    "y": 180,
-    "z": 10,
-    "width": 613.33,
-    "height": 66,
-    "tabOrder": 10
+    "x": 48.0,
+    "y": 114,
+    "z": 17,
+    "width": 408.0,
+    "height": 34,
+    "tabOrder": 17
   },
   "visual": {
     "visualType": "shape",
@@ -85,7 +85,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "30D"
+                  "Value": "18D"
                 }
               }
             },
@@ -94,7 +94,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -123,25 +123,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -194,14 +176,14 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }
@@ -220,7 +202,26 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Emissions intensity (g/kWh)'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
-  }
+  },
+  "annotations": [
+    {
+      "name": "i18n",
+      "value": "{\"alt\": \"kpi.intensity.title\"}"
+    }
+  ]
 }

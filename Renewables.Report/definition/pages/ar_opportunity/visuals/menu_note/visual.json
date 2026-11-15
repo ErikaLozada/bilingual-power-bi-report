@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_note",
   "position": {
-    "x": 24,
-    "y": 480,
-    "z": 10025,
-    "width": 412,
-    "height": 510,
-    "tabOrder": 10025
+    "x": 1052,
+    "y": 225,
+    "z": 10034,
+    "width": 224,
+    "height": 467,
+    "tabOrder": 10034
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "‫الأعمدة: حصة الرياح والشمسية في كل دولة ناقص الحصة العالمية في العام نفسه (آخر سنة متاحة في Ember)؛ العمود البرتقالي هو الدولة الأكثر بناءً. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل. انقر بزر الماوس الأيمن على دولة لعرض مشاريعها.‬",
+                    "value": "‫الأعمدة: حصة الرياح والشمسية في كل دولة ناقص الحصة العالمية في العام نفسه (آخر سنة متاحة في Ember)؛ العمود الأخضر هو الدولة الأكثر بناءً. بطاقة الأداء: ▲ / ▼ = أعلى أو أدنى من الحصة العالمية في العام نفسه؛ × = المشاريع المخطط لها كمضاعف للقدرة قيد التشغيل. انقر بزر الماوس الأيمن على دولة لعرض مشاريعها.‬",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "13pt",
-                      "color": "#5c5b57"
+                      "fontSize": "10pt",
+                      "color": "#46534b"
                     }
                   }
                 ],
@@ -54,25 +54,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -111,28 +93,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }

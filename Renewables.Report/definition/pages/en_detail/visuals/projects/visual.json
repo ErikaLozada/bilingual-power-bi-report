@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "projects",
   "position": {
-    "x": 20,
-    "y": 540,
-    "z": 10,
-    "width": 1880,
-    "height": 460,
-    "tabOrder": 10
+    "x": 48,
+    "y": 414,
+    "z": 16,
+    "width": 1224,
+    "height": 274,
+    "tabOrder": 16
   },
   "visual": {
     "visualType": "tableEx",
@@ -25,7 +25,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "9D"
                 }
               }
             },
@@ -34,7 +34,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#5c5b57'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -45,7 +45,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -74,7 +74,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
@@ -83,7 +83,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -94,7 +94,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -105,7 +105,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -116,7 +116,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -170,7 +170,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#e4eae5'"
                     }
                   }
                 }
@@ -188,7 +188,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e4e3df'"
+                      "Value": "'#d6ded8'"
                     }
                   }
                 }
@@ -197,7 +197,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "3D"
                 }
               }
             }
@@ -415,7 +415,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#d3d2cc'"
+                        "Value": "'#c2ccc5'"
                       }
                     }
                   }
@@ -426,7 +426,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#eb6834'"
+                        "Value": "'#9c5520'"
                       }
                     }
                   }
@@ -437,7 +437,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#e4e3df'"
+                        "Value": "'#e4eae5'"
                       }
                     }
                   }
@@ -470,7 +470,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "440D"
+                  "Value": "286D"
                 }
               }
             }
@@ -484,7 +484,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "150D"
+                  "Value": "98D"
                 }
               }
             }
@@ -498,7 +498,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "130D"
+                  "Value": "85D"
                 }
               }
             }
@@ -512,7 +512,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
+                  "Value": "20D"
                 }
               }
             }
@@ -526,7 +526,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "170D"
+                  "Value": "125D"
                 }
               }
             }
@@ -540,7 +540,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "140D"
+                  "Value": "91D"
                 }
               }
             }
@@ -554,7 +554,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "110D"
+                  "Value": "72D"
                 }
               }
             }
@@ -568,7 +568,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "566D"
+                  "Value": "333D"
                 }
               }
             }
@@ -582,7 +582,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "100D"
+                  "Value": "80D"
                 }
               }
             }
@@ -621,7 +621,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "12D"
                 }
               }
             },
@@ -630,7 +630,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -668,7 +668,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#fcfdfc'"
                     }
                   }
                 }
@@ -690,7 +690,32 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#d6ded8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -716,28 +741,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "8D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }
@@ -751,6 +776,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'All projects'"
                 }
               }
             }
@@ -980,7 +1018,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"title\": \"chart.projects\", \"display\": {\"Plant.Plant\": \"field.plant\", \"Country.Country\": \"field.country\", \"Technology.Technology Group\": \"field.technology\", \"_Measures.Status Dot\": \"field.status-dot\", \"Status.Status\": \"field.status\", \"_Measures.Capacity MW\": \"field.capacity-mw\", \"Unit.Start Year\": \"field.start-year\", \"Unit.Owner\": \"field.owner\", \"_Measures.Hydrogen Marker\": \"field.hydrogen\"}}"
+      "value": "{\"title\": \"chart.projects\", \"alt\": \"chart.projects\", \"display\": {\"Plant.Plant\": \"field.plant\", \"Country.Country\": \"field.country\", \"Technology.Technology Group\": \"field.technology\", \"_Measures.Status Dot\": \"field.status-dot\", \"Status.Status\": \"field.status\", \"_Measures.Capacity MW\": \"field.capacity-mw\", \"Unit.Start Year\": \"field.start-year\", \"Unit.Owner\": \"field.owner\", \"_Measures.Hydrogen Marker\": \"field.hydrogen\"}}"
     }
   ]
 }

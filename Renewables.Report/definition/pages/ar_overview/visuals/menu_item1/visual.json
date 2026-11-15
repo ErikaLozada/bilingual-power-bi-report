@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "menu_item1",
   "position": {
-    "x": 24,
-    "y": 330,
-    "z": 10026,
-    "width": 412,
-    "height": 170,
-    "tabOrder": 10026
+    "x": 1052,
+    "y": 165,
+    "z": 10035,
+    "width": 224,
+    "height": 56,
+    "tabOrder": 10035
   },
   "visual": {
     "visualType": "slicer",
@@ -18,7 +18,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
@@ -60,7 +60,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#46534b'"
                     }
                   }
                 }
@@ -76,7 +76,7 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "13D"
+                  "Value": "11D"
                 }
               }
             }
@@ -91,7 +91,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1d1d1b'"
+                      "Value": "'#111a15'"
                     }
                   }
                 }
@@ -107,7 +107,7 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "13D"
+                  "Value": "11D"
                 }
               }
             }
@@ -135,25 +135,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -192,28 +174,28 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "4D"
                 }
               }
             },
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "8D"
                 }
               }
             }
@@ -227,6 +209,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'التقنية'"
                 }
               }
             }
@@ -262,7 +257,7 @@
   "annotations": [
     {
       "name": "i18n",
-      "value": "{\"display\": {\"Technology.Technology Group\": \"field.technology\"}}"
+      "value": "{\"display\": {\"Technology.Technology Group\": \"field.technology\"}, \"alt\": \"field.technology\"}"
     }
   ]
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "page_title",
   "position": {
-    "x": 20,
-    "y": 7,
-    "z": 0,
-    "width": 300,
+    "x": 12,
+    "y": 0,
+    "z": 6,
+    "width": 180,
     "height": 40,
-    "tabOrder": 0
+    "tabOrder": 6
   },
   "visual": {
     "visualType": "textbox",
@@ -22,8 +22,8 @@
                     "value": "Breakdown",
                     "textStyle": {
                       "fontFamily": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
-                      "fontSize": "20pt",
-                      "color": "#1d1d1b"
+                      "fontSize": "14pt",
+                      "color": "#111a15"
                     }
                   }
                 ]
@@ -92,7 +92,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "8D"
                 }
               }
             },

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "kpi2_title",
   "position": {
-    "x": 20.0,
-    "y": 140,
-    "z": 15,
-    "width": 613.33,
-    "height": 40,
-    "tabOrder": 15
+    "x": 8.0,
+    "y": 88,
+    "z": 23,
+    "width": 408.0,
+    "height": 28,
+    "tabOrder": 23
   },
   "visual": {
     "visualType": "textbox",
@@ -21,9 +21,9 @@
                   {
                     "value": "‫المشاريع المخطط لها (GW)‬",
                     "textStyle": {
-                      "fontFamily": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
-                      "fontSize": "17pt",
-                      "color": "#1d1d1b"
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "11pt",
+                      "color": "#46534b"
                     }
                   }
                 ],
@@ -54,25 +54,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#ffffff'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -111,7 +93,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "6D"
                 }
               }
             },
@@ -125,14 +107,14 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "12D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "12D"
                 }
               }
             }
